@@ -1,0 +1,42 @@
+{
+  "state_definitions": {
+    "ready":"追加AIキーなしで組み込みアダプタまたはローカル資産を利用可能",
+    "key_required":"データ提供者のAPIキー・トークンが必要（AIモデルのキーとは別）",
+    "not_installed":"対応経路は定義済みだがMCP/別ランタイムの導入が必要",
+    "manual_import":"公式ファイルまたはエクスポートを取得して投入する方式",
+    "unavailable":"現環境では到達または安定利用できない"
+  },
+  "connectors": [
+    {"id":"foresight_radar","name":"Foresight Radar","provider":"local skill","region":["global"],"domain":["signals","source maps"],"transport":"skill","state":"ready","ai_key":false,"data_key":false,"role":"外部シグナル、ソースマップ、差分監視だけを担当。製品本体ではない。"},
+    {"id":"world_bank","name":"World Bank Indicators / Data360","provider":"World Bank","region":["global","africa","latin_america","china","europe"],"domain":["macro","development","climate","agriculture"],"transport":"rest+mcp","state":"ready","ai_key":false,"data_key":false,"official":"https://data.worldbank.org/","built_in_query":true},
+    {"id":"eurostat","name":"Eurostat Dissemination API","provider":"European Commission","region":["europe"],"domain":["macro","population","industry","energy","agriculture"],"transport":"rest","state":"ready","ai_key":false,"data_key":false,"official":"https://ec.europa.eu/eurostat/","built_in_query":true},
+    {"id":"crossref","name":"Crossref Works","provider":"Crossref","region":["global"],"domain":["academic","technology","materials","agriculture"],"transport":"rest","state":"ready","ai_key":false,"data_key":false,"official":"https://www.crossref.org/","built_in_query":true},
+    {"id":"github_public","name":"GitHub Public Search","provider":"GitHub","region":["global"],"domain":["technology","open-source","developer signals"],"transport":"rest","state":"ready","ai_key":false,"data_key":false,"limits":"Unauthenticated rate limit","built_in_query":true},
+    {"id":"faostat","name":"FAOSTAT","provider":"FAO","region":["global","africa","latin_america","china","europe"],"domain":["agriculture","food","land","emissions"],"transport":"rest/bulk","state":"manual_import","ai_key":false,"data_key":false,"official":"https://www.fao.org/faostat/"},
+    {"id":"unido","name":"UNIDO Statistics","provider":"UNIDO","region":["global"],"domain":["manufacturing","industry"],"transport":"download","state":"manual_import","ai_key":false,"data_key":false,"official":"https://stat.unido.org/"},
+    {"id":"usgs","name":"USGS Mineral Commodity Data","provider":"USGS","region":["global","north_america"],"domain":["materials","minerals"],"transport":"download/rest","state":"manual_import","ai_key":false,"data_key":false,"official":"https://www.usgs.gov/centers/national-minerals-information-center"},
+    {"id":"materials_project","name":"Materials Project","provider":"Lawrence Berkeley National Laboratory","region":["global"],"domain":["materials","chemistry"],"transport":"rest","state":"key_required","ai_key":false,"data_key":true,"official":"https://materialsproject.org/"},
+    {"id":"un_sdg","name":"UN SDG Global Database","provider":"United Nations","region":["global"],"domain":["society","development","environment"],"transport":"rest/download","state":"manual_import","ai_key":false,"data_key":false,"official":"https://unstats.un.org/sdgs/dataportal"},
+    {"id":"china_nbs","name":"National Bureau of Statistics of China","provider":"NBS China","region":["china"],"domain":["macro","industry","population","agriculture"],"transport":"official web/download","state":"manual_import","ai_key":false,"data_key":false,"official":"https://www.stats.gov.cn/english/"},
+    {"id":"cepalstat","name":"CEPALSTAT","provider":"UN ECLAC","region":["latin_america"],"domain":["macro","society","trade","environment"],"transport":"download","state":"manual_import","ai_key":false,"data_key":false,"official":"https://statistics.cepal.org/portal/cepalstat/"},
+    {"id":"afdb","name":"African Development Bank Data Portal","provider":"AfDB","region":["africa"],"domain":["macro","infrastructure","development"],"transport":"download","state":"manual_import","ai_key":false,"data_key":false,"official":"https://dataportal.opendataforafrica.org/"},
+    {"id":"epo","name":"EPO Open Patent Services","provider":"European Patent Office","region":["global","europe"],"domain":["patents","technology"],"transport":"rest","state":"key_required","ai_key":false,"data_key":true,"official":"https://www.epo.org/en/searching-for-patents/data/web-services/ops"},
+    {"id":"reddit","name":"Reddit Signals","provider":"Reddit","region":["global"],"domain":["weak signals","customer pain","communities"],"transport":"api","state":"key_required","ai_key":false,"data_key":true,"limits":"Community signal only; never treated as primary fact"},
+
+    {"id":"hourei_mcp","name":"法令検索 MCP","provider":"e-Gov API / hourei-mcp-server","region":["japan"],"domain":["law","regulation"],"transport":"mcp","state":"not_installed","ai_key":false,"data_key":false,"package":"hourei-mcp-server"},
+    {"id":"tax_law_mcp","name":"税法 MCP","provider":"tax-law-mcp","region":["japan"],"domain":["tax","rulings"],"transport":"mcp","state":"not_installed","ai_key":false,"data_key":false,"package":"tax-law-mcp"},
+    {"id":"labor_law_mcp","name":"労務法 MCP","provider":"labor-law-mcp","region":["japan"],"domain":["labor law","compliance"],"transport":"mcp","state":"not_installed","ai_key":false,"data_key":false,"package":"labor-law-mcp"},
+    {"id":"us_legal_mcp","name":"US Legal MCP","provider":"Congress.gov / Federal Register / CourtListener","region":["north_america"],"domain":["law","policy","courts"],"transport":"mcp","state":"not_installed","ai_key":false,"data_key":"varies"},
+    {"id":"edinet_mcp","name":"EDINET Financial Analysis MCP","provider":"EDINET / Dexter JP","region":["japan"],"domain":["company filings","finance","valuation"],"transport":"mcp","state":"not_installed","ai_key":false,"data_key":"varies","repository":"https://github.com/dexter-jp/mcp-server-edinet"},
+    {"id":"sec_edgar_mcp","name":"SEC EDGAR MCP","provider":"SEC","region":["north_america"],"domain":["company filings","finance","insiders"],"transport":"mcp","state":"not_installed","ai_key":false,"data_key":false,"package":"sec-edgar-mcp"},
+    {"id":"japan_gov_mcp","name":"Japan Government API MCP","provider":"Japanese ministries","region":["japan"],"domain":["statistics","law","weather","companies","disaster"],"transport":"mcp","state":"not_installed","ai_key":false,"data_key":"varies","repository":"https://github.com/Agentic-govornance/japan-gov-mcp"},
+    {"id":"estat_mcp","name":"e-Stat MCP","provider":"Statistics Bureau Japan","region":["japan"],"domain":["macro","population","industry"],"transport":"mcp","state":"key_required","ai_key":false,"data_key":true},
+    {"id":"datagov_mcp","name":"Data.gov MCP","provider":"US Government","region":["north_america"],"domain":["open data","climate","infrastructure"],"transport":"mcp","state":"not_installed","ai_key":false,"data_key":"varies","repository":"https://github.com/melaodoidao/datagov-mcp-server"},
+    {"id":"mlit_dpf_mcp","name":"MLIT Real Estate / Geospatial MCP","provider":"MLIT","region":["japan"],"domain":["real estate","geospatial","hazards"],"transport":"mcp","state":"key_required","ai_key":false,"data_key":true},
+    {"id":"jma_weather_mcp","name":"JMA Weather MCP","provider":"Japan Meteorological Agency","region":["japan"],"domain":["weather","climate"],"transport":"mcp","state":"not_installed","ai_key":false,"data_key":false,"repository":"https://github.com/Takatoshi-Miura/MCP-Weather"},
+    {"id":"cinii_mcp","name":"CiNii Academic MCP","provider":"NII","region":["japan"],"domain":["academic","technology"],"transport":"mcp","state":"not_installed","ai_key":false,"data_key":"varies"},
+    {"id":"kokkai_mcp","name":"国会議事録 MCP","provider":"National Diet Library","region":["japan"],"domain":["policy","parliament"],"transport":"mcp/docker","state":"not_installed","ai_key":false,"data_key":false,"image":"seiichi3141/kokkai-giji-mcp"},
+    {"id":"qiita_mcp","name":"Qiita MCP","provider":"Qiita","region":["japan"],"domain":["technology","developer signals"],"transport":"mcp","state":"key_required","ai_key":false,"data_key":true,"repository":"https://github.com/Selenium39/mcp-server-qiita"},
+    {"id":"mirofish","name":"MiroFish Scenario Simulation","provider":"666ghj/MiroFish","region":["global"],"domain":["synthetic scenarios","agent simulation","knowledge graph"],"transport":"separate adapter","state":"not_installed","ai_key":"runtime-dependent","data_key":false,"license":"AGPL-3.0","role":"任意のシナリオ実験。合成出力は事実と分離する。","repository":"https://github.com/666ghj/MiroFish"}
+  ]
+}

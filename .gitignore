@@ -1,0 +1,6 @@
+runs/*
+!runs/.gitkeep
+*.log
+.DS_Store
+.tmp-browser-runs/
+browser-*-smoke.png

@@ -1,0 +1,26 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://local.decision-intelligence/result.schema.json",
+  "title":"Decision Intelligence Result",
+  "type":"object",
+  "required":["schema_version","metadata","executive","megatrends","knowledge_graph","whitespaces","profit_pools","investment_routes","business_routes","scenarios","forecasts","evidence","counterarguments","methodology","limitations"],
+  "$defs":{
+    "evidenceRefs":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+    "scored":{"anyOf":[{"type":"number","minimum":0,"maximum":1},{"type":"number","minimum":0,"maximum":100}]},
+    "evidence":{
+      "type":"object","required":["id","title","url","source_tier","statement_type","accessed_at","supports"],
+      "properties":{"id":{"type":"string"},"title":{"type":"string"},"url":{"type":"string"},"publisher":{"type":"string"},"published_at":{"type":["string","null"]},"accessed_at":{"type":"string"},"source_tier":{"enum":["primary","official_secondary","academic","industry","community","synthetic"]},"statement_type":{"enum":["fact","inference","assumption","unknown"]},"supports":{"type":"array","items":{"type":"string"}},"limitations":{"type":"string"},"counterevidence_ids":{"$ref":"#/$defs/evidenceRefs"}}
+    }
+  },
+  "properties":{
+    "schema_version":{"const":"1.0"},
+    "metadata":{"type":"object","required":["run_id","title","generated_at","as_of","coverage","decision"],"properties":{"run_id":{"type":"string"},"title":{"type":"string"},"generated_at":{"type":"string"},"as_of":{"type":"string"},"coverage":{"type":"object"},"decision":{"type":"array"}}},
+    "executive":{"type":"object","required":["one_line","decision","confidence","why_now","watchouts","decision_spine"],"properties":{"one_line":{"type":"string","minLength":1},"decision":{"type":"string"},"confidence":{"$ref":"#/$defs/scored"},"why_now":{"type":"array"},"watchouts":{"type":"array"},"decision_spine":{"type":"array"}}},
+    "megatrends":{"type":"array"},
+    "knowledge_graph":{"type":"object","required":["nodes","edges"],"properties":{"nodes":{"type":"array"},"edges":{"type":"array"}}},
+    "whitespaces":{"type":"array"},"profit_pools":{"type":"array"},"investment_routes":{"type":"array"},"business_routes":{"type":"array"},"scenarios":{"type":"array"},"forecasts":{"type":"array"},
+    "evidence":{"type":"array","items":{"$ref":"#/$defs/evidence"}},
+    "counterarguments":{"type":"array"},"methodology":{"type":"array"},"limitations":{"type":"array"}
+  },
+  "additionalProperties":true
+}

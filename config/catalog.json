@@ -1,0 +1,48 @@
+{
+  "regions": [
+    {"id":"global","name":"世界","coverage":"国際機関、越境バリューチェーン、地政学"},
+    {"id":"japan","name":"日本","coverage":"政府統計、法令、企業開示、国会、気象・地理"},
+    {"id":"north_america","name":"北米","coverage":"米国政府、SEC、議会、司法、企業・技術"},
+    {"id":"europe","name":"欧州","coverage":"Eurostat、EU法規・産業・エネルギー"},
+    {"id":"china","name":"中国","coverage":"国家統計、税関、政策、企業・特許"},
+    {"id":"latin_america","name":"中南米","coverage":"CEPAL、IDB、農業・鉱物・人口"},
+    {"id":"africa","name":"アフリカ","coverage":"AfDB、AU、統計、農業・資源・インフラ"}
+  ],
+  "sectors": [
+    {"id":"cross_sector","name":"産業横断"},{"id":"industry","name":"製造・産業"},{"id":"agriculture","name":"農業・食料"},
+    {"id":"materials","name":"材料・鉱物"},{"id":"energy","name":"エネルギー"},{"id":"technology","name":"AI・半導体・テック"},
+    {"id":"healthcare","name":"医療・バイオ"},{"id":"built_environment","name":"建設・不動産"},
+    {"id":"mobility_logistics","name":"モビリティ・物流"},{"id":"finance","name":"金融"},{"id":"circular_economy","name":"循環経済"}
+  ],
+  "methods": [
+    {"id":"horizon_scanning","name":"Horizon Scanning / Weak Signals","purpose":"一次情報、研究、特許、開発者・現場シグナルを継続走査し、変化の兆候を強度・新規性・波及範囲で評価する。","outputs":["signal inventory","signal-to-driver links","watch indicators"]},
+    {"id":"steep","name":"STEEP / PESTLE","purpose":"社会・技術・経済・環境・政治・法務の外部ドライバーを漏れなく分解する。","outputs":["driver map","dependencies","second-order effects"]},
+    {"id":"causal_mapping","name":"Causal & Systems Mapping","purpose":"原因、増幅・抑制ループ、ボトルネック、遅延を因果グラフで表現する。","outputs":["causal graph","feedback loops","leverage points"]},
+    {"id":"reference_class","name":"Reference Class Forecasting","purpose":"類似事例のベースレートから出発し、内部視点の過信を抑える。","outputs":["base rate","analogue set","outside-view forecast"]},
+    {"id":"bayesian_update","name":"Bayesian Updating","purpose":"新しい証拠ごとに仮説確率を更新し、何が判断を変えるかを明示する。","outputs":["priors","likelihood updates","posteriors"]},
+    {"id":"superforecasting","name":"Superforecasting Protocol","purpose":"解像可能な問い、確率、期限、更新履歴、採点規則で予測精度を改善する。","outputs":["forecast question","probability","Brier-ready registry"]},
+    {"id":"scenario_planning","name":"Scenario Planning","purpose":"重要度と不確実性が高い軸から複数の整合的未来を構築し、共通戦略と条件分岐を抽出する。","outputs":["scenario matrix","signposts","no-regret moves"]},
+    {"id":"cross_impact","name":"Cross-Impact Analysis","purpose":"イベント間の相互影響を評価し、単独予測では見えない連鎖を検討する。","outputs":["impact matrix","cascade paths","joint plausibility"]},
+    {"id":"s_curve_trl","name":"Technology S-Curve / TRL","purpose":"性能改善、成熟度、コスト低下、導入障壁から技術の位置を判定する。","outputs":["maturity stage","adoption constraints","inflection tests"]},
+    {"id":"learning_curve","name":"Experience / Learning Curves","purpose":"累積生産量と単位コストの関係からコスト低下余地と競争優位を推定する。","outputs":["learning rate","cost curve","scale advantage"]},
+    {"id":"supply_demand","name":"Supply-Demand Balance","purpose":"能力増設、稼働率、在庫、需要弾力性を統合して不足・過剰を推定する。","outputs":["balance model","tightness indicators","price pressure"]},
+    {"id":"bottleneck","name":"Bottleneck & Concentration Analysis","purpose":"代替困難性、供給集中、認証期間、設備・人材制約からチョークポイントを特定する。","outputs":["bottlenecks","concentration risk","rent capture points"]},
+    {"id":"profit_pool","name":"Value Chain / Profit Pool","purpose":"売上ではなく利益と交渉力が蓄積する工程、移動する工程を特定する。","outputs":["value chain","margin direction","capture mechanisms"]},
+    {"id":"whitespace","name":"Whitespace / JTBD","purpose":"顧客ジョブ、未充足の痛み、既存代替、支払意思、供給空白の交点から機会を評価する。","outputs":["opportunity matrix","buyer and budget","validation test"]},
+    {"id":"real_options","name":"Real Options","purpose":"不確実性下で小さく権利を確保し、証拠に応じて拡大・撤退する段階投資を設計する。","outputs":["option stages","gates","kill criteria"]},
+    {"id":"falsifiers","name":"Falsification & Red Team","purpose":"主張を否定する証拠、代替説明、先行指標、撤退条件を先に定義する。","outputs":["counter-theses","falsifiers","decision triggers"]}
+  ],
+  "visual_lenses": [
+    {"id":"executive","name":"Decision Spine","question":"何を、なぜ、いつ判断するか"},
+    {"id":"transformation","name":"Transformation Map","question":"ドライバー、リスク、産業はどう連鎖するか"},
+    {"id":"knowledge","name":"Knowledge Graph","question":"主張と証拠の関係は何か"},
+    {"id":"megatrends","name":"Megatrend Radar","question":"どの時間軸で何が強まるか"},
+    {"id":"whitespace","name":"Whitespace Map","question":"重要だが供給が弱い空白はどこか"},
+    {"id":"profit","name":"Profit Pool","question":"利益と交渉力はどこへ移るか"},
+    {"id":"investment","name":"Investment Routes","question":"テーマは企業利益と株価へどう伝播するか"},
+    {"id":"business","name":"Business Routes","question":"誰のどの予算をどう獲得するか"},
+    {"id":"scenarios","name":"Scenario Lab","question":"複数の未来と分岐指標は何か"},
+    {"id":"evidence","name":"Evidence Ledger","question":"各主張は何に基づき、何が弱いか"},
+    {"id":"forecasts","name":"Forecast Registry","question":"予測は期限後に採点できるか"}
+  ]
+}

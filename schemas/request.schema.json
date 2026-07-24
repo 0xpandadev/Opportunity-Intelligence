@@ -1,0 +1,24 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://local.decision-intelligence/request.schema.json",
+  "title":"Decision Intelligence Request",
+  "type":"object",
+  "required":["id","schema_version","query","created_at","decision_types","regions","sectors","horizon","requested_methods","required_outputs","evidence_policy"],
+  "properties":{
+    "id":{"type":"string","pattern":"^[A-Za-z0-9_-]+$"},
+    "schema_version":{"const":"1.0"},
+    "query":{"type":"string","minLength":5},
+    "created_at":{"type":"string","format":"date-time"},
+    "decision_types":{"type":"array","items":{"enum":["strategy","investment","business","policy"]},"minItems":1,"uniqueItems":true},
+    "regions":{"type":"array","items":{"type":"string"},"minItems":1,"uniqueItems":true},
+    "sectors":{"type":"array","items":{"type":"string"},"minItems":1,"uniqueItems":true},
+    "horizon":{"type":"string"},
+    "constraints":{"type":"string"},
+    "requested_methods":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+    "required_outputs":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+    "evidence_policy":{"type":"object"},
+    "source_preferences":{"type":"array"},
+    "catalog_snapshot":{"type":"object"}
+  },
+  "additionalProperties":true
+}

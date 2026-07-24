@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Evidence-backed market, investment, and business decision intelligence workbench.">
+  <title>Decision Intelligence Workbench</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="rail">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">DI</div>
+        <div><strong>Decision Intelligence</strong><span>WORKBENCH / LOCAL</span></div>
+      </div>
+      <button id="new-analysis" class="new-button">＋ 新しい分析</button>
+      <div class="rail-label">ANALYSIS RUNS</div>
+      <nav id="run-list" class="run-list" aria-label="分析履歴"></nav>
+      <div class="rail-foot">
+        <div class="system-line"><span id="health-dot" class="status-dot"></span><span id="health-text">確認中</span></div>
+        <small>AI: Codex handoff<br>Data: source-specific</small>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div>
+          <span class="eyebrow">EVIDENCE → CAUSAL LOGIC → DECISION</span>
+          <h1 id="page-title">意思決定のための未来分析</h1>
+        </div>
+        <div class="top-actions">
+          <button class="quiet-button" data-tab="connectors">接続状況</button>
+          <button class="quiet-button" data-tab="methods">方法論</button>
+        </div>
+      </header>
+
+      <section id="composer" class="composer panel">
+        <div class="composer-intro">
+          <span class="section-index">01 / REQUEST</span>
+          <h2>知りたいことを、そのまま投げる</h2>
+          <p>市場、地域、産業、投資、事業機会を一つの問いにできます。固定サンプルではなく、依頼ごとに分析runを作成します。</p>
+        </div>
+        <form id="request-form">
+          <label class="query-field">
+            <span>分析依頼</span>
+            <textarea id="query" name="query" rows="4" required minlength="5" placeholder="例：2030年までの欧州バッテリー循環経済で、利益プールが移動する工程、上場企業への投資ルート、新規事業のホワイトスペースを一次情報から分析して"></textarea>
+          </label>
+          <div class="field-grid">
+            <label><span>意思決定</span><select id="decision-types" multiple size="3"><option value="strategy" selected>戦略</option><option value="investment" selected>株式投資</option><option value="business" selected>新規事業</option><option value="policy">政策・規制</option></select></label>
+            <label><span>時間軸</span><select id="horizon"><option value="0-2 years">0–2年</option><option value="3-5 years" selected>3–5年</option><option value="5-10 years">5–10年</option><option value="10+ years">10年以上</option></select></label>
+            <label class="wide-field"><span>制約・判断条件</span><input id="constraints" placeholder="対象企業、予算、リスク許容度、除外条件など"></label>
+          </div>
+          <div id="selection-summary" class="selection-summary">地域・産業は依頼文から自動推定。必要なら作成後の実行契約で確認できます。</div>
+          <button class="submit-button" type="submit"><span>分析runを作成</span><b>→</b></button>
+        </form>
+      </section>
+
+      <section id="run-shell" class="run-shell hidden">
+        <div id="run-status"></div>
+        <nav id="view-tabs" class="view-tabs" aria-label="分析ビュー"></nav>
+        <div id="view-content" class="view-content"></div>
+      </section>
+
+      <section id="global-content" class="global-content hidden"></section>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
