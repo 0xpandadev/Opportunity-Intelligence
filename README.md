@@ -1,4 +1,4 @@
-# Decision Intelligence Workbench
+# Opportunity Intelligence
 
 市場のメガトレンド、因果構造、ホワイトスペース、利益プール、投資ルート、事業機会を、同じ証拠台帳から組み立てる個人用の意思決定アプリです。既存の **Foresight Radarとは別プロジェクト** です。Foresight Radarは外部シグナル収集モジュールとしてだけ利用します。
 

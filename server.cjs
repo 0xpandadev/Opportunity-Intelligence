@@ -66,7 +66,7 @@ function aggregateForecasts() {
 }
 
 function executionNote(id, compiled) {
-  return `# Codexでこの分析を実行\n\nDecision Intelligence Workbench の実行待ち依頼です。\n\n- Run ID: \`${id}\`\n- 依頼: ${compiled.query}\n- 状態: \`pending_codex\`\n\nCodexで次のように依頼してください。\n\n> Decision Intelligence Workbench の保留中run \`${id}\` を、run-decision-intelligenceスキルで実行して。\n\nCodexは \`request.json\` を読み、現在の一次情報を調査し、\`result.json\` を検証後に保存します。追加のAI APIキーは不要ですが、Codexデスクトップ内でこの処理を実行する必要があります。\n`;
+  return `# Codexでこの分析を実行\n\nOpportunity Intelligence の実行待ち依頼です。\n\n- Run ID: \`${id}\`\n- 依頼: ${compiled.query}\n- 状態: \`pending_codex\`\n\nCodexで次のように依頼してください。\n\n> Opportunity Intelligence の保留中run \`${id}\` を、run-decision-intelligenceスキルで実行して。\n\nCodexは \`request.json\` を読み、現在の一次情報を調査し、\`result.json\` を検証後に保存します。追加のAI APIキーは不要ですが、Codexデスクトップ内でこの処理を実行する必要があります。\n`;
 }
 
 function buildMirofishPayload(id, request, result) {
@@ -99,7 +99,7 @@ function buildMirofishPayload(id, request, result) {
 
 async function api(req, res, url) {
   const parts = url.pathname.split('/').filter(Boolean);
-  if (req.method === 'GET' && url.pathname === '/api/health') return send(res, 200, { ok:true, product:'Decision Intelligence Workbench', version:'0.1.0', time:new Date().toISOString(), ai_runtime:'codex_desktop_handoff' });
+  if (req.method === 'GET' && url.pathname === '/api/health') return send(res, 200, { ok:true, product:'Opportunity Intelligence', version:'0.1.0', time:new Date().toISOString(), ai_runtime:'codex_desktop_handoff' });
   if (req.method === 'GET' && url.pathname === '/api/catalog') return send(res, 200, { ...catalog, connector_states:connectorConfig.state_definitions });
   if (req.method === 'GET' && url.pathname === '/api/connectors') return send(res, 200, connectorConfig);
   if (req.method === 'GET' && url.pathname === '/api/runs') return send(res, 200, { runs:listRuns() });
@@ -187,7 +187,7 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, HOST, () => {
-  console.log(`Decision Intelligence Workbench: http://${HOST}:${PORT}`);
+  console.log(`Opportunity Intelligence: http://${HOST}:${PORT}`);
   console.log('AI execution mode: Codex desktop handoff (no separate AI API key)');
 });
 

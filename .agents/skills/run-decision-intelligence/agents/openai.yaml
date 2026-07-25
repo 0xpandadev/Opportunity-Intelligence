@@ -1,7 +1,7 @@
 interface:
-  display_name: "Decision Intelligence Runner"
+  display_name: "Opportunity Intelligence Runner"
   short_description: "Run evidence-backed market decision analyses."
-  default_prompt: "Process the pending Decision Intelligence Workbench request, research current primary sources, and save a schema-valid result."
+  default_prompt: "Process the pending Opportunity Intelligence request, research current primary sources, and save a schema-valid result."
 
 policy:
   allow_implicit_invocation: true

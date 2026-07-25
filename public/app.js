@@ -101,7 +101,7 @@ async function openRun(id, quiet=false) {
 
 function renderStatus() {
   const run=state.current, status=run.status?.state||'unknown', complete=status==='complete';
-  const prompt=`Decision Intelligence Workbench の保留中run ${run.id} を、run-decision-intelligenceスキルで実行して。`;
+  const prompt=`Opportunity Intelligence の保留中run ${run.id} を、run-decision-intelligenceスキルで実行して。`;
   $('#run-status').innerHTML=`<div class="run-status-card"><div><span class="kicker">RUN ${esc(run.id)}</span><h2>${esc(run.request.query)}</h2><p>${textList(run.request.regions)} · ${textList(run.request.sectors)} · ${esc(run.request.horizon)}</p>${!complete?`<div class="handoff"><strong>次の工程：Codexで実データ分析</strong><p>依頼は保存済みです。追加AI APIキーは不要ですが、Codexデスクトップで下の依頼を実行してください。ブラウザだけでAI処理済みとは表示しません。</p><code>${esc(prompt)}</code><div class="handoff-actions"><button class="small-button primary" data-copy="${esc(prompt)}">依頼文をコピー</button><button class="small-button" data-refresh>結果を確認</button></div></div>`:''}</div><div class="status-actions"><span class="status-badge ${esc(status)}">${esc(status)}</span><button class="small-button danger" data-delete-run="${esc(run.id)}">この分析を削除</button></div></div>`;
 }
 

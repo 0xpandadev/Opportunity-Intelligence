@@ -1,9 +1,9 @@
 ---
 name: run-decision-intelligence
-description: Execute a pending Decision Intelligence Workbench run from request.json through current primary-source research, forecasting, knowledge graph, whitespace, profit-pool, investment, and business analysis, then validate and save result.json. Use when the user asks to run, complete, refresh, or analyze a Workbench run ID or a pending Workbench request.
+description: Execute a pending Opportunity Intelligence run from request.json through current primary-source research, forecasting, knowledge graph, whitespace, profit-pool, investment, and business analysis, then validate and save result.json. Use when the user asks to run, complete, refresh, or analyze an Opportunity Intelligence run ID or pending request.
 ---
 
-# Run Decision Intelligence
+# Run Opportunity Intelligence
 
 Turn one saved Workbench request into a traceable decision package. The Codex session is the AI runtime, so do not request a separate LLM API key. Data-provider keys may still be required for specific connectors.
 

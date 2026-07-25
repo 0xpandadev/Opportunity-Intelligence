@@ -1,6 +1,6 @@
 # Repository execution rules
 
-- This repository is **Decision Intelligence Workbench**, not Foresight Radar.
+- This repository powers **Opportunity Intelligence**, not Foresight Radar.
 - When asked to execute, complete, or refresh a saved run, use `.agents/skills/run-decision-intelligence/SKILL.md`.
 - Use the globally installed Foresight Radar skill only for source-map, signal scanning, source audit, watch, and diff inputs.
 - Do not mark a run complete until `scripts/complete-run.cjs` accepts the result.
