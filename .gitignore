@@ -4,3 +4,4 @@ runs/*
 .DS_Store
 .tmp-browser-runs/
 browser-*-smoke.png
+.gstack/
