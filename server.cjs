@@ -6,6 +6,7 @@ const { compileRequest } = require('./lib/compiler.cjs');
 const { validateRequest, validateResult } = require('./lib/validation.cjs');
 const { executeConnector } = require('./lib/connectors.cjs');
 const { writeJsonAtomic, readJson, safeRunId } = require('./lib/store.cjs');
+const { buildSimulationRequest, completeSimulation } = require('./lib/simulation.cjs');
 
 const ROOT = __dirname;
 const PUBLIC = path.join(ROOT, 'public');
@@ -43,7 +44,18 @@ function listRuns() {
 function getRun(id) {
   safeRunId(id);
   if (!fs.existsSync(path.join(RUNS, id))) return null;
-  return { id, request:readJson(runPath(id, 'request.json')), status:readJson(runPath(id, 'status.json')), result:readJson(runPath(id, 'result.json')), forecast_log:readJson(runPath(id, 'forecast-log.json'), {}) };
+  return {
+    id,
+    request:readJson(runPath(id, 'request.json')),
+    status:readJson(runPath(id, 'status.json')),
+    result:readJson(runPath(id, 'result.json')),
+    forecast_log:readJson(runPath(id, 'forecast-log.json'), {}),
+    simulation:{
+      request:readJson(runPath(id, 'simulation-request.json')),
+      status:readJson(runPath(id, 'simulation-status.json'), { state:'not_requested' }),
+      result:readJson(runPath(id, 'simulation-result.json'))
+    }
+  };
 }
 
 function trashRun(id) {
@@ -128,6 +140,20 @@ async function api(req, res, url) {
       writeJsonAtomic(runPath(id, 'result.json'), result);
       writeJsonAtomic(runPath(id, 'status.json'), { state:'complete', created_at:existing.status?.created_at || existing.request.created_at, updated_at:new Date().toISOString(), message:'検証済み分析結果を保存しました。' });
       return send(res, 200, getRun(id));
+    }
+    if (parts[3] === 'simulation' && parts[4] === 'request' && req.method === 'POST') {
+      if (!existing.result) return send(res, 409, { error:'run_not_complete' });
+      const payload=buildSimulationRequest(id, existing.request, existing.result, await bodyJson(req));
+      writeJsonAtomic(runPath(id,'simulation-request.json'),payload);
+      writeJsonAtomic(runPath(id,'simulation-status.json'),{ state:'pending_codex', created_at:payload.created_at, updated_at:payload.created_at, message:'Codexシミュレーションの実行待ちです。' });
+      fs.writeFileSync(runPath(id,'EXECUTE_SIMULATION_WITH_CODEX.md'),`# Codexでシミュレーションを実行\n\n> ${payload.codex_prompt}\n`,'utf8');
+      return send(res,201,getRun(id));
+    }
+    if (parts[3] === 'simulation' && parts[4] === 'result' && req.method === 'POST') {
+      if (!existing.result) return send(res, 409, { error:'run_not_complete' });
+      const completed=completeSimulation(RUNS,id,await bodyJson(req));
+      if (!completed.valid) return send(res,422,{ error:'invalid_simulation', details:completed.errors });
+      return send(res,200,getRun(id));
     }
     if (parts[3] === 'mirofish' && parts[4] === 'export' && req.method === 'POST') {
       if (!existing.result) return send(res, 409, { error:'run_not_complete' });

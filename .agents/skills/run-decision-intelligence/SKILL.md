@@ -38,7 +38,7 @@ Turn one saved Opportunity Intelligence request into a traceable decision packag
 
 ## MiroFish boundary
 
-MiroFish is optional and stays in a separate runtime because of its AGPL-3.0 license and model/runtime requirements. Always write `simulation_lab` with `status: not_run` and `source_classification: synthetic` unless a real simulation was executed. If available, export inputs with `node scripts/export-mirofish.cjs <id>`, and import actual outputs into `simulation_lab` only as synthetic. A complete simulation record should distinguish environment/personas, agents, rounds, emergent events, interventions, ReportAgent output, and follow-up interactions. Never use a simulated agent statement as a primary fact.
+Opportunity Intelligence includes a personal-use, MiroFish-inspired Simulation Lab that uses Codex as the AI runtime and does not require a separate OpenAI API key. It is an adaptation of the world-model, agent-interaction, intervention, and ReportAgent approach; it is not the upstream MiroFish runtime and must not be represented as such. Keep `simulation_lab` at `status: not_run` until a real internal simulation is completed with `.agents/skills/run-opportunity-simulation/SKILL.md`. A complete simulation record must distinguish environment/personas, agents, sequential rounds, interactions, emergent events, interventions and a counterfactual control, ReportAgent output, minority outcomes, and follow-up interactions. Every returned item remains `synthetic`. Never use a simulated agent statement as a primary fact. The legacy JSON export remains available only as an optional interoperability path and is not the primary GUI flow.
 
 ## Completion check
 

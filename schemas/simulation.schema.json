@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.opportunity-intelligence/schemas/simulation.schema.json",
+  "title": "Opportunity Intelligence synthetic simulation result",
+  "type": "object",
+  "required": ["schema_version", "run_id", "classification", "engine", "generated_at", "environment", "agents", "rounds", "round_log", "interactions", "emergent_events", "interventions", "outcomes", "falsifiers", "report", "limitations"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "run_id": { "type": "string" },
+    "classification": { "const": "synthetic" },
+    "engine": { "const": "codex_mirofish_method" },
+    "generated_at": { "type": "string" },
+    "environment": { "type": "object" },
+    "agents": { "type": "array", "minItems": 4 },
+    "rounds": { "type": "integer", "minimum": 1 },
+    "round_log": { "type": "array", "minItems": 1 },
+    "interactions": { "type": "array" },
+    "emergent_events": { "type": "array" },
+    "interventions": { "type": "array" },
+    "outcomes": { "type": "array" },
+    "falsifiers": { "type": "array" },
+    "report": { "type": "object" },
+    "limitations": { "type": "array" }
+  },
+  "additionalProperties": true
+}

@@ -7,6 +7,8 @@
     "start": "node server.cjs",
     "test": "node --test tests/*.test.cjs",
     "pending": "node scripts/list-pending.cjs",
+    "simulation:request": "node scripts/request-simulation.cjs",
+    "simulation:complete": "node scripts/complete-simulation.cjs",
     "template": "node scripts/build-result-template.cjs",
     "validate": "node scripts/validate-run.cjs"
   },
