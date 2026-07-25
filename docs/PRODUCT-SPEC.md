@@ -22,7 +22,7 @@
 | Profit pool | value-chain stage、margin direction、capture mechanism、勝敗 | `profit_pools[]` |
 | Investment | transmission、beneficiary、earnings、expectation、valuation、catalyst、crowding、downside | `investment_routes[]` |
 | Business | change、pain、buyer/budget、offer、pricing、unit economics、channel、pilot/kill | `business_routes[]` |
-| Optional simulation | MiroFish向けseed/graph export。戻り値はsynthetic限定 | `mirofish-input.json` |
+| Optional simulation | MiroFish方式のGraphRAG世界モデル、複数エージェント実験、ReportAgent照会。ローカル本体はseed/graph exportまで、戻り値はsynthetic限定 | `mirofish-input.json` + optional runtime output |
 | GUI | 12の意思決定ビュー、run履歴、待機/完了状態、接続状態 | local web app |
 
 ## Coverage packs
@@ -31,7 +31,7 @@
 
 ## Method ensemble
 
-Horizon scanning、weak signals、STEEP/PESTLE、causal systems mapping、reference-class forecasting、Bayesian updating、superforecasting、scenario planning、cross-impact、technology S-curve/TRL、learning curves、supply-demand balance、bottleneck/concentration、value-chain/profit-pool、whitespace/JTBD、real options、falsification/red-teamを定義している。実行手順と品質ゲートは `.agents/skills/run-decision-intelligence/references/analysis-protocol.md` に置く。
+Horizon scanning、weak signals、STEEP/PESTLE、causal systems mapping、reference-class forecasting、Bayesian updating、superforecasting、scenario planning、cross-impact、technology S-curve/TRL、learning curves、supply-demand balance、bottleneck/concentration、value-chain/profit-pool、whitespace/JTBD、real options、MiroFish式multi-agent world simulation、falsification/red-teamを定義している。実行手順と品質ゲートは `.agents/skills/run-decision-intelligence/references/analysis-protocol.md` に置く。
 
 ## State model
 

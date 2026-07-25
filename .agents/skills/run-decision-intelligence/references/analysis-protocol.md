@@ -48,7 +48,8 @@ Do not claim a method was used when only its vocabulary appears in the prose. `s
 9. **Whitespace / JTBD:** identify customer job, pain severity, current workaround, why supply is absent, buyer, budget, willingness to pay, timing, feasibility, and smallest validation.
 10. **Value chain / profit pool:** map stages, revenue and margin direction, bargaining power, scarcity rents, capital intensity, and who gains or loses.
 11. **Real options:** define staged commitments, option value, evidence gates, expansion triggers, and kill criteria.
-12. **Falsification:** articulate the strongest alternative thesis, leading indicators that would disprove the conclusion, and a decision review date.
+12. **MiroFish / multi-agent world simulation:** when simulation is requested and the separate runtime is available, build a GraphRAG world from evidence, define agents and interventions, run multiple seeds and controls, separate recurring patterns from branch-specific outcomes, and label every returned observation as synthetic. When the runtime is unavailable, export the seed package and record `not_run`; never describe scenario priors as MiroFish output.
+13. **Falsification:** articulate the strongest alternative thesis, leading indicators that would disprove the conclusion, and a decision review date.
 
 ## 4. Produce decision routes
 
@@ -75,6 +76,7 @@ Each forecast needs one binary or precisely measurable question, probability, ba
 - No scenario without signposts.
 - No confidence score without limitations and counterargument.
 - No methodology entry without an exact catalog `method_id`, concrete execution steps, result-section links, and a note on departures or limitations.
+- No `mirofish_simulation` methodology record unless the simulation actually ran. A seed export may be reported as `ready`, but not as a completed method application.
 - Do not plot an opportunity on the market-color map unless current alternatives, competition density, solution-saturation score, unmet-need score, and competition evidence IDs are present. Missing items stay in the proof queue.
 - Every whitespace item must separate `competition` (alternatives, density, saturation, unmet gap, evidence) from `potential` (TAM, willingness to pay, growth, gross-margin potential, repeatability, defensibility). Use `null` or omit a field instead of inventing a score.
 - Every profit-pool score must state whose profit is measured, the metric, geography, horizon, unit, base year, evidence, and whether the value is an actual amount or a relative index. Never label a 0–100 attractiveness score as revenue or profit currency.
