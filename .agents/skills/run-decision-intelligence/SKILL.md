@@ -5,7 +5,7 @@ description: Execute a pending Opportunity Intelligence run from request.json th
 
 # Run Opportunity Intelligence
 
-Turn one saved Workbench request into a traceable decision package. The Codex session is the AI runtime, so do not request a separate LLM API key. Data-provider keys may still be required for specific connectors.
+Turn one saved Opportunity Intelligence request into a traceable decision package. The Codex session is the AI runtime, so do not request a separate LLM API key. Data-provider keys may still be required for specific connectors.
 
 ## Execute a run
 
@@ -20,7 +20,7 @@ Turn one saved Workbench request into a traceable decision package. The Codex se
    Record each method actually used as a separate `methodology` entry with the exact `method_id` from `config/catalog.json`, a plain-language `summary`, concrete `steps_applied`, the result sections in `outputs_touched`, any `departures` from the cited method, and supporting `evidence_ids`. Do not list a method merely because it exists in the catalog.
 7. Build claim-level evidence before conclusions. Every material trend, graph node, whitespace, profit pool, investment route, and forecast must cite one or more evidence IDs. Label each evidence item `fact`, `inference`, `assumption`, or `unknown`.
 8. For investment output, trace theme → industry transmission → beneficiary → earnings sensitivity → expectations gap → valuation → catalyst → crowding → downside → decision. Never present guaranteed profits or automatic trading.
-9. For business output, trace structural change → pain → buyer/budget → opportunity candidate → current alternatives → competition density → documented unmet gap → solution → pricing → unit economics → channel → validation/kill criterion. Do not label an item BLUE, WHITE, or RED unless `competition.current_alternatives`, `competition.density`, and `competition.evidence_ids` are present. Otherwise it is `candidate / competition unverified`.
+9. For business output, trace structural change → pain → buyer/budget → opportunity candidate → current alternatives → competition density → documented unmet gap → solution → pricing → unit economics → channel → validation/kill criterion. A market-color position requires `competition.current_alternatives`, `competition.density`, `competition.saturation_score`, `competition.unmet_need_score`, `competition.gap`, and `competition.evidence_ids`. `classification: white` additionally requires observed willingness-to-pay evidence and `competition.wtp_verified: true` (or `potential.wtp_verified: true`). A plausible price, hypothetical budget, or phrase such as “high possibility” is not verified WTP. Missing competition proof stays `unverified`; low saturation with unverified WTP stays a white candidate, not a confirmed whitespace.
 10. Write the draft to `runs/<id>/result.draft.json`. Run `node scripts/complete-run.cjs <id> runs/<id>/result.draft.json`. Do not claim completion if validation fails.
 
 ## Required analytical behavior
@@ -32,7 +32,7 @@ Turn one saved Workbench request into a traceable decision package. The Codex se
 - Represent unknowns honestly. Missing data is not zero and an uninstalled connector is not unavailable evidence.
 - Record source URL, publisher, publication date when available, access date, tier, limitations, and the claims supported.
 - Prefer a smaller defensible graph to a large decorative graph.
-- Make method provenance auditable: distinguish the cited source's principle from this Workbench's adaptation, and distinguish both from what was actually executed in the current run.
+- Make method provenance auditable: distinguish the cited source's principle from Opportunity Intelligence's adaptation, and distinguish both from what was actually executed in the current run.
 
 ## MiroFish boundary
 
