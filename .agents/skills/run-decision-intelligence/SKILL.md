@@ -21,7 +21,8 @@ Turn one saved Opportunity Intelligence request into a traceable decision packag
 7. Build claim-level evidence before conclusions. Every material trend, graph node, whitespace, profit pool, investment route, and forecast must cite one or more evidence IDs. Label each evidence item `fact`, `inference`, `assumption`, or `unknown`.
 8. For investment output, trace theme → industry transmission → beneficiary → earnings sensitivity → expectations gap → valuation → catalyst → crowding → downside → decision. Never present guaranteed profits or automatic trading.
 9. For business output, trace structural change → pain → buyer/budget → opportunity candidate → current alternatives → competition density → documented unmet gap → solution → pricing → unit economics → channel → validation/kill criterion. A market-color position requires `competition.current_alternatives`, `competition.density`, `competition.saturation_score`, `competition.unmet_need_score`, `competition.gap`, and `competition.evidence_ids`. `classification: white` additionally requires observed willingness-to-pay evidence and `competition.wtp_verified: true` (or `potential.wtp_verified: true`). A plausible price, hypothetical budget, or phrase such as “high possibility” is not verified WTP. Missing competition proof stays `unverified`; low saturation with unverified WTP stays a white candidate, not a confirmed whitespace.
-10. Write the draft to `runs/<id>/result.draft.json`. Run `node scripts/complete-run.cjs <id> runs/<id>/result.draft.json`. Do not claim completion if validation fails.
+10. Build `market_landscape` for the megatrends and whitespace candidates. Search listed companies first, including small-cap and niche suppliers where evidence exists; verify ticker and exchange from current official investor-relations or exchange sources, and distinguish a directly listed company from a business represented only through a listed parent. Then add relevant private companies, public programs, platforms, and existing services in Japan and overseas. Every entity must state its exact role, offerings, geography/scale, links to specific megatrend or whitespace IDs, and evidence IDs. “Related” does not mean investable, undervalued, or a beneficiary; make those conclusions only in the investment route after earnings sensitivity, expectations, valuation, catalyst, crowding, and downside analysis.
+11. Write the draft to `runs/<id>/result.draft.json`. Run `node scripts/complete-run.cjs <id> runs/<id>/result.draft.json`. Do not claim completion if validation fails.
 
 ## Required analytical behavior
 
@@ -33,6 +34,7 @@ Turn one saved Opportunity Intelligence request into a traceable decision packag
 - Record source URL, publisher, publication date when available, access date, tier, limitations, and the claims supported.
 - Prefer a smaller defensible graph to a large decorative graph.
 - Make method provenance auditable: distinguish the cited source's principle from Opportunity Intelligence's adaptation, and distinguish both from what was actually executed in the current run.
+- Prefer evidence-backed market depth over famous-name lists: include large listed incumbents, listed parents, niche/small listed suppliers, private specialists, and actual services only when their relationship to a specific trend or opportunity can be explained and cited. Use `unknown` instead of guessing listing status.
 
 ## MiroFish boundary
 

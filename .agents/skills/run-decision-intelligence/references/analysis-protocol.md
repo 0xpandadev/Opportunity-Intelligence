@@ -51,6 +51,16 @@ Do not claim a method was used when only its vocabulary appears in the prose. `s
 12. **MiroFish / multi-agent world simulation:** when simulation is requested and the separate runtime is available, build a GraphRAG world from evidence, define agents and interventions, run multiple seeds and controls, separate recurring patterns from branch-specific outcomes, and label every returned observation as synthetic. When the runtime is unavailable, export the seed package and record `not_run`; never describe scenario priors as MiroFish output.
 13. **Falsification:** articulate the strongest alternative thesis, leading indicators that would disprove the conclusion, and a decision review date.
 
+## 3A. Map real market participants
+
+For every material megatrend and whitespace candidate, create a linked market landscape:
+
+1. Search current listed companies first, from global incumbents down to small-cap and niche suppliers. Verify exchange, ticker, and whether the operating business is directly listed or represented through a listed parent using an official exchange or investor-relations source.
+2. Then include private companies, public-sector programs, platforms, standards, and existing services where they are relevant. Cover domestic and foreign participants according to the actual market, not a fixed regional quota.
+3. Record the exact relationship to a megatrend or whitespace ID, the role in the value chain, concrete offerings, geography, operating scale, and evidence IDs. Do not add a company merely because its industry label matches.
+4. Separate four questions: related participant, current alternative/competitor, earnings beneficiary, and investable security. A company can satisfy one without satisfying the others.
+5. Use `listing.status: unknown` when official listing evidence has not been checked. Never infer a ticker from memory or from a secondary directory.
+
 ## 4. Produce decision routes
 
 ### Investment
@@ -81,4 +91,5 @@ Each forecast needs one binary or precisely measurable question, probability, ba
 - Do not classify an opportunity as `white` unless the buyer's willingness to pay is supported by observed customer, budget, contract, or payment evidence and the record explicitly sets `wtp_verified: true`. A proposed pricing model or analyst belief is not verified WTP.
 - Every whitespace item must separate `competition` (alternatives, density, saturation, unmet gap, evidence) from `potential` (TAM, willingness to pay, growth, gross-margin potential, repeatability, defensibility). Use `null` or omit a field instead of inventing a score.
 - Every profit-pool score must state whose profit is measured, the metric, geography, horizon, unit, base year, evidence, and whether the value is an actual amount or a relative index. Never label a 0–100 attractiveness score as revenue or profit currency.
+- Every `market_landscape` entity must have a specific trend/opportunity link, role, evidence IDs, and listing status. `listed` and `listed_parent` records require a current ticker and exchange; `listed_parent` also requires the parent name.
 - A megatrend must pass four visible gates: multi-year persistence, at least three independent structural drivers, value-chain spillover, and traceable evidence. Use a separate time-horizon radar and decision-priority matrix; do not call an impact-by-momentum scatterplot a radar.

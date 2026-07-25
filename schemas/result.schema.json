@@ -14,6 +14,22 @@
     "methodology":{
       "type":"object",
       "properties":{"method_id":{"type":"string"},"summary":{"type":"string"},"steps_applied":{"type":"array","items":{"type":"string"}},"outputs_touched":{"type":"array","items":{"type":"string"}},"departures":{"type":"string"},"evidence_ids":{"$ref":"#/$defs/evidenceRefs"},"id":{"type":"string"},"note":{"type":"string"}}
+    },
+    "marketEntity":{
+      "type":"object",
+      "required":["id","name","entity_type","listing","country","scale","role","links","evidence_ids"],
+      "properties":{
+        "id":{"type":"string"},
+        "name":{"type":"string","minLength":1},
+        "entity_type":{"enum":["company","service","platform","program"]},
+        "listing":{"type":"object","required":["status"],"properties":{"status":{"enum":["listed","listed_parent","private","public","unknown"]},"ticker":{"type":"string"},"exchange":{"type":"string"},"parent":{"type":"string"}}},
+        "country":{"type":"string"},
+        "scale":{"enum":["global","national","regional","niche"]},
+        "role":{"type":"string","minLength":1},
+        "offerings":{"type":"array","items":{"type":"string"}},
+        "links":{"type":"array","minItems":1,"items":{"type":"object","required":["kind","id","relationship"],"properties":{"kind":{"enum":["megatrend","whitespace"]},"id":{"type":"string"},"relationship":{"type":"string","minLength":1}}}},
+        "evidence_ids":{"$ref":"#/$defs/evidenceRefs"}
+      }
     }
   },
   "properties":{
@@ -23,6 +39,7 @@
     "megatrends":{"type":"array"},
     "knowledge_graph":{"type":"object","required":["nodes","edges"],"properties":{"nodes":{"type":"array"},"edges":{"type":"array"}}},
     "whitespaces":{"type":"array","items":{"type":"object","properties":{"competition":{"type":"object","properties":{"current_alternatives":{"type":"array","items":{"type":"string"}},"density":{"enum":["low","medium","high","unknown"]},"saturation_score":{"$ref":"#/$defs/scored"},"unmet_need_score":{"$ref":"#/$defs/scored"},"gap":{"type":["string","boolean"]},"willingness_to_pay":{"type":["string","number","boolean"]},"wtp_verified":{"type":"boolean"},"evidence_ids":{"$ref":"#/$defs/evidenceRefs"}}},"potential":{"type":"object","properties":{"tam":{"type":["string","number","null"]},"willingness_to_pay":{"type":["string","number","null"]},"wtp_verified":{"type":"boolean"},"growth":{"type":["string","number","null"]},"gross_margin":{"type":["string","number","null"]},"repeatability":{"type":["string","number","null"]},"defensibility":{"type":["string","number","null"]},"evidence_ids":{"$ref":"#/$defs/evidenceRefs"}}},"classification":{"enum":["white","contested","red","empty_for_a_reason","unverified"]}}}},
+    "market_landscape":{"type":"object","required":["as_of","entities"],"properties":{"as_of":{"type":"string"},"scan_notes":{"type":"array","items":{"type":"string"}},"entities":{"type":"array","items":{"$ref":"#/$defs/marketEntity"}}}},
     "profit_pools":{"type":"array","items":{"type":"object","properties":{"pool_score":{"$ref":"#/$defs/scored"},"profit_definition":{"type":"object","properties":{"owner":{"type":"string"},"metric":{"type":"string"},"geography":{"type":"string"},"horizon":{"type":"string"},"unit":{"type":"string"},"base_year":{"type":["string","number","null"]},"actual_value":{"type":["string","number","null"]},"score_components":{"type":"object"},"confidence":{"$ref":"#/$defs/scored"},"evidence_ids":{"$ref":"#/$defs/evidenceRefs"}}}}}},"investment_routes":{"type":"array"},"business_routes":{"type":"array"},"scenarios":{"type":"array"},"simulation_lab":{"type":"object","properties":{"status":{"enum":["not_run","ready","running","complete","failed"]},"source_classification":{"const":"synthetic"},"environment":{"type":"object"},"agents":{"type":"array"},"rounds":{"type":"number"},"interactions":{"type":"array"},"emergent_events":{"type":"array"},"report":{"type":["object","string"]}}},"forecasts":{"type":"array"},
     "evidence":{"type":"array","items":{"$ref":"#/$defs/evidence"}},
     "counterarguments":{"type":"array"},"methodology":{"type":"array","items":{"$ref":"#/$defs/methodology"}},"limitations":{"type":"array"}
