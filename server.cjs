@@ -33,7 +33,7 @@ async function bodyJson(req) {
 function runPath(id, file) { return path.join(RUNS, safeRunId(id), file); }
 
 function listRuns() {
-  return fs.readdirSync(RUNS, { withFileTypes:true }).filter(item => item.isDirectory()).map(item => {
+  return fs.readdirSync(RUNS, { withFileTypes:true }).filter(item => item.isDirectory() && !item.name.startsWith('.')).map(item => {
     const request = readJson(runPath(item.name, 'request.json'), {});
     const status = readJson(runPath(item.name, 'status.json'), { state:'unknown' });
     return { id:item.name, title:request.query || item.name, created_at:request.created_at, status };
@@ -46,6 +46,18 @@ function getRun(id) {
   return { id, request:readJson(runPath(id, 'request.json')), status:readJson(runPath(id, 'status.json')), result:readJson(runPath(id, 'result.json')), forecast_log:readJson(runPath(id, 'forecast-log.json'), {}) };
 }
 
+function trashRun(id) {
+  const safeId = safeRunId(id);
+  const source = path.join(RUNS, safeId);
+  if (!fs.existsSync(source)) return null;
+  const trash = path.join(RUNS, '.trash');
+  fs.mkdirSync(trash, { recursive:true });
+  const suffix = new Date().toISOString().replace(/[-:.TZ]/g, '');
+  const target = path.join(trash, `${safeId}-${suffix}`);
+  fs.renameSync(source, target);
+  return { id:safeId, deleted:true, recoverable:true };
+}
+
 function aggregateForecasts() {
   return listRuns().flatMap(run => {
     const result=readJson(runPath(run.id,'result.json'),{}); const log=readJson(runPath(run.id,'forecast-log.json'),{});
@@ -55,6 +67,34 @@ function aggregateForecasts() {
 
 function executionNote(id, compiled) {
   return `# Codexでこの分析を実行\n\nDecision Intelligence Workbench の実行待ち依頼です。\n\n- Run ID: \`${id}\`\n- 依頼: ${compiled.query}\n- 状態: \`pending_codex\`\n\nCodexで次のように依頼してください。\n\n> Decision Intelligence Workbench の保留中run \`${id}\` を、run-decision-intelligenceスキルで実行して。\n\nCodexは \`request.json\` を読み、現在の一次情報を調査し、\`result.json\` を検証後に保存します。追加のAI APIキーは不要ですが、Codexデスクトップ内でこの処理を実行する必要があります。\n`;
+}
+
+function buildMirofishPayload(id, request, result) {
+  const evidence = (result.evidence || []).map(item => ({
+    id:item.id, title:item.title, url:item.url, publisher:item.publisher,
+    source_tier:item.source_tier, statement_type:item.statement_type,
+    supports:item.supports, limitations:item.limitations
+  }));
+  return {
+    schema_version:'1.0',
+    run_id:id,
+    classification:'synthetic_scenario_input',
+    question:request.query,
+    horizon:request.horizon,
+    regions:request.regions,
+    sectors:request.sectors,
+    seed_evidence:evidence,
+    scenario_priors:result.scenarios || [],
+    knowledge_graph:result.knowledge_graph || { nodes:[], edges:[] },
+    intervention_candidates:(result.knowledge_graph?.nodes || []).filter(node => ['driver','risk','policy','technology'].includes(node.type)).slice(0,12),
+    provenance_rules:[
+      'Simulation output is synthetic and must never be presented as an observed fact.',
+      'Preserve evidence IDs and source URLs when a simulated claim depends on a seed.',
+      'Separate observed evidence, analyst inference, model assumption, and emergent simulation output.',
+      'Return falsifiers, regime changes, and minority-agent outcomes, not only the consensus path.'
+    ],
+    exported_at:new Date().toISOString()
+  };
 }
 
 async function api(req, res, url) {
@@ -81,12 +121,24 @@ async function api(req, res, url) {
     const id = safeRunId(parts[2]); const existing = getRun(id);
     if (!existing) return send(res, 404, { error:'run_not_found' });
     if (req.method === 'GET' && parts.length === 3) return send(res, 200, existing);
+    if (req.method === 'DELETE' && parts.length === 3) return send(res, 200, trashRun(id));
     if (req.method === 'POST' && parts[3] === 'result') {
       const result = await bodyJson(req); const errors = validateResult(result, id);
       if (errors.length) return send(res, 422, { error:'invalid_result', details:errors });
       writeJsonAtomic(runPath(id, 'result.json'), result);
       writeJsonAtomic(runPath(id, 'status.json'), { state:'complete', created_at:existing.status?.created_at || existing.request.created_at, updated_at:new Date().toISOString(), message:'検証済み分析結果を保存しました。' });
       return send(res, 200, getRun(id));
+    }
+    if (parts[3] === 'mirofish' && parts[4] === 'export' && req.method === 'POST') {
+      if (!existing.result) return send(res, 409, { error:'run_not_complete' });
+      const payload=buildMirofishPayload(id, existing.request, existing.result);
+      writeJsonAtomic(runPath(id,'mirofish-input.json'),payload);
+      return send(res,200,{run_id:id,classification:payload.classification,download_url:`/api/runs/${encodeURIComponent(id)}/mirofish/input`,counts:{evidence:payload.seed_evidence.length,nodes:payload.knowledge_graph.nodes.length,edges:payload.knowledge_graph.edges.length,scenarios:payload.scenario_priors.length}});
+    }
+    if (parts[3] === 'mirofish' && parts[4] === 'input' && req.method === 'GET') {
+      const payload=readJson(runPath(id,'mirofish-input.json'));
+      if (!payload) return send(res,404,{error:'mirofish_input_not_found'});
+      return send(res,200,payload,{'Content-Disposition':`attachment; filename="${id}-mirofish-input.json"`});
     }
     if (req.method === 'POST' && parts[3] === 'forecasts' && parts[4] && ['updates','resolve'].includes(parts[5])) {
       if (!existing.result) return send(res, 409, { error:'run_not_complete' });

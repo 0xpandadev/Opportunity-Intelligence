@@ -10,6 +10,10 @@
     "evidence":{
       "type":"object","required":["id","title","url","source_tier","statement_type","accessed_at","supports"],
       "properties":{"id":{"type":"string"},"title":{"type":"string"},"url":{"type":"string"},"publisher":{"type":"string"},"published_at":{"type":["string","null"]},"accessed_at":{"type":"string"},"source_tier":{"enum":["primary","official_secondary","academic","industry","community","synthetic"]},"statement_type":{"enum":["fact","inference","assumption","unknown"]},"supports":{"type":"array","items":{"type":"string"}},"limitations":{"type":"string"},"counterevidence_ids":{"$ref":"#/$defs/evidenceRefs"}}
+    },
+    "methodology":{
+      "type":"object",
+      "properties":{"method_id":{"type":"string"},"summary":{"type":"string"},"steps_applied":{"type":"array","items":{"type":"string"}},"outputs_touched":{"type":"array","items":{"type":"string"}},"departures":{"type":"string"},"evidence_ids":{"$ref":"#/$defs/evidenceRefs"},"id":{"type":"string"},"note":{"type":"string"}}
     }
   },
   "properties":{
@@ -18,9 +22,10 @@
     "executive":{"type":"object","required":["one_line","decision","confidence","why_now","watchouts","decision_spine"],"properties":{"one_line":{"type":"string","minLength":1},"decision":{"type":"string"},"confidence":{"$ref":"#/$defs/scored"},"why_now":{"type":"array"},"watchouts":{"type":"array"},"decision_spine":{"type":"array"}}},
     "megatrends":{"type":"array"},
     "knowledge_graph":{"type":"object","required":["nodes","edges"],"properties":{"nodes":{"type":"array"},"edges":{"type":"array"}}},
-    "whitespaces":{"type":"array"},"profit_pools":{"type":"array"},"investment_routes":{"type":"array"},"business_routes":{"type":"array"},"scenarios":{"type":"array"},"forecasts":{"type":"array"},
+    "whitespaces":{"type":"array","items":{"type":"object","properties":{"competition":{"type":"object","properties":{"current_alternatives":{"type":"array","items":{"type":"string"}},"density":{"enum":["low","medium","high","unknown"]},"saturation_score":{"$ref":"#/$defs/scored"},"unmet_need_score":{"$ref":"#/$defs/scored"},"gap":{"type":["string","boolean"]},"willingness_to_pay":{"type":["string","number","boolean"]},"evidence_ids":{"$ref":"#/$defs/evidenceRefs"}}},"potential":{"type":"object","properties":{"tam":{"type":["string","number","null"]},"willingness_to_pay":{"type":["string","number","null"]},"growth":{"type":["string","number","null"]},"gross_margin":{"type":["string","number","null"]},"repeatability":{"type":["string","number","null"]},"defensibility":{"type":["string","number","null"]},"evidence_ids":{"$ref":"#/$defs/evidenceRefs"}}},"classification":{"enum":["white","contested","red","empty_for_a_reason","unverified"]}}}},
+    "profit_pools":{"type":"array","items":{"type":"object","properties":{"pool_score":{"$ref":"#/$defs/scored"},"profit_definition":{"type":"object","properties":{"owner":{"type":"string"},"metric":{"type":"string"},"geography":{"type":"string"},"horizon":{"type":"string"},"unit":{"type":"string"},"base_year":{"type":["string","number","null"]},"actual_value":{"type":["string","number","null"]},"score_components":{"type":"object"},"confidence":{"$ref":"#/$defs/scored"},"evidence_ids":{"$ref":"#/$defs/evidenceRefs"}}}}}},"investment_routes":{"type":"array"},"business_routes":{"type":"array"},"scenarios":{"type":"array"},"simulation_lab":{"type":"object","properties":{"status":{"enum":["not_run","ready","running","complete","failed"]},"source_classification":{"const":"synthetic"},"environment":{"type":"object"},"agents":{"type":"array"},"rounds":{"type":"number"},"interactions":{"type":"array"},"emergent_events":{"type":"array"},"report":{"type":["object","string"]}}},"forecasts":{"type":"array"},
     "evidence":{"type":"array","items":{"$ref":"#/$defs/evidence"}},
-    "counterarguments":{"type":"array"},"methodology":{"type":"array"},"limitations":{"type":"array"}
+    "counterarguments":{"type":"array"},"methodology":{"type":"array","items":{"$ref":"#/$defs/methodology"}},"limitations":{"type":"array"}
   },
   "additionalProperties":true
 }

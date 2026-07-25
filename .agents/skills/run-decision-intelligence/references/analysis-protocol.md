@@ -15,10 +15,27 @@ Use this source priority:
 3. Industry bodies, credible specialist datasets, company materials.
 4. News, GitHub, Qiita, Reddit, and communities for discovery or weak signals.
 5. Agent simulations only as synthetic scenario evidence.
+6. A whitespace label requires observed alternatives, competition-density evidence, and a documented unmet gap. Without all three, report an opportunity candidate and the missing proof gates instead of a blue-ocean claim.
+7. Record simulation state explicitly: `not_run`, `ready`, `running`, `complete`, or `failed`. Scenario priors are not simulation outputs.
 
 For each material claim store a source, date, tier, fact/inference/assumption/unknown label, limitation, and counterevidence reference. Do not use a source merely because it mentions the topic; record exactly what it supports.
 
 ## 3. Run the method ensemble
+
+Use only the methods that fit the decision. For every method actually used, add one result `methodology` record using its exact catalog ID:
+
+```json
+{
+  "method_id": "reference_class",
+  "summary": "What the method changed in this analysis",
+  "steps_applied": ["Concrete step performed", "Concrete step performed"],
+  "outputs_touched": ["forecasts", "scenarios"],
+  "departures": "Any simplification, missing input, or adaptation from the cited method",
+  "evidence_ids": ["evidence-id"]
+}
+```
+
+Do not claim a method was used when only its vocabulary appears in the prose. `steps_applied` must describe work visible in the result, and `outputs_touched` must name the affected result sections.
 
 1. **Horizon scanning:** inventory established trends, emerging issues, weak signals, and wild cards. Score novelty, momentum, reach, and evidence strength.
 2. **STEEP:** classify social, technological, economic, environmental, political, and legal drivers. Record second-order effects.
@@ -57,3 +74,8 @@ Each forecast needs one binary or precisely measurable question, probability, ba
 - No business route without buyer, budget, validation, and kill criterion.
 - No scenario without signposts.
 - No confidence score without limitations and counterargument.
+- No methodology entry without an exact catalog `method_id`, concrete execution steps, result-section links, and a note on departures or limitations.
+- Do not plot an opportunity on the market-color map unless current alternatives, competition density, solution-saturation score, unmet-need score, and competition evidence IDs are present. Missing items stay in the proof queue.
+- Every whitespace item must separate `competition` (alternatives, density, saturation, unmet gap, evidence) from `potential` (TAM, willingness to pay, growth, gross-margin potential, repeatability, defensibility). Use `null` or omit a field instead of inventing a score.
+- Every profit-pool score must state whose profit is measured, the metric, geography, horizon, unit, base year, evidence, and whether the value is an actual amount or a relative index. Never label a 0–100 attractiveness score as revenue or profit currency.
+- A megatrend must pass four visible gates: multi-year persistence, at least three independent structural drivers, value-chain spillover, and traceable evidence. Use a separate time-horizon radar and decision-priority matrix; do not call an impact-by-momentum scatterplot a radar.
