@@ -94,7 +94,7 @@ async function openRun(id, quiet=false) {
     $('#page-title').textContent=state.current.request.query; history.replaceState(null,'',`?run=${encodeURIComponent(id)}`);
     const listed=state.runs.find(run=>run.id===id); if(listed) listed.status=state.current.status; else state.runs.unshift({id,title:state.current.request.query,created_at:state.current.request.created_at,status:state.current.status});
     renderRuns(); renderStatus(); renderTabs(); renderView();
-    clearInterval(state.polling); if(state.current.status?.state==='pending_codex') state.polling=setInterval(()=>openRun(id,true),5000);
+    clearInterval(state.polling); if(state.current.status?.state==='pending_codex'||['pending_codex','running'].includes(state.current.simulation?.status?.state)) state.polling=setInterval(()=>openRun(id,true),5000);
     if(!quiet) window.scrollTo({top:0,behavior:'smooth'});
   } catch(error) { toast(`分析を開けません: ${error.message}`); }
 }
@@ -127,17 +127,20 @@ function bindDynamic(){
   bindKnowledgeGraph();
   bindTrendRadar();
   bindWhitespaceExplorer();
-  const mirofishExport=$('#mirofish-export');
-  if(mirofishExport) mirofishExport.addEventListener('click',async()=>{
-    mirofishExport.disabled=true;
+  const simulationRequest=$('#simulation-request');
+  if(simulationRequest) simulationRequest.addEventListener('click',async()=>{
+    simulationRequest.disabled=true;
     try{
-      const exported=await api(`/api/runs/${encodeURIComponent(state.current.id)}/mirofish/export`,{method:'POST'});
-      const download=$('#mirofish-download');
-      if(download){download.href=exported.download_url;download.classList.remove('hidden');}
-      toast('MiroFish用のseed packageを生成しました');
-    }catch(error){toast(`生成できません: ${error.message}`);}
-    finally{mirofishExport.disabled=false;}
+      const agentCount=Number($('#simulation-agent-count')?.value||10), rounds=Number($('#simulation-round-count')?.value||6), objective=$('#simulation-objective')?.value||'';
+      state.current=await api(`/api/runs/${encodeURIComponent(state.current.id)}/simulation/request`,{method:'POST',body:JSON.stringify({agent_count:agentCount,rounds,objective})});
+      renderView(); toast('Codexシミュレーション依頼をrun内に作成しました');
+    }catch(error){toast(`依頼を作成できません: ${error.message}`);}
+    finally{simulationRequest.disabled=false;}
   });
+  const simulationCopy=$('[data-copy-simulation]');
+  if(simulationCopy) simulationCopy.addEventListener('click',async()=>{await navigator.clipboard.writeText(simulationCopy.dataset.copySimulation);toast('Codex実行依頼をコピーしました');});
+  const simulationRefresh=$('[data-simulation-refresh]');
+  if(simulationRefresh) simulationRefresh.addEventListener('click',async()=>{state.current=await api(`/api/runs/${encodeURIComponent(state.current.id)}`);renderView();toast('シミュレーション状態を更新しました');});
   $$('#view-content [data-forecast-update]').forEach(button=>button.addEventListener('click',async()=>{
     const id=button.dataset.forecastUpdate, input=$(`#forecast-${CSS.escape(id)}`), probability=Number(input.value)/100;
     try{state.current=await api(`/api/runs/${state.current.id}/forecasts/${encodeURIComponent(id)}/updates`,{method:'POST',body:JSON.stringify({probability,note:'GUI probability update'})});renderView();toast('予測確率を更新しました');}catch(error){toast(error.message);}
@@ -529,19 +532,29 @@ function profitDecisionView(result) {
 }
 
 function simulationView(result) {
-  const graph=result.knowledge_graph||{nodes:[],edges:[]}, lab=result.simulation_lab||{}, complete=lab.status==='complete';
+  const graph=result.knowledge_graph||{nodes:[],edges:[]}, lab=result.simulation_lab||{}, runSimulation=state.current?.simulation||{};
+  const status=runSimulation.status?.state||lab.status||'not_requested', pending=['pending_codex','running'].includes(status), complete=lab.status==='complete'&&!pending;
   const types=[...new Set(arr(graph.nodes).map(node=>node.type).filter(Boolean))];
   const stages=[
     ['01','Seed / Graph','準備済み',`${arr(result.evidence).length} evidence · ${arr(graph.nodes).length} nodes · ${arr(graph.edges).length} edges`],
-    ['02','World / Personas',lab.environment?'生成済み':'未生成',lab.environment?'環境・主体・制約を生成':'実体・役割・行動ルールの生成が必要'],
-    ['03','Agent Simulation',lab.rounds?'実行済み':'未実行',lab.rounds?`${lab.rounds} rounds`:'時間記憶を持つ複数主体シミュレーション'],
+    ['02','World / Personas',arr(lab.agents).length?'生成済み':pending?'実行待ち':'未生成',arr(lab.agents).length?`${arr(lab.agents).length} agents`:'主体・役割・行動ルールを生成'],
+    ['03','Agent Simulation',lab.rounds?'実行済み':status==='running'?'実行中':'未実行',lab.rounds?`${lab.rounds} rounds`:'履歴を保持する複数主体シミュレーション'],
     ['04','ReportAgent',lab.report?'生成済み':'未生成',lab.report?'合成結果を集約済み':'創発事象・分岐・反証を報告へ変換'],
-    ['05','Deep Interaction',lab.interactions?'利用可能':'未実行',lab.interactions?'エージェントへの追跡質問が可能':'主体・報告との対話は未生成']
+    ['05','Deep Interaction',arr(lab.interactions).length?'利用可能':'未実行',arr(lab.interactions).length?`${arr(lab.interactions).length} interactions`:'主体・報告への追跡質問は次段階']
   ];
-  return `<section class="simulation-header"><div><span class="kicker">MIROFISH-INSPIRED SIMULATION LAB</span><h2>証拠から世界モデルを作り、複数主体の反応を試す</h2><p>ここは予測の事実ではなく、意思決定をストレステストする合成実験です。一次情報・推論・シミュレーションを混ぜません。</p></div><div class="simulation-state ${complete?'complete':'pending'}"><span>STATUS</span><b>${complete?'SIMULATION COMPLETE':'NOT RUN'}</b><small>${complete?'合成結果あり':'現在は入力準備のみ'}</small></div></section>
+  const statusLabel=complete?'SIMULATION COMPLETE':status==='running'?'CODEX RUNNING':status==='pending_codex'?'PENDING CODEX':'NOT REQUESTED';
+  const prompt=runSimulation.request?.codex_prompt||'';
+  const executionPanel=complete?`<article class="simulation-input"><span class="kicker">INTERNAL CODEX RUN</span><h3>シミュレーション結果を同じrunに保存済み</h3><p>Codexが証拠境界を維持したまま複数主体を合成し、結果をSimulation Labへ反映しました。外部JSONの受け渡しは不要です。</p><div class="simulation-actions"><button id="simulation-request" class="small-button">再実行依頼を作成</button><button class="small-button" data-simulation-refresh>状態を更新</button></div></article>`:pending?`<article class="simulation-input"><span class="kicker">CODEX HANDOFF / NO API KEY</span><h3>${status==='running'?'Codexがシミュレーションを実行中':'同じrun内に実行依頼を保存しました'}</h3><p>追加のAI APIキーは不要です。Codex Desktopで次の依頼を実行すると、結果はこの画面へ戻ります。</p><code class="simulation-prompt">${esc(prompt)}</code><div class="simulation-actions"><button class="small-button primary" data-copy-simulation="${esc(prompt)}">Codex依頼をコピー</button><button class="small-button" data-simulation-refresh>結果を確認</button></div></article>`:`<article class="simulation-input"><span class="kicker">INTERNAL CODEX RUN / NO API KEY</span><h3>この分析を複数主体でストレステスト</h3><p>外部MiroFishやseedファイルを使わず、Codexがこのrunの証拠・グラフ・シナリオから合成実験を実行します。</p><div class="simulation-config"><label>主体数<input id="simulation-agent-count" type="number" min="4" max="24" value="10"></label><label>ラウンド数<input id="simulation-round-count" type="number" min="3" max="12" value="6"></label><label class="wide">検証目的<textarea id="simulation-objective" rows="2" placeholder="例：電力接続遅延とAI需要鈍化が同時に起きた場合の頑健な戦略"></textarea></label></div><div class="simulation-actions"><button id="simulation-request" class="small-button primary">Codexシミュレーション依頼を作成</button></div></article>`;
+  const agentPanel=complete?`<section class="simulation-results"><header><span class="kicker">AGENT SOCIETY</span><h3>${arr(lab.agents).length}主体の目的・制約・判断規則</h3></header><div class="simulation-agent-grid">${arr(lab.agents).map(agent=>`<article><span>${esc(agent.archetype||agent.role||'AGENT')}</span><h4>${esc(agent.name)}</h4><p><b>目的</b>${esc(agent.objective)}</p><p><b>制約</b>${textList(agent.constraints)}</p><p><b>判断規則</b>${textList(agent.decision_rules)}</p>${evidenceTags(agent.evidence_ids)}</article>`).join('')}</div></section>`:'';
+  const roundPanel=complete?`<section class="simulation-results"><header><span class="kicker">ROUND LOG / PATH DEPENDENCE</span><h3>${lab.rounds}ラウンドの相互作用</h3></header><div class="simulation-rounds">${arr(lab.round_log).map(round=>`<article><i>${String(round.round||'').padStart(2,'0')}</i><div><span>${esc(round.focus||'ROUND')}</span><h4>${esc(round.summary||round.title||'状態更新')}</h4><p><b>行動・相互作用</b>${textList(round.actions||round.interactions)}</p><p><b>状態変化</b>${textList(round.state_changes)}</p><p><b>少数見解</b>${textList(round.minority_views)}</p>${evidenceTags(round.evidence_ids)}</div></article>`).join('')}</div></section>`:'';
+  const eventPanel=complete?`<section class="simulation-result-grid"><article class="simulation-result-block"><span class="kicker">EMERGENT EVENTS</span><h3>事前シナリオに固定されない創発</h3>${arr(lab.emergent_events).map(event=>`<div class="simulation-event"><b>${esc(event.title)}</b><span>${pct(event.probability)}% synthetic weight</span><p>${esc(event.description)}</p><small>Trigger: ${esc(event.trigger||'—')}</small>${evidenceTags(event.evidence_ids)}</div>`).join('')||'<p>記録なし</p>'}</article><article class="simulation-result-block"><span class="kicker">INTERVENTION TESTS</span><h3>介入と対照実験</h3>${arr(lab.interventions).map(item=>`<div class="simulation-event"><b>${esc(item.name)}</b><span>${esc(item.result||item.effect||'')}</span><p>${esc(item.description||item.expected_effect)}</p><small>Risk: ${textList(item.risks)}</small>${evidenceTags(item.evidence_ids)}</div>`).join('')||'<p>記録なし</p>'}</article></section>`:'';
+  const outcomePanel=complete?`<section class="simulation-results"><header><span class="kicker">SYNTHETIC OUTCOME DISTRIBUTION</span><h3>分岐別の結果と先行指標</h3></header><div class="simulation-outcomes">${arr(lab.outcomes).map(item=>`<article><strong>${pct(item.probability)}%</strong><h4>${esc(item.scenario||item.name)}</h4><p>${esc(item.narrative)}</p><small>勝者: ${textList(item.winners)}</small><small>敗者: ${textList(item.losers)}</small><small>先行指標: ${textList(item.signposts)}</small>${evidenceTags(item.evidence_ids)}</article>`).join('')}</div></section>`:'';
+  const report=complete&&typeof lab.report==='object'?`<section class="simulation-report"><header><span class="kicker">REPORT AGENT</span><h3>合成実験から得た意思決定</h3></header><p class="simulation-report-lead">${esc(lab.report.executive_summary)}</p><div><article><b>複数分岐で頑健</b>${arr(lab.report.robust_actions).map(x=>`<p>↳ ${esc(x)}</p>`).join('')}</article><article><b>条件付きで実行</b>${arr(lab.report.contingent_actions).map(x=>`<p>↳ ${esc(x)}</p>`).join('')}</article><article><b>避ける行動</b>${arr(lab.report.avoid).map(x=>`<p>↳ ${esc(x)}</p>`).join('')}</article><article><b>反証条件</b>${arr(lab.falsifiers).map(x=>`<p>↳ ${esc(typeof x==='string'?x:x.condition||x.description)}</p>`).join('')}</article></div><footer>SYNTHETIC — これは観測事実や投資推奨ではなく、意思決定を壊しにいく合成実験です。</footer></section>`:'';
+  return `<section class="simulation-header"><div><span class="kicker">OPPORTUNITY INTELLIGENCE / SIMULATION LAB</span><h2>証拠から世界モデルを作り、複数主体の反応を試す</h2><p>MiroFishの世界モデル・主体相互作用・介入実験を参考に、Codexを実行基盤としてツール内に実装した個人利用機能です。一次情報・推論・合成結果を混ぜません。</p></div><div class="simulation-state ${complete?'complete':'pending'}"><span>STATUS</span><b>${statusLabel}</b><small>${complete?'合成結果あり':pending?'同じrunで処理待ち':'入力条件を設定できます'}</small></div></section>
   <section class="simulation-pipeline">${stages.map(([id,name,status,detail],index)=>`<article class="${index===0||complete?'ready':'pending'}"><i>${id}</i><span>${name}</span><b>${status}</b><small>${detail}</small></article>`).join('')}</section>
-  <section class="simulation-grid"><article class="simulation-input"><span class="kicker">WORLD MODEL INPUT</span><h3>現在利用できる構成要素</h3><div class="simulation-metrics"><span><b>${arr(result.evidence).length}</b>証拠</span><span><b>${arr(graph.nodes).length}</b>主体・要因</span><span><b>${arr(graph.edges).length}</b>因果関係</span><span><b>${arr(result.scenarios).length}</b>事前シナリオ</span></div><div class="world-types">${types.map(type=>`<span>${esc(type)} <b>${arr(graph.nodes).filter(node=>node.type===type).length}</b></span>`).join('')}</div><div class="simulation-actions"><button id="mirofish-export" class="small-button primary">MiroFish seed packageを生成</button><a id="mirofish-download" class="small-button hidden" href="#" download>JSONをダウンロード</a></div></article><article class="simulation-boundary"><span class="kicker">EVIDENCE BOUNDARY</span><h3>この画面でまだ言えないこと</h3><ul><li>主体の行動や創発事象は、まだ生成されていません。</li><li>下のシナリオは証拠ベースの事前仮説で、MiroFishの出力ではありません。</li><li>フルMiroFish実行には別ランタイム、LLM API、Zepが必要です。</li></ul></article></section>
-  <section class="simulation-seeds"><header><span class="kicker">SCENARIO PRIORS / NOT SIMULATION OUTPUT</span><h3>実験へ投入できる初期世界</h3></header><div>${arr(result.scenarios).map(item=>`<article><b>${esc(item.name)}</b><span>${pct(item.probability)}% prior</span><p>${esc(item.narrative||item.description)}</p></article>`).join('')||'<p>シナリオseedはありません。</p>'}</div></section>`;
+  <section class="simulation-grid">${executionPanel}<article class="simulation-boundary"><span class="kicker">EVIDENCE BOUNDARY</span><h3>この実験の読み方</h3><ul><li>主体の発言・相互作用・創発事象はすべて合成結果です。</li><li>確率は観測統計ではなく、分岐を比較するためのsynthetic weightです。</li><li>実在企業の将来行動を断定せず、証拠IDで拘束された意思決定仮説として読みます。</li></ul><div class="simulation-metrics"><span><b>${arr(result.evidence).length}</b>証拠</span><span><b>${arr(graph.nodes).length}</b>要因</span><span><b>${arr(graph.edges).length}</b>因果</span><span><b>${arr(result.scenarios).length}</b>事前分岐</span></div><div class="world-types">${types.map(type=>`<span>${esc(type)} <b>${arr(graph.nodes).filter(node=>node.type===type).length}</b></span>`).join('')}</div></article></section>
+  ${agentPanel}${roundPanel}${eventPanel}${outcomePanel}${report}
+  <section class="simulation-seeds"><header><span class="kicker">SCENARIO PRIORS / BEFORE SIMULATION</span><h3>実験前の初期世界</h3></header><div>${arr(result.scenarios).map(item=>`<article><b>${esc(item.name)}</b><span>${pct(item.probability)}% prior</span><p>${esc(item.narrative||item.description)}</p></article>`).join('')||'<p>シナリオseedはありません。</p>'}</div></section>`;
 }
 
 init();
