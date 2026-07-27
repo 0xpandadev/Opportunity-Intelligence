@@ -287,4 +287,4 @@ node scripts/validate-run.cjs <run-id>
 
 ## License and upstream boundaries
 
-No open-source license has been granted for this repository at this time; normal copyright rules apply. MiroFish source code is not bundled. MiroFish is referenced as methodological inspiration only, and its upstream AGPL-3.0 project remains separate.
+Opportunity Intelligence is released under the [MIT License](LICENSE). MiroFish source code is not bundled. MiroFish is referenced as methodological inspiration only, and its upstream AGPL-3.0 project remains separate.
