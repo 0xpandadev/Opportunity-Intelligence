@@ -1,0 +1,2381 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20260725042538-b1b56f",
+  "status": "pending_codex",
+  "classification": "synthetic_scenario_request",
+  "engine": "codex_mirofish_method",
+  "created_at": "2026-07-25T21:48:19.451Z",
+  "objective": "「日本国内データセンター予測」の意思決定を、複数主体の相互作用と介入実験でストレステストする。",
+  "configuration": {
+    "agent_count": 10,
+    "rounds": 6,
+    "include_minority_views": true,
+    "include_counterfactuals": true,
+    "preserve_evidence_boundary": true
+  },
+  "seed": {
+    "question": "日本国内データセンター予測",
+    "horizon": "3-5 years",
+    "regions": [
+      "japan"
+    ],
+    "sectors": [
+      "cross_sector"
+    ],
+    "evidence": [
+      {
+        "id": "e1-occto-2026-demand",
+        "title": "2026年度 全国及び供給区域ごとの需要想定",
+        "url": "https://www.occto.or.jp/news/010743.html",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "2025〜2035年度の全国需要電力量は年平均+0.5%",
+          "DC・半導体工場新増設が人口減少・省エネを上回る増加要因"
+        ],
+        "limitations": "需要想定であり、個別DCと半導体工場の寄与を分離していない。接続申込の変更で改定される。"
+      },
+      {
+        "id": "e2-enecho-2026-demand",
+        "title": "エネルギー政策：デジタル化の進展等による電力需要",
+        "url": "https://www.enecho.meti.go.jp/about/pamphlet/energy2025/01.html",
+        "source_tier": "official_secondary",
+        "statement_type": "fact",
+        "supports": [
+          "需要電力量は2025年度8034億kWhから2035年度8461億kWhへ増加見通し",
+          "DC・半導体の申込状況が需要増に反映"
+        ],
+        "limitations": "OCCTO想定の政府解説。将来の新増設申込で変動する。"
+      },
+      {
+        "id": "e3-meti-5gw-grid",
+        "title": "経済産業政策新機軸部会 第5次中間整理参考資料集",
+        "url": "https://www.meti.go.jp/shingikai/sankoshin/shin_kijiku/pdf/031_s01_00.pdf",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "DC電力需要は今後10年間で約5GW増加",
+          "系統接続に10年以上かかる例",
+          "ワット・ビット連携による集積拠点形成"
+        ],
+        "limitations": "5GWは2025年1月時点見通しに基づく。案件の重複・撤回リスクを含む可能性。"
+      },
+      {
+        "id": "e4-enecho-efficiency",
+        "title": "増加が見込まれるデータセンターの電力需要をどうする？",
+        "url": "https://www.enecho.meti.go.jp/about/special/johoteikyo/data_center2026.html",
+        "source_tier": "official_secondary",
+        "statement_type": "fact",
+        "supports": [
+          "2026年度提出分からDC項目を追加",
+          "2025年度以降新設DCのPUE目標提出・公表",
+          "2030年度に事業者平均PUE1.4以下を目指す"
+        ],
+        "limitations": "制度説明であり、実際のPUE達成率や設備投資額は示さない。"
+      },
+      {
+        "id": "e5-energy-whitepaper",
+        "title": "エネルギー白書2025 DX・GXを踏まえたエネルギー・産業政策",
+        "url": "https://www.enecho.meti.go.jp/about/whitepaper/2025/html/1-2-2.html",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "大規模需要の系統接続長期化",
+          "適地へのDC集約と先行系統整備の必要性",
+          "DC工期と電源建設期間のミスマッチ"
+        ],
+        "limitations": "政策課題の整理であり、案件別の確率・費用を示さない。"
+      },
+      {
+        "id": "e7-aws-investment",
+        "title": "AWS、日本への2兆2,600億円の投資計画を発表",
+        "url": "https://aws.amazon.com/jp/about-aws/whats-new/2024/01/aws-commits-2trillion-yen-investment-into-japan-ai-and-digital-transformation-from-2023-to-2027/",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "2023〜2027年に東京・大阪のクラウドインフラへ2兆2600億円を投資予定",
+          "国内2リージョンの継続拡張"
+        ],
+        "limitations": "企業発表の投資計画であり、DC建物、サーバー、ネットワーク等の内訳や実行額を分離していない。"
+      },
+      {
+        "id": "e8-microsoft-investment",
+        "title": "Microsoft to invest US$2.9 billion in AI and cloud infrastructure in Japan",
+        "url": "https://news.microsoft.com/source/asia/2024/04/09/microsoft-to-invest-us2-9-billion-in-ai-and-cloud-infrastructure-in-japan-while-boosting-the-nations-skills-research-and-cybersecurity/",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "2年間で29億ドルのAI・クラウド基盤投資を発表"
+        ],
+        "limitations": "投資期間終了後の実行額・容量をこの資料だけでは確認できない。"
+      },
+      {
+        "id": "e9-softbank-tomakomai",
+        "title": "北海道苫小牧データセンター",
+        "url": "https://www.softbank.jp/business/service/platform/datacenter/tomakomai",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "2026年度開業予定",
+          "将来300MW超へ拡張見込み",
+          "北海道再エネ100%利用予定"
+        ],
+        "limitations": "予定値であり、現時点の稼働容量・契約率を示さない。"
+      },
+      {
+        "id": "e10-softbank-sakai",
+        "title": "SoftBank FY2025 Investor Presentation",
+        "url": "https://www.softbank.jp/en/corp/set/data/ir/documents/presentations/fy2025/investors/pdf/sbkk_investors_presentation_20260511_en.pdf",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "堺AI DC 140MW建設",
+          "苫小牧50MW級",
+          "FY2026〜28のAI関連コミット投資0.3兆円"
+        ],
+        "limitations": "投資家向け計画。稼働時期・顧客契約・収益は将来値。"
+      },
+      {
+        "id": "e11-kddi-sakai",
+        "title": "KDDI Acquires Land and Buildings of Sharp Sakai Plant for AI Data Center",
+        "url": "https://newsroom.kddi.com/english/news/detail/kddi_nr-565_3853.html",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "シャープ堺工場の土地・建物をAI DC目的で取得",
+          "液冷と再エネ100%を計画",
+          "2025年度末までの稼働計画を公表"
+        ],
+        "limitations": "2025年時点の計画であり、このrunでは実稼働開始を確認できていない。"
+      },
+      {
+        "id": "e12-ntt-tepco",
+        "title": "NTT Global Data Centers Japan and TEPCO Power Grid to establish a new company",
+        "url": "https://services.global.ntt/en-us/newsroom/ntt-gdc-japan-and-tepco-power-grid-to-establish-a-new-company",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "印西・白井で電力とDCを共同開発",
+          "初期50MW ITロード計画",
+          "2026年度下期の初期容量提供計画"
+        ],
+        "limitations": "共同開発計画であり、稼働確認・最終投資額・契約率は別途必要。"
+      },
+      {
+        "id": "e13-ntt-keihanna",
+        "title": "NTT DATA constructs a new data center in the Kansai Region",
+        "url": "https://services.global.ntt/en-us/newsroom/ntt-constructs-a-new-data-center-in-the-kansai-region",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "京都けいはんな30MW ITロード計画",
+          "約400億円投資",
+          "2025年度下期サービス開始計画"
+        ],
+        "limitations": "2022年発表の計画で、現在の稼働状況はこの資料だけでは確定しない。"
+      },
+      {
+        "id": "e14-jll-japan",
+        "title": "日本のデータセンター市場－集中から分散へ",
+        "url": "https://www.jll.com/ja-jp/insights/japans-data-centre-market-expands-beyond-tokyo-and-osaka",
+        "source_tier": "industry",
+        "statement_type": "fact",
+        "supports": [
+          "DC電力容量の90%が東京大阪に集中",
+          "2025年以降の市場規模は東京160%以上・大阪380%以上へ拡大見通し",
+          "東京の電力供給に8〜10年程度",
+          "電力確保済み用地の高いプレミアム事例"
+        ],
+        "limitations": "JLL推計。市場範囲・計画変更で数値が変わり、完成・稼働を保証しない。"
+      },
+      {
+        "id": "e15-cbre-global",
+        "title": "Global Data Center Trends 2025",
+        "url": "https://www.cbre.com/insights/reports/global-data-center-trends-2025",
+        "source_tier": "industry",
+        "statement_type": "fact",
+        "supports": [
+          "東京の2025年Q1空室率13%",
+          "東京の直近12か月純吸収49.8MW",
+          "土地・電力制約と建設費上昇",
+          "将来供給による価格圧力の可能性"
+        ],
+        "limitations": "グローバル比較の市場定義。日本全体や地方市場を直接代表しない。"
+      },
+      {
+        "id": "e16-vertiv-idcf",
+        "title": "IDCフロンティアとVertiv、150kW高負荷環境で液冷能力を実地確認",
+        "url": "https://www.vertiv.com/jp-asia/about/news-and-events/corporate-news/idc-frontier-and-vertiv-confirm-cooling-capacity-required-for-stable-gpu-server-operation-in-150kw-high-load-environment-through-field-testing/",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "東京府中で1ラック150kWのDLC実証",
+          "2025年7月から府中・奈良生駒でDLCハウジング展開"
+        ],
+        "limitations": "共同発表であり、顧客数・商用粗利・長期障害率は非開示。"
+      },
+      {
+        "id": "e17-nttf-cooling",
+        "title": "Products Engineering Hub for Data Center Coolingを運用開始",
+        "url": "https://www.ntt-f.co.jp/news/2025/20250415.html",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "液冷DC向け冷却システム検証施設を運用",
+          "設計・施工者向けに複数空調機器を実運転展示"
+        ],
+        "limitations": "検証施設であり、市場規模・商用導入数は示さない。"
+      },
+      {
+        "id": "e18-uk-futures-toolkit",
+        "title": "The Futures Toolkit",
+        "url": "https://www.gov.uk/government/publications/futures-toolkit-for-policy-makers-and-analysts/the-futures-toolkit-html",
+        "source_tier": "official_secondary",
+        "statement_type": "fact",
+        "supports": [
+          "Horizon Scanning、Driver Mapping、Scenarios、Policy Stress-testingの実施手順"
+        ],
+        "limitations": "方法論のガイドであり、日本DCの実証データではない。"
+      },
+      {
+        "id": "e19-oecd-foresight",
+        "title": "Strategic Foresight",
+        "url": "https://www.oecd.org/en/about/programmes/strategic-foresight.html",
+        "source_tier": "official_secondary",
+        "statement_type": "fact",
+        "supports": [
+          "メガトレンド分析・ホライズンスキャン・複数シナリオの方法論定義"
+        ],
+        "limitations": "一般的手法の説明。個別予測の精度を保証しない。"
+      },
+      {
+        "id": "e20-kahneman-lovallo",
+        "title": "Timid Choices and Bold Forecasts: A Cognitive Perspective on Risk Taking",
+        "url": "https://pubsonline.informs.org/doi/abs/10.1287/mnsc.39.1.17",
+        "source_tier": "academic",
+        "statement_type": "fact",
+        "supports": [
+          "内部視点の楽観バイアスを避けるための外部視点・参照クラスの理論的根拠"
+        ],
+        "limitations": "DC固有研究ではなく、参照クラス選定の質に依存する。"
+      },
+      {
+        "id": "e21-jstage-mcp",
+        "title": "J-STAGE検索：データセンター（検索結果）",
+        "url": "https://www.jstage.jst.go.jp/result/global/-char/ja?globalSearchKey=%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC",
+        "source_tier": "academic",
+        "statement_type": "fact",
+        "supports": [
+          "データセンター関連文献225件を検索で確認",
+          "2025年の『データセンターとエネルギーの逆説』を検出"
+        ],
+        "limitations": "MCP検索結果に抄録・本文が含まれず、個別主張の内容証拠には使用していない。"
+      },
+      {
+        "id": "e22-meti-local-distribution",
+        "title": "データセンター地方拠点整備事業・地方分散資料",
+        "url": "https://www.meti.go.jp/shingikai/economy/watt_bit/pdf/003_01_00.pdf",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "東京圏等への集中から地方分散を支援",
+          "北海道・九州等の中核拠点と通信インフラ整備の方向"
+        ],
+        "limitations": "支援方針・採択を示す資料で、商用需要や各案件の採算を保証しない。"
+      },
+      {
+        "id": "e23-amazon-listing",
+        "title": "Amazon Investor Relations FAQ — NASDAQ: AMZN",
+        "url": "https://ir.aboutamazon.com/faqs/default.aspx/1000/",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "Amazon.comの上場市場とティッカーAMZN"
+        ],
+        "limitations": "上場識別のみを支え、AWS事業の投資妙味・収益感応度を証明しない。"
+      },
+      {
+        "id": "e24-microsoft-listing",
+        "title": "Microsoft Investor Relations FAQ — NASDAQ: MSFT",
+        "url": "https://www.microsoft.com/en-us/investor/faq",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "Microsoftの上場市場とティッカーMSFT"
+        ],
+        "limitations": "上場識別のみを支え、Azureの投資収益を証明しない。"
+      },
+      {
+        "id": "e25-softbank-listing",
+        "title": "SoftBank Corp. Stock Information — TSE 9434",
+        "url": "https://www.softbank.jp/en/corp/ir/stock/info/",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "SoftBank Corp.の東京証券取引所上場と証券コード9434"
+        ],
+        "limitations": "上場識別のみを支え、AI DC事業の利益寄与を証明しない。"
+      },
+      {
+        "id": "e26-kddi-listing",
+        "title": "KDDI Stock Information — TSE 9433",
+        "url": "https://www.kddi.com/english/corporate/ir/stock-rating/stock/",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "KDDIの東京証券取引所上場と証券コード9433"
+        ],
+        "limitations": "上場識別のみを支え、堺AI DCの収益性を証明しない。"
+      },
+      {
+        "id": "e27-ntt-listing",
+        "title": "About NTT Stock — TSE Prime 9432",
+        "url": "https://group.ntt/en/ir/shares/digest.html",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "NTTの東京証券取引所プライム上場と証券コード9432"
+        ],
+        "limitations": "上場識別のみを支え、各子会社事業のNTT利益寄与を証明しない。"
+      },
+      {
+        "id": "e28-tepco-listing",
+        "title": "TEPCO Stock Information — TSE Prime 9501",
+        "url": "https://www4.tepco.co.jp/en/hd/about/ir/stock/index-e.html",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "TEPCO Holdingsの東京証券取引所プライム上場と証券コード9501"
+        ],
+        "limitations": "上場識別のみを支え、Power Grid事業やDC共同開発の株主価値寄与を証明しない。"
+      },
+      {
+        "id": "e29-jll-listing",
+        "title": "JLL Investor FAQ — NYSE: JLL",
+        "url": "https://ir.jll.com/resources/faq/default.aspx",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "JLLのニューヨーク証券取引所上場とティッカーJLL"
+        ],
+        "limitations": "上場識別のみを支え、日本DC助言の売上感応度を証明しない。"
+      },
+      {
+        "id": "e30-cbre-listing",
+        "title": "CBRE Investor FAQs — NYSE: CBRE",
+        "url": "https://ir.cbre.com/shareholder-services/investor-faqs",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "CBREのニューヨーク証券取引所上場とティッカーCBRE"
+        ],
+        "limitations": "上場識別のみを支え、DC関連サービスの収益寄与を証明しない。"
+      },
+      {
+        "id": "e31-vertiv-listing",
+        "title": "Vertiv Investor FAQs — NYSE: VRT",
+        "url": "https://investors.vertiv.com/resources/investor-faqs/default.aspx",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "Vertivのニューヨーク証券取引所上場とティッカーVRT"
+        ],
+        "limitations": "上場識別のみを支え、液冷事業の成長・バリュエーションを証明しない。"
+      },
+      {
+        "id": "e32-ntt-data-delisting",
+        "title": "Notice of Delisting of Company Shares",
+        "url": "https://www.nttdata.com/global/en/news/press-release/2025/september/092500",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "NTT DATA Group株式が2025年9月26日に東京証券取引所から上場廃止"
+        ],
+        "limitations": "上場状態のみを支え、NTT DATAの事業価値や親会社NTTへの利益寄与を証明しない。"
+      },
+      {
+        "id": "e33-idcf-transfer",
+        "title": "IDCフロンティア事業概要・沿革",
+        "url": "https://www.idcf.jp/recruit/about/business/",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "IDCフロンティアがSoftBank 100%子会社",
+          "2026年4月にデータセンター事業をSoftBankへ承継しクラウド事業に特化"
+        ],
+        "limitations": "組織・事業移管を支えるが、移管後の個別液冷サービス仕様・売上を示さない。"
+      },
+      {
+        "id": "e34-nttf-profile",
+        "title": "NTTファシリティーズ 会社概要",
+        "url": "https://waf.ntt-f.co.jp/profile/profile.html",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "NTTファシリティーズがNTT Urban Solutions 100%出資",
+          "施設の企画・設計・維持管理等を提供"
+        ],
+        "limitations": "直接親会社までを支える。最終親会社NTTへの利益寄与は別途連結セグメント確認が必要。"
+      },
+      {
+        "id": "e35-sakura-dc",
+        "title": "さくらインターネット 2026年3月期第3四半期 決算説明資料",
+        "url": "https://www.sakura.ad.jp/corporate/wp-content/uploads/2026/01/260130-ir_2.pdf",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "石狩で再エネ100%の生成AI向けコンテナDCが稼働",
+          "直接液体冷却方式とGPUクラウドを展開"
+        ],
+        "limitations": "企業決算資料であり、施設別稼働率・顧客別採算は示さない。"
+      },
+      {
+        "id": "e36-sakura-listing",
+        "title": "さくらインターネット 株式情報・株主還元",
+        "url": "https://www.sakura.ad.jp/corporate/ir/stocks-procedure/",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "東京証券取引所プライム上場と証券コード3778"
+        ],
+        "limitations": "上場識別のみを支え、GPUクラウドの投資リターンを証明しない。"
+      },
+      {
+        "id": "e37-iij-dc",
+        "title": "データセンターにおけるIIJの技術や取り組み",
+        "url": "https://www.iij.ad.jp/datacenter/",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "白井50MW・松江のDC運営",
+          "液冷・モジュール型・エッジDCの複数サービスを提供"
+        ],
+        "limitations": "サービス紹介であり、顧客数・設備別利益率・液冷導入比率は示さない。"
+      },
+      {
+        "id": "e38-iij-listing",
+        "title": "IIJ 株式の概要・株主構成",
+        "url": "https://www.iij.ad.jp/ir/stock-info/outline/",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "東京証券取引所プライム上場と証券コード3774"
+        ],
+        "limitations": "上場識別のみを支え、DC事業の投資妙味を証明しない。"
+      },
+      {
+        "id": "e39-bbtower-ishikari",
+        "title": "石狩再エネDCとIOWN APCを基盤にdc.connect NeXを提供",
+        "url": "https://www.bbtower.co.jp/ir/pr/2026/0413_004452/",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "石狩再エネDCが2026年3月末に竣工",
+          "東京・石狩を結ぶコネクティビティサービスを計画"
+        ],
+        "limitations": "提供連携の発表であり、開業後の顧客数・売上・SLA実績は未確認。"
+      },
+      {
+        "id": "e40-bbtower-listing",
+        "title": "BroadBand Tower 銘柄基本情報",
+        "url": "https://www.bbtower.co.jp/ir/stock/info/",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "東京証券取引所スタンダード上場と証券コード3776"
+        ],
+        "limitations": "上場識別のみを支え、石狩DCの株主価値寄与を証明しない。"
+      },
+      {
+        "id": "e41-quantum-iij",
+        "title": "Quantum Mesh、IIJ、ネットチャートが液浸冷却エッジDCを提供開始",
+        "url": "https://www.iij.ad.jp/news/pressrelease/2026/0407.html",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "KAMUI液浸冷却と分散型エッジDCの取扱い開始",
+          "販売・設置・ネットワーク工事・運用保守を共同提供"
+        ],
+        "limitations": "販売開始発表であり、導入社数・実稼働率・商用粗利は未開示。"
+      },
+      {
+        "id": "e42-exeo-edge",
+        "title": "EXEO GroupとIIJがエッジデータセンターソリューションを提供開始",
+        "url": "https://www.exeo.co.jp/news/7904.html",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "DX edge Cool Cubeの取扱いと共同実証を開始",
+          "EXEOがDC電気・空調・通信の施工・保守を提供"
+        ],
+        "limitations": "提供開始・実証段階で、受注高・顧客継続率・液冷改修実績は未開示。"
+      },
+      {
+        "id": "e43-exeo-listing",
+        "title": "EXEO Group IR",
+        "url": "https://www.exeo.co.jp/ir/",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "東京証券取引所プライム上場と証券コード1951"
+        ],
+        "limitations": "上場識別のみを支え、エッジDC事業の利益寄与を証明しない。"
+      },
+      {
+        "id": "e44-quantum-profile",
+        "title": "Quantum Mesh 会社・事業情報",
+        "url": "https://corp.quantummesh.jp/",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "可搬・液浸エッジAIデータセンターとKAMUIを開発",
+          "2023年設立の専門企業"
+        ],
+        "limitations": "会社自己紹介で、非上場状態は公開株式情報がないことから区分した。資本政策・財務規模は未確認。"
+      },
+      {
+        "id": "e45-soinn-sakura",
+        "title": "SOINNとさくらインターネットが省エネAIによる空調制御を実証",
+        "url": "https://www.sakura.ad.jp/corporate/information/newsreleases/2025/03/03/1968218834/",
+        "source_tier": "primary",
+        "statement_type": "fact",
+        "supports": [
+          "省エネAI E-1を石狩DCの空調自動制御で実証",
+          "BACnet対応の運用最適化サービス"
+        ],
+        "limitations": "実証実験であり、商用導入社数・節電効果の再現性・継続契約は未確認。"
+      }
+    ],
+    "scenarios": [
+      {
+        "id": "s1",
+        "name": "制約付き拡大（ベース）",
+        "probability": 0.48,
+        "narrative": "AI・クラウド需要は伸びるが、系統と建設が律速し、東京大阪の大型案件は段階開業。北海道・九州は中核化するが通信と需要家移転が速度を制限する。",
+        "critical_uncertainties": [
+          "系統増強速度",
+          "AI投資の持続性"
+        ],
+        "winners": [
+          "接続済み開発",
+          "設備EPC",
+          "アンカー契約済み運営者"
+        ],
+        "losers": [
+          "未接続投機案件",
+          "汎用空冷施設"
+        ],
+        "leading_indicators": [
+          "接続回答年数",
+          "建設中MW/稼働MW",
+          "事前賃貸率"
+        ],
+        "evidence_ids": [
+          "e1-occto-2026-demand",
+          "e3-meti-5gw-grid",
+          "e14-jll-japan"
+        ]
+      },
+      {
+        "id": "s2",
+        "name": "ワット・ビット加速",
+        "probability": 0.22,
+        "narrative": "先行系統整備、通信幹線、地方拠点支援が連動し、2030年前後に地方AI DCが複数稼働。柔軟負荷と再エネ調達が標準化する。",
+        "critical_uncertainties": [
+          "政策実装速度",
+          "地方アンカー需要"
+        ],
+        "winners": [
+          "地方電力・通信連合",
+          "ブラウンフィールド所有者",
+          "柔軟運用ソフト"
+        ],
+        "losers": [
+          "東京一極前提の高コスト開発"
+        ],
+        "leading_indicators": [
+          "GX戦略地域指定",
+          "先行系統投資",
+          "50MW超地方拠点の稼働"
+        ],
+        "evidence_ids": [
+          "e3-meti-5gw-grid",
+          "e9-softbank-tomakomai",
+          "e22-meti-local-distribution"
+        ]
+      },
+      {
+        "id": "s3",
+        "name": "AI投資消化と供給過多",
+        "probability": 0.2,
+        "narrative": "モデル効率化と顧客のAI ROI精査で容量予約が鈍化する一方、2024〜2027年に決定した供給が完成し、汎用コロケーション価格と低稼働案件の採算が悪化する。",
+        "critical_uncertainties": [
+          "AIワークロード成長",
+          "事前契約の実需要性"
+        ],
+        "winners": [
+          "低原価既存施設",
+          "設備買い手",
+          "統合・再編資本"
+        ],
+        "losers": [
+          "高レバレッジ未契約開発",
+          "旧GPU専用クラウド"
+        ],
+        "leading_indicators": [
+          "東京空室率",
+          "予約キャンセル",
+          "GPU利用率",
+          "価格/kW月"
+        ],
+        "evidence_ids": [
+          "e14-jll-japan",
+          "e15-cbre-global"
+        ]
+      },
+      {
+        "id": "s4",
+        "name": "規制・地域受容性ショック",
+        "probability": 0.1,
+        "narrative": "電力・水・地域負担への反発と供給力不足から、新規接続、立地、情報開示が厳格化し、既存施設と高効率案件だけが優位になる。",
+        "critical_uncertainties": [
+          "供給力不足",
+          "地域合意"
+        ],
+        "winners": [
+          "高効率既存施設",
+          "透明な地域共生モデル",
+          "省エネ改修"
+        ],
+        "losers": [
+          "説明不足の大型新設",
+          "低PUE性能資産"
+        ],
+        "leading_indicators": [
+          "接続規制",
+          "水・騒音条例",
+          "PUE未達事業者への措置"
+        ],
+        "evidence_ids": [
+          "e4-enecho-efficiency",
+          "e5-energy-whitepaper"
+        ]
+      }
+    ],
+    "knowledge_graph": {
+      "nodes": [
+        {
+          "id": "topic",
+          "label": "日本DC 2026-2031",
+          "type": "sector",
+          "confidence": 0.92,
+          "evidence_ids": [
+            "e1-occto-2026-demand",
+            "e3-meti-5gw-grid"
+          ]
+        },
+        {
+          "id": "n-ai-demand",
+          "label": "AI計算需要",
+          "type": "driver",
+          "confidence": 0.87,
+          "evidence_ids": [
+            "e7-aws-investment",
+            "e8-microsoft-investment"
+          ]
+        },
+        {
+          "id": "n-power-demand",
+          "label": "全国電力需要増",
+          "type": "trend",
+          "confidence": 0.9,
+          "evidence_ids": [
+            "e1-occto-2026-demand",
+            "e2-enecho-2026-demand"
+          ]
+        },
+        {
+          "id": "n-grid-delay",
+          "label": "系統接続遅延",
+          "type": "risk",
+          "confidence": 0.91,
+          "evidence_ids": [
+            "e3-meti-5gw-grid",
+            "e5-energy-whitepaper"
+          ]
+        },
+        {
+          "id": "n-grid-ready-land",
+          "label": "電力確保済み用地",
+          "type": "sector",
+          "confidence": 0.84,
+          "evidence_ids": [
+            "e12-ntt-tepco",
+            "e14-jll-japan"
+          ]
+        },
+        {
+          "id": "n-tokyo",
+          "label": "東京圏",
+          "type": "sector",
+          "confidence": 0.88,
+          "evidence_ids": [
+            "e12-ntt-tepco",
+            "e14-jll-japan",
+            "e15-cbre-global"
+          ]
+        },
+        {
+          "id": "n-osaka",
+          "label": "大阪圏",
+          "type": "sector",
+          "confidence": 0.88,
+          "evidence_ids": [
+            "e10-softbank-sakai",
+            "e11-kddi-sakai",
+            "e14-jll-japan"
+          ]
+        },
+        {
+          "id": "n-hokkaido",
+          "label": "北海道中核",
+          "type": "sector",
+          "confidence": 0.78,
+          "evidence_ids": [
+            "e9-softbank-tomakomai",
+            "e14-jll-japan"
+          ]
+        },
+        {
+          "id": "n-kyushu",
+          "label": "九州中核",
+          "type": "sector",
+          "confidence": 0.67,
+          "evidence_ids": [
+            "e1-occto-2026-demand",
+            "e22-meti-local-distribution"
+          ]
+        },
+        {
+          "id": "n-brownfield",
+          "label": "工場跡地転用",
+          "type": "trend",
+          "confidence": 0.85,
+          "evidence_ids": [
+            "e10-softbank-sakai",
+            "e11-kddi-sakai"
+          ]
+        },
+        {
+          "id": "n-liquid",
+          "label": "液体冷却",
+          "type": "technology",
+          "confidence": 0.9,
+          "evidence_ids": [
+            "e16-vertiv-idcf",
+            "e17-nttf-cooling"
+          ]
+        },
+        {
+          "id": "n-pue",
+          "label": "PUE 1.4目標",
+          "type": "policy",
+          "confidence": 0.88,
+          "evidence_ids": [
+            "e4-enecho-efficiency"
+          ]
+        },
+        {
+          "id": "n-watt-bit",
+          "label": "ワット・ビット連携",
+          "type": "policy",
+          "confidence": 0.86,
+          "evidence_ids": [
+            "e3-meti-5gw-grid",
+            "e5-energy-whitepaper"
+          ]
+        },
+        {
+          "id": "n-renewable",
+          "label": "脱炭素電源",
+          "type": "driver",
+          "confidence": 0.79,
+          "evidence_ids": [
+            "e5-energy-whitepaper",
+            "e9-softbank-tomakomai"
+          ]
+        },
+        {
+          "id": "n-fiber",
+          "label": "通信幹線・遅延",
+          "type": "driver",
+          "confidence": 0.76,
+          "evidence_ids": [
+            "e5-energy-whitepaper",
+            "e22-meti-local-distribution"
+          ]
+        },
+        {
+          "id": "n-community",
+          "label": "地域共生・水・騒音",
+          "type": "risk",
+          "confidence": 0.67,
+          "evidence_ids": [
+            "e4-enecho-efficiency",
+            "e9-softbank-tomakomai"
+          ]
+        },
+        {
+          "id": "n-construction",
+          "label": "建設費・施工能力",
+          "type": "risk",
+          "confidence": 0.72,
+          "evidence_ids": [
+            "e15-cbre-global"
+          ]
+        },
+        {
+          "id": "n-prelease",
+          "label": "事前契約",
+          "type": "driver",
+          "confidence": 0.74,
+          "evidence_ids": [
+            "e15-cbre-global"
+          ]
+        },
+        {
+          "id": "n-aws",
+          "label": "AWS",
+          "type": "company",
+          "confidence": 0.94,
+          "evidence_ids": [
+            "e7-aws-investment"
+          ]
+        },
+        {
+          "id": "n-ms",
+          "label": "Microsoft",
+          "type": "company",
+          "confidence": 0.94,
+          "evidence_ids": [
+            "e8-microsoft-investment"
+          ]
+        },
+        {
+          "id": "n-softbank",
+          "label": "SoftBank",
+          "type": "company",
+          "confidence": 0.94,
+          "evidence_ids": [
+            "e9-softbank-tomakomai",
+            "e10-softbank-sakai"
+          ]
+        },
+        {
+          "id": "n-kddi",
+          "label": "KDDI",
+          "type": "company",
+          "confidence": 0.93,
+          "evidence_ids": [
+            "e11-kddi-sakai"
+          ]
+        },
+        {
+          "id": "n-ntt-tepco",
+          "label": "NTT GDC × TEPCO PG",
+          "type": "company",
+          "confidence": 0.92,
+          "evidence_ids": [
+            "e12-ntt-tepco"
+          ]
+        },
+        {
+          "id": "n-flex",
+          "label": "計算負荷の柔軟運用",
+          "type": "technology",
+          "confidence": 0.59,
+          "evidence_ids": [
+            "e3-meti-5gw-grid",
+            "e9-softbank-tomakomai"
+          ]
+        },
+        {
+          "id": "n-occupied",
+          "label": "稼働容量・売上",
+          "type": "sector",
+          "confidence": 0.78,
+          "evidence_ids": [
+            "e14-jll-japan",
+            "e15-cbre-global"
+          ]
+        },
+        {
+          "id": "n-margin",
+          "label": "案件利益率",
+          "type": "sector",
+          "confidence": 0.65,
+          "evidence_ids": [
+            "e14-jll-japan",
+            "e15-cbre-global"
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "source": "n-ai-demand",
+          "target": "topic",
+          "type": "drives",
+          "polarity": "positive",
+          "weight": 0.9
+        },
+        {
+          "source": "n-ai-demand",
+          "target": "n-power-demand",
+          "type": "raises",
+          "polarity": "positive",
+          "weight": 0.83
+        },
+        {
+          "source": "n-power-demand",
+          "target": "n-grid-delay",
+          "type": "intensifies",
+          "polarity": "positive",
+          "weight": 0.86
+        },
+        {
+          "source": "n-grid-delay",
+          "target": "n-grid-ready-land",
+          "type": "creates scarcity",
+          "polarity": "positive",
+          "weight": 0.93
+        },
+        {
+          "source": "n-grid-ready-land",
+          "target": "n-margin",
+          "type": "supports premium",
+          "polarity": "positive",
+          "weight": 0.8
+        },
+        {
+          "source": "n-grid-delay",
+          "target": "n-occupied",
+          "type": "delays",
+          "polarity": "negative",
+          "weight": 0.87
+        },
+        {
+          "source": "n-construction",
+          "target": "n-margin",
+          "type": "compresses",
+          "polarity": "negative",
+          "weight": 0.72
+        },
+        {
+          "source": "n-prelease",
+          "target": "n-margin",
+          "type": "de-risks",
+          "polarity": "positive",
+          "weight": 0.74
+        },
+        {
+          "source": "n-liquid",
+          "target": "n-occupied",
+          "type": "enables density",
+          "polarity": "positive",
+          "weight": 0.82
+        },
+        {
+          "source": "n-liquid",
+          "target": "n-pue",
+          "type": "supports",
+          "polarity": "positive",
+          "weight": 0.75
+        },
+        {
+          "source": "n-pue",
+          "target": "n-liquid",
+          "type": "accelerates",
+          "polarity": "positive",
+          "weight": 0.81
+        },
+        {
+          "source": "n-watt-bit",
+          "target": "n-grid-delay",
+          "type": "aims to reduce",
+          "polarity": "negative",
+          "weight": 0.7
+        },
+        {
+          "source": "n-watt-bit",
+          "target": "n-fiber",
+          "type": "coordinates",
+          "polarity": "positive",
+          "weight": 0.73
+        },
+        {
+          "source": "n-renewable",
+          "target": "n-hokkaido",
+          "type": "supports location",
+          "polarity": "positive",
+          "weight": 0.76
+        },
+        {
+          "source": "n-fiber",
+          "target": "n-hokkaido",
+          "type": "constrains",
+          "polarity": "negative",
+          "weight": 0.67
+        },
+        {
+          "source": "n-fiber",
+          "target": "n-kyushu",
+          "type": "constrains",
+          "polarity": "negative",
+          "weight": 0.62
+        },
+        {
+          "source": "n-community",
+          "target": "n-occupied",
+          "type": "can delay",
+          "polarity": "negative",
+          "weight": 0.6
+        },
+        {
+          "source": "n-brownfield",
+          "target": "n-grid-ready-land",
+          "type": "reuses",
+          "polarity": "positive",
+          "weight": 0.87
+        },
+        {
+          "source": "n-brownfield",
+          "target": "n-osaka",
+          "type": "expands",
+          "polarity": "positive",
+          "weight": 0.9
+        },
+        {
+          "source": "n-aws",
+          "target": "n-tokyo",
+          "type": "invests",
+          "polarity": "positive",
+          "weight": 0.84
+        },
+        {
+          "source": "n-aws",
+          "target": "n-osaka",
+          "type": "invests",
+          "polarity": "positive",
+          "weight": 0.82
+        },
+        {
+          "source": "n-ms",
+          "target": "topic",
+          "type": "invests",
+          "polarity": "positive",
+          "weight": 0.8
+        },
+        {
+          "source": "n-softbank",
+          "target": "n-hokkaido",
+          "type": "builds",
+          "polarity": "positive",
+          "weight": 0.88
+        },
+        {
+          "source": "n-softbank",
+          "target": "n-osaka",
+          "type": "builds",
+          "polarity": "positive",
+          "weight": 0.88
+        },
+        {
+          "source": "n-kddi",
+          "target": "n-osaka",
+          "type": "builds",
+          "polarity": "positive",
+          "weight": 0.86
+        },
+        {
+          "source": "n-ntt-tepco",
+          "target": "n-tokyo",
+          "type": "develops",
+          "polarity": "positive",
+          "weight": 0.88
+        },
+        {
+          "source": "n-ntt-tepco",
+          "target": "n-grid-ready-land",
+          "type": "integrates power",
+          "polarity": "positive",
+          "weight": 0.93
+        },
+        {
+          "source": "n-flex",
+          "target": "n-grid-delay",
+          "type": "reduces peak constraint",
+          "polarity": "negative",
+          "weight": 0.55
+        },
+        {
+          "source": "n-flex",
+          "target": "n-renewable",
+          "type": "matches supply",
+          "polarity": "positive",
+          "weight": 0.61
+        },
+        {
+          "source": "n-tokyo",
+          "target": "n-grid-delay",
+          "type": "concentration pressure",
+          "polarity": "positive",
+          "weight": 0.82
+        },
+        {
+          "source": "n-osaka",
+          "target": "n-brownfield",
+          "type": "hosts",
+          "polarity": "positive",
+          "weight": 0.84
+        },
+        {
+          "source": "n-occupied",
+          "target": "n-margin",
+          "type": "generates",
+          "polarity": "positive",
+          "weight": 0.9
+        },
+        {
+          "source": "n-pue",
+          "target": "n-community",
+          "type": "improves acceptance",
+          "polarity": "negative",
+          "weight": 0.5
+        },
+        {
+          "source": "n-community",
+          "target": "n-hokkaido",
+          "type": "requires consent",
+          "polarity": "negative",
+          "weight": 0.56
+        }
+      ]
+    },
+    "megatrends": [
+      {
+        "id": "m1-ai-compute-infrastructure",
+        "name": "AI計算基盤の国内常設化",
+        "stage": "accelerating",
+        "horizon": "0-5年",
+        "velocity": 0.9,
+        "impact": 0.94,
+        "confidence": 0.86,
+        "description": "生成AI・推論・データ主権の需要が、汎用クラウド増設からGPU高密度設備、東西冗長、国内運用へ投資の質を変えている。単発案件ではなく、複数の世界大手と通信事業者が別々に資本投入しているため構造変化と判定した。",
+        "drivers": [
+          "企業AI導入",
+          "ハイパースケーラー投資",
+          "ソブリンクラウド需要",
+          "GPU高密度化"
+        ],
+        "implications": [
+          "電力・冷却を含む一体調達",
+          "東京大阪に加え地方中核拠点",
+          "長期容量予約と事前契約",
+          "設備陳腐化リスクの上昇"
+        ],
+        "evidence_ids": [
+          "e7-aws-investment",
+          "e8-microsoft-investment",
+          "e9-softbank-tomakomai",
+          "e11-kddi-sakai"
+        ]
+      },
+      {
+        "id": "m2-power-becomes-location",
+        "name": "電力接続が立地価値を決める",
+        "stage": "structural",
+        "horizon": "0-10年",
+        "velocity": 0.82,
+        "impact": 0.98,
+        "confidence": 0.91,
+        "description": "DCの需要家側工期と電源・系統側工期が一致せず、接続可能時期、変電所余力、既存受電設備が土地そのものより重要になっている。全国需要増、約5GWの増分見通し、10年以上の接続例が同じ方向を示す。",
+        "drivers": [
+          "DC電力需要増",
+          "系統増強の長期化",
+          "脱炭素電源の不足",
+          "都市圏への集中"
+        ],
+        "implications": [
+          "接続済み用地のプレミアム",
+          "電力会社との共同開発",
+          "ワット・ビット連携",
+          "案件完成時期の二極化"
+        ],
+        "evidence_ids": [
+          "e1-occto-2026-demand",
+          "e3-meti-5gw-grid",
+          "e5-energy-whitepaper",
+          "e12-ntt-tepco"
+        ]
+      },
+      {
+        "id": "m3-brownfield-regionalization",
+        "name": "工場跡地転用と地方中核化",
+        "stage": "scaling",
+        "horizon": "1-6年",
+        "velocity": 0.78,
+        "impact": 0.86,
+        "confidence": 0.82,
+        "description": "東京・大阪への集中リスクと接続時間を回避するため、既存の土地・建物・受電・冷却を持つ工場跡地と、北海道・九州など再エネ・通信を一体整備できる地域へ案件が移る。",
+        "drivers": [
+          "既存受電資産",
+          "地方分散政策",
+          "災害レジリエンス",
+          "再エネ立地",
+          "工場閉鎖資産の再利用"
+        ],
+        "implications": [
+          "ブラウンフィールドDD需要",
+          "自治体との地域共生",
+          "通信幹線の先行整備",
+          "東京大阪以外の投資選択肢"
+        ],
+        "evidence_ids": [
+          "e9-softbank-tomakomai",
+          "e10-softbank-sakai",
+          "e11-kddi-sakai",
+          "e14-jll-japan",
+          "e22-meti-local-distribution"
+        ]
+      },
+      {
+        "id": "m4-liquid-efficiency-license",
+        "name": "液冷・省エネが運転許可条件へ",
+        "stage": "accelerating",
+        "horizon": "0-5年",
+        "velocity": 0.84,
+        "impact": 0.83,
+        "confidence": 0.87,
+        "description": "ラック密度上昇と省エネ制度強化が同時進行し、冷却は設備オプションから容量販売・地域受容性・収益性を左右する基盤になる。国内で150kW級の実証と液冷設計競争がすでに始まっている。",
+        "drivers": [
+          "GPU発熱密度",
+          "PUE目標",
+          "エネルギー報告義務",
+          "電力単価",
+          "水・地域環境制約"
+        ],
+        "implications": [
+          "既存施設改修市場",
+          "設備とIT運用の統合",
+          "計測・最適制御",
+          "空冷専用資産の陳腐化"
+        ],
+        "evidence_ids": [
+          "e4-enecho-efficiency",
+          "e16-vertiv-idcf",
+          "e17-nttf-cooling",
+          "e11-kddi-sakai"
+        ]
+      },
+      {
+        "id": "m5-capacity-execution-gap",
+        "name": "発表容量と稼働容量の乖離",
+        "stage": "emerging",
+        "horizon": "1-5年",
+        "velocity": 0.7,
+        "impact": 0.88,
+        "confidence": 0.78,
+        "description": "大規模パイプラインが増える一方、電力、建設会社、コスト、アンカーテナント、機器納期を通過しない容量は売上を生まない。市場規模の拡大と個別案件の採算悪化が同時に起こり得る。",
+        "drivers": [
+          "建設費上昇",
+          "系統接続遅延",
+          "大型案件の段階開業",
+          "事前賃貸",
+          "資本コスト"
+        ],
+        "implications": [
+          "MW発表値の割引評価",
+          "稼働開始確率の採用",
+          "建設・設備企業への利益移転",
+          "コロケーション価格圧力"
+        ],
+        "evidence_ids": [
+          "e3-meti-5gw-grid",
+          "e14-jll-japan",
+          "e15-cbre-global",
+          "e13-ntt-keihanna"
+        ]
+      }
+    ],
+    "whitespaces": [
+      {
+        "id": "w1-grid-ready-campus-intelligence",
+        "name": "系統接続確度つきDC用地インテリジェンス",
+        "classification": "contested",
+        "customer": "DCデベロッパー、インフラファンド、通信・クラウド事業者",
+        "buyer": "投資委員会、開発責任者、用地取得責任者",
+        "pain": "土地取得後に接続時期・増強負担・通信引込が判明し、案件IRRと開業時期が崩れる。",
+        "opportunity": "変電所余力、接続工程、回線、災害、用水、許認可、地域受容性を同じ案件台帳にし、確度別にオプション取得を支援する。",
+        "budget": "1案件の失敗回避価値が大きく、調査料＋成功報酬の余地。ただし顧客面談で要検証。",
+        "score": {
+          "market_attractiveness": 0.9,
+          "feasibility": 0.66,
+          "evidence_strength": 0.82
+        },
+        "competition": {
+          "current_alternatives": [
+            "一般送配電事業者への個別接続相談",
+            "JLL/CBRE等のDC用地助言",
+            "NTT GDC・TEPCO PG型の共同開発",
+            "経産省ワット・ビット連携"
+          ],
+          "density": "medium",
+          "saturation_score": 0.48,
+          "unmet_need_score": 0.84,
+          "gap": "公開情報と個別相談が分断され、投資前に接続確度と代替工程を比較できる共通台帳が弱い。",
+          "willingness_to_pay": "高い可能性。ただし一次顧客証拠なし",
+          "evidence_ids": [
+            "e3-meti-5gw-grid",
+            "e12-ntt-tepco",
+            "e14-jll-japan"
+          ]
+        },
+        "potential": {
+          "tam": "未算定。DC開発案件数・用地DD単価が必要",
+          "willingness_to_pay": "案件調査料＋成功報酬モデルを検証",
+          "growth": "DCパイプラインと接続遅延の双方で追い風",
+          "gross_margin": "データ再利用後は高い可能性",
+          "repeatability": "地域別テンプレートで反復可能",
+          "defensibility": "接続実績・失注理由・自治体履歴の独自データ",
+          "evidence_ids": [
+            "e3-meti-5gw-grid",
+            "e14-jll-japan"
+          ]
+        },
+        "next_test": "東京・大阪・北海道の開発案件10件で、当初開業予定と接続回答・実開業の差を復元し、3社の開発責任者へ有償PoCを提示する。",
+        "evidence_ids": [
+          "e3-meti-5gw-grid",
+          "e12-ntt-tepco",
+          "e14-jll-japan"
+        ]
+      },
+      {
+        "id": "w2-brownfield-conversion-os",
+        "name": "大電力工場跡地のDC転用OS",
+        "classification": "contested",
+        "customer": "工場所有者、自治体、DC事業者、インフラ投資家",
+        "buyer": "経営企画、不動産・事業開発、自治体企業誘致部門",
+        "pain": "受電・冷却・建物・土壌・通信を別々に評価し、転用可否と改修費が遅くまで確定しない。",
+        "opportunity": "工場資産を受電容量、冷却方式、構造荷重、通信、環境、撤去費で標準診断し、運営者・資本・需要家を組成する。",
+        "budget": "売却・共同開発価値に連動する成功報酬を仮説とする。",
+        "score": {
+          "market_attractiveness": 0.82,
+          "feasibility": 0.61,
+          "evidence_strength": 0.78
+        },
+        "competition": {
+          "current_alternatives": [
+            "SoftBankによる堺工場転用",
+            "KDDIによる堺工場取得・転用",
+            "EPC・不動産コンサルの個別DD",
+            "NTT GDC・電力会社の共同開発"
+          ],
+          "density": "medium",
+          "saturation_score": 0.46,
+          "unmet_need_score": 0.76,
+          "gap": "大型先行事例はあるが、全国の工場資産を比較可能にする標準化された転用診断と案件組成は未成熟。",
+          "willingness_to_pay": "資産売却・再生額に連動。未検証",
+          "evidence_ids": [
+            "e10-softbank-sakai",
+            "e11-kddi-sakai",
+            "e12-ntt-tepco"
+          ]
+        },
+        "potential": {
+          "tam": "未算定。閉鎖・低稼働工場と受電容量の台帳が必要",
+          "willingness_to_pay": "DD固定料＋組成成功報酬",
+          "growth": "接続待ち回避需要で増加余地",
+          "gross_margin": "ソフト部分は中高、EPC請負は低下",
+          "repeatability": "診断票とコストモデルは反復可能",
+          "defensibility": "工場設備・接続・改修実績の独自ベンチマーク",
+          "evidence_ids": [
+            "e10-softbank-sakai",
+            "e11-kddi-sakai"
+          ]
+        },
+        "next_test": "閉鎖・縮小工場20件を電力・建物・通信でスクリーニングし、上位3件で概算CAPEXと開業短縮年数を算出する。",
+        "evidence_ids": [
+          "e10-softbank-sakai",
+          "e11-kddi-sakai"
+        ]
+      },
+      {
+        "id": "w3-flexible-compute-grid-orchestration",
+        "name": "計算負荷×電力制約の柔軟運用サービス",
+        "classification": "contested",
+        "customer": "AI DC運営者、GPUクラウド、電力小売・アグリゲーター",
+        "buyer": "DC運用責任者、電力調達責任者、GPUクラウド事業責任者",
+        "pain": "再エネ変動、ピーク契約、系統制約と、学習・推論ジョブの締切を別々に最適化している。",
+        "opportunity": "移動可能な学習ジョブ、蓄電池、冷熱、電力価格、炭素強度を統合して、SLAを守りながらピークと電力費を下げる。",
+        "budget": "削減電力費・追加販売可能MWのシェア。実測PoCが必要。",
+        "score": {
+          "market_attractiveness": 0.79,
+          "feasibility": 0.54,
+          "evidence_strength": 0.61
+        },
+        "competition": {
+          "current_alternatives": [
+            "電力会社・アグリゲーターのDR",
+            "ハイパースケーラーの内部ジョブスケジューラ",
+            "蓄電池・EMS",
+            "SoftBank Telco AI Cloud構想"
+          ],
+          "density": "medium",
+          "saturation_score": 0.43,
+          "unmet_need_score": 0.73,
+          "gap": "日本の料金・系統制約とGPUジョブSLAを同時に扱う運用レイヤーは公開事例が少ない。",
+          "willingness_to_pay": "成果連動を仮定。顧客証拠なし",
+          "evidence_ids": [
+            "e3-meti-5gw-grid",
+            "e9-softbank-tomakomai",
+            "e10-softbank-sakai"
+          ]
+        },
+        "potential": {
+          "tam": "未算定。対象MW×回避可能電力費で算出",
+          "willingness_to_pay": "電力費削減・容量解放の10〜20%を仮説",
+          "growth": "高密度GPUと変動電源の増加に連動",
+          "gross_margin": "ソフトウェア中心なら高い可能性",
+          "repeatability": "料金・SLAテンプレートで反復",
+          "defensibility": "実運用の熱・ジョブ・価格時系列",
+          "evidence_ids": [
+            "e3-meti-5gw-grid",
+            "e9-softbank-tomakomai"
+          ]
+        },
+        "next_test": "1MW相当のジョブ履歴と電力価格でバックテストし、SLA違反ゼロ条件の年間削減額と追加販売可能容量を提示する。",
+        "evidence_ids": [
+          "e3-meti-5gw-grid",
+          "e9-softbank-tomakomai"
+        ]
+      },
+      {
+        "id": "w4-liquid-retrofit-integrator",
+        "name": "既存DCの高密度液冷改修インテグレーター",
+        "classification": "contested",
+        "customer": "既存コロケーション、企業DC、GPUクラウド",
+        "buyer": "施設責任者、CTO、設備投資委員会",
+        "pain": "CDU・配管・漏水・空冷残熱・保守責任がITとファシリティをまたぎ、停止リスクが高い。",
+        "opportunity": "ラック単位の熱設計、液冷設備、試運転、監視、保守責任を一括し、段階改修する。",
+        "budget": "ラック・MW単位の改修費と保守契約。市場価格の一次確認が必要。",
+        "score": {
+          "market_attractiveness": 0.8,
+          "feasibility": 0.68,
+          "evidence_strength": 0.86
+        },
+        "competition": {
+          "current_alternatives": [
+            "Vertiv",
+            "NTTファシリティーズ",
+            "Schneider Electric",
+            "IDCフロンティアのDLCハウジング",
+            "設備EPC各社"
+          ],
+          "density": "high",
+          "saturation_score": 0.74,
+          "unmet_need_score": 0.71,
+          "gap": "製品は豊富だが、既存設備の停止を抑えた責任一体型の改修・運用保証には実行余地がある。",
+          "willingness_to_pay": "高密度容量の販売増で回収できる場合に存在",
+          "evidence_ids": [
+            "e16-vertiv-idcf",
+            "e17-nttf-cooling",
+            "e11-kddi-sakai"
+          ]
+        },
+        "potential": {
+          "tam": "未算定。既存MWと液冷対応率が必要",
+          "willingness_to_pay": "改修CAPEX＋複数年保守",
+          "growth": "GPUラック密度上昇で強い",
+          "gross_margin": "機器販売は中、設計・保守は中高",
+          "repeatability": "標準ラック構成で反復",
+          "defensibility": "無停止改修・熱障害の実績",
+          "evidence_ids": [
+            "e16-vertiv-idcf",
+            "e17-nttf-cooling"
+          ]
+        },
+        "next_test": "既存3施設で熱・電力・配管監査を行い、空冷継続、リアドア、DLCのNPVと停止リスクを比較する。",
+        "evidence_ids": [
+          "e16-vertiv-idcf",
+          "e17-nttf-cooling"
+        ]
+      },
+      {
+        "id": "w5-community-impact-ledger",
+        "name": "地域共生・水・騒音・自然資本の証拠台帳",
+        "classification": "unverified",
+        "customer": "自治体、DC開発者、地域金融機関",
+        "buyer": "立地・ESG・渉外責任者",
+        "pain": "電力・雇用の便益と、水・騒音・排熱・景観・自然資本の負担を同じ基準で説明できない。",
+        "opportunity": "地域別のベースライン、影響、便益、苦情、緩和策を公開可能な台帳とダッシュボードにする。",
+        "score": {
+          "market_attractiveness": 0.58,
+          "feasibility": 0.62,
+          "evidence_strength": 0.42
+        },
+        "competition": {
+          "current_alternatives": [
+            "環境影響評価コンサル",
+            "事業者の個別ESG報告",
+            "自治体の立地協定"
+          ],
+          "density": "unknown",
+          "gap": "DC専用で地域比較できる標準台帳の存在と支払意思を確認できていない。",
+          "willingness_to_pay": "未確認",
+          "evidence_ids": [
+            "e4-enecho-efficiency",
+            "e9-softbank-tomakomai"
+          ]
+        },
+        "potential": {
+          "tam": "未算定",
+          "willingness_to_pay": "未確認",
+          "growth": "地域案件増加に連動する可能性",
+          "gross_margin": "未確認",
+          "repeatability": "指標標準化できれば可能",
+          "defensibility": "地域合意・苦情・緩和履歴",
+          "evidence_ids": [
+            "e4-enecho-efficiency"
+          ]
+        },
+        "next_test": "自治体5、開発者5、住民・地域事業者10への面談で、遅延原因と既存コンサルとの差を確認する。",
+        "evidence_ids": [
+          "e4-enecho-efficiency",
+          "e9-softbank-tomakomai"
+        ]
+      }
+    ],
+    "market_landscape": {
+      "as_of": "2026-07-25",
+      "scan_notes": [
+        "上場企業を先に表示し、ティッカーと市場は公式IRで確認した。",
+        "関連企業であることと、利益成長・割安性・投資妙味があることは別判定とした。",
+        "観測範囲は一次・公式情報で関係を確認できた企業と制度に限定し、網羅性は保証しない。"
+      ],
+      "entities": [
+        {
+          "id": "market-aws",
+          "name": "Amazon Web Services (Amazon.com)",
+          "entity_type": "company",
+          "listing": {
+            "status": "listed_parent",
+            "ticker": "AMZN",
+            "exchange": "NASDAQ",
+            "parent": "Amazon.com, Inc."
+          },
+          "country": "米国 / 日本展開",
+          "scale": "global",
+          "role": "日本のAI・クラウド計算基盤へ大型投資するハイパースケーラー。",
+          "offerings": [
+            "AWS東京リージョン",
+            "AWS大阪リージョン",
+            "AI・クラウド基盤"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m1-ai-compute-infrastructure",
+              "relationship": "国内計算基盤の常設化を需要側・投資側から加速する。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m5-capacity-execution-gap",
+              "relationship": "公表投資額は大きいが、稼働MW・契約率との分離確認が必要な代表例。"
+            }
+          ],
+          "evidence_ids": [
+            "e7-aws-investment",
+            "e23-amazon-listing"
+          ]
+        },
+        {
+          "id": "market-microsoft",
+          "name": "Microsoft / Azure",
+          "entity_type": "company",
+          "listing": {
+            "status": "listed",
+            "ticker": "MSFT",
+            "exchange": "NASDAQ"
+          },
+          "country": "米国 / 日本展開",
+          "scale": "global",
+          "role": "日本のAI・クラウドインフラと人材・研究へ投資するハイパースケーラー。",
+          "offerings": [
+            "Microsoft Azure",
+            "AI・クラウドインフラ"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m1-ai-compute-infrastructure",
+              "relationship": "日本国内のAI・クラウド容量を拡張する主要プレイヤー。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m5-capacity-execution-gap",
+              "relationship": "投資発表から実稼働・収益化までの進捗確認対象。"
+            }
+          ],
+          "evidence_ids": [
+            "e8-microsoft-investment",
+            "e24-microsoft-listing"
+          ]
+        },
+        {
+          "id": "market-softbank",
+          "name": "SoftBank Corp.",
+          "entity_type": "company",
+          "listing": {
+            "status": "listed",
+            "ticker": "9434",
+            "exchange": "Tokyo Stock Exchange Prime"
+          },
+          "country": "日本",
+          "scale": "national",
+          "role": "苫小牧と堺でAIデータセンターを開発し、通信・AI計算・データセンター運用を束ねる。",
+          "offerings": [
+            "北海道苫小牧データセンター",
+            "堺AIデータセンター",
+            "Telco AI Cloud",
+            "高密度・液冷DCサービス"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m1-ai-compute-infrastructure",
+              "relationship": "国内AI計算基盤を自社通信・クラウド戦略と一体で整備する。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m3-brownfield-regionalization",
+              "relationship": "堺工場跡地転用と北海道拠点で二つの地方立地モデルを実行する。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m4-liquid-efficiency-license",
+              "relationship": "高密度AI設備と液冷対応の既存サービス側プレイヤー。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m5-capacity-execution-gap",
+              "relationship": "公表MWに対し段階開業・顧客契約・利用率を追うべき事業者。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w2-brownfield-conversion-os",
+              "relationship": "堺の工場転用を自社実行する先行事例であり、同時にベンチマーク／競争相手。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w3-flexible-compute-grid-orchestration",
+              "relationship": "Telco AI Cloud構想は計算負荷と通信・設備運用を束ねる既存代替。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w4-liquid-retrofit-integrator",
+              "relationship": "2026年4月にIDCフロンティアからDC事業を承継し、高密度DC運用側の既存プレイヤーとなった。"
+            }
+          ],
+          "evidence_ids": [
+            "e9-softbank-tomakomai",
+            "e10-softbank-sakai",
+            "e16-vertiv-idcf",
+            "e25-softbank-listing",
+            "e33-idcf-transfer"
+          ]
+        },
+        {
+          "id": "market-kddi",
+          "name": "KDDI",
+          "entity_type": "company",
+          "listing": {
+            "status": "listed",
+            "ticker": "9433",
+            "exchange": "Tokyo Stock Exchange Prime"
+          },
+          "country": "日本",
+          "scale": "national",
+          "role": "堺工場の土地・建物を取得し、液冷・再エネ対応AIデータセンターへ転用する通信事業者。",
+          "offerings": [
+            "大阪堺AIデータセンター",
+            "Telehouse",
+            "液冷対応計画"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m1-ai-compute-infrastructure",
+              "relationship": "国内AI計算基盤へ通信事業者資本を投入する。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m3-brownfield-regionalization",
+              "relationship": "既存工場資産の転用を実行する代表例。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m4-liquid-efficiency-license",
+              "relationship": "液冷と再エネを計画条件に組み込む。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m5-capacity-execution-gap",
+              "relationship": "取得・計画から本稼働への移行確認対象。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w2-brownfield-conversion-os",
+              "relationship": "工場転用の先行実行者で、標準化OSのベンチマーク／潜在顧客・競合。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w4-liquid-retrofit-integrator",
+              "relationship": "高密度液冷導入の需要側・運営側プレイヤー。"
+            }
+          ],
+          "evidence_ids": [
+            "e11-kddi-sakai",
+            "e26-kddi-listing"
+          ]
+        },
+        {
+          "id": "market-ntt-gdc",
+          "name": "NTT Global Data Centers Japan",
+          "entity_type": "company",
+          "listing": {
+            "status": "listed_parent",
+            "ticker": "9432",
+            "exchange": "Tokyo Stock Exchange Prime",
+            "parent": "NTT"
+          },
+          "country": "日本 / グローバル",
+          "scale": "global",
+          "role": "TEPCO Power Gridと電力・データセンター共同開発を進める運営事業者。",
+          "offerings": [
+            "印西・白井DC共同開発",
+            "コロケーション",
+            "グローバルDC運営"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m2-power-becomes-location",
+              "relationship": "系統運営者との共同開発で、接続確度を立地価値へ転換する。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m5-capacity-execution-gap",
+              "relationship": "初期50MW計画の提供開始と契約進捗が実行力の観測点。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w1-grid-ready-campus-intelligence",
+              "relationship": "接続確度を共同開発で確保する既存代替・比較対象。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w2-brownfield-conversion-os",
+              "relationship": "電力会社と運営者を束ねる案件組成モデルの既存代替。"
+            }
+          ],
+          "evidence_ids": [
+            "e12-ntt-tepco",
+            "e27-ntt-listing"
+          ]
+        },
+        {
+          "id": "market-tepco-pg",
+          "name": "TEPCO Power Grid",
+          "entity_type": "company",
+          "listing": {
+            "status": "listed_parent",
+            "ticker": "9501",
+            "exchange": "Tokyo Stock Exchange Prime",
+            "parent": "Tokyo Electric Power Company Holdings"
+          },
+          "country": "日本",
+          "scale": "regional",
+          "role": "首都圏の系統接続と、DC向け電力・用地の共同開発を担う一般送配電事業者。",
+          "offerings": [
+            "系統接続協議",
+            "NTT GDCとの共同開発",
+            "系統増強"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m2-power-becomes-location",
+              "relationship": "接続可能時期と増強計画を握るボトルネック主体。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m5-capacity-execution-gap",
+              "relationship": "計画MWを実稼働へ変える接続工程の実行主体。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w1-grid-ready-campus-intelligence",
+              "relationship": "個別接続相談と共同開発は現在の主要代替手段。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w3-flexible-compute-grid-orchestration",
+              "relationship": "系統制約・DR信号を提供する協業先候補。"
+            }
+          ],
+          "evidence_ids": [
+            "e12-ntt-tepco",
+            "e28-tepco-listing"
+          ]
+        },
+        {
+          "id": "market-ntt-data",
+          "name": "NTT DATA Group",
+          "entity_type": "company",
+          "listing": {
+            "status": "listed_parent",
+            "ticker": "9432",
+            "exchange": "Tokyo Stock Exchange Prime",
+            "parent": "NTT（NTT DATA Groupは2025-09-26上場廃止）"
+          },
+          "country": "日本 / グローバル",
+          "scale": "global",
+          "role": "関西で大規模DCを開発・運営するITサービス／データセンター事業者。",
+          "offerings": [
+            "京都けいはんなデータセンター",
+            "マネージドITサービス"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m1-ai-compute-infrastructure",
+              "relationship": "関西の国内計算・IT基盤容量を増設する。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m3-brownfield-regionalization",
+              "relationship": "東京・大阪中心から関西広域へ容量を拡張するプレイヤー。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m5-capacity-execution-gap",
+              "relationship": "2022年発表計画の実稼働状況を追うべき案件。"
+            }
+          ],
+          "evidence_ids": [
+            "e13-ntt-keihanna",
+            "e27-ntt-listing",
+            "e32-ntt-data-delisting"
+          ]
+        },
+        {
+          "id": "market-jll",
+          "name": "Jones Lang LaSalle (JLL)",
+          "entity_type": "company",
+          "listing": {
+            "status": "listed",
+            "ticker": "JLL",
+            "exchange": "New York Stock Exchange"
+          },
+          "country": "米国 / 日本展開",
+          "scale": "global",
+          "role": "データセンター市場調査、立地・不動産・取引助言を提供する既存専門サービス。",
+          "offerings": [
+            "DC用地助言",
+            "市場調査",
+            "不動産取引・開発助言"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m2-power-becomes-location",
+              "relationship": "電力確保済み用地のプレミアムを可視化する。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m3-brownfield-regionalization",
+              "relationship": "日本DCの地方分散と用地市場を調査する。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m5-capacity-execution-gap",
+              "relationship": "計画供給と市場実需を比較する第三者観測者。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w1-grid-ready-campus-intelligence",
+              "relationship": "用地助言という現行代替であり、系統確度データの差が検証対象。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w2-brownfield-conversion-os",
+              "relationship": "不動産DD・取引助言で既に一部ジョブを提供する競合／協業先。"
+            }
+          ],
+          "evidence_ids": [
+            "e14-jll-japan",
+            "e29-jll-listing"
+          ]
+        },
+        {
+          "id": "market-cbre",
+          "name": "CBRE Group",
+          "entity_type": "company",
+          "listing": {
+            "status": "listed",
+            "ticker": "CBRE",
+            "exchange": "New York Stock Exchange"
+          },
+          "country": "米国 / 日本展開",
+          "scale": "global",
+          "role": "グローバルDC需給・空室・供給パイプラインと不動産助言を提供する。",
+          "offerings": [
+            "Global Data Center Trends",
+            "DC不動産助言",
+            "市場ベンチマーク"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m5-capacity-execution-gap",
+              "relationship": "発表供給と空室・吸収量の差を観測する第三者データ源。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w1-grid-ready-campus-intelligence",
+              "relationship": "市場・用地助言の現行代替。系統接続確度の深さが差別化点となる。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w2-brownfield-conversion-os",
+              "relationship": "不動産・設備DDを既に提供し得る競合／チャネル。"
+            }
+          ],
+          "evidence_ids": [
+            "e15-cbre-global",
+            "e30-cbre-listing"
+          ]
+        },
+        {
+          "id": "market-vertiv",
+          "name": "Vertiv Holdings",
+          "entity_type": "company",
+          "listing": {
+            "status": "listed",
+            "ticker": "VRT",
+            "exchange": "New York Stock Exchange"
+          },
+          "country": "米国 / 日本展開",
+          "scale": "global",
+          "role": "高密度データセンター向け電源・熱管理・液冷設備を供給する専業プレイヤー。",
+          "offerings": [
+            "液冷システム",
+            "熱管理",
+            "UPS・電源設備",
+            "150kWラック実証"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m4-liquid-efficiency-license",
+              "relationship": "GPU高密度化に対する液冷・電源設備の主要供給者。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w4-liquid-retrofit-integrator",
+              "relationship": "製品供給と実証を既に行う直接競合／部材パートナー。"
+            }
+          ],
+          "evidence_ids": [
+            "e16-vertiv-idcf",
+            "e31-vertiv-listing"
+          ]
+        },
+        {
+          "id": "market-ntt-facilities",
+          "name": "NTT Facilities",
+          "entity_type": "company",
+          "listing": {
+            "status": "listed_parent",
+            "ticker": "9432",
+            "exchange": "Tokyo Stock Exchange Prime",
+            "parent": "NTT（NTT Urban Solutions経由）"
+          },
+          "country": "日本",
+          "scale": "national",
+          "role": "DCの企画・設計・施工・運用と、液冷設備の実機検証環境を提供するエンジニアリング会社。",
+          "offerings": [
+            "DC設計・施工・保守",
+            "冷却製品エンジニアリングハブ",
+            "ファシリティマネジメント"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m4-liquid-efficiency-license",
+              "relationship": "液冷機器を実運転比較し、設計・施工知見を蓄積する。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w4-liquid-retrofit-integrator",
+              "relationship": "既存DC改修を包括提供できる有力既存プレイヤーで、競合密度を押し上げる。"
+            }
+          ],
+          "evidence_ids": [
+            "e17-nttf-cooling",
+            "e27-ntt-listing",
+            "e34-nttf-profile"
+          ]
+        },
+        {
+          "id": "market-watt-bit",
+          "name": "ワット・ビット連携官民懇談会 / 政策プログラム",
+          "entity_type": "program",
+          "listing": {
+            "status": "public"
+          },
+          "country": "日本",
+          "scale": "national",
+          "role": "電力・通信を一体計画し、DC地方分散と大規模集積拠点の形成を進める公共プログラム。",
+          "offerings": [
+            "政策調整",
+            "集積拠点形成",
+            "系統・通信の共同計画",
+            "地方分散支援"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m2-power-becomes-location",
+              "relationship": "電力接続を前提に立地を誘導する制度側ドライバー。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m3-brownfield-regionalization",
+              "relationship": "北海道・九州等への中核拠点形成を後押しする。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w1-grid-ready-campus-intelligence",
+              "relationship": "公的な集積拠点・系統情報は民間台帳の基礎データ／代替。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w3-flexible-compute-grid-orchestration",
+              "relationship": "電力と通信・計算の協調運用を制度面から促す。"
+            }
+          ],
+          "evidence_ids": [
+            "e3-meti-5gw-grid",
+            "e22-meti-local-distribution"
+          ]
+        },
+        {
+          "id": "market-sakura-internet",
+          "name": "さくらインターネット",
+          "entity_type": "company",
+          "listing": {
+            "status": "listed",
+            "ticker": "3778",
+            "exchange": "Tokyo Stock Exchange Prime"
+          },
+          "country": "日本",
+          "scale": "national",
+          "role": "石狩で再エネ100%の国産クラウド・GPU計算基盤を運営する中堅上場プレイヤー。",
+          "offerings": [
+            "石狩データセンター",
+            "高火力 PHY",
+            "さくらのクラウド",
+            "直接液冷コンテナDC"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m1-ai-compute-infrastructure",
+              "relationship": "国産GPUクラウドを国内DCから提供する。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m3-brownfield-regionalization",
+              "relationship": "北海道石狩をAI計算基盤の地方中核へ育てる。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m4-liquid-efficiency-license",
+              "relationship": "再エネ100%と直接液冷のコンテナ型設備を稼働させる。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m5-capacity-execution-gap",
+              "relationship": "GPU台数・設備投資・稼働開始を公開し、計画から稼働への観測点となる。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w3-flexible-compute-grid-orchestration",
+              "relationship": "石狩と東京をつなぐ分散AIワークロードPoCの実行主体で、既存代替となる。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w4-liquid-retrofit-integrator",
+              "relationship": "直接液冷の需要側・運営側ベンチマーク。既存DC改修とは区別が必要。"
+            }
+          ],
+          "evidence_ids": [
+            "e35-sakura-dc",
+            "e36-sakura-listing"
+          ]
+        },
+        {
+          "id": "market-iij",
+          "name": "Internet Initiative Japan (IIJ)",
+          "entity_type": "company",
+          "listing": {
+            "status": "listed",
+            "ticker": "3774",
+            "exchange": "Tokyo Stock Exchange Prime"
+          },
+          "country": "日本",
+          "scale": "national",
+          "role": "白井・松江のモジュール型DC、液冷、分散型エッジDCを自社開発・運営する上場ネットワーク事業者。",
+          "offerings": [
+            "白井DCキャンパス",
+            "松江DCパーク",
+            "DX edge Cool Cube",
+            "KAMUI液浸DC取扱い",
+            "DCエンジニアリング"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m1-ai-compute-infrastructure",
+              "relationship": "自社クラウド・ネットワークとAI対応DCを国内運営する。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m3-brownfield-regionalization",
+              "relationship": "松江と白井にモジュール型DCを展開し、地方・近郊分散を実装する。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m4-liquid-efficiency-license",
+              "relationship": "水冷Ready、直接液冷・液浸、PUE改善を複数方式で実装する。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m5-capacity-execution-gap",
+              "relationship": "白井3期棟等の着工・稼働を確認できる実行主体。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w3-flexible-compute-grid-orchestration",
+              "relationship": "ネットワーク・DC・セキュリティを束ねた分散AI運用は現行代替。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w4-liquid-retrofit-integrator",
+              "relationship": "エッジDCの液冷・液浸製品を設置工事・運用まで提供する直接競合／チャネル。"
+            }
+          ],
+          "evidence_ids": [
+            "e37-iij-dc",
+            "e38-iij-listing",
+            "e41-quantum-iij"
+          ]
+        },
+        {
+          "id": "market-bbtower",
+          "name": "BroadBand Tower",
+          "entity_type": "company",
+          "listing": {
+            "status": "listed",
+            "ticker": "3776",
+            "exchange": "Tokyo Stock Exchange Standard"
+          },
+          "country": "日本",
+          "scale": "niche",
+          "role": "都市型DCと石狩再エネDCをIOWN接続で一体化する小型上場のDC専業事業者。",
+          "offerings": [
+            "新大手町サイト",
+            "石狩再エネデータセンター",
+            "dc.connect NeX",
+            "IOWN APC接続"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m1-ai-compute-infrastructure",
+              "relationship": "都市型・郊外型DCサービスをAI需要向けに展開する。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m3-brownfield-regionalization",
+              "relationship": "石狩の再エネDCを都市拠点と接続し地方分散を商用化する。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m4-liquid-efficiency-license",
+              "relationship": "再エネ100%運用を差別化条件にする。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m5-capacity-execution-gap",
+              "relationship": "2026年3月竣工から秋の開業・契約への移行確認対象。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w3-flexible-compute-grid-orchestration",
+              "relationship": "東京・石狩を低遅延で結ぶdc.connect NeXは分散計算運用の現行代替。"
+            }
+          ],
+          "evidence_ids": [
+            "e39-bbtower-ishikari",
+            "e40-bbtower-listing"
+          ]
+        },
+        {
+          "id": "market-exeo",
+          "name": "EXEO Group",
+          "entity_type": "company",
+          "listing": {
+            "status": "listed",
+            "ticker": "1951",
+            "exchange": "Tokyo Stock Exchange Prime"
+          },
+          "country": "日本",
+          "scale": "national",
+          "role": "DCの電気・空調・通信工事とモジュール型エッジDCを提供する上場EPC／インテグレーター。",
+          "offerings": [
+            "エクシオエッジデータセンターソリューション",
+            "DC電気・空調工事",
+            "光配線",
+            "保守"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m3-brownfield-regionalization",
+              "relationship": "短期配備可能なモジュール型エッジDCを全国施工網で展開する。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m4-liquid-efficiency-license",
+              "relationship": "高密度DCの電気・空調・通信を設計施工し、冷却最適化を共同検証する。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w4-liquid-retrofit-integrator",
+              "relationship": "既存設備リニューアルを企画・設計・調達・施工・保守まで提供する直接競合。"
+            }
+          ],
+          "evidence_ids": [
+            "e42-exeo-edge",
+            "e43-exeo-listing"
+          ]
+        },
+        {
+          "id": "market-quantum-mesh",
+          "name": "Quantum Mesh",
+          "entity_type": "company",
+          "listing": {
+            "status": "private"
+          },
+          "country": "日本",
+          "scale": "niche",
+          "role": "可搬型・分散型エッジDCと液浸冷却KAMUIを開発する2023年設立の非上場専門企業。",
+          "offerings": [
+            "KAMUI液浸冷却",
+            "可搬型エッジDC",
+            "分散AI基盤",
+            "プライベートAI"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m1-ai-compute-infrastructure",
+              "relationship": "高密度GPU計算を小型・可搬型で国内分散配置する。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m3-brownfield-regionalization",
+              "relationship": "大規模集中DCとは異なる多極分散型の実装ルート。"
+            },
+            {
+              "kind": "megatrend",
+              "id": "m4-liquid-efficiency-license",
+              "relationship": "液浸冷却を製品化し電力効率・設置制約へ対応する。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w3-flexible-compute-grid-orchestration",
+              "relationship": "現場AIと中央統制を組み合わせる既存の分散運用案。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w4-liquid-retrofit-integrator",
+              "relationship": "液浸システム販売と設置支援を行う小規模な直接競合／技術パートナー。"
+            }
+          ],
+          "evidence_ids": [
+            "e41-quantum-iij",
+            "e44-quantum-profile"
+          ]
+        },
+        {
+          "id": "market-soinn",
+          "name": "SOINN",
+          "entity_type": "company",
+          "listing": {
+            "status": "private"
+          },
+          "country": "日本",
+          "scale": "niche",
+          "role": "DC空調を軽量AIで自動制御し、省エネ運用を検証する非上場AI専門企業。",
+          "offerings": [
+            "省エネAI E-1",
+            "空調自動制御",
+            "BACnet対応"
+          ],
+          "links": [
+            {
+              "kind": "megatrend",
+              "id": "m4-liquid-efficiency-license",
+              "relationship": "設備更新だけでなく運用制御からPUE・電力効率を改善する小規模プレイヤー。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w3-flexible-compute-grid-orchestration",
+              "relationship": "計算ジョブではなく空調負荷側を最適化する隣接代替。"
+            },
+            {
+              "kind": "whitespace",
+              "id": "w4-liquid-retrofit-integrator",
+              "relationship": "液冷改修そのものではないが、既存DC省エネ改修のソフトウェア代替。"
+            }
+          ],
+          "evidence_ids": [
+            "e45-soinn-sakura"
+          ]
+        }
+      ]
+    }
+  },
+  "output_requirements": [
+    "Treat every simulated observation as synthetic, never as an observed fact.",
+    "Create distinct agents with objectives, constraints, decision rules, and evidence anchors.",
+    "Run sequential rounds with state changes, interactions, minority views, and path dependence.",
+    "Test at least two interventions and one counterfactual control.",
+    "Return emergent events, robust actions, contingent actions, falsifiers, and limitations.",
+    "Preserve evidence IDs whenever a seed fact constrains an agent or event."
+  ],
+  "codex_prompt": "Opportunity Intelligence のrun 20260725042538-b1b56f の保留中シミュレーションを、run-opportunity-simulationスキルで実行して。"
+}

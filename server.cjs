@@ -6,7 +6,8 @@ const { compileRequest } = require('./lib/compiler.cjs');
 const { validateRequest, validateResult } = require('./lib/validation.cjs');
 const { executeConnector } = require('./lib/connectors.cjs');
 const { writeJsonAtomic, readJson, safeRunId } = require('./lib/store.cjs');
-const { buildSimulationRequest, completeSimulation } = require('./lib/simulation.cjs');
+const { buildSimulationRequest, completeSimulation, answerSimulationQuestion } = require('./lib/simulation.cjs');
+const { buildReportHtml } = require('./lib/report.cjs');
 
 const ROOT = __dirname;
 const PUBLIC = path.join(ROOT, 'public');
@@ -53,7 +54,8 @@ function getRun(id) {
     simulation:{
       request:readJson(runPath(id, 'simulation-request.json')),
       status:readJson(runPath(id, 'simulation-status.json'), { state:'not_requested' }),
-      result:readJson(runPath(id, 'simulation-result.json'))
+      result:readJson(runPath(id, 'simulation-result.json')),
+      chat:readJson(runPath(id, 'simulation-chat.json'), { messages:[] })
     }
   };
 }
@@ -133,6 +135,15 @@ async function api(req, res, url) {
     const id = safeRunId(parts[2]); const existing = getRun(id);
     if (!existing) return send(res, 404, { error:'run_not_found' });
     if (req.method === 'GET' && parts.length === 3) return send(res, 200, existing);
+    if (req.method === 'GET' && parts[3] === 'report.html') {
+      if (!existing.result) return send(res, 409, { error:'run_not_complete' });
+      const printMode=url.searchParams.get('mode')==='print';
+      const html=buildReportHtml(existing,{print:printMode});
+      return send(res,200,html,{
+        'Content-Type':'text/html; charset=utf-8',
+        'Content-Disposition':printMode?'inline':`attachment; filename="opportunity-intelligence-${id}.html"`
+      });
+    }
     if (req.method === 'DELETE' && parts.length === 3) return send(res, 200, trashRun(id));
     if (req.method === 'POST' && parts[3] === 'result') {
       const result = await bodyJson(req); const errors = validateResult(result, id);
@@ -154,6 +165,18 @@ async function api(req, res, url) {
       const completed=completeSimulation(RUNS,id,await bodyJson(req));
       if (!completed.valid) return send(res,422,{ error:'invalid_simulation', details:completed.errors });
       return send(res,200,getRun(id));
+    }
+    if (parts[3] === 'simulation' && parts[4] === 'chat' && req.method === 'POST') {
+      const simulation=existing.simulation?.result || existing.result?.simulation_lab;
+      if (!simulation || simulation.status === 'not_run') return send(res,409,{error:'simulation_not_complete'});
+      try {
+        const input=await bodyJson(req);
+        const message=answerSimulationQuestion(simulation,input.target_id,input.question);
+        const chat=existing.simulation?.chat || {messages:[]};
+        chat.messages=[...(chat.messages||[]),message].slice(-100);
+        writeJsonAtomic(runPath(id,'simulation-chat.json'),chat);
+        return send(res,201,{message,chat});
+      } catch(error) { return send(res,422,{error:'invalid_simulation_question',message:error.message}); }
     }
     if (parts[3] === 'mirofish' && parts[4] === 'export' && req.method === 'POST') {
       if (!existing.result) return send(res, 409, { error:'run_not_complete' });

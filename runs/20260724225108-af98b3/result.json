@@ -1,0 +1,2254 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "run_id": "20260724225108-af98b3",
+    "title": "半導体価格3–5年展望：2026年メモリ急騰後も、価格は製品別に分岐する",
+    "generated_at": "2026-07-25T08:15:00+09:00",
+    "as_of": "2026-07-25",
+    "coverage": {
+      "regions": [
+        "世界",
+        "北米",
+        "台湾",
+        "韓国",
+        "中国",
+        "日本",
+        "欧州"
+      ],
+      "sectors": [
+        "半導体",
+        "AIインフラ",
+        "メモリ",
+        "ファウンドリ",
+        "製造装置",
+        "高度パッケージ",
+        "材料"
+      ],
+      "horizon": "3–5年（2026年7月25日から2031年7月24日まで）",
+      "data_cutoff": "2026-07-25",
+      "price_scope": [
+        "DRAM/HBM",
+        "NAND",
+        "先端ロジック",
+        "成熟ノード",
+        "アナログ/パワー",
+        "高度パッケージ"
+      ]
+    },
+    "decision": [
+      "strategy",
+      "investment",
+      "business"
+    ]
+  },
+  "executive": {
+    "one_line": "半導体価格は一方向ではない。2026–27年はDRAM・NAND・HBM周辺が高値を維持しやすいが、3–5年の中心ケースは能力増設による汎用品の正常化と、HBM・先端ノード・高度パッケージ・認証済み旧世代品の構造的プレミアム併存である。",
+    "decision": "調達側はメモリの12–18か月供給を段階確保しつつ、需要ピークでの長期一括固定を避け、旧世代部品の代替認証を前倒しする。投資側は『半導体全体』ではなく、HBM、先端ファウンドリ、装置、高度パッケージの利益感応度と織り込みを個別に確認する。事業側は価格予想そのものより、BOM別価格リスク、EOL代替、LTAアクセス、パッケージ設計から実装までの分断を解く。",
+    "confidence": 0.69,
+    "why_now": [
+      "WSTSは2026年世界半導体市場を1.51兆ドル、前年比90%増と予測し、その大半をメモリの約250%増が占めるとした。これは通常の業界成長率から大きく乖離する非常局面である。",
+      "SIA/WSTS集計の2026年5月売上は過去最高の1206億ドルで、前年同月比104.1%増。ただし売上は数量×価格×製品ミックスであり、単一の価格指数ではない。",
+      "TrendForceは2026年2Qの従来型DRAM契約価格を前期比58–63%増、NANDを70–75%増と予測した一方、3QのサーバーDRAM上昇率は13–18%へ鈍化するとした。",
+      "SEMIは300mm能力が2026年に7%、2027–29年も年率約7%増えると予測する。価格高騰を受けた投資が、2027年後半以降の需給緩和か、AI需要による吸収かの分岐点になる。"
+    ],
+    "watchouts": [
+      "『半導体価格』を一つの数字で表現しない。メモリ価格、ウェハ単価、チップASP、パッケージ費、BOMコストを分ける。",
+      "WSTSの市場売上急増を、そのまま全製品の価格上昇と解釈しない。製品ミックスと数量増加を含む。",
+      "能力増加率は有効供給増加率と同じではない。HBMや先端工程はダイ面積、歩留まり、積層、パッケージ工程を多く消費する。",
+      "メモリ企業の現在の高マージンは価格サイクル頂点の可能性があり、利益成長と株価期待差は別に評価する。",
+      "本分析は個別証券の売買推奨や価格保証ではなく、バリュエーションとポジショニングは追加調査が必要。"
+    ],
+    "decision_spine": [
+      {
+        "step": "観測",
+        "claim": "2026年の売上・価格上昇はメモリとAIインフラ関連に極端に集中している。",
+        "evidence_ids": [
+          "e1-wsts-spring-2026",
+          "e2-sia-may-sales",
+          "e3-trendforce-q2-memory",
+          "e7-micron-q3"
+        ]
+      },
+      {
+        "step": "分解",
+        "claim": "HBM/サーバーDRAM、NAND、先端ファウンドリ、成熟ノード、汎用アナログでは需給と価格決定力が異なる。",
+        "evidence_ids": [
+          "e4-trendforce-q3-server-dram",
+          "e5-trendforce-nand-balance",
+          "e6-trendforce-mature-foundry",
+          "e8-tsmc-q2",
+          "e11-ti-q1"
+        ]
+      },
+      {
+        "step": "中心仮説",
+        "claim": "2027–29年の増産で汎用メモリは正常化するが、先端・高度パッケージと認証済み旧世代品の希少性プレミアムは残る。",
+        "evidence_ids": [
+          "e5-trendforce-nand-balance",
+          "e9-semi-memory-capex",
+          "e10-semi-300mm-outlook",
+          "e13-amkor-nvidia",
+          "e17-ase-panel",
+          "e19-trendforce-slc"
+        ]
+      },
+      {
+        "step": "反証",
+        "claim": "AI推論需要が能力増加を継続的に上回る、または電力・輸出規制・材料制約で増産が遅れれば、価格正常化は起きない。",
+        "evidence_ids": [
+          "e4-trendforce-q3-server-dram",
+          "e12-asml-q1",
+          "e14-iea-energy-ai",
+          "e15-usgs-germanium",
+          "e16-bis-guidance"
+        ]
+      },
+      {
+        "step": "行動",
+        "claim": "調達契約、代替認証、投資エクスポージャーを製品世代別に分け、四半期ごとの需給指標で拡大・撤退を判断する。",
+        "evidence_ids": [
+          "e3-trendforce-q2-memory",
+          "e5-trendforce-nand-balance",
+          "e9-semi-memory-capex",
+          "e11-ti-q1"
+        ]
+      }
+    ]
+  },
+  "megatrends": [
+    {
+      "id": "m1-ai-memory-value-shift",
+      "name": "AIが半導体価値を計算からメモリ階層へ拡張",
+      "stage": "accelerating",
+      "horizon": "1–7年",
+      "velocity": 0.92,
+      "impact": 0.96,
+      "confidence": 0.86,
+      "description": "AI学習・推論はGPUだけでなくHBM、RDIMM、企業向けSSD、ネットワーク用メモリを同時に消費し、従来のPC・スマホ中心サイクルからサーバー中心へ利益を移している。",
+      "drivers": [
+        "AI推論拡大",
+        "高容量サーバー",
+        "HBM帯域",
+        "CSP長期契約",
+        "データ保存量"
+      ],
+      "implications": [
+        "メモリ価格決定力の上昇",
+        "消費者向け供給のクラウドアウト",
+        "サーバー構成のコスト最適化",
+        "メモリ企業の高い利益感応度"
+      ],
+      "evidence_ids": [
+        "e1-wsts-spring-2026",
+        "e3-trendforce-q2-memory",
+        "e4-trendforce-q3-server-dram",
+        "e7-micron-q3"
+      ]
+    },
+    {
+      "id": "m2-packaging-bottleneck",
+      "name": "高度パッケージとヘテロジニアス統合のボトルネック化",
+      "stage": "scaling",
+      "horizon": "2–8年",
+      "velocity": 0.84,
+      "impact": 0.88,
+      "confidence": 0.8,
+      "description": "性能向上の中心が微細化だけでなく、チップレット、HBM積層、高密度配線、熱設計、試験へ移る。パッケージ能力と歩留まりが完成品供給量と価格を制約する。",
+      "drivers": [
+        "チップレット",
+        "HBM積層",
+        "熱密度",
+        "大面積パッケージ",
+        "高密度インターコネクト"
+      ],
+      "implications": [
+        "OSAT・材料・基板の交渉力上昇",
+        "設計と製造の共同最適化",
+        "新能力立上げまでの時間差",
+        "パッケージ単価の構造的上昇"
+      ],
+      "evidence_ids": [
+        "e13-amkor-nvidia",
+        "e17-ase-panel",
+        "e8-tsmc-q2"
+      ]
+    },
+    {
+      "id": "m3-capacity-localization",
+      "name": "史上級の設備投資と地域分散",
+      "stage": "accelerating",
+      "horizon": "2–10年",
+      "velocity": 0.78,
+      "impact": 0.91,
+      "confidence": 0.81,
+      "description": "AI需要と経済安全保障が同時に設備投資を押し上げる。短期は供給不足を延長するが、建設・装置導入の時間差後には供給過剰と価格下落を起こし得る。",
+      "drivers": [
+        "300mm投資",
+        "メモリ設備投資",
+        "各国補助金",
+        "輸出規制",
+        "二重化された供給網"
+      ],
+      "implications": [
+        "装置・建設・材料需要",
+        "地域別コスト差",
+        "2027–29年の供給増",
+        "資本効率低下のリスク"
+      ],
+      "evidence_ids": [
+        "e9-semi-memory-capex",
+        "e10-semi-300mm-outlook",
+        "e12-asml-q1",
+        "e16-bis-guidance"
+      ]
+    },
+    {
+      "id": "m4-legacy-scarcity",
+      "name": "旧世代品のEOL希少性と成熟ノードの二極化",
+      "stage": "emerging",
+      "horizon": "1–5年",
+      "velocity": 0.76,
+      "impact": 0.72,
+      "confidence": 0.74,
+      "description": "供給者がHBM・先端製品・高収益パワーICへ能力を移すことで、SLC/MLC NAND、旧世代DRAM、認証済み車載・産業品は需要成長が低くても価格が上がる。一方、中国の成熟ノード増設は汎用品の価格を下げ得る。",
+      "drivers": [
+        "EOL",
+        "再認証の長さ",
+        "少量多品種",
+        "能力再配分",
+        "中国の成熟ノード増設"
+      ],
+      "implications": [
+        "旧部品の異常な値上がり",
+        "代替設計需要",
+        "地域別価格の分断",
+        "汎用品の中期価格競争"
+      ],
+      "evidence_ids": [
+        "e6-trendforce-mature-foundry",
+        "e19-trendforce-slc",
+        "e11-ti-q1"
+      ]
+    },
+    {
+      "id": "m5-physical-constraints",
+      "name": "電力・材料・規制が有効供給を制約",
+      "stage": "structural",
+      "horizon": "3–10年",
+      "velocity": 0.66,
+      "impact": 0.79,
+      "confidence": 0.76,
+      "description": "ファブとAIデータセンターは同じ電力・水・装置・材料・熟練人材を奪い合う。輸出管理と重要鉱物制約は、世界平均より地域別・用途別価格差を拡大する。",
+      "drivers": [
+        "データセンター電力",
+        "送電網",
+        "EUV/DUV装置",
+        "ゲルマニウム等の重要材料",
+        "輸出管理"
+      ],
+      "implications": [
+        "増設遅延",
+        "地域別価格プレミアム",
+        "代替材料・リサイクル需要",
+        "政策変更によるボラティリティ"
+      ],
+      "evidence_ids": [
+        "e12-asml-q1",
+        "e14-iea-energy-ai",
+        "e15-usgs-germanium",
+        "e16-bis-guidance"
+      ]
+    }
+  ],
+  "knowledge_graph": {
+    "nodes": [
+      {
+        "id": "n-price-bifurcation",
+        "label": "半導体価格の二極化",
+        "type": "sector",
+        "confidence": 0.86,
+        "evidence_ids": [
+          "e1-wsts-spring-2026",
+          "e3-trendforce-q2-memory",
+          "e6-trendforce-mature-foundry"
+        ]
+      },
+      {
+        "id": "n-ai-demand",
+        "label": "AI計算需要",
+        "type": "trend",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "e1-wsts-spring-2026",
+          "e14-iea-energy-ai"
+        ]
+      },
+      {
+        "id": "n-hbm",
+        "label": "HBM需要",
+        "type": "technology",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "e7-micron-q3",
+          "e9-semi-memory-capex"
+        ]
+      },
+      {
+        "id": "n-server-dram",
+        "label": "サーバーDRAM需要",
+        "type": "driver",
+        "confidence": 0.84,
+        "evidence_ids": [
+          "e4-trendforce-q3-server-dram"
+        ]
+      },
+      {
+        "id": "n-nand",
+        "label": "NAND需給",
+        "type": "driver",
+        "confidence": 0.79,
+        "evidence_ids": [
+          "e5-trendforce-nand-balance"
+        ]
+      },
+      {
+        "id": "n-memory-allocation",
+        "label": "メモリ能力再配分",
+        "type": "driver",
+        "confidence": 0.86,
+        "evidence_ids": [
+          "e3-trendforce-q2-memory",
+          "e4-trendforce-q3-server-dram"
+        ]
+      },
+      {
+        "id": "n-lta",
+        "label": "長期供給契約（LTA）",
+        "type": "policy",
+        "confidence": 0.82,
+        "evidence_ids": [
+          "e4-trendforce-q3-server-dram",
+          "e7-micron-q3"
+        ]
+      },
+      {
+        "id": "n-memory-price",
+        "label": "DRAM/NAND価格",
+        "type": "sector",
+        "confidence": 0.82,
+        "evidence_ids": [
+          "e3-trendforce-q2-memory",
+          "e4-trendforce-q3-server-dram"
+        ]
+      },
+      {
+        "id": "n-memory-capex",
+        "label": "メモリ設備投資",
+        "type": "driver",
+        "confidence": 0.84,
+        "evidence_ids": [
+          "e9-semi-memory-capex"
+        ]
+      },
+      {
+        "id": "n-300mm-capacity",
+        "label": "300mm能力増加",
+        "type": "driver",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "e10-semi-300mm-outlook"
+        ]
+      },
+      {
+        "id": "n-leading-foundry",
+        "label": "先端ファウンドリ",
+        "type": "technology",
+        "confidence": 0.86,
+        "evidence_ids": [
+          "e8-tsmc-q2",
+          "e12-asml-q1"
+        ]
+      },
+      {
+        "id": "n-mature-util",
+        "label": "8インチ成熟ノード稼働率",
+        "type": "driver",
+        "confidence": 0.72,
+        "evidence_ids": [
+          "e6-trendforce-mature-foundry"
+        ]
+      },
+      {
+        "id": "n-china-mature",
+        "label": "中国の成熟ノード増設",
+        "type": "driver",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "e5-trendforce-nand-balance",
+          "e6-trendforce-mature-foundry"
+        ]
+      },
+      {
+        "id": "n-legacy-eol",
+        "label": "旧世代品EOL",
+        "type": "risk",
+        "confidence": 0.79,
+        "evidence_ids": [
+          "e19-trendforce-slc"
+        ]
+      },
+      {
+        "id": "n-packaging",
+        "label": "高度パッケージ能力",
+        "type": "technology",
+        "confidence": 0.83,
+        "evidence_ids": [
+          "e13-amkor-nvidia",
+          "e17-ase-panel"
+        ]
+      },
+      {
+        "id": "n-supplier-margin",
+        "label": "供給者マージン",
+        "type": "company",
+        "confidence": 0.87,
+        "evidence_ids": [
+          "e7-micron-q3",
+          "e8-tsmc-q2"
+        ]
+      },
+      {
+        "id": "n-consumer-demand",
+        "label": "PC・スマホ需要",
+        "type": "risk",
+        "confidence": 0.66,
+        "evidence_ids": [
+          "e3-trendforce-q2-memory",
+          "e5-trendforce-nand-balance"
+        ]
+      },
+      {
+        "id": "n-power",
+        "label": "電力・グリッド制約",
+        "type": "risk",
+        "confidence": 0.78,
+        "evidence_ids": [
+          "e14-iea-energy-ai"
+        ]
+      },
+      {
+        "id": "n-materials",
+        "label": "重要材料制約",
+        "type": "risk",
+        "confidence": 0.73,
+        "evidence_ids": [
+          "e15-usgs-germanium"
+        ]
+      },
+      {
+        "id": "n-export-control",
+        "label": "輸出管理・地域分断",
+        "type": "policy",
+        "confidence": 0.82,
+        "evidence_ids": [
+          "e16-bis-guidance"
+        ]
+      },
+      {
+        "id": "n-bom-cost",
+        "label": "下流BOMコスト",
+        "type": "sector",
+        "confidence": 0.81,
+        "evidence_ids": [
+          "e3-trendforce-q2-memory",
+          "e19-trendforce-slc"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "source": "n-ai-demand",
+        "target": "n-hbm",
+        "type": "需要を増幅",
+        "polarity": "positive",
+        "weight": 0.95,
+        "evidence_ids": [
+          "e1-wsts-spring-2026",
+          "e7-micron-q3"
+        ]
+      },
+      {
+        "source": "n-ai-demand",
+        "target": "n-server-dram",
+        "type": "需要を増幅",
+        "polarity": "positive",
+        "weight": 0.9,
+        "evidence_ids": [
+          "e4-trendforce-q3-server-dram"
+        ]
+      },
+      {
+        "source": "n-ai-demand",
+        "target": "n-nand",
+        "type": "企業SSD需要を増幅",
+        "polarity": "positive",
+        "weight": 0.82,
+        "evidence_ids": [
+          "e5-trendforce-nand-balance"
+        ]
+      },
+      {
+        "source": "n-hbm",
+        "target": "n-memory-allocation",
+        "type": "能力を吸収",
+        "polarity": "positive",
+        "weight": 0.9,
+        "evidence_ids": [
+          "e3-trendforce-q2-memory",
+          "e9-semi-memory-capex"
+        ]
+      },
+      {
+        "source": "n-memory-allocation",
+        "target": "n-memory-price",
+        "type": "汎用供給を絞り価格上昇",
+        "polarity": "positive",
+        "weight": 0.88,
+        "evidence_ids": [
+          "e3-trendforce-q2-memory",
+          "e4-trendforce-q3-server-dram"
+        ]
+      },
+      {
+        "source": "n-lta",
+        "target": "n-memory-price",
+        "type": "契約顧客の上昇を抑制",
+        "polarity": "negative",
+        "weight": 0.62,
+        "evidence_ids": [
+          "e4-trendforce-q3-server-dram"
+        ]
+      },
+      {
+        "source": "n-lta",
+        "target": "n-memory-capex",
+        "type": "投資回収を支援",
+        "polarity": "positive",
+        "weight": 0.7,
+        "evidence_ids": [
+          "e4-trendforce-q3-server-dram",
+          "e7-micron-q3"
+        ]
+      },
+      {
+        "source": "n-memory-price",
+        "target": "n-supplier-margin",
+        "type": "マージン上昇",
+        "polarity": "positive",
+        "weight": 0.94,
+        "evidence_ids": [
+          "e7-micron-q3"
+        ]
+      },
+      {
+        "source": "n-memory-price",
+        "target": "n-bom-cost",
+        "type": "部品原価上昇",
+        "polarity": "positive",
+        "weight": 0.9,
+        "evidence_ids": [
+          "e3-trendforce-q2-memory",
+          "e19-trendforce-slc"
+        ]
+      },
+      {
+        "source": "n-memory-price",
+        "target": "n-memory-capex",
+        "type": "増産投資を誘発",
+        "polarity": "positive",
+        "weight": 0.8,
+        "evidence_ids": [
+          "e9-semi-memory-capex"
+        ]
+      },
+      {
+        "source": "n-memory-capex",
+        "target": "n-300mm-capacity",
+        "type": "時間差で能力増",
+        "polarity": "positive",
+        "weight": 0.82,
+        "evidence_ids": [
+          "e9-semi-memory-capex",
+          "e10-semi-300mm-outlook"
+        ]
+      },
+      {
+        "source": "n-300mm-capacity",
+        "target": "n-memory-price",
+        "type": "供給増で正常化",
+        "polarity": "negative",
+        "weight": 0.7,
+        "evidence_ids": [
+          "e5-trendforce-nand-balance",
+          "e10-semi-300mm-outlook"
+        ]
+      },
+      {
+        "source": "n-ai-demand",
+        "target": "n-leading-foundry",
+        "type": "先端能力需要",
+        "polarity": "positive",
+        "weight": 0.92,
+        "evidence_ids": [
+          "e8-tsmc-q2",
+          "e12-asml-q1"
+        ]
+      },
+      {
+        "source": "n-leading-foundry",
+        "target": "n-packaging",
+        "type": "大規模統合を要求",
+        "polarity": "positive",
+        "weight": 0.86,
+        "evidence_ids": [
+          "e13-amkor-nvidia",
+          "e17-ase-panel"
+        ]
+      },
+      {
+        "source": "n-packaging",
+        "target": "n-price-bifurcation",
+        "type": "先端プレミアムを維持",
+        "polarity": "positive",
+        "weight": 0.78,
+        "evidence_ids": [
+          "e13-amkor-nvidia",
+          "e17-ase-panel"
+        ]
+      },
+      {
+        "source": "n-legacy-eol",
+        "target": "n-memory-price",
+        "type": "旧世代品を高騰",
+        "polarity": "positive",
+        "weight": 0.83,
+        "evidence_ids": [
+          "e19-trendforce-slc"
+        ]
+      },
+      {
+        "source": "n-mature-util",
+        "target": "n-price-bifurcation",
+        "type": "パワーIC価格を支援",
+        "polarity": "positive",
+        "weight": 0.68,
+        "evidence_ids": [
+          "e6-trendforce-mature-foundry"
+        ]
+      },
+      {
+        "source": "n-china-mature",
+        "target": "n-price-bifurcation",
+        "type": "汎用成熟品価格を抑制",
+        "polarity": "negative",
+        "weight": 0.62,
+        "evidence_ids": [
+          "e6-trendforce-mature-foundry"
+        ]
+      },
+      {
+        "source": "n-consumer-demand",
+        "target": "n-memory-price",
+        "type": "弱さが上値を抑制",
+        "polarity": "negative",
+        "weight": 0.58,
+        "evidence_ids": [
+          "e3-trendforce-q2-memory",
+          "e5-trendforce-nand-balance"
+        ]
+      },
+      {
+        "source": "n-power",
+        "target": "n-ai-demand",
+        "type": "データセンター増設を制約",
+        "polarity": "negative",
+        "weight": 0.7,
+        "evidence_ids": [
+          "e14-iea-energy-ai"
+        ]
+      },
+      {
+        "source": "n-materials",
+        "target": "n-bom-cost",
+        "type": "特定用途コストを上昇",
+        "polarity": "positive",
+        "weight": 0.52,
+        "evidence_ids": [
+          "e15-usgs-germanium"
+        ]
+      },
+      {
+        "source": "n-export-control",
+        "target": "n-price-bifurcation",
+        "type": "地域別価格差を拡大",
+        "polarity": "positive",
+        "weight": 0.72,
+        "evidence_ids": [
+          "e16-bis-guidance"
+        ]
+      }
+    ]
+  },
+  "whitespaces": [
+    {
+      "id": "w1-bom-price-risk-os",
+      "name": "BOM別半導体価格・供給リスクOS",
+      "customer": "半導体専任調達チームを持たない電子機器、産業機器、医療、車載Tier2/3メーカー",
+      "buyer": "CPO、SCM責任者、CFO、設計責任者",
+      "job_to_be_done": "製品BOMをDRAM/NAND/MCU/アナログ/パワー/パッケージに分解し、価格、リードタイム、EOL、代替可否、契約期限を同じ意思決定画面で管理する。",
+      "pain": "市場レポートは製品BOMと結び付かず、値上げ通知後に原価と生産停止影響を手作業で確認している。",
+      "unmet_need": "価格データ、部品表、設計変更、取引契約が別システムで、SKU単位の損益・停止確率へ変換されない。",
+      "unmet_reason": "市況データは高価で、部品正規化と企業固有BOMへのマッピングに導入作業が必要。",
+      "opportunity": "公開一次情報と顧客保有価格を結び、シナリオ別BOMコスト、供給警報、承認、代替候補を提供する垂直SaaS。",
+      "solution": "CSV/ERP取込、部品世代マップ、契約価格差分、EOL警報、供給者集中、根拠リンク、ストレステストを統合する。",
+      "next_test": "産業機器メーカー3社、各100部品で4週間の有料診断を行い、原価差異と停止リスクの早期発見件数を測る。",
+      "score": {
+        "market_attractiveness": 89,
+        "feasibility": 79,
+        "evidence_strength": 83
+      },
+      "monetization": [
+        "企業月額",
+        "BOM/部品数課金",
+        "導入・データ整備費",
+        "ERP/商社OEM"
+      ],
+      "risks": [
+        "有料価格データの再配布条件",
+        "部品マスタ品質",
+        "機密BOM保護"
+      ],
+      "classification": "contested",
+      "competition": {
+        "current_alternatives": [
+          "Z2Data Electronic Supply Chain / Part Risk Manager",
+          "SiliconExpert BOM Manager / Supply Chain Risk Management"
+        ],
+        "density": "high",
+        "saturation_score": 84,
+        "unmet_need_score": 74,
+        "gap": "BOM・EOL・代替・供給リスクの中核機能は既に提供されている。残る仮説は、日本の中堅OEM向け導入負荷、契約価格、SKU損益、承認ワークフローへの特化。",
+        "willingness_to_pay": "既存ベンダーが企業向けデモ/契約で提供しているため予算カテゴリは存在するが、価格水準は公開資料では未確認。",
+        "evidence_ids": [
+          "e20-z2data-electronic-supply-chain",
+          "e21-siliconexpert-bom"
+        ]
+      },
+      "potential": {
+        "tam": null,
+        "willingness_to_pay": "企業向けBOM/SCRM予算あり・金額未確認",
+        "growth": "AI・地政学・EOL増加の追い風。成長率未算定",
+        "gross_margin": "SaaS余地はあるがデータライセンス費を控除して未算定",
+        "repeatability": "高",
+        "defensibility": "日本語部品正規化・ERP連携・価格差分データが必要",
+        "evidence_ids": [
+          "e20-z2data-electronic-supply-chain",
+          "e21-siliconexpert-bom"
+        ]
+      },
+      "evidence_ids": [
+        "e3-trendforce-q2-memory",
+        "e4-trendforce-q3-server-dram",
+        "e6-trendforce-mature-foundry",
+        "e19-trendforce-slc",
+        "e20-z2data-electronic-supply-chain",
+        "e21-siliconexpert-bom"
+      ]
+    },
+    {
+      "id": "w2-legacy-redesign",
+      "name": "旧世代メモリ・成熟ノード部品の代替認証サービス",
+      "customer": "10年以上の製品寿命を持つ産業、医療、航空宇宙、ネットワーク、車載メーカー",
+      "buyer": "設計部長、品質保証、調達、製品ライフサイクル責任者",
+      "job_to_be_done": "EOLや供給縮小が発生する前に、代替部品、ファームウェア変更、再試験、規制文書を完了する。",
+      "pain": "少量旧部品は供給者の優先度が低い一方、再認証に半年から数年かかり、スポット価格急騰を受け入れざるを得ない。",
+      "unmet_need": "BOM監視、電気的互換性、試験設備、規制文書を横断するサービスが少ない。",
+      "unmet_reason": "案件ごとの専門性が高く、純粋SaaSだけでは完結しないため供給が分散している。",
+      "opportunity": "EOL予測とエンジニアリング、試験、認証管理を一体化した継続サービス。",
+      "solution": "旧世代部品の供給シグナルを監視し、代替設計、試験計画、ラストタイムバイ量、認証証跡を提供する。",
+      "next_test": "SLC/MLC NANDまたはDDR4を使用する1業種に限定し、10部品の代替認証期間と総コストを比較する。",
+      "score": {
+        "market_attractiveness": 84,
+        "feasibility": 68,
+        "evidence_strength": 82
+      },
+      "monetization": [
+        "診断費",
+        "部品単位プロジェクト料",
+        "継続監視月額",
+        "試験機関紹介料"
+      ],
+      "risks": [
+        "製品責任",
+        "認証遅延",
+        "代替品の長期供給",
+        "技術者不足"
+      ],
+      "classification": "contested",
+      "competition": {
+        "current_alternatives": [
+          "Z2Data lifecycle forecasting / pre-mapped alternates",
+          "SiliconExpert predictive obsolescence / alternate parts",
+          "個別の設計会社・試験機関・認定商社"
+        ],
+        "density": "high",
+        "saturation_score": 79,
+        "unmet_need_score": 70,
+        "gap": "監視と代替候補探索は既存製品が強い。再設計、試験、規制文書、製品責任まで一社で完結する統合サービスに限定すれば未充足余地が残る。",
+        "willingness_to_pay": "緊急再設計・生産停止回避の支払理由はあるが、顧客面談による金額検証は未実施。",
+        "evidence_ids": [
+          "e20-z2data-electronic-supply-chain",
+          "e21-siliconexpert-bom"
+        ]
+      },
+      "potential": {
+        "tam": null,
+        "willingness_to_pay": "案件単位・未検証",
+        "growth": "旧世代部品縮小と長寿命製品のミスマッチ",
+        "gross_margin": "専門人材比率が高く未算定",
+        "repeatability": "中",
+        "defensibility": "認証実績・試験データ・業種特化",
+        "evidence_ids": [
+          "e19-trendforce-slc",
+          "e20-z2data-electronic-supply-chain",
+          "e21-siliconexpert-bom"
+        ]
+      },
+      "evidence_ids": [
+        "e6-trendforce-mature-foundry",
+        "e19-trendforce-slc",
+        "e15-usgs-germanium",
+        "e20-z2data-electronic-supply-chain",
+        "e21-siliconexpert-bom"
+      ]
+    },
+    {
+      "id": "w3-pooled-lta",
+      "name": "中堅OEM向け共同調達・LTAアクセス",
+      "customer": "単独ではCSP並みの長期契約枠を取れない中堅サーバー、通信、産業機器メーカー",
+      "buyer": "調達責任者、CFO、受託製造企業",
+      "job_to_be_done": "複数社の需要を束ね、供給割当、契約上限、在庫金融、余剰交換を確保する。",
+      "pain": "大手CSPのLTAが価格と供給を固定する一方、非LTA顧客が限界価格と不足リスクを負う。",
+      "unmet_need": "需要集約、信用、契約、在庫、品質トレーサビリティを同時に担う中立主体が不足。",
+      "unmet_reason": "価格リスク、在庫リスク、真正品保証、与信が重く、ソフトウェアだけでは成立しにくい。",
+      "opportunity": "認定商社・金融機関と組んだ共同調達、予約権、在庫交換ネットワーク。",
+      "solution": "需要予測の精度に応じて予約量を段階化し、価格上限と余剰処分ルールを持つ共同LTAを設計する。",
+      "next_test": "同一仕様RDIMMを購入する3社で、6か月限定の共同予約と在庫交換を実証する。",
+      "score": {
+        "market_attractiveness": 81,
+        "feasibility": 55,
+        "evidence_strength": 78
+      },
+      "monetization": [
+        "会員料",
+        "予約・取引手数料",
+        "在庫金融スプレッド",
+        "リスク管理SaaS"
+      ],
+      "risks": [
+        "価格下落時の在庫損",
+        "与信",
+        "独禁法・商流",
+        "真正品・品質保証"
+      ],
+      "classification": "contested",
+      "competition": {
+        "current_alternatives": [
+          "Sourceability / Sourcengine電子部品マーケットプレイス",
+          "認定商社・独立系ディストリビューター",
+          "EMS/ODMによる需要集約"
+        ],
+        "density": "high",
+        "saturation_score": 76,
+        "unmet_need_score": 65,
+        "gap": "部品探索・購買・物流は既に大規模市場がある。複数買い手の共同LTA、予約権、余剰在庫交換、金融を同時に扱う点だけが差別化仮説。",
+        "willingness_to_pay": "取引手数料・物流マージンの既存収益モデルは確認できるが、共同LTA会員料は未検証。",
+        "evidence_ids": [
+          "e22-sourceability-sourcengine",
+          "e26-jstage-capacity-reservation"
+        ]
+      },
+      "potential": {
+        "tam": null,
+        "willingness_to_pay": "取引手数料モデルあり・共同予約料は未検証",
+        "growth": "供給逼迫時に増えるが価格下落局面では逆風",
+        "gross_margin": "在庫・与信負担を含め未算定",
+        "repeatability": "中",
+        "defensibility": "需要密度・与信・真正品保証・金融パートナー",
+        "evidence_ids": [
+          "e22-sourceability-sourcengine",
+          "e26-jstage-capacity-reservation"
+        ]
+      },
+      "evidence_ids": [
+        "e4-trendforce-q3-server-dram",
+        "e7-micron-q3",
+        "e22-sourceability-sourcengine",
+        "e26-jstage-capacity-reservation"
+      ]
+    },
+    {
+      "id": "w4-packaging-orchestration",
+      "name": "高度パッケージ設計・熱・能力予約の統合支援",
+      "customer": "独自AI ASIC、ネットワーク、光電融合、ロボティクス向けファブレス企業",
+      "buyer": "CTO、シリコン責任者、ハードウェア責任者、オペレーション責任者",
+      "job_to_be_done": "チップレット構成、HBM、基板、熱、試験、OSAT能力をテープアウト前から共同最適化し、量産枠を確保する。",
+      "pain": "パッケージが後工程ではなく性能・歩留まり・供給量を決めるが、設計ツール、熱解析、OSAT、基板、試験が分断。",
+      "unmet_need": "複数OSAT・材料・試験の能力と設計ルールを中立に比較し、量産リスクへ変換するサービスが弱い。",
+      "unmet_reason": "顧客機密、少数供給者、個別工程ノウハウ、能力予約が参入障壁。",
+      "opportunity": "設計レビュー、熱・歩留まりシミュレーション、サプライヤー選定、能力予約を一つのゲート管理にする。",
+      "solution": "パッケージBOM、設計ルール、熱限界、試験カバレッジ、量産枠、コストを可視化する専門サービス＋ソフトウェア。",
+      "next_test": "量産前ASIC 1件で、2つのパッケージ方式とOSAT候補を比較し、再設計回数と見積期間を削減できるか測る。",
+      "score": {
+        "market_attractiveness": 87,
+        "feasibility": 52,
+        "evidence_strength": 82
+      },
+      "monetization": [
+        "設計レビュー料",
+        "プロジェクト料",
+        "能力予約手数料",
+        "法人ソフトウェア年額"
+      ],
+      "risks": [
+        "高度人材",
+        "顧客機密",
+        "供給者中立性",
+        "設計責任"
+      ],
+      "classification": "contested",
+      "competition": {
+        "current_alternatives": [
+          "ASE package design / e-Service",
+          "Amkor design and package characterization services",
+          "Cadence Allegro X / Celsius / Integrity 3D-IC"
+        ],
+        "density": "high",
+        "saturation_score": 88,
+        "unmet_need_score": 72,
+        "gap": "設計・熱解析・OSAT支援は既存大手が提供済み。複数OSATを中立比較し、能力予約と商務ゲートまで横断する買い手代理機能に限定して検証が必要。",
+        "willingness_to_pay": "高度パッケージ設計・解析サービス市場は存在するが、中立オーケストレーションへの追加予算は未確認。",
+        "evidence_ids": [
+          "e23-ase-package-design",
+          "e24-amkor-services",
+          "e25-cadence-package-design"
+        ]
+      },
+      "potential": {
+        "tam": null,
+        "willingness_to_pay": "高額設計プロジェクト予算あり・追加価値は未検証",
+        "growth": "AI/HPC向け高度パッケージ需要",
+        "gross_margin": "専門サービス比率が高く未算定",
+        "repeatability": "中",
+        "defensibility": "OSAT横断データ・量産実績・能力予約ネットワーク",
+        "evidence_ids": [
+          "e23-ase-package-design",
+          "e24-amkor-services",
+          "e25-cadence-package-design"
+        ]
+      },
+      "evidence_ids": [
+        "e13-amkor-nvidia",
+        "e17-ase-panel",
+        "e8-tsmc-q2",
+        "e23-ase-package-design",
+        "e24-amkor-services",
+        "e25-cadence-package-design"
+      ]
+    }
+  ],
+  "profit_pools": [
+    {
+      "id": "p1-advanced-memory",
+      "name": "HBM・サーバーDRAM・企業SSD",
+      "value_chain_stage": "高性能メモリ",
+      "revenue_pool": 95,
+      "pool_score": 95,
+      "profit_definition": {
+        "owner": "HBM・サーバーDRAM・企業SSDの供給企業",
+        "metric": "相対的な営業利益獲得魅力度指数（供給制約・価格・マージン方向・参入障壁）",
+        "geography": "グローバル",
+        "horizon": "2026–2030",
+        "unit": "0–100 index; 金額ではない",
+        "base_year": 2026,
+        "actual_value": null,
+        "confidence": 82,
+        "evidence_ids": ["e3-trendforce-q2-memory", "e4-trendforce-q3-server-dram", "e7-micron-q3", "e9-semi-memory-capex"]
+      },
+      "margin_direction": "up",
+      "growth_direction": "up",
+      "capture_mechanism": "供給集中、長期契約、認証、ダイ面積・積層・歩留まりの希少性",
+      "barriers": [
+        "先端DRAMプロセス",
+        "HBM積層",
+        "顧客認証",
+        "巨額設備投資"
+      ],
+      "winners": [
+        "HBMと高容量RDIMMを量産できるメモリ企業",
+        "サーバー向けポートフォリオの強い供給者"
+      ],
+      "losers": [
+        "非LTAの小口買い手",
+        "価格転嫁できないPC・端末メーカー"
+      ],
+      "why": "現在の最大の利益プールだが、異常に高い価格・マージンは将来供給増への誘因でもある。",
+      "evidence_ids": [
+        "e3-trendforce-q2-memory",
+        "e4-trendforce-q3-server-dram",
+        "e7-micron-q3",
+        "e9-semi-memory-capex"
+      ]
+    },
+    {
+      "id": "p2-leading-foundry",
+      "name": "2–3nm先端ファウンドリ",
+      "value_chain_stage": "先端前工程",
+      "revenue_pool": 91,
+      "pool_score": 91,
+      "profit_definition": {
+        "owner": "2–3nm先端ファウンドリと直接ボトルネック供給者",
+        "metric": "相対的な営業利益獲得魅力度指数（粗利・能力希少性・切替費用）",
+        "geography": "グローバル",
+        "horizon": "2026–2030",
+        "unit": "0–100 index; 金額ではない",
+        "base_year": 2026,
+        "actual_value": null,
+        "confidence": 85,
+        "evidence_ids": ["e8-tsmc-q2", "e12-asml-q1"]
+      },
+      "margin_direction": "up",
+      "growth_direction": "up",
+      "capture_mechanism": "プロセス性能、歩留まり、EDA/IPエコシステム、信頼できる量産能力",
+      "barriers": [
+        "数百億ドル規模投資",
+        "EUV",
+        "歩留まり学習",
+        "顧客移行コスト"
+      ],
+      "winners": [
+        "先端ノードで量産実績のあるファウンドリ",
+        "先端装置・材料供給者"
+      ],
+      "losers": [
+        "先端移行に遅れたIDM/ファウンドリ",
+        "能力確保の弱いファブレス"
+      ],
+      "why": "TSMCのQ2粗利率67.7%は現在の交渉力を示すが、海外ファブと先端立上げの高コストが下押し要因。",
+      "evidence_ids": [
+        "e8-tsmc-q2",
+        "e12-asml-q1"
+      ]
+    },
+    {
+      "id": "p3-equipment",
+      "name": "リソグラフィ・成膜・エッチング・検査装置",
+      "value_chain_stage": "製造装置",
+      "revenue_pool": 88,
+      "pool_score": 88,
+      "profit_definition": {
+        "owner": "半導体製造装置企業と設置済み装置サービス",
+        "metric": "相対的な営業利益獲得魅力度指数（技術独占・受注・サービス収益）",
+        "geography": "グローバル",
+        "horizon": "2026–2030",
+        "unit": "0–100 index; 金額ではない",
+        "base_year": 2026,
+        "actual_value": null,
+        "confidence": 78,
+        "evidence_ids": ["e9-semi-memory-capex", "e10-semi-300mm-outlook", "e12-asml-q1", "e16-bis-guidance"]
+      },
+      "margin_direction": "up",
+      "growth_direction": "up",
+      "capture_mechanism": "技術独占、認証済み装置、導入後サービス、能力増設の前払い需要",
+      "barriers": [
+        "長期R&D",
+        "精密サプライチェーン",
+        "顧客認証",
+        "輸出規制"
+      ],
+      "winners": [
+        "EUV/DUV、成膜、エッチング、検査の寡占企業",
+        "設置済み装置サービス"
+      ],
+      "losers": [
+        "単一地域・単一顧客依存の装置サプライヤー"
+      ],
+      "why": "300mm投資の増加を早期に取り込むが、受注は設備投資サイクルと輸出政策に敏感。",
+      "evidence_ids": [
+        "e9-semi-memory-capex",
+        "e10-semi-300mm-outlook",
+        "e12-asml-q1",
+        "e16-bis-guidance"
+      ]
+    },
+    {
+      "id": "p4-advanced-packaging",
+      "name": "高度パッケージ・基板・試験",
+      "value_chain_stage": "後工程・システム統合",
+      "revenue_pool": 84,
+      "pool_score": 84,
+      "profit_definition": {
+        "owner": "先端OSAT・基板・試験・熱材料の供給者",
+        "metric": "相対的な営業利益獲得魅力度指数（能力予約・共同設計・歩留まりノウハウ）",
+        "geography": "グローバル",
+        "horizon": "2026–2030",
+        "unit": "0–100 index; 金額ではない",
+        "base_year": 2026,
+        "actual_value": null,
+        "confidence": 76,
+        "evidence_ids": ["e13-amkor-nvidia", "e17-ase-panel"]
+      },
+      "margin_direction": "up",
+      "growth_direction": "up",
+      "capture_mechanism": "能力予約、共同設計、熱・歩留まりノウハウ、複雑な試験",
+      "barriers": [
+        "工程統合",
+        "高密度配線",
+        "熱設計",
+        "量産歩留まり",
+        "顧客共同開発"
+      ],
+      "winners": [
+        "先端OSAT",
+        "基板・インターポーザ",
+        "テスト・ハンドラー",
+        "熱材料"
+      ],
+      "losers": [
+        "汎用低価格パッケージ専業"
+      ],
+      "why": "性能のボトルネック化で価値は上がるが、前工程より資本集約・競争・顧客集中が大きい。",
+      "evidence_ids": [
+        "e13-amkor-nvidia",
+        "e17-ase-panel"
+      ]
+    },
+    {
+      "id": "p5-legacy-qualified",
+      "name": "認証済み旧世代・ニッチメモリ",
+      "value_chain_stage": "レガシー部品",
+      "revenue_pool": 76,
+      "pool_score": 76,
+      "profit_definition": {
+        "owner": "長寿命・旧世代・ニッチメモリの認証済み供給者と代替支援者",
+        "metric": "相対的な営業利益獲得魅力度指数（供給縮小・再認証コスト・小ロット価格）",
+        "geography": "グローバル",
+        "horizon": "2026–2030",
+        "unit": "0–100 index; 金額ではない",
+        "base_year": 2026,
+        "actual_value": null,
+        "confidence": 70,
+        "evidence_ids": ["e19-trendforce-slc", "e6-trendforce-mature-foundry"]
+      },
+      "margin_direction": "up",
+      "growth_direction": "flat",
+      "capture_mechanism": "再認証コスト、長期供給、小ロット、代替困難性",
+      "barriers": [
+        "品質認証",
+        "長期信頼性",
+        "顧客固有仕様",
+        "少量生産維持"
+      ],
+      "winners": [
+        "SLC/MLC、旧DRAM、長寿命アナログの専門供給者",
+        "代替認証サービス"
+      ],
+      "losers": [
+        "EOL監視のない長寿命製品メーカー"
+      ],
+      "why": "市場規模は小さいが、供給縮小と認証ロックインで局所的な価格・粗利が大きい。",
+      "evidence_ids": [
+        "e19-trendforce-slc",
+        "e6-trendforce-mature-foundry"
+      ]
+    },
+    {
+      "id": "p6-commodity-mature",
+      "name": "汎用成熟ノード・消費者向けメモリ",
+      "value_chain_stage": "量産汎用品",
+      "revenue_pool": 62,
+      "pool_score": 62,
+      "profit_definition": {
+        "owner": "汎用成熟ノード・消費者向けメモリ供給企業",
+        "metric": "相対的な営業利益獲得魅力度指数（規模・稼働率・原価・価格競争）",
+        "geography": "グローバル",
+        "horizon": "2026–2030",
+        "unit": "0–100 index; 金額ではない",
+        "base_year": 2026,
+        "actual_value": null,
+        "confidence": 68,
+        "evidence_ids": ["e5-trendforce-nand-balance", "e6-trendforce-mature-foundry", "e10-semi-300mm-outlook", "e11-ti-q1"]
+      },
+      "margin_direction": "down",
+      "growth_direction": "mixed",
+      "capture_mechanism": "規模、300mmコスト、稼働率、地域補助金",
+      "barriers": [
+        "設備規模",
+        "顧客認証",
+        "原価競争"
+      ],
+      "winners": [
+        "低コスト300mm能力と広い製品群を持つ企業",
+        "国内需要を持つ中国供給者"
+      ],
+      "losers": [
+        "小規模で差別化の弱い汎用品供給者"
+      ],
+      "why": "短期は供給再配分で価格が上がるが、2027–29年の能力増設と弱いPC・スマホ需要で価格競争へ戻りやすい。",
+      "evidence_ids": [
+        "e5-trendforce-nand-balance",
+        "e6-trendforce-mature-foundry",
+        "e10-semi-300mm-outlook",
+        "e11-ti-q1"
+      ]
+    }
+  ],
+  "investment_routes": [
+    {
+      "id": "i1-memory-hbm",
+      "name": "HBM・サーバーメモリ供給者",
+      "theme": "AIメモリ供給不足",
+      "transmission": "AIサーバー増設 → HBM/RDIMM/eSSD需要 → ASP・稼働率上昇 → 粗利拡大",
+      "beneficiaries": [
+        "Micron",
+        "SK hynix",
+        "Samsung Electronics"
+      ],
+      "earnings_sensitivity": "ASPと製品ミックスが粗利へ高感応。MicronのFQ3-26 GAAP粗利率は84.6%まで上昇した。",
+      "expectations_gap": "供給不足は明白だが、現在の異常マージンが何年続くかと株価への織り込みが最大の不確実性。",
+      "valuation": "3社の現在バリュエーション、正常化後利益、サイクル調整後倍率は本runで未評価。",
+      "crowding": "AI/HBMテーマとして混雑している可能性が高い。機関フローとオプション需給は未取得。",
+      "catalysts": [
+        "2027年LTA",
+        "HBM4/HBM4E認証",
+        "サーバーCPU供給改善",
+        "追加価格上昇"
+      ],
+      "downside": "2027–29年の能力増、顧客内製化、AI投資減速、価格下落、技術認証失敗。",
+      "decision": "追随買いではなく正常化利益で評価し、価格・在庫・設備投資の四半期ゲートで段階判断",
+      "confidence": 0.72,
+      "evidence_ids": [
+        "e4-trendforce-q3-server-dram",
+        "e7-micron-q3",
+        "e9-semi-memory-capex"
+      ]
+    },
+    {
+      "id": "i2-leading-foundry",
+      "name": "先端ファウンドリ",
+      "theme": "2–3nmとAI ASICの能力希少性",
+      "transmission": "AI ASIC/アクセラレータ需要 → 先端ウェハ・CoWoS需要 → 高稼働率・価格ミックス → 高粗利",
+      "beneficiaries": [
+        "TSMC",
+        "先端量産に成功したSamsung Foundry"
+      ],
+      "earnings_sensitivity": "先端ノード比率、ウェハASP、歩留まり、海外ファブコスト、為替に感応。",
+      "expectations_gap": "高い競争優位は広く認識済み。差はAI需要持続と海外能力の資本効率。",
+      "valuation": "TSMC/Samsungの現在倍率と地域リスク割引は未評価。",
+      "crowding": "AIサプライチェーンの中核として混雑可能性。",
+      "catalysts": [
+        "2nm量産",
+        "AI ASIC増加",
+        "高度パッケージ増設",
+        "Q3以降の高稼働"
+      ],
+      "downside": "台湾地政学、海外ファブの高コスト、顧客集中、先端需要の急減、輸出規制。",
+      "decision": "構造的優位候補だが、価格ではなく正常化後FCFと地政学を含む期待リターンで判断",
+      "confidence": 0.75,
+      "evidence_ids": [
+        "e8-tsmc-q2",
+        "e12-asml-q1",
+        "e13-amkor-nvidia"
+      ]
+    },
+    {
+      "id": "i3-equipment",
+      "name": "半導体製造装置・サービス",
+      "theme": "2026–29年の能力増設",
+      "transmission": "供給不足・政策補助 → 300mm設備投資 → 装置受注・設置ベース → サービス収益",
+      "beneficiaries": [
+        "ASML",
+        "Applied Materials",
+        "Lam Research",
+        "KLA",
+        "Tokyo Electron"
+      ],
+      "earnings_sensitivity": "顧客設備投資、メモリ比率、出荷認識、輸出地域、サービス売上に感応。",
+      "expectations_gap": "投資増は可視性が高いが、2028–30年の重複能力と受注ピークが過小評価される可能性。",
+      "valuation": "個別企業の受注残品質、倍率、フリーキャッシュフロー利回りは未評価。",
+      "crowding": "AI設備投資テーマとして高い可能性。",
+      "catalysts": [
+        "300mm投資上方修正",
+        "メモリ設備発注",
+        "先端ノード装置出荷",
+        "サービス比率上昇"
+      ],
+      "downside": "設備投資キャンセル、輸出規制、顧客集中、部材不足、受注ピークアウト。",
+      "decision": "装置カテゴリ別に受注残・中国比率・サービス比率を確認して選別",
+      "confidence": 0.74,
+      "evidence_ids": [
+        "e9-semi-memory-capex",
+        "e10-semi-300mm-outlook",
+        "e12-asml-q1",
+        "e16-bis-guidance"
+      ]
+    },
+    {
+      "id": "i4-packaging",
+      "name": "高度パッケージ・テスト",
+      "theme": "ヘテロジニアス統合",
+      "transmission": "チップレット/HBM → 複雑な実装・試験 → 能力予約・共同開発 → 売上とミックス改善",
+      "beneficiaries": [
+        "ASE Technology",
+        "Amkor Technology",
+        "高密度基板・テスト関連企業"
+      ],
+      "earnings_sensitivity": "AIデータセンター比率、稼働率、歩留まり、減価償却、顧客前払に感応。",
+      "expectations_gap": "重要性は上昇するが、前工程より低い粗利と大きな設備負担がある。売上成長と株主価値を同一視しない。",
+      "valuation": "ASE/Amkorおよび基板企業の個別倍率は未評価。",
+      "crowding": "前工程ほど混雑していない可能性があるが、現在ポジションは未取得。",
+      "catalysts": [
+        "NVIDIA等との複数年契約",
+        "310mmパネル量産",
+        "米国高度パッケージ能力",
+        "AI ASIC増加"
+      ],
+      "downside": "顧客内製、歩留まり、設備過剰、価格交渉、顧客集中。",
+      "decision": "契約による需要裏付けと投下資本利益率を確認して監視",
+      "confidence": 0.68,
+      "evidence_ids": [
+        "e13-amkor-nvidia",
+        "e17-ase-panel",
+        "e8-tsmc-q2"
+      ]
+    },
+    {
+      "id": "i5-mature-analog-power",
+      "name": "成熟ノード・アナログ・パワーは一括せず選別",
+      "theme": "AI電力需要と中国能力増の綱引き",
+      "transmission": "AI電源・産業回復 → PMIC/パワー需要。ただし中国成熟能力増 → 汎用品価格圧力",
+      "beneficiaries": [
+        "Texas Instruments",
+        "Infineon",
+        "STMicroelectronics",
+        "Renesas",
+        "UMC",
+        "GlobalFoundries"
+      ],
+      "earnings_sensitivity": "稼働率、製品ミックス、300mm原価、産業・車載需要、中国価格競争に感応。",
+      "expectations_gap": "8インチ高稼働とAIパワー需要は追い風だが、『成熟ノードすべて不足』ではない。差別化と長期認証が必要。",
+      "valuation": "各社の在庫、稼働率、設備投資、倍率は未評価。",
+      "crowding": "AI直結銘柄より低い可能性があるが、確認が必要。",
+      "catalysts": [
+        "産業回復",
+        "PMIC不足",
+        "8インチ値上げ",
+        "300mmアナログ歩留まり改善"
+      ],
+      "downside": "中国の供給増、車載・産業需要鈍化、価格競争、在庫再積上げ。",
+      "decision": "製品差別化・認証・原価優位の3条件を満たす企業だけを候補化",
+      "confidence": 0.59,
+      "evidence_ids": [
+        "e6-trendforce-mature-foundry",
+        "e11-ti-q1",
+        "e10-semi-300mm-outlook"
+      ]
+    }
+  ],
+  "business_routes": [
+    {
+      "id": "b1-procurement-os",
+      "name": "半導体調達Decision OS",
+      "structural_change": "市場平均ではなく、世代・用途・契約有無で価格が分岐",
+      "pain": "BOMへの影響、EOL、代替、契約期限が見えず、値上げと停止リスクへの対応が後手。",
+      "buyer": "CPO、SCM、CFO、設計責任者",
+      "budget": "調達DX、ERP、サプライチェーン・リスク、原価企画",
+      "solution": "顧客BOMと価格・供給シグナルを接続し、部品別の原価・停止シナリオ、代替、承認ログを返す。",
+      "pricing": "初期設定100–500万円、月額20–100万円、部品数・拠点数で増額。仮説でありパイロット検証が必要。",
+      "unit_economics": "年間購買額の0.1–0.5%削減または停止損失回避が、年間契約額の5倍以上になる顧客に限定。",
+      "channel": "ERP/SIer、電子部品商社、品質・設計コンサル、業界団体",
+      "validation": "3社・各100部品の有料パイロットで、警報先行日数、予算差異、代替着手件数を測る。",
+      "kill_criteria": "顧客データなしでは価値が出ない、または価格データライセンス費が粗利30%以上を恒常的に消費する場合。",
+      "evidence_ids": [
+        "e3-trendforce-q2-memory",
+        "e4-trendforce-q3-server-dram",
+        "e6-trendforce-mature-foundry",
+        "e19-trendforce-slc"
+      ]
+    },
+    {
+      "id": "b2-lifecycle-service",
+      "name": "EOL・代替認証マネージドサービス",
+      "structural_change": "高収益製品への能力移行で、長寿命旧世代品が構造的に不足",
+      "pain": "ラストタイムバイか再設計かの判断が遅れ、在庫過多または生産停止になる。",
+      "buyer": "製品ライフサイクル責任者、品質保証、設計、調達",
+      "budget": "品質、設計変更、認証、保守部品、在庫",
+      "solution": "EOL監視、互換性評価、試験計画、規制文書、ラストタイムバイ数量を一括提供。",
+      "pricing": "部品診断10–50万円、認証プロジェクト300–3000万円、継続監視月額。仮説。",
+      "unit_economics": "標準化した1業種・1部品群から開始し、専門家稼働率と再利用可能な試験テンプレートで粗利を作る。",
+      "channel": "試験所、認証機関、部品商社、保守サービス会社",
+      "validation": "SLC/MLC NANDの10部品で、外部委託前後の認証期間と技術者工数を比較。",
+      "kill_criteria": "案件ごとのカスタム比率が80%を超え、テンプレート再利用と継続監視収益が成立しない場合。",
+      "evidence_ids": [
+        "e19-trendforce-slc",
+        "e6-trendforce-mature-foundry",
+        "e15-usgs-germanium"
+      ]
+    },
+    {
+      "id": "b3-capacity-exchange",
+      "name": "共同LTA・能力予約・在庫交換ネットワーク",
+      "structural_change": "大手CSPの複数年LTAにより、非LTA顧客へ限界価格と不足が集中",
+      "pain": "中堅買い手は供給枠を取れず、単独契約では需要予測誤差と在庫損を負う。",
+      "buyer": "CPO、CFO、EMS、認定商社",
+      "budget": "直接材料費、在庫金融、事業継続",
+      "solution": "同一規格需要を束ね、予約権、価格上限、真正品保証、余剰交換、在庫金融を提供。",
+      "pricing": "会員料＋予約量の1–3%手数料＋金融スプレッド。仮説であり法務・会計確認が必要。",
+      "unit_economics": "予約プレミアムと手数料が、価格下落時の在庫評価損・信用損失を上回ることが条件。",
+      "channel": "認定商社、EMS、銀行、業界コンソーシアム",
+      "validation": "3社・1規格・6か月・買戻し条項付きの限定共同予約。",
+      "kill_criteria": "需要予測誤差が20%超、または余剰処分後の粗利がマイナスになる場合。",
+      "evidence_ids": [
+        "e4-trendforce-q3-server-dram",
+        "e7-micron-q3"
+      ]
+    },
+    {
+      "id": "b4-packaging-dfm",
+      "name": "AIチップ高度パッケージDFM・熱設計支援",
+      "structural_change": "性能と供給量の制約が前工程からパッケージ・熱・試験へ移動",
+      "pain": "テープアウト後に熱限界、基板、試験、OSAT能力の不整合が発覚し、再設計と量産遅延が起きる。",
+      "buyer": "ファブレスCTO、シリコン部門、ハードウェア責任者",
+      "budget": "チップ開発NRE、パッケージ、試験、量産立上げ",
+      "solution": "パッケージ方式比較、熱・SI/PI解析、試験設計、OSAT見積・能力予約をステージゲート化。",
+      "pricing": "設計レビュー500–3000万円、量産支援・ソフトウェア年額、能力予約成功報酬。仮説。",
+      "unit_economics": "高単価少数案件で開始し、解析テンプレートとサプライヤーDBを再利用して専門家粗利を改善。",
+      "channel": "EDA企業、ファウンドリ、OSAT、IPベンダー、VC/アクセラレータ",
+      "validation": "ASIC 1件で、設計凍結前に不整合を発見し、見積期間または再設計回数を30%以上削減。",
+      "kill_criteria": "供給者から設計ルールと能力情報を得られず、中立比較が成立しない場合。",
+      "evidence_ids": [
+        "e13-amkor-nvidia",
+        "e17-ase-panel",
+        "e8-tsmc-q2"
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1-segmented-normalization",
+      "name": "分岐した正常化",
+      "probability": 0.4,
+      "narrative": "AI需要は成長するが、2027–29年のメモリ・300mm能力増と工程改善が追いつく。汎用DRAM/NANDは2027年後半から上昇率が鈍化し、2028–30年に調整する。一方、HBM、2–3nm、高度パッケージ、認証済み旧世代品はプレミアムを維持する。",
+      "axes": [
+        "AI需要：高成長",
+        "能力増：計画通り",
+        "地域分断：管理可能"
+      ],
+      "indicators": [
+        "NAND供給不足の2027年後半解消",
+        "300mm能力年率約7%増",
+        "メモリ在庫正常化",
+        "パッケージリードタイム安定"
+      ],
+      "implications": [
+        "調達価格は製品別に分岐",
+        "メモリ供給者のピーク利益は正常化",
+        "装置・パッケージは売上成長継続",
+        "代替認証サービス需要"
+      ],
+      "falsifiers": [
+        "2028年もDRAM/NAND価格が二桁上昇",
+        "予定ファブの大幅遅延",
+        "AIデータセンター投資が供給増を完全吸収"
+      ],
+      "evidence_ids": [
+        "e5-trendforce-nand-balance",
+        "e9-semi-memory-capex",
+        "e10-semi-300mm-outlook",
+        "e13-amkor-nvidia",
+        "e19-trendforce-slc"
+      ]
+    },
+    {
+      "id": "s2-ai-supercycle",
+      "name": "AIスーパーサイクル継続",
+      "probability": 0.3,
+      "narrative": "AI推論、エージェント、主権AI、カスタムASICが供給増を上回る。HBMだけでなくRDIMM、eSSD、ネットワーク、PMIC、高度パッケージが連鎖的に不足し、LTA外顧客の価格上昇が2028年以降も続く。",
+      "axes": [
+        "AI需要：超高成長",
+        "能力増：需要未満",
+        "電力制約：徐々に緩和"
+      ],
+      "indicators": [
+        "CSP設備投資上方修正",
+        "2027年サーバーDRAM不足",
+        "HBM4複数年契約",
+        "TSMC/OSAT高稼働",
+        "装置受注残増加"
+      ],
+      "implications": [
+        "メモリ・先端・装置利益の高止まり",
+        "消費者機器の値上げと需要破壊",
+        "共同調達・能力予約の価値上昇",
+        "電力と冷却が次の制約"
+      ],
+      "falsifiers": [
+        "AI収益化失速",
+        "CSP設備投資削減",
+        "サーバー在庫増加",
+        "HBM/DRAMリードタイム急低下"
+      ],
+      "evidence_ids": [
+        "e1-wsts-spring-2026",
+        "e4-trendforce-q3-server-dram",
+        "e7-micron-q3",
+        "e12-asml-q1",
+        "e14-iea-energy-ai"
+      ]
+    },
+    {
+      "id": "s3-capex-overshoot",
+      "name": "設備投資オーバーシュートと価格崩れ",
+      "probability": 0.2,
+      "narrative": "2026–27年の異常価格と補助金が重複投資を誘発する一方、AI投資の収益化、PC・スマホ、マクロ需要が弱まる。2028–29年に汎用メモリと成熟ノードの稼働率が下がり、契約価格と供給者利益が急落する。",
+      "axes": [
+        "AI需要：減速",
+        "能力増：過剰",
+        "地域分断：投資重複"
+      ],
+      "indicators": [
+        "メモリ設備投資継続とCSP投資減速の同時発生",
+        "在庫日数増加",
+        "スポット価格が契約価格を下回る",
+        "中国成熟ノード価格競争"
+      ],
+      "implications": [
+        "メモリ銘柄の利益急減",
+        "買い手の交渉力回復",
+        "装置受注のピークアウト",
+        "弱い供給者の再編"
+      ],
+      "falsifiers": [
+        "LTAが供給増を完全吸収",
+        "AI需要予測の継続上方修正",
+        "設備計画の延期・抑制"
+      ],
+      "evidence_ids": [
+        "e9-semi-memory-capex",
+        "e10-semi-300mm-outlook",
+        "e5-trendforce-nand-balance",
+        "e11-ti-q1",
+        "e18-sia-factbook"
+      ]
+    },
+    {
+      "id": "s4-fragmentation-shock",
+      "name": "地政学・材料・電力による地域別価格ショック",
+      "probability": 0.1,
+      "narrative": "輸出管理、台湾海峡、重要材料、送電網・電力制約のいずれかが供給を寸断する。世界平均価格より、認可地域、用途、真正品、代替不可部品の価格差とリードタイムが急拡大する。",
+      "axes": [
+        "需要：二次的",
+        "能力増：物理的に遅延",
+        "地域分断：急拡大"
+      ],
+      "indicators": [
+        "BIS規制強化",
+        "材料輸出制限",
+        "ファブ停電・水制約",
+        "地域別リードタイム乖離",
+        "保険・物流費上昇"
+      ],
+      "implications": [
+        "現物在庫と二重認証の価値上昇",
+        "地域内供給者のプレミアム",
+        "完成品生産停止",
+        "政策在庫・優先割当"
+      ],
+      "falsifiers": [
+        "規制緩和",
+        "材料代替・再精製能力増加",
+        "地域間能力の相互代替",
+        "電力接続の前倒し"
+      ],
+      "evidence_ids": [
+        "e14-iea-energy-ai",
+        "e15-usgs-germanium",
+        "e16-bis-guidance",
+        "e10-semi-300mm-outlook"
+      ]
+    }
+  ],
+  "forecasts": [
+    {
+      "id": "f1-2026-sales-1450bn",
+      "question": "WSTS/SIAが公表する2026年世界半導体年間売上は1兆4500億ドル以上になるか？",
+      "resolution_date": "2027-03-15",
+      "probability": 0.82,
+      "base_rate": "WSTS Spring 2026予測は1.51兆ドル。2025年実績は7917億ドルであり、予測達成には前年比83%以上が必要。",
+      "reasoning": "5月までの売上とメモリ価格は強いが、WSTS予測は歴史的成長率から極端に上方で、需要破壊と価格反落余地があるため100%にはしない。",
+      "up_factors": [
+        "3Q/4Qメモリ価格上昇",
+        "AIサーバー出荷",
+        "先端ロジック高稼働"
+      ],
+      "down_factors": [
+        "PC・スマホ減産",
+        "AI設備投資延期",
+        "価格上昇による需要破壊"
+      ],
+      "resolution_criteria": "SIAまたはWSTSの最初の確定2026年年間売上公表値がUS$1,450.0 billion以上ならYes。後日改定は初回判定を変更しない。",
+      "evidence_ids": [
+        "e1-wsts-spring-2026",
+        "e2-sia-may-sales",
+        "e3-trendforce-q2-memory"
+      ]
+    },
+    {
+      "id": "f2-2027-sales-1700bn",
+      "question": "WSTS/SIAが公表する2027年世界半導体年間売上は1兆7000億ドル以上になるか？",
+      "resolution_date": "2028-03-15",
+      "probability": 0.68,
+      "base_rate": "WSTS Spring 2026予測は2027年約1.9兆ドル、前年比27%増。2001–2024年の長期売上CAGRは6.8%で、二年連続の高成長は外れ値。",
+      "reasoning": "AI需要と契約価格は支援するが、2027年後半のNAND緩和、能力増、需要破壊で予測を下回る可能性を織り込む。",
+      "up_factors": [
+        "サーバーDRAM不足継続",
+        "HBM4量産",
+        "AI ASIC増加",
+        "先端パッケージ能力増"
+      ],
+      "down_factors": [
+        "メモリ価格正常化",
+        "CSP設備投資減速",
+        "能力過剰",
+        "地政学による出荷減"
+      ],
+      "resolution_criteria": "SIAまたはWSTSの最初の確定2027年年間売上公表値がUS$1,700.0 billion以上ならYes。",
+      "evidence_ids": [
+        "e1-wsts-spring-2026",
+        "e4-trendforce-q3-server-dram",
+        "e5-trendforce-nand-balance",
+        "e10-semi-300mm-outlook",
+        "e18-sia-factbook"
+      ]
+    },
+    {
+      "id": "f3-nand-deficit-clears-2027",
+      "question": "TrendForceの2027年通期NAND Flash需給推計で、供給ビット成長率は需要ビット成長率以上になるか？",
+      "resolution_date": "2028-03-31",
+      "probability": 0.67,
+      "base_rate": "TrendForceの2026年7月見通しは2026年を4–5%供給不足、2027年は供給成長が需要を上回り、2027年後半に逼迫が緩和するとしている。",
+      "reasoning": "プロセス移行と中国能力が供給を増やす一方、企業SSDとサーバー需要、DRAM優先投資がNAND供給増を遅らせ得る。",
+      "up_factors": [
+        "高層NAND歩留まり改善",
+        "中国ビット供給増",
+        "スマホ・PC低迷",
+        "設備投資前倒し"
+      ],
+      "down_factors": [
+        "企業SSD需要急増",
+        "NAND投資のDRAM転用",
+        "歩留まり遅延",
+        "供給者の減産"
+      ],
+      "resolution_criteria": "TrendForceが2028年3月31日までに公開または顧客向けに公表する2027年通期のNAND供給・需要ビット成長率で、供給成長率が需要成長率以上ならYes。両方が数値非公開の場合は、同社が2027年通期をbalanced/oversuppliedと明記すればYes、undersuppliedならNo。",
+      "evidence_ids": [
+        "e5-trendforce-nand-balance",
+        "e9-semi-memory-capex",
+        "e10-semi-300mm-outlook"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "e1-wsts-spring-2026",
+      "title": "Global Semiconductor Market Surges Beyond $1.5T 2026",
+      "url": "https://www.wsts.org/76/Recent-News-Release",
+      "publisher": "World Semiconductor Trade Statistics",
+      "published_at": "2026-06-02",
+      "accessed_at": "2026-07-25",
+      "source_tier": "industry",
+      "statement_type": "inference",
+      "supports": [
+        "WSTSは2026年市場を1.51兆ドル・前年比90%増と予測",
+        "メモリを8000億ドル超・約250%増、ロジックを37%増と予測",
+        "2027年市場を約1.9兆ドル・27%増と予測"
+      ],
+      "limitations": "業界コンセンサス予測で実績ではない。売上は数量・価格・製品ミックスを含み、価格指数ではない。",
+      "counterevidence_ids": [
+        "e5-trendforce-nand-balance",
+        "e10-semi-300mm-outlook",
+        "e18-sia-factbook"
+      ]
+    },
+    {
+      "id": "e2-sia-may-sales",
+      "title": "Global Semiconductor Sales Increase 9.2% Month-to-Month in May",
+      "url": "https://www.semiconductors.org/global-semiconductor-sales-increase-9-2-month-to-month-in-may/",
+      "publisher": "Semiconductor Industry Association",
+      "published_at": "2026-07-06",
+      "accessed_at": "2026-07-25",
+      "source_tier": "industry",
+      "statement_type": "fact",
+      "supports": [
+        "2026年5月売上は1206億ドル",
+        "前月比9.2%増、前年同月比104.1%増",
+        "15か月連続の前月比増加"
+      ],
+      "limitations": "WSTSの3か月移動平均で、価格・数量・ミックスの内訳は公開ページにない。"
+    },
+    {
+      "id": "e3-trendforce-q2-memory",
+      "title": "AI Server Demand to Drive Memory Contract Price Increases in 2Q26",
+      "url": "https://www.trendforce.com/presscenter/news/20260331-12995.html",
+      "publisher": "TrendForce",
+      "published_at": "2026-03-31",
+      "accessed_at": "2026-07-25",
+      "source_tier": "industry",
+      "statement_type": "inference",
+      "supports": [
+        "2Q26従来型DRAM契約価格を前期比58–63%増と予測",
+        "NAND契約価格を70–75%増と予測",
+        "供給者がHBM・サーバーへ能力を再配分",
+        "PC需要下方リスクにもかかわらず供給が逼迫"
+      ],
+      "limitations": "価格調査会社の予測で、製品別・顧客別契約条件は異なる。",
+      "counterevidence_ids": [
+        "e4-trendforce-q3-server-dram",
+        "e5-trendforce-nand-balance",
+        "e11-ti-q1"
+      ]
+    },
+    {
+      "id": "e4-trendforce-q3-server-dram",
+      "title": "Server DRAM Contract Prices Expected to Rise 13–18% QoQ in 3Q26",
+      "url": "https://www.trendforce.com/presscenter/news/20260709-13140.html",
+      "publisher": "TrendForce",
+      "published_at": "2026-07-09",
+      "accessed_at": "2026-07-25",
+      "source_tier": "industry",
+      "statement_type": "inference",
+      "supports": [
+        "3Q26サーバーDRAM契約価格を前期比13–18%増と予測",
+        "LTAが契約顧客の値上げを制限",
+        "2027年RDIMMビット供給増を15–20%と初期推定",
+        "価格上昇は2H27まで続くがペースは鈍化と予測"
+      ],
+      "limitations": "予測であり、LTA外価格と契約価格の差が大きい。"
+    },
+    {
+      "id": "e5-trendforce-nand-balance",
+      "title": "NAND Flash Supply Growth to Outpace Demand in 2027",
+      "url": "https://www.trendforce.com/presscenter/news/20260721-13148.html",
+      "publisher": "TrendForce",
+      "published_at": "2026-07-21",
+      "accessed_at": "2026-07-25",
+      "source_tier": "industry",
+      "statement_type": "inference",
+      "supports": [
+        "2026年NAND市場を4–5%供給不足と推計",
+        "2027年後半に逼迫が緩和すると予測",
+        "中国供給者の世界ビット出力比率が約19%へ上昇と予測",
+        "スマホ・ノート需要の弱さ"
+      ],
+      "limitations": "将来のビット成長、歩留まり、需要を置いた予測であり、供給者の減産で変わる。",
+      "counterevidence_ids": [
+        "e4-trendforce-q3-server-dram",
+        "e9-semi-memory-capex"
+      ]
+    },
+    {
+      "id": "e6-trendforce-mature-foundry",
+      "title": "Capacity Cuts and AI Power IC Demand Set Stage for Mature-Node Price Increases",
+      "url": "https://www.trendforce.com/presscenter/news/20260507-13036.html",
+      "publisher": "TrendForce",
+      "published_at": "2026-05-07",
+      "accessed_at": "2026-07-25",
+      "source_tier": "industry",
+      "statement_type": "inference",
+      "supports": [
+        "上位10社の8インチ稼働率が2026年に約90%と予測",
+        "パワー関連工程への再配分と値上げ転嫁",
+        "12インチ成熟ノード増設の約70%を中国が牽引",
+        "TSMC能力調整後の受注移転と価格上昇可能性"
+      ],
+      "limitations": "調査会社予測で、ノード・工程・地域ごとの差が大きい。成熟ノード全体の一律不足を意味しない。"
+    },
+    {
+      "id": "e7-micron-q3",
+      "title": "Micron Reports Record Results for Fiscal Q3 2026",
+      "url": "https://investors.micron.com/news-releases/news-release-details/micron-technology-inc-reports-record-results-third-quarter",
+      "publisher": "Micron Technology",
+      "published_at": "2026-06-24",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "FQ3売上414.56億ドル",
+        "GAAP粗利率84.6%",
+        "FQ4売上500億ドル・粗利率約86%を会社予想",
+        "HBM4を主要顧客向け量産出荷",
+        "複数年Strategic Customer Agreements"
+      ],
+      "limitations": "会社開示であり、将来見通しは顧客需要・価格・競争・設備立上げに依存する。"
+    },
+    {
+      "id": "e8-tsmc-q2",
+      "title": "TSMC 2026 Q2 Quarterly Results",
+      "url": "https://investor.tsmc.com/english/quarterly-results/2026/q2",
+      "publisher": "Taiwan Semiconductor Manufacturing Company",
+      "published_at": "2026-07-16",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "2Q26売上402.0億ドル",
+        "粗利率67.7%、営業利益率60.3%",
+        "3Q26売上446–458億ドルを会社予想"
+      ],
+      "limitations": "高いマージンは価格だけでなく製品ミックス、歩留まり、為替を含む。"
+    },
+    {
+      "id": "e9-semi-memory-capex",
+      "title": "SEMI Projects 300mm Memory Equipment Investment to Surpass $50 Billion in 2026",
+      "url": "https://www.semi.org/en/semi-press-release/semi-projects-300mm-memory-equipment-investment-to-surpass-50-billion-dollars-in-2026",
+      "publisher": "SEMI",
+      "published_at": "2026-06-29",
+      "accessed_at": "2026-07-25",
+      "source_tier": "industry",
+      "statement_type": "inference",
+      "supports": [
+        "300mmメモリ装置投資を2026年520億ドル・29%増と予測",
+        "2027年570億ドル・11%増と予測",
+        "300mmメモリ能力を2026年410万枚/月、2027年420万枚/月と予測",
+        "工程複雑化で有効能力増が抑制"
+      ],
+      "limitations": "SEMIのファブ計画データに基づく予測。投資延期、装置納入、歩留まりで実績は変わる。"
+    },
+    {
+      "id": "e10-semi-300mm-outlook",
+      "title": "300mm Fab Outlook Q2 2026",
+      "url": "https://www.semi.org/en/products-services/market-data/300mm-fab-outlook",
+      "publisher": "SEMI",
+      "published_at": "2026-06-29",
+      "accessed_at": "2026-07-25",
+      "source_tier": "industry",
+      "statement_type": "inference",
+      "supports": [
+        "300mm前工程装置投資を2026年1420億ドル・25%増と予測",
+        "設備投資は2029年まで増加基調",
+        "300mm設置能力を2026年7%増、2027–29年も約7%増と予測",
+        "413ファブ・ラインを追跡"
+      ],
+      "limitations": "詳細データは有料。能力は有効良品出力や製品構成と一致しない。"
+    },
+    {
+      "id": "e11-ti-q1",
+      "title": "TI Reports First Quarter 2026 Financial Results",
+      "url": "https://investor.ti.com/news-releases/news-release-details/ti-reports-first-quarter-2026-financial-results-and-shareholder",
+      "publisher": "Texas Instruments",
+      "published_at": "2026-04-22",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "Q1売上48.25億ドル・前年比19%増",
+        "産業・データセンターが成長を牽引",
+        "会社は在庫と能力により競争力あるリードタイムを提供できると説明"
+      ],
+      "limitations": "一社の会社説明であり、アナログ・組込み市場全体の価格指数ではない。",
+      "counterevidence_ids": [
+        "e6-trendforce-mature-foundry"
+      ]
+    },
+    {
+      "id": "e12-asml-q1",
+      "title": "ASML Reports Q1 2026 Results",
+      "url": "https://ourbrand.asml.com/asset/6ec62875-6d6a-4ec5-a4d7-43f59ce8e5c5/ASML-Press-Release-Financial-Results-Q1-2026.pdf",
+      "publisher": "ASML",
+      "published_at": "2026-04-15",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "ASMLは顧客需要がチップ供給を上回ると説明",
+        "顧客が2026年以降の能力増設を加速",
+        "2026年売上360–400億ユーロを会社予想"
+      ],
+      "limitations": "装置供給者の会社見通しであり、最終半導体価格を直接測らない。"
+    },
+    {
+      "id": "e13-amkor-nvidia",
+      "title": "Amkor and NVIDIA Expand Advanced Packaging and Test Capacity",
+      "url": "https://ir.amkor.com/news-releases/news-release-details/amkor-technology-announces-strategic-partnership-nvidia-expand",
+      "publisher": "Amkor Technology",
+      "published_at": "2026-07-23",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "NVIDIAとAmkorが複数年の高度パッケージ・試験提携",
+        "15億ドルの複数年契約",
+        "米国高度パッケージ能力拡張を支援"
+      ],
+      "limitations": "提携当事者の発表で、将来需要と能力立上げには不確実性がある。"
+    },
+    {
+      "id": "e14-iea-energy-ai",
+      "title": "Key Questions on Energy and AI — Executive Summary",
+      "url": "https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary",
+      "publisher": "International Energy Agency",
+      "published_at": "2026-04-16",
+      "accessed_at": "2026-07-25",
+      "source_tier": "official_secondary",
+      "statement_type": "inference",
+      "supports": [
+        "データセンター電力を2025年485TWhから2030年950TWhへ約倍増と予測",
+        "AI特化データセンター電力は同期間に3倍と予測",
+        "電力機器・チップ・許認可の物理的ボトルネックを指摘"
+      ],
+      "limitations": "エネルギー需要予測であり、AI投資収益と半導体価格を直接予測しない。"
+    },
+    {
+      "id": "e15-usgs-germanium",
+      "title": "Mineral Commodity Summaries 2026 — Germanium",
+      "url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026.pdf",
+      "publisher": "U.S. Geological Survey",
+      "published_at": "2026-02-06",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "2025年1–10月に欧州ゲルマニウム金属価格が3150ドル/kgから5380ドル/kgへ上昇",
+        "中国の対米輸出禁止後、米国ゲルマニウム金属輸入を67%減と推定",
+        "半導体・光通信等に使用"
+      ],
+      "limitations": "ゲルマニウムは半導体全体の小さな材料部分で、価格上昇が全チップASPへ同率転嫁されるわけではない。"
+    },
+    {
+      "id": "e16-bis-guidance",
+      "title": "Guidance Regarding Enforcement of License Requirements for Advanced Computing",
+      "url": "https://media.bis.gov/media/documents/bis-guidance-may-31-2026.pdf",
+      "publisher": "U.S. Bureau of Industry and Security",
+      "published_at": "2026-05-31",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "高度計算品目へのライセンス要件に関する2026年5月時点の執行ガイダンス",
+        "対象品目と地域・主体による供給制約"
+      ],
+      "limitations": "規制は更新され得る。価格影響の方向・大きさは地域、迂回供給、代替製品に依存。"
+    },
+    {
+      "id": "e17-ase-panel",
+      "title": "ASE Launches Automated 310mm Panel-Level Packaging",
+      "url": "https://ase.aseglobal.com/press-room/310x310/",
+      "publisher": "Advanced Semiconductor Engineering",
+      "published_at": "2026-05-26",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "310mm×310mm自動パネルレベル包装ラインを開発",
+        "2027年上期の生産開始予定",
+        "チップレット・ASIC・HBMの大面積統合を対象"
+      ],
+      "limitations": "会社計画であり、生産開始、歩留まり、価格競争力は未確定。"
+    },
+    {
+      "id": "e18-sia-factbook",
+      "title": "2025 SIA Factbook",
+      "url": "https://www.semiconductors.org/wp-content/uploads/2025/05/2025-SIA-Factbook-FINAL-1.pdf",
+      "publisher": "Semiconductor Industry Association",
+      "published_at": "2025-05-01",
+      "accessed_at": "2026-07-25",
+      "source_tier": "industry",
+      "statement_type": "fact",
+      "supports": [
+        "世界半導体売上は2001年1390億ドルから2024年6305億ドルへ増加",
+        "2001–2024年の売上CAGRは6.8%"
+      ],
+      "limitations": "2024年までの長期集計。メモリ価格サイクルの詳細分布は含まない。"
+    },
+    {
+      "id": "e19-trendforce-slc",
+      "title": "SLC NAND Prices Expected to Rise 120–170% in 2H26",
+      "url": "https://www.trendforce.com/presscenter/news/20260713-13142.html",
+      "publisher": "TrendForce",
+      "published_at": "2026-07-13",
+      "accessed_at": "2026-07-25",
+      "source_tier": "industry",
+      "statement_type": "inference",
+      "supports": [
+        "SLC NAND契約価格を2H26に1H26比120–170%増と予測",
+        "成熟NAND能力の高層3D NAND移行",
+        "産業・車載顧客の固定仕様と厳格な認証",
+        "主要供給者に近い将来の新規能力計画がないと指摘"
+      ],
+      "limitations": "ニッチ市場の予測で半導体全体を代表しない。契約条件・容量で差がある。"
+    },
+    {
+      "id": "e20-z2data-electronic-supply-chain",
+      "title": "Electronic Supply Chain Teams",
+      "url": "https://www.z2data.com/solutions/electronic-supply-chain",
+      "publisher": "Z2Data",
+      "published_at": null,
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "BOM単位の陳腐化・供給元・コンプライアンス監視は既存製品カテゴリである",
+        "EOL予測、代替候補、価格・在庫、供給拠点、売上影響まで統合する競合が存在する"
+      ],
+      "limitations": "ベンダー自身の製品説明。性能値、市場シェア、顧客成果は第三者検証していない。"
+    },
+    {
+      "id": "e21-siliconexpert-bom",
+      "title": "SiliconExpert BOM Manager and Supply Chain Risk Management",
+      "url": "https://www.siliconexpert.com/solutions/",
+      "publisher": "SiliconExpert",
+      "published_at": null,
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "BOM監視、部品ライフサイクル、代替部品、PCN、コンプライアンスを提供する既存競合が存在する",
+        "BOMリスクOSと旧部品代替支援は競争未検証の白地ではない"
+      ],
+      "limitations": "ベンダー自身の製品説明。価格、導入率、顧客満足度は公開ページから未確認。"
+    },
+    {
+      "id": "e22-sourceability-sourcengine",
+      "title": "Sourcengine Electronic Components Marketplace",
+      "url": "https://sourceability.com/",
+      "publisher": "Sourceability",
+      "published_at": null,
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "電子部品の探索・購買・物流を扱う大規模マーケットプレイスが存在する",
+        "共同調達候補は既存商社・市場との競争と補完関係を検証する必要がある"
+      ],
+      "limitations": "ベンダー自身の規模表明。共同LTA、予約権、在庫金融の提供範囲は未確認。"
+    },
+    {
+      "id": "e23-ase-package-design",
+      "title": "ASE Package Design",
+      "url": "https://ase.aseglobal.com/package-design/",
+      "publisher": "ASE",
+      "published_at": null,
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "ASEはパッケージ技術分析、コンサルティング、電気・熱シミュレーションを提供している",
+        "高度パッケージ統合支援には既存OSAT競合がある"
+      ],
+      "limitations": "ASE自身のサービス説明。複数OSATの中立比較や能力予約機能は確認できない。"
+    },
+    {
+      "id": "e24-amkor-services",
+      "title": "Amkor Semiconductor Services",
+      "url": "https://amkor.com/services/",
+      "publisher": "Amkor Technology",
+      "published_at": null,
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "Amkorは設計、熱・電気特性評価、パッケージ、試験を一体で提供している",
+        "設計から量産支援までの代替サービスが存在する"
+      ],
+      "limitations": "Amkor自身のサービス説明。価格・市場シェア・他社比較は含まない。"
+    },
+    {
+      "id": "e25-cadence-package-design",
+      "title": "Cadence System Design and Analysis Platforms",
+      "url": "https://www.cadence.com/en_US/home/tools/system-design-and-analysis.html",
+      "publisher": "Cadence Design Systems",
+      "published_at": null,
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "高度パッケージ、3D-IC、熱・電磁・電源解析を統合する既存EDA製品がある",
+        "高度パッケージ支援のソフトウェア部分は競争が強い"
+      ],
+      "limitations": "Cadence自身の製品説明。能力予約・商務・OSAT中立比較は対象外。"
+    },
+    {
+      "id": "e26-jstage-capacity-reservation",
+      "title": "半導体製品のサプライチェーンにおける生産能力予約契約",
+      "url": "https://www.jstage.jst.go.jp/article/joms/2/1/2_70/_article/-char/ja",
+      "publisher": "オペレーションズ・マネジメント＆ストラテジー学会 / J-STAGE",
+      "published_at": "2011-03-01",
+      "accessed_at": "2026-07-25",
+      "source_tier": "academic",
+      "statement_type": "fact",
+      "connector_id": "japan_gov_mcp",
+      "acquisition": {
+        "connector_id": "japan_gov_mcp",
+        "tool": "jstage_search",
+        "arguments": {"query": "半導体 サプライチェーン", "limit": 3},
+        "fetched_at": "2026-07-25T03:58:00.000Z",
+        "source_url": "https://doi.org/10.20586/joms.2.1_70"
+      },
+      "supports": [
+        "セットメーカーが予約費用を負担し、半導体メーカーが最低能力を準備する契約形態は研究対象として確立している",
+        "予約価格と納入価格の設計次第でサプライチェーン全体利益と当事者間配分が変わる"
+      ],
+      "limitations": "2011年の理論研究で、現在のHBM/LTA市場の実勢価格や共同購入プラットフォーム需要を直接測っていない。"
+    }
+  ],
+  "counterarguments": [
+    {
+      "id": "c1-one-price",
+      "claim": "半導体価格は業界売上と同じ方向へ一様に上がる。",
+      "assessment": "誤り。WSTS売上は数量・価格・製品ミックスを含み、2026年成長はメモリに極端に集中する。アナログ、センサー、成熟ノード内でも需給は異なる。",
+      "what_would_change_view": "製品分類別の単価・数量データが同方向かつ同程度に上昇すること。",
+      "evidence_ids": [
+        "e1-wsts-spring-2026",
+        "e3-trendforce-q2-memory",
+        "e6-trendforce-mature-foundry",
+        "e11-ti-q1"
+      ]
+    },
+    {
+      "id": "c2-this-time-different",
+      "claim": "AI需要は構造的なので、メモリ価格サイクルは終わり価格は下がらない。",
+      "assessment": "AI需要は構造的でも、価格高騰が巨額投資、工程改善、需要破壊を誘発する。能力増には時間差があるため短期の高値と3–5年の正常化は両立する。",
+      "what_would_change_view": "2028年以降も需要ビット成長が供給を継続的に上回り、在庫とリードタイムが低下しないこと。",
+      "evidence_ids": [
+        "e4-trendforce-q3-server-dram",
+        "e5-trendforce-nand-balance",
+        "e9-semi-memory-capex",
+        "e10-semi-300mm-outlook"
+      ]
+    },
+    {
+      "id": "c3-capacity-equals-supply",
+      "claim": "300mm能力が年7%増えれば、価格はすぐ下がる。",
+      "assessment": "不十分。HBM・先端DRAM・高層NANDは工程複雑性、ダイ面積、歩留まり、積層、パッケージを多く消費し、名目ウェハ能力が良品ビットへ直結しない。",
+      "what_would_change_view": "良品ビット出力、パッケージ能力、在庫が同時に需要を上回ること。",
+      "evidence_ids": [
+        "e9-semi-memory-capex",
+        "e13-amkor-nvidia",
+        "e17-ase-panel"
+      ]
+    },
+    {
+      "id": "c4-china-commodity",
+      "claim": "中国の成熟ノード増設で、すべての成熟半導体がコモディティ化する。",
+      "assessment": "汎用品価格には下押しだが、パワー工程、長期信頼性、車載・医療認証、旧世代EOL、輸出管理が市場を分断する。",
+      "what_would_change_view": "中国供給者が主要地域・顧客で同等認証を取得し、代替時間と規制障壁が大幅に低下すること。",
+      "evidence_ids": [
+        "e5-trendforce-nand-balance",
+        "e6-trendforce-mature-foundry",
+        "e16-bis-guidance",
+        "e19-trendforce-slc"
+      ]
+    },
+    {
+      "id": "c5-high-margin-equals-stock-return",
+      "claim": "メモリ企業の粗利が高いので株価も必ず上がる。",
+      "assessment": "誤り。株価は将来の正常化利益、倍率、期待、ポジショニングを反映する。高マージンは同時に増産と顧客代替を誘発する。",
+      "what_would_change_view": "正常化後利益を用いても期待リターンが十分で、価格・在庫・設備投資の反転が株価へ未反映であること。",
+      "evidence_ids": [
+        "e7-micron-q3",
+        "e9-semi-memory-capex",
+        "e18-sia-factbook"
+      ]
+    },
+    {
+      "id": "c6-consumer-demand",
+      "claim": "AI需要だけでPC・スマホ需要の弱さを完全に相殺できる。",
+      "assessment": "サーバーは強いが、価格上昇は端末需要を破壊し、NAND・汎用DRAM・アナログの一部へ在庫を作り得る。製品間の能力代替が完全でないため影響は時間差を伴う。",
+      "what_would_change_view": "AI端末が数量ベースでPC・スマホ減少を上回り、在庫を増やさず高価格を吸収すること。",
+      "evidence_ids": [
+        "e3-trendforce-q2-memory",
+        "e5-trendforce-nand-balance",
+        "e11-ti-q1"
+      ]
+    }
+  ],
+  "methodology": [
+    {
+      "id": "method-frame",
+      "name": "市場分解",
+      "application": "『半導体価格』を、メモリ、先端ロジック、成熟ノード、アナログ/パワー、高度パッケージ、材料へ分解した。"
+    },
+    {
+      "id": "method-horizon",
+      "name": "Horizon scanning",
+      "application": "WSTS/SIA、企業IR、SEMI、TrendForce、IEA、USGS、BISをCoreソースとし、価格、能力、契約、規制、物理制約の変化を走査した。"
+    },
+    {
+      "id": "method-steep",
+      "name": "STEEP",
+      "application": "技術のHBM/チップレット、経済の価格サイクル、環境の電力、政治法務の輸出管理、社会のAI利用拡大を整理した。"
+    },
+    {
+      "id": "method-causal",
+      "name": "Causal mapping",
+      "application": "AI需要→能力再配分→価格→マージン→設備投資→時間差供給→価格正常化の増幅・抑制ループを構築した。"
+    },
+    {
+      "id": "method-reference",
+      "name": "Reference class",
+      "application": "2001–2024年の業界売上CAGR6.8%を外部基準とし、2026年予測90%増を外れ値として扱った。詳細な製品別過去価格バックテストは未実施。"
+    },
+    {
+      "id": "method-supply",
+      "name": "Supply-demand / bottleneck",
+      "application": "ウェハ能力、ビット成長、稼働率、在庫、LTA、認証、歩留まり、パッケージ、電力、材料を需給判定に用いた。"
+    },
+    {
+      "id": "method-scurve",
+      "name": "S-curve / learning curve",
+      "application": "HBM・高度パッケージはスケール初中期、汎用DRAM/NANDと成熟ノードは成熟サイクル、旧世代品は縮退・EOL局面と判定した。"
+    },
+    {
+      "id": "method-scenarios",
+      "name": "Scenario planning",
+      "application": "AI需要成長と能力増加/地域分断を主要不確実性とし、正常化、スーパーサイクル、投資過剰、供給ショックへ確率配分した。"
+    },
+    {
+      "id": "method-whitespace",
+      "name": "Whitespace / JTBD",
+      "application": "価格情報ではなく、BOM影響、EOL認証、LTAアクセス、パッケージ量産という未充足業務と買い手予算から機会を評価した。"
+    },
+    {
+      "id": "method-profit",
+      "name": "Profit pool",
+      "application": "売上規模ではなく、供給集中、切替コスト、認証、資本集約、マージン方向、過剰投資リスクで利益の移動を比較した。"
+    },
+    {
+      "id": "method-falsifier",
+      "name": "Falsification and forecasts",
+      "application": "中心仮説を否定する需要・能力・在庫条件を置き、将来公式・業界データで採点可能な3予測を登録した。"
+    }
+  ],
+  "limitations": [
+    "半導体価格は統一指数ではない。本runは公開された契約価格変化率、売上、稼働率、能力、会社マージンを組み合わせた方向分析である。",
+    "WSTSの製品別平均販売価格・数量履歴、TrendForce/DRAMeXchangeの詳細スポット・契約価格系列は有料で、公開プレスリリースの範囲を使用した。",
+    "WSTS/SIAの売上は3か月移動平均かつ数量・価格・製品ミックスを含むため、売上成長を価格上昇と同一視していない。",
+    "SEMIの能力・設備投資は計画値で、装置納入、工場建設、歩留まり、製品構成、パッケージ制約により有効供給は変わる。",
+    "WSTS、SEMI、TrendForce、IEAの将来数値は予測であり、事実として確定した実績と分離した。",
+    "Samsung、SK hynix、中国ファウンドリの最新四半期開示を同一基準で完全比較していない。",
+    "個別銘柄の現在価格、バリュエーション、コンセンサス利益、空売り比率、ファンドポジションは未取得。投資ルートは監視候補であり売買推奨ではない。",
+    "価格リスクOS、共同LTA、認証サービスの価格・単位経済性は仮説で、顧客パイロットとデータライセンス・競争法・製品責任の確認が必要。",
+    "Foresight Radarはソースマップ入力に使用。SEC/EDINET MCP、Reddit、MiroFishは使用せず、MiroFish由来の合成証拠はない。",
+    "輸出管理、関税、補助金は変更頻度が高い。実際の調達・投資判断前にBIS、各国当局、契約条件を更新確認する。"
+  ]
+}

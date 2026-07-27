@@ -1,0 +1,853 @@
+{
+  "schema_version": "1.0",
+  "run_id": "20260725042538-b1b56f",
+  "classification": "synthetic",
+  "engine": "codex_mirofish_method",
+  "generated_at": "2026-07-26T06:49:20.2887861+09:00",
+  "environment": {
+    "summary": "2026〜2031年の日本データセンター市場。AI需要は伸びるが、系統接続、建設能力、アンカー契約、地域受容性が案件の稼働時期を規定する。",
+    "horizon": "2026〜2031年",
+    "geography": [
+      "東京圏",
+      "大阪圏",
+      "北海道",
+      "九州"
+    ],
+    "initial_conditions": [
+      "AI計算需要と国内常設化投資は継続している。",
+      "電力需要は増加方向へ転じ、DCの接続に長期を要する事例がある。",
+      "東京・大阪では供給計画も厚く、需要増加だけでは個別案件の採算を保証しない。",
+      "高密度化とPUE目標が液冷・計測・運用改善を押し上げる。"
+    ],
+    "state_variables": [
+      {
+        "id": "grid_access",
+        "label": "系統接続確度",
+        "initial": "low-to-medium"
+      },
+      {
+        "id": "ai_demand",
+        "label": "AI需要持続性",
+        "initial": "high-uncertainty growth"
+      },
+      {
+        "id": "construction",
+        "label": "施工・機器供給余力",
+        "initial": "constrained"
+      },
+      {
+        "id": "prelease",
+        "label": "事前契約率",
+        "initial": "uneven"
+      },
+      {
+        "id": "acceptance",
+        "label": "地域受容性",
+        "initial": "project-specific"
+      },
+      {
+        "id": "flexibility",
+        "label": "計算負荷の可搬・柔軟性",
+        "initial": "early"
+      }
+    ],
+    "evidence_ids": [
+      "e1-occto-2026-demand",
+      "e3-meti-5gw-grid",
+      "e4-enecho-efficiency",
+      "e14-jll-japan",
+      "e15-cbre-global"
+    ]
+  },
+  "agents": [
+    {
+      "id": "a-grid-operator",
+      "name": "系統運用・送配電主体",
+      "archetype": "infrastructure gatekeeper",
+      "objective": "供給信頼度を維持しながら、実現性の高い接続案件を順序づける。",
+      "capabilities": [
+        "接続検討",
+        "系統増強計画",
+        "工期提示"
+      ],
+      "constraints": [
+        "増強リードタイム",
+        "費用負担",
+        "需給信頼度"
+      ],
+      "decision_rules": [
+        "需要表明より接続実現性を優先",
+        "段階増強と確度の高い案件を優先"
+      ],
+      "evidence_ids": [
+        "e1-occto-2026-demand",
+        "e3-meti-5gw-grid",
+        "e12-ntt-tepco"
+      ]
+    },
+    {
+      "id": "a-hyperscale-buyer",
+      "name": "AI・クラウド大口需要家",
+      "archetype": "anchor capacity buyer",
+      "objective": "期限内に高密度容量を確保し、東西冗長と拡張余地を持つ。",
+      "capabilities": [
+        "長期契約",
+        "大型投資",
+        "複数地域への配分"
+      ],
+      "constraints": [
+        "稼働期限",
+        "GPU世代交代",
+        "需要予測誤差"
+      ],
+      "decision_rules": [
+        "接続日と運転密度を価格より先に評価",
+        "不確実なら段階契約する"
+      ],
+      "evidence_ids": [
+        "e7-aws-investment",
+        "e8-microsoft-investment",
+        "e15-cbre-global"
+      ]
+    },
+    {
+      "id": "a-dc-developer",
+      "name": "通信・DC開発運営主体",
+      "archetype": "capital-intensive operator",
+      "objective": "接続済み容量を確保し、事前契約を伴う稼働資産へ転換する。",
+      "capabilities": [
+        "用地取得",
+        "設備投資",
+        "顧客獲得",
+        "ネットワーク運用"
+      ],
+      "constraints": [
+        "建設費",
+        "空室リスク",
+        "資本コスト",
+        "接続時期"
+      ],
+      "decision_rules": [
+        "アンカー契約前の全面着工を避ける",
+        "既存電力資産を新規用地より高く評価"
+      ],
+      "evidence_ids": [
+        "e9-softbank-tomakomai",
+        "e10-softbank-sakai",
+        "e11-kddi-sakai",
+        "e14-jll-japan"
+      ]
+    },
+    {
+      "id": "a-brownfield-owner",
+      "name": "大電力工場・跡地所有者",
+      "archetype": "scarce asset seller",
+      "objective": "遊休資産の価値を最大化し、転用責任と費用を限定する。",
+      "capabilities": [
+        "既存受電設備",
+        "広い用地",
+        "産業インフラ"
+      ],
+      "constraints": [
+        "汚染・撤去",
+        "権利関係",
+        "転用適合性"
+      ],
+      "decision_rules": [
+        "接続価値が証明されれば競争入札",
+        "不確実な改修費は買い手へ移転"
+      ],
+      "evidence_ids": [
+        "e10-softbank-sakai",
+        "e11-kddi-sakai",
+        "e12-ntt-tepco"
+      ]
+    },
+    {
+      "id": "a-epc-cooling",
+      "name": "EPC・液冷統合主体",
+      "archetype": "execution bottleneck supplier",
+      "objective": "高密度改修を標準化し、停止時間と性能責任を価格へ反映する。",
+      "capabilities": [
+        "電気設備",
+        "冷却設計",
+        "改修施工",
+        "性能試験"
+      ],
+      "constraints": [
+        "技術者不足",
+        "既存設備差異",
+        "停止可能時間"
+      ],
+      "decision_rules": [
+        "機器販売より責任範囲の明確な統合案件を選ぶ",
+        "実測データがない施設は段階診断する"
+      ],
+      "evidence_ids": [
+        "e4-enecho-efficiency",
+        "e16-vertiv-idcf",
+        "e17-nttf-cooling"
+      ]
+    },
+    {
+      "id": "a-financier",
+      "name": "インフラ資本・金融主体",
+      "archetype": "risk allocator",
+      "objective": "契約済みキャッシュフローを確保し、未接続・未契約リスクを抑える。",
+      "capabilities": [
+        "プロジェクト金融",
+        "段階投資",
+        "再編資本"
+      ],
+      "constraints": [
+        "金利",
+        "評価損",
+        "建設遅延",
+        "テナント集中"
+      ],
+      "decision_rules": [
+        "接続日と事前契約を融資条件にする",
+        "計画MWを稼働MWとして評価しない"
+      ],
+      "evidence_ids": [
+        "e14-jll-japan",
+        "e15-cbre-global"
+      ]
+    },
+    {
+      "id": "a-enterprise-buyer",
+      "name": "国内企業・公共需要家",
+      "archetype": "latency and sovereignty buyer",
+      "objective": "国内運用、可用性、予算予見性を確保しながらAI利用を拡大する。",
+      "capabilities": [
+        "長期利用契約",
+        "ワークロード分割"
+      ],
+      "constraints": [
+        "移行コスト",
+        "社内AI ROI",
+        "データ所在地",
+        "遅延"
+      ],
+      "decision_rules": [
+        "需要が不確実なら従量・段階契約",
+        "可搬できない処理は大都市圏へ残す"
+      ],
+      "evidence_ids": [
+        "e7-aws-investment",
+        "e8-microsoft-investment",
+        "e22-meti-local-distribution"
+      ]
+    },
+    {
+      "id": "a-regional-coalition",
+      "name": "地方自治体・地域連合",
+      "archetype": "location and consent broker",
+      "objective": "雇用・税収・インフラ便益を得つつ、電力・水・騒音負担を管理する。",
+      "capabilities": [
+        "用地調整",
+        "許認可",
+        "地域合意",
+        "支援制度"
+      ],
+      "constraints": [
+        "住民合意",
+        "水資源",
+        "電力の地域便益",
+        "保守人材"
+      ],
+      "decision_rules": [
+        "地域便益と開示が弱い案件を遅らせる",
+        "段階開業と測定可能な約束を優先"
+      ],
+      "evidence_ids": [
+        "e4-enecho-efficiency",
+        "e9-softbank-tomakomai",
+        "e22-meti-local-distribution"
+      ]
+    },
+    {
+      "id": "a-flex-orchestrator",
+      "name": "計算負荷・電力柔軟運用主体",
+      "archetype": "coordination challenger",
+      "objective": "GPUジョブを料金・電力余力・SLAに応じて時間・地域移動させる。",
+      "capabilities": [
+        "ジョブスケジューリング",
+        "EMS連携",
+        "成果連動契約"
+      ],
+      "constraints": [
+        "顧客SLA",
+        "データ移動",
+        "標準API不足",
+        "実証不足"
+      ],
+      "decision_rules": [
+        "中断可能負荷から開始",
+        "節減効果を測定できない案件は受けない"
+      ],
+      "evidence_ids": [
+        "e3-meti-5gw-grid",
+        "e9-softbank-tomakomai"
+      ]
+    },
+    {
+      "id": "a-market-challenger",
+      "name": "小規模・専門DC事業者",
+      "archetype": "niche innovator",
+      "objective": "大手が取りにくい高密度改修、地方拠点、運用最適化で差別化する。",
+      "capabilities": [
+        "迅速な実証",
+        "小規模導入",
+        "専門顧客対応"
+      ],
+      "constraints": [
+        "資本規模",
+        "調達力",
+        "大口顧客信用"
+      ],
+      "decision_rules": [
+        "全面新設より既存資産と共同実証",
+        "大手との補完関係を優先"
+      ],
+      "evidence_ids": [
+        "e16-vertiv-idcf",
+        "e17-nttf-cooling",
+        "e22-meti-local-distribution"
+      ]
+    }
+  ],
+  "rounds": 6,
+  "round_log": [
+    {
+      "round": 1,
+      "focus": "需要表明と投資意図",
+      "summary": "需要家と開発主体は容量確保を急ぐが、金融主体は計画MWではなく接続日と事前契約を要求した。",
+      "actions": [
+        "大口需要家が東西二地域の段階契約を提示",
+        "DC開発主体が複数候補地を確保",
+        "金融主体が接続回答を融資前提に設定"
+      ],
+      "state_changes": [
+        "需要期待は高止まり",
+        "未接続用地の評価が二極化",
+        "事前契約の交渉力が上昇"
+      ],
+      "minority_views": [
+        "企業需要家はAI ROI未確立を理由に全面予約を拒否"
+      ],
+      "evidence_ids": [
+        "e7-aws-investment",
+        "e8-microsoft-investment",
+        "e14-jll-japan",
+        "e15-cbre-global"
+      ]
+    },
+    {
+      "round": 2,
+      "focus": "系統接続キューと立地再評価",
+      "summary": "系統主体の長期工期提示により、土地面積より既存受電設備と接続確度が価格形成の中心になった。",
+      "actions": [
+        "系統主体が段階接続を提案",
+        "開発主体がブラウンフィールドへ移行",
+        "地方連合が通信・人材条件を追加"
+      ],
+      "state_changes": [
+        "接続済み資産プレミアムが上昇",
+        "未接続グリーンフィールドの着工が後退",
+        "地方分散は選別的に進行"
+      ],
+      "minority_views": [
+        "小規模事業者は10〜20MW級の分散拠点を主張"
+      ],
+      "evidence_ids": [
+        "e1-occto-2026-demand",
+        "e3-meti-5gw-grid",
+        "e10-softbank-sakai",
+        "e11-kddi-sakai",
+        "e12-ntt-tepco"
+      ]
+    },
+    {
+      "round": 3,
+      "focus": "介入A：接続確度台帳と段階投資ゲート",
+      "summary": "共通台帳は探索とDDを短縮したが、物理的な系統容量は増やさず、確度の低い案件を早期に落とす効果が中心だった。",
+      "actions": [
+        "系統・開発・金融主体が接続状態の共通定義を採用",
+        "金融主体が接続・アンカー・建設単価のゲートを導入",
+        "用地所有者が接続資料を開示"
+      ],
+      "state_changes": [
+        "投機案件の資金調達確率が低下",
+        "実行可能案件へ資本が集中",
+        "DD期間が短縮"
+      ],
+      "minority_views": [
+        "用地所有者は情報公開による交渉力低下を懸念"
+      ],
+      "evidence_ids": [
+        "e3-meti-5gw-grid",
+        "e12-ntt-tepco",
+        "e14-jll-japan"
+      ]
+    },
+    {
+      "round": 4,
+      "focus": "介入B：柔軟計算負荷と高密度改修",
+      "summary": "中断可能なAI学習・バッチ処理では柔軟運用が接続制約を緩和したが、低遅延推論や主系ワークロードには適用できなかった。",
+      "actions": [
+        "柔軟運用主体が中断可能ジョブの成果連動実証を開始",
+        "EPC主体が液冷改修を段階診断化",
+        "需要家がSLA別に負荷を分割"
+      ],
+      "state_changes": [
+        "一部地域で実効利用率が上昇",
+        "液冷機器より統合改修能力が制約化",
+        "運用データの価値が上昇"
+      ],
+      "minority_views": [
+        "大口需要家はデータ移動と障害責任を理由に地域移動を限定"
+      ],
+      "evidence_ids": [
+        "e3-meti-5gw-grid",
+        "e4-enecho-efficiency",
+        "e16-vertiv-idcf",
+        "e17-nttf-cooling"
+      ]
+    },
+    {
+      "round": 5,
+      "focus": "反実仮想：AI需要の一時鈍化",
+      "summary": "需要が想定を下回ると、未契約新設は価格競争に陥る一方、低原価既存施設と段階投資案件は停止・転用オプションを保持した。",
+      "actions": [
+        "企業需要家が予約量を縮小",
+        "金融主体が追加ドローダウンを停止",
+        "開発主体が未着工フェーズを延期",
+        "改修主体が省エネ成果契約へ転換"
+      ],
+      "state_changes": [
+        "空室と価格圧力が上昇",
+        "高レバレッジ案件の再編確率が上昇",
+        "ブラウンフィールドと段階投資の相対価値が上昇"
+      ],
+      "minority_views": [
+        "ハイパースケール需要家は長期的供給不足を見て好条件で容量を確保"
+      ],
+      "evidence_ids": [
+        "e14-jll-japan",
+        "e15-cbre-global"
+      ]
+    },
+    {
+      "round": 6,
+      "focus": "収束：頑健な意思決定ルール",
+      "summary": "全分岐で残った戦略は、接続済み資産、段階投資、アンカー契約、高密度改修、地域合意を一つのゲートで管理することだった。",
+      "actions": [
+        "金融・開発・需要家が共通投資ゲートを採用",
+        "地域連合が水・騒音・便益KPIを契約化",
+        "専門事業者が大手との共同改修へ集中"
+      ],
+      "state_changes": [
+        "最大計画MWより期限内稼働MWがKPI化",
+        "地域受容性が工期資産として評価",
+        "柔軟運用は限定用途から拡大"
+      ],
+      "minority_views": [
+        "需要急増分岐では段階投資が機会損失を生む可能性"
+      ],
+      "evidence_ids": [
+        "e3-meti-5gw-grid",
+        "e4-enecho-efficiency",
+        "e12-ntt-tepco",
+        "e14-jll-japan",
+        "e15-cbre-global"
+      ]
+    }
+  ],
+  "interactions": [
+    {
+      "round": 1,
+      "from": "a-hyperscale-buyer",
+      "to": "a-dc-developer",
+      "topic": "段階容量予約",
+      "summary": "稼働日と密度条件を満たすフェーズだけを長期予約。",
+      "evidence_ids": [
+        "e7-aws-investment",
+        "e8-microsoft-investment"
+      ]
+    },
+    {
+      "round": 2,
+      "from": "a-grid-operator",
+      "to": "a-financier",
+      "topic": "接続確度",
+      "summary": "希望時期ではなく増強工程と条件付き回答を共有。",
+      "evidence_ids": [
+        "e3-meti-5gw-grid"
+      ]
+    },
+    {
+      "round": 2,
+      "from": "a-dc-developer",
+      "to": "a-brownfield-owner",
+      "topic": "受電資産の取得",
+      "summary": "接続価値を軸に工場跡地の価格を再交渉。",
+      "evidence_ids": [
+        "e10-softbank-sakai",
+        "e11-kddi-sakai"
+      ]
+    },
+    {
+      "round": 3,
+      "from": "a-financier",
+      "to": "a-dc-developer",
+      "topic": "資本ゲート",
+      "summary": "接続・アンカー・建設単価を満たすまで資本投入を段階化。",
+      "evidence_ids": [
+        "e14-jll-japan",
+        "e15-cbre-global"
+      ]
+    },
+    {
+      "round": 4,
+      "from": "a-flex-orchestrator",
+      "to": "a-enterprise-buyer",
+      "topic": "SLA別負荷分割",
+      "summary": "中断可能負荷だけを価格・電力連動へ移行。",
+      "evidence_ids": [
+        "e3-meti-5gw-grid"
+      ]
+    },
+    {
+      "round": 4,
+      "from": "a-epc-cooling",
+      "to": "a-market-challenger",
+      "topic": "共同改修",
+      "summary": "診断・施工・性能保証を分担した改修モデルを形成。",
+      "evidence_ids": [
+        "e16-vertiv-idcf",
+        "e17-nttf-cooling"
+      ]
+    },
+    {
+      "round": 5,
+      "from": "a-enterprise-buyer",
+      "to": "a-dc-developer",
+      "topic": "需要縮小",
+      "summary": "AI ROI精査により未使用予約の縮小を要求。",
+      "evidence_ids": [
+        "e14-jll-japan",
+        "e15-cbre-global"
+      ]
+    },
+    {
+      "round": 6,
+      "from": "a-regional-coalition",
+      "to": "a-dc-developer",
+      "topic": "地域KPI",
+      "summary": "水・騒音・電力・雇用の開示を段階許認可へ連動。",
+      "evidence_ids": [
+        "e4-enecho-efficiency",
+        "e9-softbank-tomakomai"
+      ]
+    }
+  ],
+  "emergent_events": [
+    {
+      "id": "ev1",
+      "title": "接続権プレミアムの顕在化",
+      "description": "用地価格より、接続時期を証明できる既存受電設備の価値が上昇する。",
+      "trigger": "接続回答の長期化と金融条件の厳格化",
+      "affected_agents": [
+        "a-grid-operator",
+        "a-brownfield-owner",
+        "a-financier"
+      ],
+      "probability": 0.76,
+      "branch_specific": false,
+      "evidence_ids": [
+        "e3-meti-5gw-grid",
+        "e12-ntt-tepco"
+      ]
+    },
+    {
+      "id": "ev2",
+      "title": "液冷製品ではなく改修責任がボトルネック化",
+      "description": "機器選定より、既存施設を止めずに設計・施工・性能保証する統合能力が不足する。",
+      "trigger": "高密度需要と既存施設差異",
+      "affected_agents": [
+        "a-epc-cooling",
+        "a-dc-developer",
+        "a-market-challenger"
+      ],
+      "probability": 0.64,
+      "branch_specific": false,
+      "evidence_ids": [
+        "e4-enecho-efficiency",
+        "e16-vertiv-idcf",
+        "e17-nttf-cooling"
+      ]
+    },
+    {
+      "id": "ev3",
+      "title": "地域合意が工期資産になる",
+      "description": "電力・水・騒音・便益の測定契約を持つ案件が、同条件の用地より早く進む。",
+      "trigger": "地方案件の増加と地域負担の可視化",
+      "affected_agents": [
+        "a-regional-coalition",
+        "a-dc-developer",
+        "a-financier"
+      ],
+      "probability": 0.42,
+      "branch_specific": true,
+      "evidence_ids": [
+        "e4-enecho-efficiency",
+        "e9-softbank-tomakomai"
+      ]
+    },
+    {
+      "id": "ev4",
+      "title": "需要鈍化時の再編資産プール",
+      "description": "未契約・高レバレッジ案件が再編対象となり、低原価運営者と再編資本に取得機会が生じる。",
+      "trigger": "AI予約鈍化と供給完成の重なり",
+      "affected_agents": [
+        "a-financier",
+        "a-dc-developer",
+        "a-hyperscale-buyer"
+      ],
+      "probability": 0.31,
+      "branch_specific": true,
+      "evidence_ids": [
+        "e14-jll-japan",
+        "e15-cbre-global"
+      ]
+    }
+  ],
+  "interventions": [
+    {
+      "id": "i0-control",
+      "name": "無介入対照",
+      "description": "案件ごとの個別接続相談と計画MW中心の投資判断を継続。",
+      "target": "現行の案件形成",
+      "expected_effect": "接続不能案件の発見が遅れ、資本と施工枠が滞留する。",
+      "result": "需要強気分岐では案件数が増えるが、需要鈍化分岐で損失が最大化。",
+      "risks": [
+        "投機案件",
+        "工期遅延",
+        "価格競争"
+      ],
+      "evidence_ids": [
+        "e3-meti-5gw-grid",
+        "e14-jll-japan",
+        "e15-cbre-global"
+      ]
+    },
+    {
+      "id": "i1-gated-ledger",
+      "name": "接続確度台帳＋四段階投資ゲート",
+      "description": "接続、アンカー契約、冷却密度、建設単価を同じ案件台帳で段階審査する。",
+      "target": "開発・金融・需要家の共同意思決定",
+      "expected_effect": "不可能案件を早期に落とし、実行可能案件へ資本を集中。",
+      "result": "全主要分岐で損失を抑えたが、物理容量自体は増やさない。",
+      "risks": [
+        "情報非対称",
+        "公開範囲",
+        "過度な保守化"
+      ],
+      "evidence_ids": [
+        "e3-meti-5gw-grid",
+        "e12-ntt-tepco",
+        "e14-jll-japan"
+      ]
+    },
+    {
+      "id": "i2-flex-retrofit",
+      "name": "柔軟負荷＋段階的液冷改修",
+      "description": "中断可能ジョブと既存施設改修を小規模実証から拡張する。",
+      "target": "既存容量の実効利用率",
+      "expected_effect": "新設を待たずに高密度容量と電力柔軟性を増やす。",
+      "result": "限定用途で有効。低遅延・主系処理には代替不能で、SLA分解が成功条件。",
+      "risks": [
+        "データ移動",
+        "障害責任",
+        "改修停止時間"
+      ],
+      "evidence_ids": [
+        "e3-meti-5gw-grid",
+        "e4-enecho-efficiency",
+        "e16-vertiv-idcf",
+        "e17-nttf-cooling"
+      ]
+    },
+    {
+      "id": "i3-community-contract",
+      "name": "地域便益・環境KPI契約",
+      "description": "水、騒音、PUE、地域雇用、電力便益を段階開業条件として測定する。",
+      "target": "地方立地の許認可と受容性",
+      "expected_effect": "反対リスクを早期発見し、合意済み案件の工期確度を上げる。",
+      "result": "地域ショック分岐で効果が大きいが、支払意思と標準化は未検証。",
+      "risks": [
+        "測定コスト",
+        "自治体差",
+        "形式的開示"
+      ],
+      "evidence_ids": [
+        "e4-enecho-efficiency",
+        "e9-softbank-tomakomai",
+        "e22-meti-local-distribution"
+      ]
+    }
+  ],
+  "outcomes": [
+    {
+      "scenario": "接続ゲート型拡大",
+      "probability": 0.44,
+      "narrative": "需要は伸びるが接続と施工が律速し、段階投資・アンカー契約済み案件が稼働容量を積み上げる。",
+      "winners": [
+        "接続済み資産",
+        "統合EPC",
+        "段階投資資本"
+      ],
+      "losers": [
+        "未接続投機案件",
+        "全面先行着工"
+      ],
+      "signposts": [
+        "接続回答年数",
+        "事前契約率",
+        "稼働MW/発表MW"
+      ],
+      "evidence_ids": [
+        "e3-meti-5gw-grid",
+        "e14-jll-japan",
+        "e15-cbre-global"
+      ]
+    },
+    {
+      "scenario": "地方連携・柔軟運用加速",
+      "probability": 0.25,
+      "narrative": "通信・電力・地域KPIが連動し、中断可能AI負荷から地方拠点が拡大する。",
+      "winners": [
+        "地域連合",
+        "柔軟運用",
+        "ブラウンフィールド"
+      ],
+      "losers": [
+        "東京一極の高コスト案件"
+      ],
+      "signposts": [
+        "地方50MW超稼働",
+        "柔軟負荷契約",
+        "通信幹線投資"
+      ],
+      "evidence_ids": [
+        "e9-softbank-tomakomai",
+        "e22-meti-local-distribution"
+      ]
+    },
+    {
+      "scenario": "AI需要消化と再編",
+      "probability": 0.21,
+      "narrative": "供給完成と予約鈍化が重なり、未契約案件の再編と価格圧力が進む。",
+      "winners": [
+        "低原価既存施設",
+        "再編資本",
+        "容量買い手"
+      ],
+      "losers": [
+        "高レバレッジ開発",
+        "旧世代専用設備"
+      ],
+      "signposts": [
+        "空室率",
+        "予約キャンセル",
+        "価格/kW",
+        "GPU利用率"
+      ],
+      "evidence_ids": [
+        "e14-jll-japan",
+        "e15-cbre-global"
+      ]
+    },
+    {
+      "scenario": "地域・規制制約ショック",
+      "probability": 0.1,
+      "narrative": "地域負担と供給力制約で新設条件が厳格化し、高効率既存施設と合意済み案件だけが進む。",
+      "winners": [
+        "高効率改修",
+        "地域KPI契約済み案件"
+      ],
+      "losers": [
+        "説明不足の大型新設",
+        "低効率資産"
+      ],
+      "signposts": [
+        "接続条件変更",
+        "水・騒音条例",
+        "PUE開示措置"
+      ],
+      "evidence_ids": [
+        "e4-enecho-efficiency",
+        "e5-energy-whitepaper"
+      ]
+    }
+  ],
+  "falsifiers": [
+    {
+      "condition": "主要地域の系統接続回答が短期化し、接続済み資産プレミアムが消える。",
+      "implication": "接続確度を中核に置く戦略を弱める。",
+      "evidence_ids": [
+        "e3-meti-5gw-grid"
+      ]
+    },
+    {
+      "condition": "AI容量予約とGPU利用率が継続的に低下し、発表容量の大半が未稼働になる。",
+      "implication": "成長投資より再編・低原価運営を優先する。",
+      "evidence_ids": [
+        "e14-jll-japan",
+        "e15-cbre-global"
+      ]
+    },
+    {
+      "condition": "柔軟運用実証がSLAまたはデータ移動制約で節減効果を出せない。",
+      "implication": "柔軟計算サービスの優先順位を下げる。",
+      "evidence_ids": [
+        "e3-meti-5gw-grid"
+      ]
+    },
+    {
+      "condition": "液冷改修の停止時間・総費用が新設高密度設備を恒常的に上回る。",
+      "implication": "既存改修より新設を優先する。",
+      "evidence_ids": [
+        "e16-vertiv-idcf",
+        "e17-nttf-cooling"
+      ]
+    }
+  ],
+  "report": {
+    "executive_summary": "合成実験では、需要を当てることより『期限内に稼働できる容量』へ資本を絞る方が全主要分岐で頑健だった。接続済み資産、段階投資、アンカー契約、高密度改修、地域合意を一つの投資ゲートとして管理する。",
+    "robust_actions": [
+      "計画MWではなく、接続回答・着工・アンカー契約・稼働の各MWを分離して追跡する。",
+      "接続、アンカー契約、冷却密度、建設単価の四ゲートを満たすまで投資を段階化する。",
+      "ブラウンフィールドと既存受電設備を、新規用地とは別の希少資産として評価する。",
+      "液冷は機器選定ではなく、診断・施工・停止時間・性能保証を含む統合能力で評価する。"
+    ],
+    "contingent_actions": [
+      "柔軟計算負荷は中断可能ジョブに限定して実証し、SLA別の節減額が確認できれば拡大する。",
+      "地方拠点は電力だけで選ばず、通信、人材、アンカー需要、地域KPIを同時に通過条件にする。",
+      "需要鈍化時は未契約案件の再編取得に備え、取得価格と改修費の上限を事前設定する。"
+    ],
+    "avoid": [
+      "公表投資額や計画MWをそのまま稼働・売上として扱う。",
+      "未接続・未契約の大型新設へ一括で資本投入する。",
+      "関連企業であることだけを株式の割安性・投資妙味と解釈する。",
+      "合成エージェントの発言を実在企業の将来計画として引用する。"
+    ]
+  },
+  "limitations": [
+    "これはCodexによる合成シミュレーションであり、実在組織へのインタビューやMiroFish上流ランタイムの実行結果ではない。",
+    "主体の効用関数、交渉力、確率は公開証拠と分析仮説から構成したsynthetic weightである。",
+    "電力接続キュー、案件別MW、契約価格、建設単価、GPU利用率の非公開データを持たない。",
+    "結果は意思決定のストレステストであり、個別株の売買推奨や利益保証ではない。"
+  ]
+}

@@ -1,0 +1,1844 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "run_id": "20260724214716-cb5efd",
+    "title": "ドル円3–5年シナリオ：金利差縮小が円高方向、ただし高ボラティリティ継続",
+    "generated_at": "2026-07-25T07:05:00+09:00",
+    "as_of": "2026-07-25",
+    "coverage": {
+      "regions": [
+        "日本",
+        "米国",
+        "グローバル"
+      ],
+      "sectors": [
+        "外国為替",
+        "金融",
+        "輸出入",
+        "クロスセクター"
+      ],
+      "horizon": "3–5年（2026年7月25日から2031年7月24日まで）",
+      "spot_reference": "2026年7月24日17時の日本銀行公表値 1ドル=163.76–163.78円",
+      "data_cutoff": "2026-07-25"
+    },
+    "decision": [
+      "strategy",
+      "investment",
+      "business"
+    ]
+  },
+  "executive": {
+    "one_line": "短期はドル高・円安圧力が残る一方、3–5年の中心シナリオは日米金利差縮小による緩やかな円高であり、単一水準ではなく115–210円超までの条件付きシナリオで意思決定する。",
+    "decision": "現在の163円台を起点に一方向へ賭けず、外貨資産・輸入原価・輸出売上を3–6か月単位で段階ヘッジする。中心ケースでは2029–2031年に135–155円を想定するが、米インフレ粘着なら160–185円、日本固有の信認ショックなら180–210円超、世界景気後退なら115–140円を許容帯とする。",
+    "confidence": 0.6,
+    "why_now": [
+      "2026年7月24日のドル円は163.76–163.78円と、円安リスクが事業予算・外貨資産評価に直結する水準にある。",
+      "日銀は政策金利を1.0%程度へ引き上げ、見通し実現時の追加利上げを示す一方、FRBは3.50–3.75%を維持している。名目政策金利差は計算上なお約2.6ポイントあり、方向転換と残存キャリーが同時に存在する。",
+      "米国の2026年5月コアPCEは前年比3.4%、日本の同月コアCPIは1.4%で、急速な金利差解消を前提にできない。",
+      "日本は大幅な経常黒字と対外純資産を持つが、黒字の中心は第一次所得であり、直ちに円買いへ転換されるとは限らない。"
+    ],
+    "watchouts": [
+      "ドル円の点予測は低信頼。確率・レンジ・トリガーで管理する。",
+      "介入は短期の経路を変え得るが、金利差やインフレ差を単独で反転させるとは限らない。",
+      "原油・中東情勢、米国の供給ショック、日本の財政信認は、金利差だけでは説明できない非線形リスクである。",
+      "本分析は投資収益を保証せず、個別銘柄のバリュエーション、税務、規制適合性を評価していない。"
+    ],
+    "decision_spine": [
+      {
+        "step": "現状",
+        "claim": "ドル円163円台、FRB 3.50–3.75%、日銀1.0%程度。",
+        "evidence_ids": [
+          "e1-boj-fx-july24",
+          "e2-boj-june-policy",
+          "e3-fed-june-statement"
+        ]
+      },
+      {
+        "step": "主要因",
+        "claim": "今後の日米実質・名目金利差、インフレ収束速度、原油、リスク選好。",
+        "evidence_ids": [
+          "e2-boj-june-policy",
+          "e3-fed-june-statement",
+          "e4-fed-june-sep",
+          "e9-us-pce-may"
+        ]
+      },
+      {
+        "step": "中心仮説",
+        "claim": "FRBの緩やかな利下げと日銀の緩やかな正常化で金利差が縮小し、円は3–5年で段階的に戻す。",
+        "evidence_ids": [
+          "e2-boj-june-policy",
+          "e4-fed-june-sep",
+          "e11-imf-japan-2026"
+        ]
+      },
+      {
+        "step": "反証条件",
+        "claim": "米コアインフレ再加速、日銀の正常化停止、日本の財政・JGB市場ストレス、恒常的な資本流出。",
+        "evidence_ids": [
+          "e4-fed-june-sep",
+          "e9-us-pce-may",
+          "e11-imf-japan-2026"
+        ]
+      },
+      {
+        "step": "行動",
+        "claim": "為替水準を当てに行くのではなく、予算レート帯と期限別のヘッジ比率をあらかじめ決める。",
+        "evidence_ids": [
+          "e1-boj-fx-july24",
+          "e4-fed-june-sep"
+        ]
+      }
+    ]
+  },
+  "megatrends": [
+    {
+      "id": "m1-policy-convergence",
+      "name": "日米金融政策の非対称な正常化",
+      "title": "日米金融政策の非対称な正常化",
+      "stage": "scaling",
+      "horizon": "1–5年",
+      "velocity": 0.62,
+      "impact": 0.92,
+      "confidence": 0.78,
+      "description": "日銀は1.0%程度まで政策金利を引き上げ、FRBは3.50–3.75%を維持している。方向は金利差縮小寄りだが、米インフレの粘着性により速度は遅い可能性が高い。",
+      "drivers": [
+        "米国インフレ",
+        "日本の基調インフレ",
+        "賃金・価格循環",
+        "FRB・日銀の反応関数"
+      ],
+      "implications": [
+        "短期のドルキャリーは残る",
+        "中期の円高テールが拡大",
+        "政策会合ごとのボラティリティ上昇"
+      ],
+      "evidence_ids": [
+        "e2-boj-june-policy",
+        "e3-fed-june-statement",
+        "e4-fed-june-sep",
+        "e8-japan-cpi-may",
+        "e9-us-pce-may"
+      ]
+    },
+    {
+      "id": "m2-external-balance",
+      "name": "日本の対外所得国化",
+      "title": "日本の対外所得国化",
+      "stage": "mature",
+      "horizon": "3–10年",
+      "velocity": 0.38,
+      "impact": 0.66,
+      "confidence": 0.82,
+      "description": "日本は大きな経常黒字と対外純資産を持つ。ただし経常黒字は第一次所得に大きく依存し、海外再投資されればスポットの円買い需要は弱い。",
+      "drivers": [
+        "第一次所得収支",
+        "海外直接投資",
+        "機関投資家のヘッジ比率",
+        "企業の利益還流"
+      ],
+      "implications": [
+        "危機時の還流余地",
+        "通常時は円高への機械的伝達が弱い",
+        "為替変動による資産評価効果"
+      ],
+      "evidence_ids": [
+        "e6-japan-bop-may",
+        "e7-japan-iip-2025",
+        "e11-imf-japan-2026"
+      ]
+    },
+    {
+      "id": "m3-energy-geopolitics",
+      "name": "エネルギー・地政学ショックの常態化",
+      "title": "エネルギー・地政学ショックの常態化",
+      "stage": "accelerating",
+      "horizon": "0–5年",
+      "velocity": 0.86,
+      "impact": 0.82,
+      "confidence": 0.67,
+      "description": "輸入エネルギー価格は日本の交易条件と円需要を悪化させ、同時に米国インフレを通じてFRBの利下げを遅らせ得る。円に二重の下押し圧力となる。",
+      "drivers": [
+        "原油・LNG価格",
+        "中東情勢",
+        "海上輸送",
+        "供給制約"
+      ],
+      "implications": [
+        "円安と輸入インフレの同時進行",
+        "ヘッジコスト上昇",
+        "政策反応の不確実性"
+      ],
+      "evidence_ids": [
+        "e2-boj-june-policy",
+        "e3-fed-june-statement",
+        "e10-us-cpi-june"
+      ]
+    },
+    {
+      "id": "m4-us-productivity-capex",
+      "name": "米国のAI投資・資本吸引力",
+      "title": "米国のAI投資・資本吸引力",
+      "stage": "scaling",
+      "horizon": "3–7年",
+      "velocity": 0.81,
+      "impact": 0.63,
+      "confidence": 0.54,
+      "description": "AI関連投資が米国の成長期待と資本流入を支える場合、政策金利差が縮小してもドルの構造的需要が残る。日銀も世界のAI需要をリスク要因として挙げているが、為替への寄与量は未確定である。",
+      "drivers": [
+        "AI設備投資",
+        "米国生産性",
+        "株式資金流入",
+        "データセンター投資"
+      ],
+      "implications": [
+        "金利差モデルだけではドルを過小評価",
+        "米株とドルの共振",
+        "テック投資減速時の巻き戻し"
+      ],
+      "evidence_ids": [
+        "e2-boj-june-policy",
+        "e3-fed-june-statement"
+      ]
+    },
+    {
+      "id": "m5-japan-fiscal-aging",
+      "name": "日本の高齢化・財政制約と金利上昇",
+      "title": "日本の高齢化・財政制約と金利上昇",
+      "stage": "structural",
+      "horizon": "5–15年",
+      "velocity": 0.42,
+      "impact": 0.78,
+      "confidence": 0.72,
+      "description": "利上げは円を支え得る一方、国債費と財政持続性への懸念を強める。正常化が円高ではなくリスクプレミアム上昇につながる非線形な尾部がある。",
+      "drivers": [
+        "債務残高",
+        "利払い費",
+        "高齢化",
+        "国債市場流動性"
+      ],
+      "implications": [
+        "日銀の利上げ余地を制約",
+        "JGBと円の同時下落テール",
+        "財政ルールの信頼性が重要"
+      ],
+      "evidence_ids": [
+        "e11-imf-japan-2026"
+      ]
+    }
+  ],
+  "knowledge_graph": {
+    "nodes": [
+      {
+        "id": "n-usdjpy",
+        "label": "USD/JPY",
+        "type": "sector",
+        "state": "163.76–163.78円（2026-07-24 17時）",
+        "confidence": 0.99,
+        "evidence_ids": [
+          "e1-boj-fx-july24"
+        ]
+      },
+      {
+        "id": "n-fed-rate",
+        "label": "FRB政策金利",
+        "type": "policy",
+        "state": "3.50–3.75%",
+        "confidence": 0.99,
+        "evidence_ids": [
+          "e3-fed-june-statement"
+        ]
+      },
+      {
+        "id": "n-boj-rate",
+        "label": "日銀政策金利",
+        "type": "policy",
+        "state": "1.0%程度",
+        "confidence": 0.99,
+        "evidence_ids": [
+          "e2-boj-june-policy"
+        ]
+      },
+      {
+        "id": "n-rate-gap",
+        "label": "日米政策金利差",
+        "type": "driver",
+        "state": "約2.6ポイント（計算値）",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "e2-boj-june-policy",
+          "e3-fed-june-statement"
+        ]
+      },
+      {
+        "id": "n-us-inflation",
+        "label": "米国インフレ",
+        "type": "driver",
+        "state": "コアPCE 3.4%",
+        "confidence": 0.97,
+        "evidence_ids": [
+          "e9-us-pce-may",
+          "e10-us-cpi-june"
+        ]
+      },
+      {
+        "id": "n-jp-inflation",
+        "label": "日本インフレ",
+        "type": "driver",
+        "state": "コアCPI 1.4%",
+        "confidence": 0.97,
+        "evidence_ids": [
+          "e8-japan-cpi-may"
+        ]
+      },
+      {
+        "id": "n-carry",
+        "label": "ドルキャリー需要",
+        "type": "driver",
+        "confidence": 0.68,
+        "evidence_ids": [
+          "e2-boj-june-policy",
+          "e3-fed-june-statement"
+        ]
+      },
+      {
+        "id": "n-riskoff",
+        "label": "グローバル・リスクオフ",
+        "type": "risk",
+        "confidence": 0.62,
+        "evidence_ids": [
+          "e4-fed-june-sep",
+          "e7-japan-iip-2025"
+        ]
+      },
+      {
+        "id": "n-oil",
+        "label": "原油・エネルギー",
+        "type": "risk",
+        "confidence": 0.73,
+        "evidence_ids": [
+          "e2-boj-june-policy",
+          "e3-fed-june-statement",
+          "e10-us-cpi-june"
+        ]
+      },
+      {
+        "id": "n-ca",
+        "label": "日本の経常収支",
+        "type": "driver",
+        "state": "2026年5月 +3.9683兆円",
+        "confidence": 0.98,
+        "evidence_ids": [
+          "e6-japan-bop-may"
+        ]
+      },
+      {
+        "id": "n-primary-income",
+        "label": "第一次所得",
+        "type": "driver",
+        "state": "2026年5月 +4.2756兆円",
+        "confidence": 0.98,
+        "evidence_ids": [
+          "e6-japan-bop-may"
+        ]
+      },
+      {
+        "id": "n-niip",
+        "label": "日本の対外純資産",
+        "type": "driver",
+        "state": "2025年末 +561.750兆円",
+        "confidence": 0.98,
+        "evidence_ids": [
+          "e7-japan-iip-2025"
+        ]
+      },
+      {
+        "id": "n-repatriation",
+        "label": "資金還流・ヘッジ比率",
+        "type": "driver",
+        "confidence": 0.55,
+        "evidence_ids": [
+          "e6-japan-bop-may",
+          "e7-japan-iip-2025"
+        ]
+      },
+      {
+        "id": "n-intervention",
+        "label": "財務省の円買い介入",
+        "type": "policy",
+        "state": "2026-05-28〜06-26は0円",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "e5-mof-intervention-june"
+        ]
+      },
+      {
+        "id": "n-us-capital",
+        "label": "米国への資本流入",
+        "type": "driver",
+        "confidence": 0.54,
+        "evidence_ids": [
+          "e2-boj-june-policy"
+        ]
+      },
+      {
+        "id": "n-jp-fiscal",
+        "label": "日本の財政信認",
+        "type": "risk",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "e11-imf-japan-2026"
+        ]
+      },
+      {
+        "id": "n-volatility",
+        "label": "為替ボラティリティ",
+        "type": "risk",
+        "confidence": 0.65,
+        "evidence_ids": [
+          "e4-fed-june-sep",
+          "e5-mof-intervention-june"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "source": "n-us-inflation",
+        "target": "n-fed-rate",
+        "type": "高止まりさせる",
+        "relation": "高止まりさせる",
+        "polarity": "positive",
+        "weight": 0.85,
+        "evidence_ids": [
+          "e3-fed-june-statement",
+          "e4-fed-june-sep",
+          "e9-us-pce-may"
+        ]
+      },
+      {
+        "source": "n-jp-inflation",
+        "target": "n-boj-rate",
+        "type": "正常化を支える",
+        "relation": "正常化を支える",
+        "polarity": "positive",
+        "weight": 0.7,
+        "evidence_ids": [
+          "e2-boj-june-policy",
+          "e8-japan-cpi-may"
+        ]
+      },
+      {
+        "source": "n-fed-rate",
+        "target": "n-rate-gap",
+        "type": "拡大",
+        "relation": "拡大",
+        "polarity": "positive",
+        "weight": 0.9,
+        "evidence_ids": [
+          "e3-fed-june-statement"
+        ]
+      },
+      {
+        "source": "n-boj-rate",
+        "target": "n-rate-gap",
+        "type": "縮小",
+        "relation": "縮小",
+        "polarity": "negative",
+        "weight": 0.9,
+        "evidence_ids": [
+          "e2-boj-june-policy"
+        ]
+      },
+      {
+        "source": "n-rate-gap",
+        "target": "n-carry",
+        "type": "魅力度を高める",
+        "relation": "魅力度を高める",
+        "polarity": "positive",
+        "weight": 0.8,
+        "evidence_ids": [
+          "e2-boj-june-policy",
+          "e3-fed-june-statement"
+        ]
+      },
+      {
+        "source": "n-carry",
+        "target": "n-usdjpy",
+        "type": "上昇圧力（円安）",
+        "relation": "上昇圧力（円安）",
+        "polarity": "positive",
+        "weight": 0.75,
+        "evidence_ids": [
+          "e1-boj-fx-july24"
+        ]
+      },
+      {
+        "source": "n-riskoff",
+        "target": "n-carry",
+        "type": "巻き戻す",
+        "relation": "巻き戻す",
+        "polarity": "negative",
+        "weight": 0.75,
+        "evidence_ids": [
+          "e7-japan-iip-2025"
+        ]
+      },
+      {
+        "source": "n-riskoff",
+        "target": "n-volatility",
+        "type": "高める",
+        "relation": "高める",
+        "polarity": "positive",
+        "weight": 0.9,
+        "evidence_ids": [
+          "e4-fed-june-sep"
+        ]
+      },
+      {
+        "source": "n-oil",
+        "target": "n-us-inflation",
+        "type": "上押しし得る",
+        "relation": "上押しし得る",
+        "polarity": "positive",
+        "weight": 0.65,
+        "evidence_ids": [
+          "e3-fed-june-statement",
+          "e10-us-cpi-june"
+        ]
+      },
+      {
+        "source": "n-oil",
+        "target": "n-usdjpy",
+        "type": "交易条件経由で円安",
+        "relation": "日本の交易条件経由で上昇圧力",
+        "polarity": "positive",
+        "weight": 0.6,
+        "evidence_ids": [
+          "e2-boj-june-policy"
+        ]
+      },
+      {
+        "source": "n-ca",
+        "target": "n-niip",
+        "type": "蓄積を支える",
+        "relation": "蓄積を支える",
+        "polarity": "positive",
+        "weight": 0.7,
+        "evidence_ids": [
+          "e6-japan-bop-may",
+          "e7-japan-iip-2025"
+        ]
+      },
+      {
+        "source": "n-primary-income",
+        "target": "n-ca",
+        "type": "黒字の中心",
+        "relation": "黒字の中心",
+        "polarity": "positive",
+        "weight": 0.95,
+        "evidence_ids": [
+          "e6-japan-bop-may"
+        ]
+      },
+      {
+        "source": "n-niip",
+        "target": "n-repatriation",
+        "type": "還流余力",
+        "relation": "還流余力",
+        "polarity": "positive",
+        "weight": 0.65,
+        "evidence_ids": [
+          "e7-japan-iip-2025",
+          "e11-imf-japan-2026"
+        ]
+      },
+      {
+        "source": "n-repatriation",
+        "target": "n-usdjpy",
+        "type": "低下圧力（円高）",
+        "relation": "低下圧力（円高）",
+        "polarity": "negative",
+        "weight": 0.55,
+        "evidence_ids": [
+          "e6-japan-bop-may",
+          "e7-japan-iip-2025"
+        ]
+      },
+      {
+        "source": "n-intervention",
+        "target": "n-usdjpy",
+        "type": "短期的な低下圧力",
+        "relation": "短期的な低下圧力",
+        "polarity": "negative",
+        "weight": 0.55,
+        "evidence_ids": [
+          "e5-mof-intervention-june"
+        ]
+      },
+      {
+        "source": "n-us-capital",
+        "target": "n-usdjpy",
+        "type": "上昇圧力（ドル需要）",
+        "relation": "上昇圧力（ドル需要）",
+        "polarity": "positive",
+        "weight": 0.55,
+        "evidence_ids": [
+          "e2-boj-june-policy"
+        ]
+      },
+      {
+        "source": "n-jp-fiscal",
+        "target": "n-usdjpy",
+        "type": "信認低下時に円安",
+        "relation": "信認低下時に上昇圧力",
+        "polarity": "positive",
+        "weight": 0.65,
+        "evidence_ids": [
+          "e11-imf-japan-2026"
+        ]
+      },
+      {
+        "source": "n-usdjpy",
+        "target": "n-volatility",
+        "type": "政策反応を誘発",
+        "relation": "介入・政策反応を誘発",
+        "polarity": "positive",
+        "weight": 0.5,
+        "evidence_ids": [
+          "e1-boj-fx-july24",
+          "e5-mof-intervention-june"
+        ]
+      }
+    ]
+  },
+  "whitespaces": [
+    {
+      "id": "w1-sme-fx-cockpit",
+      "name": "日本の中堅・中小企業向けFX予算レート・コックピット",
+      "title": "日本の中堅・中小企業向けFX予算レート・コックピット",
+      "job_to_be_done": "CFO・経理責任者が、取引・請求・在庫・予算に散在する外貨エクスポージャーを期限別に可視化し、ヘッジ判断を承認できるようにする。",
+      "customer": "輸入商社、製造業、越境EC、SaaS、海外売上のある中堅企業",
+      "buyer": "CFO、財務部長、経理責任者、オーナー経営者",
+      "unmet_need": "銀行の相場レポートと会計データが分断され、シナリオが具体的なヘッジ量・予算差異に変換されていない。",
+      "solution": "会計・銀行明細・受発注を接続し、115–210円の条件付きシナリオ、VaRではなくキャッシュ影響、期限別推奨ヘッジ帯、根拠リンクを一画面にする。",
+      "pain": "外貨エクスポージャーが会計・銀行・受発注に分散し、経営者が円換算損益を即答できない。",
+      "unmet_reason": "相場情報は多いが、企業固有の取引データと承認ワークフローへ接続されていない。",
+      "opportunity": "公式データと企業キャッシュフローを結ぶ予算レート・ヘッジ判断SaaS。",
+      "next_test": "輸入企業5社の実データで、予算差異と判断時間が減るかを4週間検証する。",
+      "score": {
+        "market_attractiveness": 86,
+        "feasibility": 78,
+        "evidence_strength": 72
+      },
+      "monetization": [
+        "月額SaaS",
+        "導入費",
+        "銀行・会計SaaSへのOEM/API"
+      ],
+      "moat": [
+        "取引データとの統合",
+        "意思決定履歴",
+        "企業別ヘッジ方針",
+        "監査可能な根拠"
+      ],
+      "risks": [
+        "金融商品勧誘との境界",
+        "銀行API接続",
+        "顧客データ保護"
+      ],
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e2-boj-june-policy",
+        "e3-fed-june-statement",
+        "e4-fed-june-sep"
+      ]
+    },
+    {
+      "id": "w2-hedge-as-service",
+      "name": "会計連携型ヘッジ・アズ・ア・サービス",
+      "title": "会計連携型ヘッジ・アズ・ア・サービス",
+      "job_to_be_done": "専門ディーラーを持たない企業が、方針策定、社内承認、執行、ヘッジ会計、効果検証まで一貫運用する。",
+      "customer": "年間外貨取引があるが専任財務人材の少ない企業",
+      "buyer": "CFO、監査役、経理部門",
+      "unmet_need": "相場観は入手できても、ガバナンスと会計処理を含む実行ワークフローが不足している。",
+      "solution": "企業のリスク許容度に応じたルールベースの分割ヘッジ、承認ログ、金融機関比較、会計仕訳支援を提供する。",
+      "pain": "方針、承認、執行、会計、効果検証が別担当・別システムで、ヘッジが継続運用されない。",
+      "unmet_reason": "銀行は執行、会計SaaSは記帳、コンサルは助言に分かれ、全工程の責任主体がない。",
+      "opportunity": "規制ライセンス保有者と組み、会計連携型のヘッジ運用を継続サービス化する。",
+      "next_test": "金融規制の境界を確認し、1社で承認から仕訳までの限定有料パイロットを行う。",
+      "score": {
+        "market_attractiveness": 82,
+        "feasibility": 63,
+        "evidence_strength": 66
+      },
+      "monetization": [
+        "管理資産・取引量連動フィー",
+        "月額運用料",
+        "専門家レビュー料"
+      ],
+      "moat": [
+        "ワークフロー埋め込み",
+        "複数銀行の中立比較",
+        "会計・監査証跡"
+      ],
+      "risks": [
+        "金融規制",
+        "適合性説明",
+        "執行責任",
+        "ライセンス保有企業との提携が必要"
+      ],
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e4-fed-june-sep"
+      ]
+    },
+    {
+      "id": "w3-contract-indexation",
+      "name": "為替連動価格・契約再設計支援",
+      "title": "為替連動価格・契約再設計支援",
+      "job_to_be_done": "為替変動を金融ヘッジだけでなく、価格改定条項、調達通貨、請求通貨、在庫期間の短縮で自然ヘッジする。",
+      "customer": "輸入材を使うメーカー、食品、農業資材、化学・材料、物流",
+      "buyer": "購買、営業企画、CFO、法務",
+      "unmet_need": "財務部だけの為替対策では、粗利構造や顧客契約に残るエクスポージャーを解消できない。",
+      "solution": "SKU・契約単位で為替感応度を計算し、価格スライド条項、二通貨価格、調達先分散を提案する。",
+      "pain": "金融ヘッジ後も、価格改定の遅れと長い在庫期間によって粗利が為替にさらされる。",
+      "unmet_reason": "財務・購買・営業・法務が分断され、SKUと契約単位の自然ヘッジが設計されていない。",
+      "opportunity": "原価感応度分析と為替連動契約テンプレートを組み合わせる。",
+      "next_test": "食品・材料・農業資材の1業種を選び、20契約で回収粗利の改善余地を試算する。",
+      "score": {
+        "market_attractiveness": 76,
+        "feasibility": 81,
+        "evidence_strength": 61
+      },
+      "monetization": [
+        "診断プロジェクト",
+        "契約テンプレート利用料",
+        "継続モニタリング"
+      ],
+      "moat": [
+        "原価・契約データ",
+        "業界別テンプレート",
+        "導入後の粗利改善データ"
+      ],
+      "risks": [
+        "取引先の交渉力",
+        "競争法・契約法レビュー",
+        "データ標準化"
+      ],
+      "evidence_ids": [
+        "e2-boj-june-policy",
+        "e6-japan-bop-may",
+        "e10-us-cpi-june"
+      ]
+    },
+    {
+      "id": "w4-auditable-scenario-api",
+      "name": "根拠追跡可能なFXシナリオAPI",
+      "title": "根拠追跡可能なFXシナリオAPI",
+      "job_to_be_done": "金融機関・コンサル・ERPが、一次情報、因果グラフ、確率、反証条件を自社画面へ組み込む。",
+      "customer": "地域銀行、会計SaaS、ERP、コンサルティング会社",
+      "buyer": "プロダクト責任者、リスク管理、リサーチ部門",
+      "unmet_need": "生成AIの相場説明は出典・データカットオフ・予測採点が弱く、顧客向け提供に耐えにくい。",
+      "solution": "公式データを優先し、各主張のevidence ID、更新時刻、反証トリガー、Brier scoreをAPIで返す。",
+      "pain": "AIの市場コメントを顧客向けに使いたくても、根拠、更新日、反証、予測履歴を監査できない。",
+      "unmet_reason": "検索、因果分析、予測、評価が別ツールで、主張単位の来歴が失われる。",
+      "opportunity": "一次情報と採点可能な予測を同じ証拠グラフで返す法人API。",
+      "next_test": "地域銀行または会計SaaS1社へ、ドル円のホワイトラベル画面を提示して支払意思を検証する。",
+      "score": {
+        "market_attractiveness": 71,
+        "feasibility": 74,
+        "evidence_strength": 77
+      },
+      "monetization": [
+        "API従量課金",
+        "ホワイトラベル",
+        "監査・コンプライアンス機能"
+      ],
+      "moat": [
+        "評価履歴",
+        "証拠グラフ",
+        "業務システム統合",
+        "ドメイン別方法論"
+      ],
+      "risks": [
+        "データ再配布条件",
+        "モデルリスク",
+        "予測精度の誤認表示"
+      ],
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e2-boj-june-policy",
+        "e3-fed-june-statement",
+        "e4-fed-june-sep",
+        "e5-mof-intervention-june",
+        "e6-japan-bop-may"
+      ]
+    }
+  ],
+  "profit_pools": [
+    {
+      "id": "p1-treasury-software",
+      "name": "財務データ統合・意思決定ソフトウェア",
+      "value_chain_stage": "データ統合・意思決定",
+      "revenue_pool": 88,
+      "pool_score": 88,
+      "margin_direction": "up",
+      "capture_mechanism": "継続課金、ワークフロー埋め込み、OEM/API",
+      "barriers": [
+        "銀行・会計接続",
+        "企業別履歴",
+        "セキュリティ"
+      ],
+      "winners": [
+        "財務ワークフローを押さえる垂直SaaS",
+        "銀行・ERPと連携できる事業者"
+      ],
+      "losers": [
+        "相場コメントだけの情報サービス"
+      ],
+      "size_direction": "拡大",
+      "margin_outlook": "高粗利だが導入支援比率が初期は高い",
+      "value_capture": "月額利用料、企業・口座・通貨数課金、OEM/API",
+      "why": "為替変動の大きさより、エクスポージャー把握と承認の分断が恒常課題。顧客業務へ埋め込めれば継続率が高い。",
+      "attractiveness": 88,
+      "defensibility": 79,
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e4-fed-june-sep"
+      ]
+    },
+    {
+      "id": "p2-advisory-structuring",
+      "name": "ヘッジ方針・デリバティブ設計・会計支援",
+      "value_chain_stage": "助言・商品設計・会計",
+      "revenue_pool": 83,
+      "pool_score": 83,
+      "margin_direction": "up",
+      "capture_mechanism": "診断料、顧問料、管理・取引連動フィー",
+      "barriers": [
+        "専門資格",
+        "金融規制",
+        "顧客信頼"
+      ],
+      "winners": [
+        "金融・会計・システムを横断できる専門家",
+        "ライセンス保有者との連合"
+      ],
+      "losers": [
+        "単発レポート提供者"
+      ],
+      "size_direction": "高ボラ局面で拡大",
+      "margin_outlook": "専門性が高く単価を維持しやすい",
+      "value_capture": "診断料、継続顧問、取引・管理連動フィー",
+      "why": "複数シナリオを実際のキャッシュフロー、会計、ガバナンスへ変換する部分は自動化だけでは完結しにくい。",
+      "attractiveness": 83,
+      "defensibility": 71,
+      "evidence_ids": [
+        "e2-boj-june-policy",
+        "e3-fed-june-statement",
+        "e4-fed-june-sep"
+      ]
+    },
+    {
+      "id": "p3-fx-execution",
+      "name": "FX執行・クロスボーダー決済",
+      "value_chain_stage": "執行・決済",
+      "revenue_pool": 68,
+      "pool_score": 68,
+      "margin_direction": "down",
+      "capture_mechanism": "スプレッド、決済手数料、流動性提供",
+      "barriers": [
+        "規制",
+        "流動性",
+        "資本",
+        "決済ネットワーク"
+      ],
+      "winners": [
+        "大規模流動性と業務統合を持つ事業者"
+      ],
+      "losers": [
+        "価格だけで競う小規模両替サービス"
+      ],
+      "size_direction": "取引量は拡大余地、単価は低下",
+      "margin_outlook": "スプレッド圧縮と価格比較でコモディティ化",
+      "value_capture": "スプレッド、決済手数料、流動性提供",
+      "why": "大きな為替変動は執行量を生むが、単純な両替だけでは差別化しにくい。データ・ワークフローとの一体化が必要。",
+      "attractiveness": 68,
+      "defensibility": 45,
+      "evidence_ids": [
+        "e1-boj-fx-july24"
+      ]
+    },
+    {
+      "id": "p4-working-capital",
+      "name": "輸入在庫・貿易金融・運転資金最適化",
+      "value_chain_stage": "資金供給・在庫金融",
+      "revenue_pool": 76,
+      "pool_score": 76,
+      "margin_direction": "up",
+      "capture_mechanism": "金利収入、ファクタリング、在庫金融、保険",
+      "barriers": [
+        "信用審査",
+        "資金調達",
+        "在庫モニタリング"
+      ],
+      "winners": [
+        "取引データで信用を継続評価できる金融事業者"
+      ],
+      "losers": [
+        "為替と運転資金を別々に審査する事業者"
+      ],
+      "size_direction": "円安・高金利局面で需要増",
+      "margin_outlook": "信用リスク管理に依存",
+      "value_capture": "金利収入、ファクタリング、在庫金融、保険",
+      "why": "円安は同じ外貨仕入れに必要な円資金と在庫負担を増やす。為替と運転資金を別々に扱わない商品が取り分を得る。",
+      "attractiveness": 76,
+      "defensibility": 63,
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e6-japan-bop-may"
+      ]
+    },
+    {
+      "id": "p5-auditable-intelligence",
+      "name": "監査可能な意思決定インテリジェンス",
+      "value_chain_stage": "分析・監査・API",
+      "revenue_pool": 81,
+      "pool_score": 81,
+      "margin_direction": "up",
+      "capture_mechanism": "法人ライセンス、API、監査・コンプライアンス機能",
+      "barriers": [
+        "一次情報接続",
+        "予測評価履歴",
+        "証拠グラフ",
+        "顧客業務統合"
+      ],
+      "winners": [
+        "根拠と評価履歴を製品化する事業者"
+      ],
+      "losers": [
+        "出典不明の汎用AIコメント"
+      ],
+      "size_direction": "生成AI導入に伴い拡大",
+      "margin_outlook": "データ品質・評価履歴を持つ企業に集中",
+      "value_capture": "法人ライセンス、API、規制・監査モジュール",
+      "why": "相場コメント自体ではなく、根拠、更新、反証、決定ログまで一体化した業務成果に支払いが発生する。",
+      "attractiveness": 81,
+      "defensibility": 75,
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e2-boj-june-policy",
+        "e3-fed-june-statement",
+        "e4-fed-june-sep"
+      ]
+    }
+  ],
+  "investment_routes": [
+    {
+      "id": "i1-currency-hedge",
+      "name": "外貨資産の段階的ヘッジ",
+      "theme": "日米金利差縮小と円高尾部",
+      "transmission": "金利差縮小 → 円高 → 未ヘッジ外貨資産の円換算リターン低下",
+      "catalysts": [
+        "米コアPCE低下",
+        "FRB利下げ",
+        "日銀追加利上げ"
+      ],
+      "expectations_gap": "短期キャリーは広く認識される一方、3–5年の円高尾部と生活通貨ミスマッチは過小管理されやすい。",
+      "valuation": "個別商品の価格・ヘッジコストは未評価。実行前に比較が必要。",
+      "crowding": "ドルロングの混雑度は今回未取得。CFTC・オプション市場で別途確認する。",
+      "downside": "ドル高が続く場合の機会損失、ヘッジロールコスト、税務。",
+      "decision": "一括転換せず段階ヘッジ",
+      "thesis": "ドル資産のキャリーは当面支えられるが、3–5年で円高になれば円換算リターンを削る。保有継続と為替ヘッジを分けて判断する。",
+      "implementation": "新規資金と既存資産を分け、3–6か月ごとにヘッジ比率を段階調整する。単一の為替目標に全額を依存させない。",
+      "beneficiaries": [
+        "為替ヘッジ付き外貨資産",
+        "マルチカレンシー運用",
+        "短期米ドル収益を確保しつつ円高尾部を抑える戦略"
+      ],
+      "risks": [
+        "ヘッジコスト",
+        "ドル高継続時の機会損失",
+        "税務・ロールコスト"
+      ],
+      "signals": [
+        "日米2年金利差",
+        "FOMC SEP",
+        "日銀基調インフレ",
+        "オプション・スキュー"
+      ],
+      "confidence": 0.72,
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e2-boj-june-policy",
+        "e3-fed-june-statement",
+        "e4-fed-june-sep"
+      ]
+    },
+    {
+      "id": "i2-japan-financials",
+      "name": "日本の銀行・保険の正常化選別",
+      "theme": "日本の金利正常化",
+      "transmission": "日銀利上げ → 国内運用利回り・貸出利回り改善 → 金融機関収益。ただしALM損失と相殺。",
+      "catalysts": [
+        "日銀追加利上げ",
+        "貸出金利上昇",
+        "預金ベータ抑制"
+      ],
+      "expectations_gap": "業種一括ではなく、預金基盤・外債・JGBデュレーションによる差が大きい。",
+      "valuation": "個別行・保険会社のP/B、ROE、含み損は未評価。銘柄判断には追加調査が必要。",
+      "crowding": "正常化テーマとして混雑の可能性。需給データは未取得。",
+      "downside": "JGB急変、貸倒増加、外債評価損、日銀正常化停止。",
+      "decision": "財務開示を確認した選別候補",
+      "thesis": "国内金利上昇は預貸利ざやや運用収益を改善し得るが、国債評価損、調達競争、為替ヘッジコストを同時に見る必要がある。",
+      "implementation": "預金ベータ、ALM、外債含み損、資本余力を個別開示で確認し、単純な『利上げ=銀行株高』を避ける。",
+      "beneficiaries": [
+        "低コスト預金基盤の強い銀行",
+        "国内金利再投資余地のある保険会社"
+      ],
+      "risks": [
+        "JGB急変",
+        "貸倒増加",
+        "外債評価損",
+        "日銀正常化停止"
+      ],
+      "signals": [
+        "日銀政策金利",
+        "預金金利",
+        "貸出利回り",
+        "国債ボラティリティ"
+      ],
+      "confidence": 0.58,
+      "evidence_ids": [
+        "e2-boj-june-policy",
+        "e11-imf-japan-2026"
+      ]
+    },
+    {
+      "id": "i3-yen-recovery-domestic",
+      "name": "円高転換時の輸入・内需回復",
+      "theme": "円高による輸入原価・実質所得改善",
+      "transmission": "円高 → 輸入物価低下 → 粗利・実質購買力改善 → 内需回復",
+      "catalysts": [
+        "USD/JPYのトレンド転換",
+        "輸入物価低下",
+        "実質賃金プラス"
+      ],
+      "expectations_gap": "現在の円安苦境が長期化すると見られる企業ほど、転換時の利益弾性が見落とされ得る。",
+      "valuation": "食品・小売・航空等の個別バリュエーションは未評価。",
+      "crowding": "円高テーマは現時点で主流ではない可能性があるが、フロー確認は未実施。",
+      "downside": "円安長期化、需要低迷、原価低下分の値下げ競争。",
+      "decision": "監視リストを先に作る",
+      "thesis": "円高は輸入原価と実質購買力を改善し、原材料・エネルギー依存度が高く価格転嫁の弱い企業の利益率を回復させ得る。",
+      "implementation": "為替感応度、在庫回転、価格転嫁の遅れを決算開示で確認し、円高が始まる前から候補群を作る。",
+      "beneficiaries": [
+        "食品・小売",
+        "航空・旅行",
+        "輸入材料を使う国内メーカー",
+        "国内消費"
+      ],
+      "risks": [
+        "需要低迷",
+        "価格引き下げ圧力",
+        "円安長期化"
+      ],
+      "signals": [
+        "USD/JPYの12か月移動平均",
+        "輸入物価",
+        "実質賃金",
+        "粗利率"
+      ],
+      "confidence": 0.64,
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e6-japan-bop-may",
+        "e8-japan-cpi-may"
+      ]
+    },
+    {
+      "id": "i4-exporters",
+      "name": "輸出企業は円安感応度より価格決定力を選ぶ",
+      "theme": "円安利益の質",
+      "transmission": "円安 → 円換算利益増。ただし円高反転時には逆回転し、現地コストと価格決定力が残る。",
+      "catalysts": [
+        "受注増",
+        "値上げ定着",
+        "現地生産の利益率改善"
+      ],
+      "expectations_gap": "市場が円安換算益を構造的成長と誤認している企業は逆風。通貨中立の競争力が重要。",
+      "valuation": "会社想定レート、為替感応度、PER等は個別未評価。",
+      "crowding": "円安受益テーマとして織り込み済みの可能性。",
+      "downside": "円高、米景気減速、関税・地政学、高いバリュエーション。",
+      "decision": "為替益を除いて選別",
+      "thesis": "円安は円換算利益を押し上げるが、すでに期待へ織り込まれた可能性があり、円高転換時には逆回転する。真の優位は通貨ではなく価格決定力と現地生産である。",
+      "implementation": "会社想定レート、海外生産比率、為替感応度、バリュエーションを個別確認する。",
+      "beneficiaries": [
+        "海外売上が大きく価格決定力のある企業",
+        "自然ヘッジを持つグローバル企業"
+      ],
+      "risks": [
+        "円高",
+        "米景気減速",
+        "関税・地政学",
+        "高いバリュエーション"
+      ],
+      "signals": [
+        "会社想定レート",
+        "営業利益の為替感応度",
+        "海外現地コスト",
+        "受注"
+      ],
+      "confidence": 0.55,
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e2-boj-june-policy"
+      ]
+    },
+    {
+      "id": "i5-us-assets",
+      "name": "米国資産は資産選択と為替選択を分離",
+      "theme": "米国資産とドルの二重エクスポージャー",
+      "transmission": "米高金利・成長期待 → 米資産とドルを支援。ただし円高時に円換算リターンが低下。",
+      "catalysts": [
+        "米インフレ鈍化",
+        "実質金利低下",
+        "企業利益成長"
+      ],
+      "expectations_gap": "優良な米国資産を持つ判断と、ドルを無制限に持つ判断は同一ではない。",
+      "valuation": "米株・債券の個別期待リターンとデュレーションは未評価。",
+      "crowding": "米AI・大型株への集中は別途確認が必要。",
+      "downside": "米インフレ、金利上昇、円高、AI投資期待の反転。",
+      "decision": "資産と通貨の比率を別々に決める",
+      "thesis": "米国の高金利と成長期待はドル資産を支えるが、円ベース投資家にとっては資産価格と為替の二重リスクがある。",
+      "implementation": "米国株・債券の投資判断を維持しつつ、一部だけ為替ヘッジするコア・サテライト構成を用いる。",
+      "beneficiaries": [
+        "短期米国債",
+        "ヘッジ付き米国債券",
+        "強いキャッシュフローを持つ米企業"
+      ],
+      "risks": [
+        "米インフレ",
+        "金利上昇",
+        "円高",
+        "AI投資期待の反転"
+      ],
+      "signals": [
+        "コアPCE",
+        "実質金利",
+        "SEP",
+        "利益予想"
+      ],
+      "confidence": 0.63,
+      "evidence_ids": [
+        "e3-fed-june-statement",
+        "e4-fed-june-sep",
+        "e9-us-pce-may"
+      ]
+    }
+  ],
+  "business_routes": [
+    {
+      "id": "b1-importer",
+      "name": "ドル建て仕入れ企業",
+      "structural_change": "円安高止まりと高い為替ボラティリティ",
+      "pain": "輸入原価と必要運転資金が予算レートを超え、値上げと資金繰りが後手になる。",
+      "buyer": "CFO、購買責任者、経営者",
+      "budget": "財務・購買・リスク管理予算",
+      "solution": "確度別の分割ヘッジ、価格連動契約、調達通貨分散を一つの運用ルールにする。",
+      "pricing": "自社運用方針。外部導入時は診断費＋月額管理。",
+      "unit_economics": "ヘッジ費用ではなく、予算差異・粗利毀損・運転資金削減額で評価する。",
+      "channel": "取引銀行、会計士、購買コンサル、ERP",
+      "validation": "直近12か月の請求データで、無対策と分割ヘッジの粗利・資金繰りを比較する。",
+      "kill_criteria": "外貨エクスポージャーが売上・自然ヘッジでほぼ相殺され、導入効果が費用を下回る場合。",
+      "decision": "12か月分を一括固定せず、確定注文・高確度予測・不確実需要の3層に分け、確度に応じてヘッジ比率を下げる。",
+      "actions_30_days": [
+        "通貨・月別のエクスポージャー台帳を作る",
+        "163円、175円、190円で粗利・資金繰りをストレステスト",
+        "取引銀行の先物・オプション条件を比較"
+      ],
+      "actions_90_days": [
+        "価格スライド条項を主要契約へ導入",
+        "調達通貨・供給元を分散",
+        "ヘッジ承認ルールと上限を取締役会で決める"
+      ],
+      "kpis": [
+        "期限別ネット外貨エクスポージャー",
+        "予算レート乖離",
+        "ヘッジ後粗利",
+        "ヘッジコスト"
+      ],
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e2-boj-june-policy",
+        "e3-fed-june-statement"
+      ]
+    },
+    {
+      "id": "b2-exporter",
+      "name": "ドル売上の輸出企業",
+      "structural_change": "円安益の拡大と円高反転リスク",
+      "pain": "円安換算益が本業改善と混ざり、固定費・投資判断を過大にしやすい。",
+      "buyer": "CFO、経営企画、事業責任者",
+      "budget": "経営管理・財務予算",
+      "solution": "為替影響除外KPI、自然ヘッジ、段階予約を経営計画へ組み込む。",
+      "pricing": "自社運用方針。外部導入時は診断・FP&A支援。",
+      "unit_economics": "円高時に回避できる利益下振れと、固定費化を抑えた額で測る。",
+      "channel": "ERP、FP&A、監査法人、取引銀行",
+      "validation": "135円・150円・175円の3ケースで商品・地域別採算を再計算する。",
+      "kill_criteria": "売上・コストが同通貨で完全に一致し、為替感応度が重要でない場合。",
+      "decision": "円安益を恒常利益と扱わず、投資・人件費の固定費化を抑え、円高時にも成立する採算基準を置く。",
+      "actions_30_days": [
+        "会社想定レートと実勢の利益差を分離",
+        "135円までの円高ストレスを再計算",
+        "外貨コストとの自然ヘッジを測定"
+      ],
+      "actions_90_days": [
+        "利益の一部を予約で固定",
+        "現地調達・現地生産比率を再設計",
+        "為替影響を除くKPIを経営会議へ導入"
+      ],
+      "kpis": [
+        "為替影響除外営業利益",
+        "自然ヘッジ比率",
+        "会社想定レート",
+        "海外現地コスト比率"
+      ],
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e2-boj-june-policy"
+      ]
+    },
+    {
+      "id": "b3-fx-product",
+      "name": "FX意思決定SaaSの構築",
+      "structural_change": "為替情報の過剰と、企業固有の実行ワークフロー不足",
+      "pain": "レポートは読めても、企業別のキャッシュ影響・承認・執行へ変換できない。",
+      "buyer": "中堅企業CFO、地域銀行、会計SaaSプロダクト責任者",
+      "budget": "財務DX、リスク管理、法人金融、ERP追加機能",
+      "solution": "公式データ、因果グラフ、企業取引、分割ヘッジ、承認ログを統合する。",
+      "pricing": "企業月額＋導入費。銀行・ERP向けはAPI/OEM年額。",
+      "unit_economics": "初期は1業種・CSV連携に限定し、粗利70%以上と12か月以内の回収を検証する。",
+      "channel": "税理士・会計士、地域銀行、ERPパートナー、業界団体",
+      "validation": "5社インタビュー後、1社の有料パイロットで予算差異削減と継続支払意思を確認する。",
+      "kill_criteria": "有料パイロット3社のうち継続意向が1社未満、または規制・接続費が粗利を恒常的に圧迫する場合。",
+      "decision": "相場予測を売るのではなく、公式データから企業別キャッシュ影響、承認、執行、事後評価までつなぐ。",
+      "actions_30_days": [
+        "輸入企業5社へ課題インタビュー",
+        "会計CSVと銀行明細から期限別エクスポージャーを生成するMVP",
+        "本run形式の証拠グラフとシナリオ表示を実装"
+      ],
+      "actions_90_days": [
+        "1業種へ限定した有料パイロット",
+        "税理士・銀行・金融ライセンス保有者との提携設計",
+        "予測のBrier scoreと意思決定ログを公開"
+      ],
+      "kpis": [
+        "予算差異削減",
+        "意思決定時間",
+        "有料転換率",
+        "継続利用率",
+        "予測校正度"
+      ],
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e4-fed-june-sep",
+        "e5-mof-intervention-june",
+        "e6-japan-bop-may"
+      ]
+    },
+    {
+      "id": "b4-investment-policy",
+      "name": "個人・ファミリー資産の通貨方針",
+      "structural_change": "円安で外貨資産比率が評価額ベースで自然上昇",
+      "pain": "外貨資産の利益と通貨集中が同時に増え、将来の円支出とずれる。",
+      "buyer": "個人投資家、ファミリーオフィス、独立系アドバイザー",
+      "budget": "資産管理・助言予算",
+      "solution": "将来支出通貨を起点に、円・外貨の最低必要額とリバランス帯を定める。",
+      "pricing": "助言契約または資産管理ツール月額。実装には適切なライセンスが必要。",
+      "unit_economics": "手数料控除後のリスク低下と、生活資金の不足確率で評価する。",
+      "channel": "独立系アドバイザー、証券会社、資産管理アプリ",
+      "validation": "匿名ポートフォリオ10件で、支出通貨カバレッジと最大損失の改善を測る。",
+      "kill_criteria": "助言費・税務・ヘッジコストが測定可能なリスク低減を上回る場合。",
+      "decision": "生活費・将来支出通貨を基準に、円と外貨の必要額を先に決める。相場予想だけで全資産の通貨を切り替えない。",
+      "actions_30_days": [
+        "5年以内の円支出を分離",
+        "外貨資産の未ヘッジ比率を可視化",
+        "円高・円安両方向の資産評価を試算"
+      ],
+      "actions_90_days": [
+        "四半期リバランス帯を設定",
+        "新規積立で通貨偏りを修正",
+        "税務・商品コストを専門家と確認"
+      ],
+      "kpis": [
+        "支出通貨カバレッジ",
+        "通貨別資産比率",
+        "最大許容ドローダウン",
+        "ヘッジコスト"
+      ],
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e7-japan-iip-2025"
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "s1-gradual-yen-recovery",
+      "name": "金利差収れん・緩やかな円高",
+      "probability": 0.45,
+      "range_2029_2031": "135–155円",
+      "narrative": "米インフレが徐々に収束しFRBが緩やかに利下げ、日銀は基調インフレを確認しながら中立金利方向へ進む。金利差は縮小するが、日本の海外再投資と米国の資本吸引力により円高は段階的。",
+      "axes": {
+        "us_inflation": "低下",
+        "boj_normalization": "継続",
+        "risk_premium": "安定"
+      },
+      "leading_indicators": [
+        "米コアPCE 3か月年率",
+        "FOMC政策金利見通し",
+        "日銀の基調物価",
+        "日米2年金利差"
+      ],
+      "indicators": [
+        "米コアPCE 3か月年率",
+        "FOMC政策金利見通し",
+        "日銀の基調物価",
+        "日米2年金利差"
+      ],
+      "implications": [
+        "外貨資産の円換算益が縮小",
+        "輸入企業・内需の原価改善",
+        "輸出企業は為替益剥落"
+      ],
+      "falsifiers": [
+        "2027年末にも米政策金利が4%以上",
+        "日銀が1年以上利上げを停止",
+        "USD/JPYが180円超で6か月定着"
+      ],
+      "evidence_ids": [
+        "e2-boj-june-policy",
+        "e3-fed-june-statement",
+        "e4-fed-june-sep",
+        "e8-japan-cpi-may",
+        "e9-us-pce-may",
+        "e11-imf-japan-2026"
+      ]
+    },
+    {
+      "id": "s2-sticky-dollar",
+      "name": "米インフレ粘着・ドル高長期化",
+      "probability": 0.3,
+      "range_2029_2031": "160–185円",
+      "narrative": "供給・エネルギー・財政需要により米インフレが高止まりし、FRBの利下げが小幅にとどまる。日銀は景気・財政・金融安定への配慮から正常化が遅れ、キャリー需要と米国への資本流入が続く。",
+      "axes": {
+        "us_inflation": "高止まり",
+        "boj_normalization": "遅い",
+        "risk_premium": "ドル優位"
+      },
+      "leading_indicators": [
+        "コアPCE 3%以上",
+        "SEPの上方修正",
+        "原油高",
+        "米国への株式・債券資金流入"
+      ],
+      "indicators": [
+        "コアPCE 3%以上",
+        "SEPの上方修正",
+        "原油高",
+        "米国への株式・債券資金流入"
+      ],
+      "implications": [
+        "輸入原価・外貨債務負担が継続",
+        "輸出企業の円換算利益を支援",
+        "介入観測とボラティリティ上昇"
+      ],
+      "falsifiers": [
+        "コアPCEが2%近辺へ持続低下",
+        "金利差が2ポイント未満",
+        "日本の機関投資家が大幅に為替ヘッジを増加"
+      ],
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e3-fed-june-statement",
+        "e4-fed-june-sep",
+        "e9-us-pce-may",
+        "e10-us-cpi-june"
+      ]
+    },
+    {
+      "id": "s3-global-recession",
+      "name": "世界景気後退・キャリー巻き戻し",
+      "probability": 0.15,
+      "range_2029_2031": "115–140円",
+      "narrative": "米国・世界景気が急減速しFRBが大幅利下げ、レバレッジ解消と日本の対外資産還流で円が急伸する。日銀も利下げし得るが、金利差縮小とポジション解消が優勢。",
+      "axes": {
+        "us_growth": "急減速",
+        "boj_normalization": "停止または反転",
+        "risk_premium": "リスクオフ"
+      },
+      "leading_indicators": [
+        "米失業率急上昇",
+        "クレジットスプレッド拡大",
+        "株式急落",
+        "日米2年金利差急縮小"
+      ],
+      "indicators": [
+        "米失業率急上昇",
+        "クレジットスプレッド拡大",
+        "株式急落",
+        "日米2年金利差急縮小"
+      ],
+      "implications": [
+        "円高の速度が企業ヘッジを上回る",
+        "輸出・米国資産に逆風",
+        "現金・高格付債の価値上昇"
+      ],
+      "falsifiers": [
+        "米成長が潜在成長率以上で継続",
+        "信用スプレッドが安定",
+        "ドルキャリーが拡大"
+      ],
+      "evidence_ids": [
+        "e4-fed-june-sep",
+        "e7-japan-iip-2025",
+        "e11-imf-japan-2026"
+      ]
+    },
+    {
+      "id": "s4-japan-confidence-shock",
+      "name": "日本の財政・市場信認ショック",
+      "probability": 0.1,
+      "range_2029_2031": "180–210円超",
+      "narrative": "長期金利上昇が財政・国債市場への懸念を強め、日銀が正常化を続けても円のリスクプレミアムが上昇する。通常の『利上げ=円高』関係が崩れ、JGBと円が同時に売られる。",
+      "axes": {
+        "us_inflation": "中立",
+        "boj_normalization": "制約",
+        "risk_premium": "日本固有に急上昇"
+      },
+      "leading_indicators": [
+        "超長期JGBの流動性悪化",
+        "財政リスクプレミアム",
+        "海外投資家のJGBフロー",
+        "円オプション・スキュー"
+      ],
+      "indicators": [
+        "超長期JGBの流動性悪化",
+        "財政リスクプレミアム",
+        "海外投資家のJGBフロー",
+        "円オプション・スキュー"
+      ],
+      "implications": [
+        "輸入・生活コストの急騰",
+        "政策介入の頻度上昇",
+        "国内金融機関のALM負荷",
+        "資本規制論議のリスク"
+      ],
+      "falsifiers": [
+        "信頼できる中期財政計画",
+        "JGB市場の安定",
+        "日銀が正常化しつつ円も上昇"
+      ],
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e2-boj-june-policy",
+        "e7-japan-iip-2025",
+        "e11-imf-japan-2026"
+      ]
+    }
+  ],
+  "forecasts": [
+    {
+      "id": "f1-rate-gap-below-2pp",
+      "question": "2027年12月31日時点で、FRB目標レンジ中点から日銀政策金利を引いた差は2.0ポイント未満か？",
+      "probability": 0.58,
+      "resolution_date": "2027-12-31",
+      "resolution_criteria": "2027年最後に有効なFOMC声明のFF金利目標レンジ中点と、同日時点で有効な日銀の無担保コールレート誘導目標を用い、差が厳密に2.0ポイント未満ならYes。",
+      "base_rate_logic": "2026年6月時点の差は約2.6ポイント。Fed SEPは2027年末3.6%を中央値とし、IMFは日銀の中立名目金利を1.1–2.2%と推定しているが、両者の不確実性は大きい。",
+      "base_rate": "2026年6月時点の差は約2.6ポイント。Fed SEPの2027年末中央値は3.6%、IMFの日銀中立名目金利推定は1.1–2.2%。",
+      "reasoning": "米インフレ低下と日銀正常化の両方が進めば2ポイント未満になるが、どちらか一方の遅れで未達となる。",
+      "up_triggers": [
+        "米コアPCEの持続低下",
+        "日銀の追加利上げ",
+        "米景気減速"
+      ],
+      "down_triggers": [
+        "米インフレ再加速",
+        "日銀正常化停止",
+        "エネルギー供給ショック"
+      ],
+      "up_factors": [
+        "米コアPCEの持続低下",
+        "日銀の追加利上げ",
+        "米景気減速"
+      ],
+      "down_factors": [
+        "米インフレ再加速",
+        "日銀正常化停止",
+        "エネルギー供給ショック"
+      ],
+      "evidence_ids": [
+        "e2-boj-june-policy",
+        "e3-fed-june-statement",
+        "e4-fed-june-sep",
+        "e11-imf-japan-2026"
+      ]
+    },
+    {
+      "id": "f2-usdjpy-below-150",
+      "question": "2028年最後の営業日の日本銀行17時公表値で、USD/JPYのbidとofferの中点は150円未満か？",
+      "probability": 0.46,
+      "resolution_date": "2028-12-29",
+      "resolution_criteria": "日本銀行『外国為替市況』の2028年最後の公表営業日、17時時点のドル/円bid・offer中点が150.000未満ならYes。公表日が12月29日でない場合は同年最後の公表営業日を採用する。",
+      "base_rate_logic": "現在値は163円台で、中心シナリオは金利差縮小による円高。ただし米インフレ、資本流入、日本の財政リスクにより150円を下回る確率を過半には置かない。",
+      "base_rate": "起点は163円台。中心シナリオは円高だが、150円未満には約8%以上の円上昇が必要。",
+      "reasoning": "金利差縮小は円高方向だが、米国の資本吸引力と日本固有のリスクプレミアムが相殺し得るため過半には置かない。",
+      "up_triggers": [
+        "日米金利差2ポイント未満",
+        "日本の為替ヘッジ比率上昇",
+        "世界的リスクオフ"
+      ],
+      "down_triggers": [
+        "コアPCE 3%以上の継続",
+        "日銀利上げ停止",
+        "日本固有リスクプレミアム上昇"
+      ],
+      "up_factors": [
+        "日米金利差2ポイント未満",
+        "日本の為替ヘッジ比率上昇",
+        "世界的リスクオフ"
+      ],
+      "down_factors": [
+        "コアPCE 3%以上の継続",
+        "日銀利上げ停止",
+        "日本固有リスクプレミアム上昇"
+      ],
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e2-boj-june-policy",
+        "e3-fed-june-statement",
+        "e4-fed-june-sep",
+        "e7-japan-iip-2025"
+      ]
+    },
+    {
+      "id": "f3-yen-buying-intervention",
+      "question": "2026年7月25日から2027年12月31日までに、財務省が円買い・ドル売り介入を1日以上公表するか？",
+      "probability": 0.48,
+      "resolution_date": "2028-02-07",
+      "resolution_criteria": "財務省『外国為替平衡操作の実施状況』の日次データで、対象期間に円買い・ドル売りの実施額が正の営業日を1日以上確認できればYes。2027年10–12月期の日次公表を待つため判定日は2028年2月7日とする。",
+      "base_rate_logic": "ドル円は163円台だが、2026年5月28日〜6月26日の月次公表額は0円。介入は水準だけでなく速度・市場機能・外交判断に依存するため五分弱とする。",
+      "base_rate": "ドル円は163円台だが、直近公表済み期間の介入額は0円。水準だけでなく変化速度と市場機能に左右される。",
+      "reasoning": "170円方向へ短期急騰すれば可能性は上がるが、秩序ある推移や金利差縮小なら介入なしで済む。",
+      "up_triggers": [
+        "短期間での170円超への上昇",
+        "財務相の強い警戒発言",
+        "市場流動性悪化"
+      ],
+      "down_triggers": [
+        "金利差縮小による秩序ある円高",
+        "ボラティリティ低下",
+        "国際協調上の制約"
+      ],
+      "up_factors": [
+        "短期間での170円超への上昇",
+        "財務相の強い警戒発言",
+        "市場流動性悪化"
+      ],
+      "down_factors": [
+        "金利差縮小による秩序ある円高",
+        "ボラティリティ低下",
+        "国際協調上の制約"
+      ],
+      "evidence_ids": [
+        "e1-boj-fx-july24",
+        "e5-mof-intervention-june"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "e1-boj-fx-july24",
+      "title": "外国為替市況（日次）2026年7月24日",
+      "url": "https://www.boj.or.jp/statistics/market/forex/fxdaily/fxlist/fx260724.pdf",
+      "publisher": "日本銀行",
+      "published_at": "2026-07-24",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "2026年7月24日17時のドル円は163.76–163.78円",
+        "現在水準と日中レンジ"
+      ],
+      "limitations": "単日のスポット市況であり、将来予測や購買力平価を示さない。"
+    },
+    {
+      "id": "e2-boj-june-policy",
+      "title": "Statement on Monetary Policy, June 16, 2026",
+      "url": "https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2026/k260616a.pdf",
+      "publisher": "Bank of Japan",
+      "published_at": "2026-06-16",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "日銀は無担保コールレートを1.0%程度とした",
+        "見通し実現時には追加利上げを継続する方針",
+        "実質金利はなおマイナス",
+        "為替・原油・AI需要をリスクとして認識"
+      ],
+      "limitations": "政策委員会の条件付き見通しであり、将来の利上げを確約しない。"
+    },
+    {
+      "id": "e3-fed-june-statement",
+      "title": "Federal Reserve issues FOMC statement, June 17, 2026",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
+      "publisher": "Board of Governors of the Federal Reserve System",
+      "published_at": "2026-06-17",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "FF金利目標レンジは3.50–3.75%",
+        "米経済活動は堅調",
+        "インフレは2%目標に対し高い"
+      ],
+      "limitations": "会合時点の判断で、次回会合以降に変更され得る。"
+    },
+    {
+      "id": "e4-fed-june-sep",
+      "title": "Summary of Economic Projections, June 17, 2026",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomcprojtabl20260617.htm",
+      "publisher": "Board of Governors of the Federal Reserve System",
+      "published_at": "2026-06-17",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "PCEインフレ中央値は2026年3.6%、2027年2.3%",
+        "政策金利中央値は2026年末3.8%、2027年末3.6%、2028年末3.4%",
+        "政策金利の歴史的予測誤差帯は広い",
+        "参加者の多くがインフレ不確実性を上方と判断"
+      ],
+      "limitations": "SEPは委員個人の条件付き予測の集合で、FOMCの確約ではない。"
+    },
+    {
+      "id": "e5-mof-intervention-june",
+      "title": "外国為替平衡操作の実施状況（2026年5月28日〜6月26日）",
+      "url": "https://www.mof.go.jp/policy/international_policy/reference/feio/data/monthly/20260630.html",
+      "publisher": "財務省",
+      "published_at": "2026-06-30",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "対象期間の為替介入額は0円"
+      ],
+      "limitations": "2026年6月27日以降の介入有無はこの月次資料では判定できず、7月分の公表前である。"
+    },
+    {
+      "id": "e6-japan-bop-may",
+      "title": "令和8年5月分 国際収支状況（速報）",
+      "url": "https://www.mof.go.jp/policy/international_policy/reference/balance_of_payments/preliminary/bp202605.pdf",
+      "publisher": "財務省",
+      "published_at": "2026-07-08",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "2026年5月の経常収支は3兆9683億円の黒字",
+        "第一次所得収支は4兆2756億円の黒字",
+        "貿易・サービス収支は34億円の赤字"
+      ],
+      "limitations": "単月速報で改定され得る。所得収支黒字が同月の円買いへ転換されたかは示さない。"
+    },
+    {
+      "id": "e7-japan-iip-2025",
+      "title": "International Investment Position of Japan (End of 2025)",
+      "url": "https://www.mof.go.jp/english/policy/international_policy/reference/iip/e2025.htm",
+      "publisher": "Ministry of Finance Japan",
+      "published_at": "2026-05-26",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "対外資産は1805兆6340億円",
+        "対外負債は1243兆8840億円",
+        "対外純資産は561兆7500億円"
+      ],
+      "limitations": "円換算額には為替評価効果が含まれ、対外純資産の大きさが自動的な円高を意味しない。"
+    },
+    {
+      "id": "e8-japan-cpi-may",
+      "title": "2026年5月分 消費者物価指数",
+      "url": "https://www.stat.go.jp/data/cpi/sokuhou/tsuki/index-z.html",
+      "publisher": "総務省統計局",
+      "published_at": "2026-06-19",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "総合CPIは前年比1.5%",
+        "生鮮食品を除く総合は前年比1.4%",
+        "生鮮食品及びエネルギーを除く総合は前年比1.8%"
+      ],
+      "limitations": "単月の全国指数であり、日銀の基調物価指標や将来インフレとは一致しない。"
+    },
+    {
+      "id": "e9-us-pce-may",
+      "title": "Personal Income and Outlays, May 2026",
+      "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-may-2026",
+      "publisher": "U.S. Bureau of Economic Analysis",
+      "published_at": "2026-06-26",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "PCE価格指数は前年比4.1%",
+        "食品・エネルギーを除くPCEは前年比3.4%",
+        "月次コアPCEは0.3%上昇"
+      ],
+      "limitations": "後日改定され得る月次統計で、政策経路を単独では決定しない。"
+    },
+    {
+      "id": "e10-us-cpi-june",
+      "title": "Consumer Price Index — June 2026",
+      "url": "https://www.bls.gov/news.release/archives/cpi_07142026.htm",
+      "publisher": "U.S. Bureau of Labor Statistics",
+      "published_at": "2026-07-14",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "2026年6月CPIは前月比0.4%低下",
+        "前年比では3.5%上昇",
+        "エネルギー変動が月次指数を大きく動かした"
+      ],
+      "limitations": "CPIとFRBが重視するPCEは構成が異なり、単月のエネルギー変動が大きい。"
+    },
+    {
+      "id": "e11-imf-japan-2026",
+      "title": "Japan: 2026 Article IV Consultation — Staff Report",
+      "url": "https://www.imf.org/-/media/files/publications/cr/2026/english/1jpnea2026001.pdf",
+      "publisher": "International Monetary Fund",
+      "published_at": "2026-04-30",
+      "accessed_at": "2026-07-25",
+      "source_tier": "official_secondary",
+      "statement_type": "fact",
+      "supports": [
+        "IMFスタッフは日銀の漸進的な利上げを推奨",
+        "中立名目金利を1.1–2.2%と推定",
+        "為替柔軟性をショック吸収手段と評価",
+        "高齢化と金利費用による中期財政リスクを指摘"
+      ],
+      "limitations": "主に2026年3月までの情報に基づくIMFスタッフ評価で、6月の日銀利上げ前。中立金利推定の不確実性も高い。"
+    }
+  ],
+  "counterarguments": [
+    {
+      "id": "c1-niip-means-yen-rally",
+      "claim": "巨額の対外純資産と経常黒字があるため、円はすぐ大幅に上昇する。",
+      "assessment": "方向的な円の安全網にはなるが、タイミング推論として弱い。2026年5月の経常黒字より第一次所得黒字の方が大きく、海外再投資・留保なら即時の円買いにならない。円安自体も外貨資産の円評価額を押し上げる。",
+      "what_would_change_view": "企業・機関投資家の利益還流、為替ヘッジ比率、対内証券フローが持続的に増えること。",
+      "evidence_ids": [
+        "e6-japan-bop-may",
+        "e7-japan-iip-2025",
+        "e11-imf-japan-2026"
+      ]
+    },
+    {
+      "id": "c2-rate-gap-determinism",
+      "claim": "日米金利差が縮小すれば、必ず同じ割合で円高になる。",
+      "assessment": "金利差は主因だが十分条件ではない。米国への資本流入、日本の財政リスク、原油、ポジション、介入が為替リスクプレミアムを変える。",
+      "what_would_change_view": "複数局面で金利差と為替の安定した感応度が確認され、資本フロー要因が小さくなること。",
+      "evidence_ids": [
+        "e2-boj-june-policy",
+        "e3-fed-june-statement",
+        "e4-fed-june-sep",
+        "e11-imf-japan-2026"
+      ]
+    },
+    {
+      "id": "c3-intervention-fixes-trend",
+      "claim": "財務省の介入があれば円安トレンドは終わる。",
+      "assessment": "介入は速度、流動性、ポジションを変え得るが、金利差とインフレ経路が変わらなければ効果が一時的な可能性がある。直近公表済み期間の介入額は0円で、その後は月次公表待ち。",
+      "what_would_change_view": "介入と同時に政策金利差縮小、国際協調、投機ポジション縮小が起きること。",
+      "evidence_ids": [
+        "e2-boj-june-policy",
+        "e3-fed-june-statement",
+        "e5-mof-intervention-june"
+      ]
+    },
+    {
+      "id": "c4-hikes-always-strengthen-yen",
+      "claim": "日銀が利上げすれば円は必ず上がる。",
+      "assessment": "通常は円を支えるが、急な長期金利上昇が財政・国債市場への信認悪化と解釈されれば、円とJGBが同時に売られる尾部がある。",
+      "what_would_change_view": "財政再建の信頼性、JGB市場流動性、金融機関のALM耐性が改善すること。",
+      "evidence_ids": [
+        "e2-boj-june-policy",
+        "e11-imf-japan-2026"
+      ]
+    },
+    {
+      "id": "c5-point-forecast",
+      "claim": "3–5年後のドル円を一点で高精度に予測できる。",
+      "assessment": "否定。Fed自身の政策金利予測にも広い歴史的誤差帯があり、その上に相対政策、資本フロー、地政学が重なる。点予測より条件付きレンジと反証可能な予測を使うべき。",
+      "what_would_change_view": "複数の独立した予測モデルが長期間、取引コスト控除後も安定した校正・識別力を示すこと。",
+      "evidence_ids": [
+        "e4-fed-june-sep"
+      ]
+    }
+  ],
+  "methodology": [
+    {
+      "id": "method-horizon-scanning",
+      "name": "Horizon scanning",
+      "application": "日銀、FRB、財務省、総務省、BEA、BLS、IMFを一次・公式情報レーンとして配置し、政策、物価、国際収支、介入、財政の弱いシグナルを収集した。"
+    },
+    {
+      "id": "method-steep",
+      "name": "STEEP/PESTLE",
+      "application": "社会・技術・経済・環境・政治法務のうち、為替に直結する高齢化、AI投資、金利・物価、エネルギー、財政・介入を整理した。"
+    },
+    {
+      "id": "method-causal-map",
+      "name": "Causal mapping",
+      "application": "金利差だけに還元せず、インフレ、キャリー、資本フロー、対外純資産、原油、リスクオフ、財政信認の因果グラフを作り、極性と相対ウェイトを明示した。"
+    },
+    {
+      "id": "method-reference-class",
+      "name": "Reference class forecasting",
+      "application": "為替の点予測ではなく、中央銀行見通しの歴史的誤差幅と政策差の収れん速度を基準クラスとして使った。厳密な過去局面データセットによる回帰・バックテストは未実施。"
+    },
+    {
+      "id": "method-scenario-planning",
+      "name": "Scenario planning",
+      "application": "米インフレ、日銀正常化、世界リスク、日本固有リスクプレミアムを主要不確実性とし、相互排他的に近い4シナリオへ確率を配分した。"
+    },
+    {
+      "id": "method-whitespace",
+      "name": "Whitespace analysis",
+      "application": "相場情報ではなく未充足業務に焦点を移し、顧客、買い手、ジョブ、既存代替、収益モデル、参入障壁で機会を評価した。"
+    },
+    {
+      "id": "method-profit-pool",
+      "name": "Profit pool analysis",
+      "application": "両替取引量ではなく、粗利・継続性・業務埋め込み・規制障壁に沿って、ソフトウェア、助言、執行、運転資金、監査可能性の価値捕捉を比較した。"
+    },
+    {
+      "id": "method-falsification",
+      "name": "Falsifiers and calibrated forecasts",
+      "application": "各シナリオに反証条件を置き、将来公式データでYes/No判定できる3予測を確率付きで登録した。"
+    }
+  ],
+  "limitations": [
+    "将来の為替水準レンジと確率は、公式データに基づく分析者の推論であり、統計モデルの信頼区間ではない。",
+    "厳密な購買力平価、実質実効為替、投機ポジション、オプション市場、日米イールドカーブの時系列バックテストは今回未実施。",
+    "財務省の月次介入公表は2026年6月26日までしか確認できず、6月27日以降は2026年7月31日の公表待ち。",
+    "IMF 2026年対日4条協議は主に2026年3月までの情報に基づき、2026年6月の日銀利上げ前である。",
+    "EDINET、SEC、Reddit、MiroFishは本runの中核証拠には使用していない。公式公開ページを直接調査し、MiroFishは未導入である。",
+    "個別株の決算、会社想定為替レート、バリュエーション、流動性、税務は未評価であり、investment_routesは銘柄推奨ではない。",
+    "ヘッジ・アズ・ア・サービスや執行機能は、金融商品取引法、資金決済、媒介・助言規制、データ再配布条件の専門家確認が必要。",
+    "予測は将来resultへ実績値を記録し、Brier scoreで校正を継続評価することを前提とする。"
+  ]
+}

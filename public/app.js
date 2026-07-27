@@ -1,4 +1,4 @@
-const state = { catalog:null, connectors:null, runs:[], current:null, tab:'executive', connectorFilter:'available', polling:null };
+const state = { catalog:null, connectors:null, runs:[], current:null, tab:'executive', connectorFilter:'available', polling:null, simulationTimer:null };
 const $ = selector => document.querySelector(selector);
 const $$ = selector => [...document.querySelectorAll(selector)];
 const tabs = [
@@ -50,6 +50,10 @@ function bind() {
     const copy=event.target.closest('[data-copy]'); if(copy){ await navigator.clipboard.writeText(copy.dataset.copy); toast('Codex用の依頼文をコピーしました'); }
     const refresh=event.target.closest('[data-refresh]'); if(refresh&&state.current) await openRun(state.current.id,true);
     const remove=event.target.closest('[data-delete-run]'); if(remove) await deleteRun(remove.dataset.deleteRun);
+    const htmlReport=event.target.closest('[data-report-html]');
+    if(htmlReport&&state.current) location.href=`/api/runs/${encodeURIComponent(state.current.id)}/report.html`;
+    const pdfReport=event.target.closest('[data-report-pdf]');
+    if(pdfReport&&state.current) window.open(`/api/runs/${encodeURIComponent(state.current.id)}/report.html?mode=print`,'_blank','noopener');
   });
 }
 
@@ -102,7 +106,7 @@ async function openRun(id, quiet=false) {
 function renderStatus() {
   const run=state.current, status=run.status?.state||'unknown', complete=status==='complete';
   const prompt=`Opportunity Intelligence の保留中run ${run.id} を、run-decision-intelligenceスキルで実行して。`;
-  $('#run-status').innerHTML=`<div class="run-status-card"><div><span class="kicker">RUN ${esc(run.id)}</span><h2>${esc(run.request.query)}</h2><p>${textList(run.request.regions)} · ${textList(run.request.sectors)} · ${esc(run.request.horizon)}</p>${!complete?`<div class="handoff"><strong>次の工程：Codexで実データ分析</strong><p>依頼は保存済みです。追加AI APIキーは不要ですが、Codexデスクトップで下の依頼を実行してください。ブラウザだけでAI処理済みとは表示しません。</p><code>${esc(prompt)}</code><div class="handoff-actions"><button class="small-button primary" data-copy="${esc(prompt)}">依頼文をコピー</button><button class="small-button" data-refresh>結果を確認</button></div></div>`:''}</div><div class="status-actions"><span class="status-badge ${esc(status)}">${esc(status)}</span><button class="small-button danger" data-delete-run="${esc(run.id)}">この分析を削除</button></div></div>`;
+  $('#run-status').innerHTML=`<div class="run-status-card"><div><span class="kicker">RUN ${esc(run.id)}</span><h2>${esc(run.request.query)}</h2><p>${textList(run.request.regions)} · ${textList(run.request.sectors)} · ${esc(run.request.horizon)}</p>${!complete?`<div class="handoff"><strong>次の工程：Codexで実データ分析</strong><p>依頼は保存済みです。追加AI APIキーは不要ですが、Codexデスクトップで下の依頼を実行してください。ブラウザだけでAI処理済みとは表示しません。</p><code>${esc(prompt)}</code><div class="handoff-actions"><button class="small-button primary" data-copy="${esc(prompt)}">依頼文をコピー</button><button class="small-button" data-refresh>結果を確認</button></div></div>`:''}</div><div class="status-actions"><span class="status-badge ${esc(status)}">${esc(status)}</span>${complete?`<div class="report-actions"><button class="small-button primary" data-report-pdf>PDFに保存</button><button class="small-button" data-report-html>HTMLをダウンロード</button></div>`:''}<button class="small-button danger" data-delete-run="${esc(run.id)}">この分析を削除</button></div></div>`;
 }
 
 function renderTabs() {
@@ -110,6 +114,7 @@ function renderTabs() {
 }
 
 function renderView() {
+  if(state.simulationTimer){clearInterval(state.simulationTimer);state.simulationTimer=null;}
   const root=$('#view-content'), result=state.current?.result;
   if(['connectors','methods'].includes(state.tab)){ root.innerHTML=state.tab==='connectors'?connectorsView():methodsView(); bindDynamic(); return; }
   if(!result){ root.innerHTML=`<div class="empty-state"><span class="section-index">ANALYSIS PENDING</span><h2>結果はまだ生成されていません</h2><p>依頼は失われていません。上のCodex用依頼を実行すると、検証済みJSONを読み込んで全ビューが有効になります。</p></div>`; return; }
@@ -127,6 +132,7 @@ function bindDynamic(){
   bindKnowledgeGraph();
   bindTrendRadar();
   bindWhitespaceExplorer();
+  bindSimulationLab();
   const simulationRequest=$('#simulation-request');
   if(simulationRequest) simulationRequest.addEventListener('click',async()=>{
     simulationRequest.disabled=true;
@@ -183,6 +189,57 @@ function bindWhitespaceExplorer(){
   const controls=$$('[data-whitespace-index]'); if(!controls.length) return;
   const select=index=>{controls.forEach(control=>{const active=control.dataset.whitespaceIndex===index;control.classList.toggle('selected',active);control.setAttribute('aria-pressed',String(active));});$$('[data-whitespace-detail]').forEach(detail=>detail.hidden=detail.dataset.whitespaceDetail!==index);};
   controls.forEach(control=>control.addEventListener('click',()=>select(control.dataset.whitespaceIndex))); select('0');
+}
+
+function inferSimulationRelation(item={}) {
+  if(item.type) return item.type;
+  const text=normalize(`${item.topic||''} ${item.summary||''}`);
+  if(/拒否|停止|縮小|反対|reject|refus/.test(text)) return 'refusal';
+  if(/投資|融資|資本|取得|予約|investment|finance/.test(text)) return 'investment';
+  if(/規制|許認可|条件|kpi|regulat/.test(text)) return 'regulation';
+  if(/共同|連携|協力|共有|cooperat/.test(text)) return 'cooperation';
+  if(/競争|入札|奪|competi/.test(text)) return 'competition';
+  if(/情報|回答|開示|inform/.test(text)) return 'information';
+  return 'negotiation';
+}
+
+function bindSimulationLab(){
+  const svg=$('#agent-world-graph'); if(!svg) return;
+  const lab=state.current?.result?.simulation_lab||{}, agents=arr(lab.agents), interactions=arr(lab.interactions), logs=arr(lab.round_log);
+  const slider=$('#simulation-round-slider'), play=$('#simulation-play'), label=$('#simulation-round-label'), summary=$('#simulation-round-summary');
+  const nodes=[...svg.querySelectorAll('[data-sim-agent]')], edges=[...svg.querySelectorAll('[data-sim-edge]')];
+  let current=Math.max(1,Number(slider?.value||1)), selected=nodes[0]?.dataset.simAgent||agents[0]?.id;
+
+  const agentById=id=>agents.find(agent=>agent.id===id);
+  const stateAt=(id,round)=>arr(lab.agent_states).find(item=>item.agent_id===id&&Number(item.round)===round);
+  const updateInspector=()=>{
+    const root=$('#simulation-agent-inspector'), agent=agentById(selected); if(!root||!agent)return;
+    const roundState=stateAt(selected,current), related=interactions.filter(item=>Number(item.round)<=current&&(item.from===selected||item.to===selected)), latest=related.at(-1);
+    root.innerHTML=`<div class="sim-inspector-head"><span class="sim-agent-glyph">${esc((agent.name||'?').slice(0,1))}</span><div><span>${esc(agent.archetype||agent.role||'SIMULATED ACTOR')}</span><h3>${esc(agent.name)}</h3></div></div><p class="sim-boundary-note">仮想主体です。実在組織の発言・計画ではありません。</p><dl><div><dt>この主体の目的</dt><dd>${esc(agent.objective||'未記録')}</dd></div><div><dt>制約</dt><dd>${textList(agent.constraints)}</dd></div><div><dt>判断規則</dt><dd>${textList(agent.decision_rules)}</dd></div><div><dt>Round ${current} の態度</dt><dd>${esc(roundState?.stance||'個別態度は未記録。相互作用ログからのみ確認できます。')}</dd></div><div><dt>現在の狙い</dt><dd>${esc(roundState?.current_goal||agent.objective||'未記録')}</dd></div><div><dt>記憶の変化</dt><dd>${esc(roundState?.memory_delta||'このrunは詳細な記憶差分を保存していません。次回シミュレーションから記録します。')}</dd></div><div><dt>直近の関係変化</dt><dd>${latest?`Round ${esc(latest.round)} · ${esc(latest.topic)} — ${esc(latest.summary)}`:'相互作用記録なし'}</dd></div></dl>${evidenceTags([...(agent.evidence_ids||[]),...(roundState?.evidence_ids||[])])}`;
+  };
+  const update=round=>{
+    current=Math.max(1,Math.min(Number(lab.rounds||1),Number(round)||1)); if(slider)slider.value=String(current); if(label)label.textContent=`Round ${current} / ${lab.rounds||1}`;
+    const log=logs.find(item=>Number(item.round)===current);
+    if(summary)summary.innerHTML=log?`<span>${esc(log.focus||`ROUND ${current}`)}</span><h4>${esc(log.summary||'状態更新')}</h4><div><p><b>行動</b>${textList(log.actions)}</p><p><b>状態変化</b>${textList(log.state_changes)}</p><p><b>少数見解</b>${textList(log.minority_views)}</p></div>${evidenceTags(log.evidence_ids)}`:'<p>このラウンドの記録はありません。</p>';
+    const activeIds=new Set(interactions.filter(item=>Number(item.round)===current).flatMap(item=>[item.from,item.to]));
+    nodes.forEach((node,index)=>{const active=activeIds.has(node.dataset.simAgent),shift=active?((current+index)%3-1)*12:0,x=Number(node.dataset.baseX)+shift,y=Number(node.dataset.baseY)+(active?((current+index)%2?8:-8):0);node.dataset.x=x;node.dataset.y=y;node.setAttribute('transform',`translate(${x} ${y})`);node.classList.toggle('active',active);node.classList.toggle('selected',node.dataset.simAgent===selected);});
+    edges.forEach(edge=>{const edgeRound=Number(edge.dataset.round),source=nodes.find(node=>node.dataset.simAgent===edge.dataset.source),target=nodes.find(node=>node.dataset.simAgent===edge.dataset.target);if(source&&target){edge.setAttribute('x1',source.dataset.x);edge.setAttribute('y1',source.dataset.y);edge.setAttribute('x2',target.dataset.x);edge.setAttribute('y2',target.dataset.y);}edge.classList.toggle('future',edgeRound>current);edge.classList.toggle('current',edgeRound===current);edge.classList.toggle('past',edgeRound<current);});
+    $$('[data-round-button]').forEach(button=>button.classList.toggle('active',Number(button.dataset.roundButton)===current)); updateInspector();
+  };
+  const stop=()=>{if(state.simulationTimer){clearInterval(state.simulationTimer);state.simulationTimer=null;}if(play){play.dataset.playing='false';play.textContent='▶ 再生';}};
+  slider?.addEventListener('input',()=>{stop();update(slider.value);});
+  $$('[data-round-button]').forEach(button=>button.addEventListener('click',()=>{stop();update(button.dataset.roundButton);}));
+  play?.addEventListener('click',()=>{if(state.simulationTimer){stop();return;}play.dataset.playing='true';play.textContent='Ⅱ 停止';state.simulationTimer=setInterval(()=>{if(current>=Number(lab.rounds||1)){stop();return;}update(current+1);},1200);});
+  nodes.forEach(node=>{const choose=()=>{selected=node.dataset.simAgent;update(current);};node.addEventListener('click',choose);node.addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key)){event.preventDefault();choose();}});});
+
+  const interventionButtons=$$('[data-intervention-index]');
+  const selectIntervention=index=>{interventionButtons.forEach(button=>button.classList.toggle('active',button.dataset.interventionIndex===index));$$('[data-intervention-detail]').forEach(detail=>detail.hidden=detail.dataset.interventionDetail!==index);};
+  interventionButtons.forEach(button=>button.addEventListener('click',()=>selectIntervention(button.dataset.interventionIndex))); if(interventionButtons[0])selectIntervention(interventionButtons[0].dataset.interventionIndex);
+  $('#simulation-intervention-run')?.addEventListener('click',async event=>{const button=event.currentTarget,name=$('#intervention-name')?.value.trim(),variable=$('#intervention-variable')?.value.trim(),change=$('#intervention-change')?.value.trim(),rationale=$('#intervention-rationale')?.value.trim();if(!name||!variable||!change){toast('介入名・変更する変数・変更内容を入力してください');return;}button.disabled=true;try{state.current=await api(`/api/runs/${encodeURIComponent(state.current.id)}/simulation/request`,{method:'POST',body:JSON.stringify({agent_count:agents.length||10,rounds:Number(lab.rounds||6),objective:`「${name}」の介入ケースを無介入対照と比較する`,intervention:{name,variable,change,rationale}})});renderView();toast('条件変更の再シミュレーション依頼を作成しました');}catch(error){toast(error.message);}finally{button.disabled=false;}});
+
+  $$('[data-chat-suggestion]').forEach(button=>button.addEventListener('click',()=>{const input=$('#simulation-chat-question');if(input){input.value=button.dataset.chatSuggestion;input.focus();}}));
+  $('#simulation-chat-form')?.addEventListener('submit',async event=>{event.preventDefault();const submit=event.currentTarget.querySelector('button[type=submit]'),target=$('#simulation-chat-target')?.value,question=$('#simulation-chat-question')?.value.trim();if(!question)return;submit.disabled=true;try{const response=await api(`/api/runs/${encodeURIComponent(state.current.id)}/simulation/chat`,{method:'POST',body:JSON.stringify({target_id:target,question})});state.current.simulation.chat=response.chat;renderView();toast('保存済みシミュレーションから回答しました');}catch(error){toast(error.message);}finally{submit.disabled=false;}});
+  update(current);
 }
 
 function metricStrip(result){return `<div class="metric-strip"><div class="metric"><b>${arr(result.megatrends).length}</b><span>MEGATRENDS</span></div><div class="metric"><b>${arr(result.whitespaces).length}</b><span>WHITESPACES</span></div><div class="metric"><b>${arr(result.evidence).length}</b><span>EVIDENCE ITEMS</span></div><div class="metric"><b>${arr(result.forecasts).length}</b><span>SCORED FORECASTS</span></div></div>`;}
@@ -531,7 +588,7 @@ function profitDecisionView(result) {
   return `<section class="profit-contract"><div><span class="kicker">PROFIT POOL DEFINITION</span><h2>売上規模ではなく、どの工程の誰が利益を取るか</h2><p>現在の数値は通貨額ではなく、供給集中・切替費用・希少性・マージン方向・成長方向をまとめた相対的な利益獲得力指数です。実利益額がない工程は「未算定」と明記します。</p></div><div class="profit-method"><span><b>OWNER</b>各工程の供給事業者</span><span><b>METRIC</b>相対利益獲得力 0–100</span><span><b>NOT</b>売上高・時価総額・投資リターン</span></div></section><section class="profit-board"><article class="profit-ranking"><header><div><span class="kicker">VALUE CHAIN RENT CAPTURE</span><h2>利益と交渉力が移る工程</h2></div><span>高いほど利益を保持しやすい</span></header><div class="profit-head"><span>#</span><span>工程 / セグメント</span><span>相対利益獲得力</span><span>指数</span><span>粗利方向</span></div>${bars}<footer>指数は比較用。実額比較には各社・各工程の売上、粗利、営業利益、地域、基準年が必要です。</footer></article><aside class="profit-caveat"><span class="kicker">READ BEFORE USE</span><h3>この図で投資判断を完結しない</h3><p>高い利益獲得力でも、株価に既に織り込まれていれば投資収益は別です。投資ルートでは、期待差・バリュエーション・触媒・下落要因を追加確認します。</p></aside></section><section class="profit-card-grid">${cards}</section>`;
 }
 
-function simulationView(result) {
+function legacySimulationView(result) {
   const graph=result.knowledge_graph||{nodes:[],edges:[]}, lab=result.simulation_lab||{}, runSimulation=state.current?.simulation||{};
   const status=runSimulation.status?.state||lab.status||'not_requested', pending=['pending_codex','running'].includes(status), complete=lab.status==='complete'&&!pending;
   const types=[...new Set(arr(graph.nodes).map(node=>node.type).filter(Boolean))];
@@ -555,6 +612,52 @@ function simulationView(result) {
   <section class="simulation-grid">${executionPanel}<article class="simulation-boundary"><span class="kicker">EVIDENCE BOUNDARY</span><h3>この実験の読み方</h3><ul><li>主体の発言・相互作用・創発事象はすべて合成結果です。</li><li>確率は観測統計ではなく、分岐を比較するためのsynthetic weightです。</li><li>実在企業の将来行動を断定せず、証拠IDで拘束された意思決定仮説として読みます。</li></ul><div class="simulation-metrics"><span><b>${arr(result.evidence).length}</b>証拠</span><span><b>${arr(graph.nodes).length}</b>要因</span><span><b>${arr(graph.edges).length}</b>因果</span><span><b>${arr(result.scenarios).length}</b>事前分岐</span></div><div class="world-types">${types.map(type=>`<span>${esc(type)} <b>${arr(graph.nodes).filter(node=>node.type===type).length}</b></span>`).join('')}</div></article></section>
   ${agentPanel}${roundPanel}${eventPanel}${outcomePanel}${report}
   <section class="simulation-seeds"><header><span class="kicker">SCENARIO PRIORS / BEFORE SIMULATION</span><h3>実験前の初期世界</h3></header><div>${arr(result.scenarios).map(item=>`<article><b>${esc(item.name)}</b><span>${pct(item.probability)}% prior</span><p>${esc(item.narrative||item.description)}</p></article>`).join('')||'<p>シナリオseedはありません。</p>'}</div></section>`;
+}
+
+function simulationGuideView(lab, complete) {
+  const rows=[
+    ['主体関係マップ','企業・政府・投資家・顧客など、仮想主体同士の働きかけを線で追います。','業界構造を読む戦略担当・投資家','交渉の中心、ゲートキーパー、協力関係、拒否や規制の連鎖',complete],
+    ['時系列再生','Roundを進め、出来事の順序と、その後の態度・関係変化を確認します。','シナリオ・リスク担当','結論だけでは見えない転換点、先行指標、経路依存性',complete],
+    ['主体の判断理由','主体を選び、目的、制約、判断規則、記憶差分、直近の相互作用を見ます。','営業・提携・政策・投資担当','誰をどう説得するか、どの条件なら投資・協力・拒否するか',complete],
+    ['未来分岐マップ','基準世界から、介入・反実仮想・少数分岐がどこで分かれたかを見ます。','経営会議・事業責任者','単一予測ではなく、分岐条件と監視すべきサイン',complete&&arr(lab.outcomes).length>0],
+    ['条件変更テスト','変数を一つ変更し、無介入対照と比較する再シミュレーションを依頼します。','投資委員会・政策・事業開発','何を変えれば結果が動くか、介入の副作用と失敗条件',complete],
+    ['主体・レポートへの質問','保存済みの主体設定と相互作用から「なぜ」を説明します。追加の未来推論は再実行へ分けます。','すべての意思決定者','結論の理由、主体別の反対条件、複数分岐で頑健な行動',complete]
+  ];
+  return `<section class="sim-guide"><header><div><span class="kicker">HOW TO USE THIS LAB</span><h2>機能名ではなく、得られる判断から選ぶ</h2><p>ここでいう「主体」は作業を自動実行するAIではなく、企業・政府・投資家・顧客などを模した仮想的な意思決定者です。発言・態度・確率はすべて合成であり、実在組織の事実ではありません。</p></div><span class="sim-guide-status">${complete?'6つの分析機能が利用可能':'シミュレーション完了後に有効'}</span></header><div class="sim-guide-table"><div class="sim-guide-head"><span>表示機能</span><span>何を見るか</span><span>誰が見るか</span><span>何が得られるか</span><span>状態</span></div>${rows.map(([name,meaning,audience,gain,ready])=>`<details class="sim-guide-row"><summary><b>${esc(name)}</b><span>${esc(meaning)}</span><span>${esc(audience)}</span><span>${esc(gain)}</span><em class="${ready?'ready':'pending'}">${ready?'利用可能':'結果待ち'}</em></summary><div><p><strong>誤用防止</strong>観測事実ではなく、保存済み証拠に拘束された合成実験として使います。</p></div></details>`).join('')}</div></section>`;
+}
+
+function simulationWorldView(lab) {
+  const agents=arr(lab.agents), interactions=arr(lab.interactions), W=1000,H=590,cx=500,cy=285,rx=355,ry=215;
+  const positions=new Map(agents.map((agent,index)=>{const angle=(index/Math.max(1,agents.length))*Math.PI*2-Math.PI/2;return[agent.id,{x:cx+Math.cos(angle)*rx,y:cy+Math.sin(angle)*ry}]}));
+  const palette=['#2b6b88','#3f7c6e','#9a6432','#6a5f96','#9a4643','#46758c','#657a3f','#8a5572'];
+  const edges=interactions.map((item,index)=>{const from=positions.get(item.from),to=positions.get(item.to);if(!from||!to)return'';const type=inferSimulationRelation(item);return `<line data-sim-edge="${index}" data-source="${esc(item.from)}" data-target="${esc(item.to)}" data-round="${Number(item.round)||1}" class="sim-world-edge ${esc(type)}" x1="${from.x}" y1="${from.y}" x2="${to.x}" y2="${to.y}"><title>Round ${esc(item.round)} · ${esc(type)} · ${esc(item.topic)} — ${esc(item.summary)}</title></line>`}).join('');
+  const nodes=agents.map((agent,index)=>{const p=positions.get(agent.id),color=palette[index%palette.length],short=(agent.name||'?').slice(0,2);return `<g role="button" tabindex="0" data-sim-agent="${esc(agent.id)}" data-base-x="${p.x}" data-base-y="${p.y}" data-x="${p.x}" data-y="${p.y}" class="sim-world-node" transform="translate(${p.x} ${p.y})" style="--agent-color:${color}"><circle r="27"></circle><text class="sim-node-glyph" text-anchor="middle" y="5">${esc(short)}</text><text class="sim-node-label" text-anchor="middle" y="48">${esc(agent.name)}</text></g>`}).join('');
+  const rounds=Array.from({length:Number(lab.rounds)||1},(_,i)=>i+1);
+  const relationLegend=[['negotiation','交渉'],['investment','投資'],['refusal','拒否'],['cooperation','協力'],['regulation','規制'],['information','情報'],['competition','競争']];
+  return `<section class="sim-explainer"><div><span class="kicker">AGENT WORLD / 主体関係マップ</span><h2>誰の反応が、次の主体を動かしたか</h2></div><div class="sim-explainer-grid"><p><b>見るもの</b>点は仮想主体、線はそのラウンドで起きた働きかけです。位置は地理ではなく、現在の相互作用への参加を表します。</p><p><b>得られること</b>交渉の中心、資本や規制を止める主体、成立に必要な協力関係を発見します。</p><p><b>向いている人</b>経営企画、投資担当、新規事業、政策・アライアンス担当。</p></div></section><section class="sim-world-shell"><header class="sim-world-controls"><div><button id="simulation-play" class="sim-play">▶ 再生</button><strong id="simulation-round-label">Round 1 / ${lab.rounds}</strong></div><input id="simulation-round-slider" type="range" min="1" max="${lab.rounds}" value="1" step="1" aria-label="シミュレーションラウンド"><div class="sim-round-jumps">${rounds.map(round=>`<button data-round-button="${round}">${round}</button>`).join('')}</div></header><div class="sim-world-layout"><div class="sim-world-canvas"><svg id="agent-world-graph" viewBox="0 0 ${W} ${H}" aria-label="ラウンドごとに変化する仮想主体の関係図"><defs><marker id="sim-arrow" markerWidth="7" markerHeight="7" refX="24" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z"></path></marker></defs>${edges}${nodes}</svg><div class="sim-relation-legend">${relationLegend.map(([type,label])=>`<span class="${type}"><i></i>${label}</span>`).join('')}</div></div><aside id="simulation-agent-inspector" class="sim-agent-inspector"></aside></div><div id="simulation-round-summary" class="sim-round-summary"></div></section>`;
+}
+
+function simulationBranchView(lab) {
+  const outcomes=arr(lab.outcomes), branchEvents=arr(lab.emergent_events).filter(item=>item.branch_specific), hasTree=arr(lab.branch_tree?.nodes).length>0;
+  if(!outcomes.length)return'';
+  return `<section class="sim-explainer"><div><span class="kicker">FUTURE BRANCHES / 未来分岐マップ</span><h2>どの条件から、未来が分かれたか</h2></div><div class="sim-explainer-grid"><p><b>見るもの</b>現在の初期条件から伸びる複数の結果と、分岐を見分ける先行指標です。</p><p><b>得られること</b>一つの予測へ賭けず、どのサインが出たら戦略を切り替えるか決められます。</p><p><b>向いている人</b>経営会議、投資委員会、事業ポートフォリオ責任者。</p></div></section><section class="sim-branch-tree"><div class="sim-branch-root"><span>INITIAL WORLD</span><b>${esc(lab.environment?.summary||'保存済み初期世界')}</b><small>${hasTree?'因果親子を記録済み':'旧形式run：明示的な親子関係は未記録'}</small></div><div class="sim-branch-trunk" aria-hidden="true"></div>${branchEvents.length?`<div class="sim-branch-events">${branchEvents.map(event=>`<article><span>BRANCH EVENT</span><b>${esc(event.title)}</b><p>${esc(event.trigger)}</p></article>`).join('')}</div>`:''}<div class="sim-branch-outcomes">${outcomes.map((item,index)=>`<article style="--branch:${index}"><header><span>${pct(item.probability)}% synthetic weight</span><b>${esc(item.scenario||item.name)}</b></header><p>${esc(item.narrative)}</p><dl><div><dt>勝者</dt><dd>${textList(item.winners)}</dd></div><div><dt>敗者</dt><dd>${textList(item.losers)}</dd></div><div><dt>切替サイン</dt><dd>${textList(item.signposts)}</dd></div></dl>${evidenceTags(item.evidence_ids)}</article>`).join('')}</div><p class="sim-branch-caveat">${hasTree?'線はシミュレーションで保存された分岐親子を示します。':'この既存runでは「どのイベントがどの結果を直接生んだか」を保存していないため、結果を初期世界から並列表示しています。次回runから因果親子を記録します。'}</p></section>`;
+}
+
+function simulationInterventionView(lab) {
+  const items=arr(lab.interventions), baseline=items.find(item=>/control|対照|無介入/i.test(`${item.id} ${item.name}`))||items[0], candidates=items.filter(item=>item!==baseline);
+  return `<section class="sim-explainer"><div><span class="kicker">WHAT-IF CONTROL / 条件変更テスト</span><h2>一つの条件を変え、無介入と比較する</h2></div><div class="sim-explainer-grid"><p><b>見るもの</b>介入前の基準ケース、変更した変数、結果の差、副作用、失敗条件です。</p><p><b>得られること</b>結果を動かすレバーと、効果が出ない境界を特定します。</p><p><b>向いている人</b>投資委員会、政策担当、事業開発、リスク管理。</p></div></section><section class="sim-intervention-lab"><div class="sim-intervention-existing"><header><div><span class="kicker">RECORDED TESTS</span><h3>実行済みの介入と対照</h3></div><div>${candidates.map((item,index)=>`<button data-intervention-index="${index}">${esc(item.name)}</button>`).join('')}</div></header>${candidates.map((item,index)=>`<article data-intervention-detail="${index}" hidden><div class="sim-ab"><section><span>A · 無介入対照</span><h4>${esc(baseline?.name||'対照未記録')}</h4><p>${esc(baseline?.result||baseline?.expected_effect||'結果未記録')}</p><small>主なリスク: ${textList(baseline?.risks)}</small></section><i>VS</i><section><span>B · 条件変更</span><h4>${esc(item.name)}</h4><p>${esc(item.result||item.expected_effect)}</p><small>副作用・失敗条件: ${textList(item.risks)}</small></section></div><dl><div><dt>変更対象</dt><dd>${esc(item.target||'未記録')}</dd></div><div><dt>期待する効果</dt><dd>${esc(item.expected_effect||'未記録')}</dd></div><div><dt>今回得られた示唆</dt><dd>${esc(item.result||'未記録')}</dd></div></dl>${evidenceTags(item.evidence_ids)}</article>`).join('')||'<p>実行済み介入はありません。</p>'}</div><aside class="sim-intervention-builder"><span class="kicker">CREATE A NEW TEST</span><h3>新しい条件を試す</h3><p>入力すると、現在の結果を書き換えずにCodex用の再シミュレーション依頼を作成します。</p><label>介入名<input id="intervention-name" placeholder="例：系統接続を3年短縮"></label><label>変更する変数<input id="intervention-variable" placeholder="例：系統接続期間"></label><label>変更内容<input id="intervention-change" placeholder="例：7年から4年へ短縮"></label><label>なぜ試すか<textarea id="intervention-rationale" rows="3" placeholder="判断を変える可能性のある仮説"></textarea></label><button id="simulation-intervention-run" class="small-button primary">この条件で再シミュレーション依頼を作成</button><small>追加AI APIキー不要。実行はCodexへの明示的な依頼として保存します。</small></aside></section>`;
+}
+
+function simulationChatView(lab) {
+  const messages=arr(state.current?.simulation?.chat?.messages), agents=arr(lab.agents);
+  return `<section class="sim-explainer"><div><span class="kicker">DEEP INTERACTION / 主体・レポートへの質問</span><h2>結論ではなく、「なぜ」を掘る</h2></div><div class="sim-explainer-grid"><p><b>見るもの</b>主体の目的・制約・判断規則・直近の関係と、ReportAgentの頑健行動です。</p><p><b>得られること</b>投資を止める条件、反対を協力へ変える条件、戦略の弱点を説明できます。</p><p><b>向いている人</b>経営者、投資家、営業・提携、政策担当。相手別の論点整理に使います。</p></div></section><section class="sim-chat-lab"><div class="sim-chat-history">${messages.length?messages.map(message=>`<article><header><span>${esc(message.target_name)}</span><time>${formatDate(message.created_at)}</time></header><p class="sim-chat-question">Q. ${esc(message.question)}</p><p class="sim-chat-answer">${esc(message.answer).replace(/\n/g,'<br>')}</p><small>${esc(message.boundary)}</small>${evidenceTags(message.evidence_ids)}</article>`).join(''):'<div class="sim-chat-empty"><b>まだ質問はありません</b><span>質問先を選び、保存済みシミュレーションの判断理由を確認してください。</span></div>'}</div><form id="simulation-chat-form" class="sim-chat-form"><label>質問先<select id="simulation-chat-target"><option value="report-agent">意思決定レポート（全体）</option>${agents.map(agent=>`<option value="${esc(agent.id)}">${esc(agent.name)}</option>`).join('')}</select></label><label>質問<textarea id="simulation-chat-question" rows="4" maxlength="1000" placeholder="例：金融主体はなぜ投資を止めた？" required></textarea></label><div class="sim-chat-suggestions"><button type="button" data-chat-suggestion="この主体が投資・協力を止める条件は？">止める条件</button><button type="button" data-chat-suggestion="複数の未来でも有効な行動は何？">頑健な行動</button><button type="button" data-chat-suggestion="この戦略が失敗する条件は？">失敗条件</button></div><button type="submit" class="small-button primary">保存済み結果から説明する</button><p>この質問機能は新しい未来を生成しません。新条件を試す場合は上の「条件変更テスト」を使います。</p></form></section>`;
+}
+
+function simulationView(result) {
+  const lab=result.simulation_lab||{}, complete=lab.status==='complete'||arr(lab.agents).length>=4;
+  const guide=simulationGuideView(lab,complete);
+  if(!complete)return `${guide}${legacySimulationView(result)}`;
+  return `${guide}<section class="simulation-header refined"><div><span class="kicker">DECISION STRESS TEST / SYNTHETIC</span><h2>誰が反応し、どの条件で判断が変わるか</h2><p>これは未来を断定する予言装置ではありません。証拠から作った仮想世界で、主体間の反応、分岐、介入を試し、複数の未来でも壊れにくい意思決定を見つけるための実験室です。</p></div><div class="simulation-state complete"><span>STATUS</span><b>SIMULATION COMPLETE</b><small>${arr(lab.agents).length}主体 · ${lab.rounds}ラウンド · ${arr(lab.interactions).length}相互作用</small></div></section>${simulationWorldView(lab)}${simulationBranchView(lab)}${simulationInterventionView(lab)}${simulationChatView(lab)}${typeof lab.report==='object'?`<section class="simulation-report refined"><header><span class="kicker">REPORT AGENT / 意思決定への翻訳</span><h3>複数分岐を通して残った行動</h3><p>経営・投資判断へ持ち帰る最終層です。全分岐で有効な行動、条件付き行動、避ける行動を分けます。</p></header><p class="simulation-report-lead">${esc(lab.report.executive_summary)}</p><div><article><b>複数分岐で頑健</b>${arr(lab.report.robust_actions).map(x=>`<p>↳ ${esc(x)}</p>`).join('')}</article><article><b>条件付きで実行</b>${arr(lab.report.contingent_actions).map(x=>`<p>↳ ${esc(x)}</p>`).join('')}</article><article><b>避ける行動</b>${arr(lab.report.avoid).map(x=>`<p>↳ ${esc(x)}</p>`).join('')}</article><article><b>反証条件</b>${arr(lab.falsifiers).map(x=>`<p>↳ ${esc(typeof x==='string'?x:x.condition||x.description)}</p>`).join('')}</article></div><footer>SYNTHETIC — 観測事実や投資推奨ではなく、意思決定を壊しにいく合成実験です。</footer></section>`:''}`;
 }
 
 init();

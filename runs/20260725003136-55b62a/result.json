@@ -1,0 +1,3654 @@
+{
+  "schema_version": "1.0",
+  "metadata": {
+    "run_id": "20260725003136-55b62a",
+    "title": "東京タワーマン相場：全面高から物件別二極化への転換点",
+    "generated_at": "2026-07-25T00:50:00Z",
+    "as_of": "2026-07-25",
+    "coverage": {
+      "regions": [
+        "東京23区",
+        "首都圏"
+      ],
+      "sectors": [
+        "タワーマンション",
+        "住宅不動産",
+        "住宅金融",
+        "管理・修繕",
+        "防災"
+      ],
+      "horizon": "3-5 years"
+    },
+    "decision": [
+      "strategy",
+      "investment",
+      "business"
+    ]
+  },
+  "executive": {
+    "one_line": "東京タワーマンはピークアウト確定ではないが、2026年夏に『全面高』から『希少立地・管理力・実質利回りで選別される二極化』へ移る初期シグナルが出た。",
+    "decision": "相場全体を追いかけて買わない。自住は10年以上保有でき、固定金利3.5%・売却価格15%下落・管理修繕費30%増でも家計が耐える物件だけを検討する。投資は物件別ネット利回りと出口流動性を優先し、高LTVを避ける。事業は売買仲介そのものより、管理品質・修繕・防災・出口価格を束ねる『タワマン・アンダーライティングOS』を先に検証する。",
+    "confidence": 0.76,
+    "why_now": [
+      "東京23区の中古マンション70㎡売出価格は2026年6月に12,741万円、前月比0.8%下落し、26か月ぶりのマイナスとなった。",
+      "同月の東京23区分譲マンション賃料は5,118円/㎡へ上昇しており、価格モメンタム鈍化と賃料上昇が同時に起きている。",
+      "日本銀行の政策金利は1.0%程度、2026年7月のフラット35最頻金利は3.14%で、保有コストの再評価が進む。",
+      "2025年度の東京23区新築マンション供給は7,708戸まで減少した一方、平均価格は1億3,784万円、初月契約率は62.3%で、供給制約と販売速度鈍化が併存している。"
+    ],
+    "watchouts": [
+      "東京カンテイ価格は売希望価格であり、成約価格ではない。タワマンだけの集計でもない。",
+      "平均値は都心超高額住戸、築年数、面積、地域構成に強く影響される。個別棟・個別住戸の査定に直接使えない。",
+      "国外居住者の取得は都心で増えたが、2025年上期の23区新築取得に占める割合は3.5%で、相場全体の主因と断定できない。",
+      "修繕積立金、長期修繕計画、保険、防災設備、管理組合の合意形成力が出口価格に与える影響は、公開統計だけでは定量化できない。"
+    ],
+    "decision_spine": [
+      {
+        "step": "観測",
+        "claim": "価格は高値圏だが、売出価格の連続上昇は止まり、成約件数・販売速度にも弱さがある。",
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-kantei-price-202606",
+          "e-fudokeizai-fy2025"
+        ]
+      },
+      {
+        "step": "構造",
+        "claim": "供給制約、都心人口・賃料、建設コストが下値を支える一方、金利正常化が価格対賃料倍率と高LTV購入者を圧迫する。",
+        "evidence_ids": [
+          "e-kantei-rent-202606",
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-tokyo-migration-2025",
+          "e-bis-housing-rates"
+        ]
+      },
+      {
+        "step": "選別",
+        "claim": "今後3〜5年は立地だけでなく、管理・修繕・防災・総保有費・売却流動性の差がリターン差になる。",
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-tokyo-resilience",
+          "e-mlit-short-trading"
+        ]
+      },
+      {
+        "step": "行動",
+        "claim": "購入者はストレステストを通る住戸だけ、事業者は物件別の管理品質と実質利回りを可視化する情報・実行レイヤーを狙う。",
+        "evidence_ids": [
+          "e-derived-yield",
+          "e-reins-maintenance-fy2025",
+          "e-flat35-202607"
+        ]
+      }
+    ]
+  },
+  "megatrends": [
+    {
+      "id": "trend-price-rent-split",
+      "name": "価格モメンタム鈍化と賃料上昇の分岐",
+      "stage": "inflecting",
+      "horizon": "0-2 years",
+      "velocity": 92,
+      "impact": 95,
+      "confidence": 0.86,
+      "description": "東京23区の70㎡売出価格は26か月ぶりに下落した一方、賃料は上昇した。価格対賃料倍率の拡大が止まる局面では、価格上昇期待より実際の賃貸需要とネット収益が重くなる。",
+      "drivers": [
+        "金利上昇",
+        "売出価格改定",
+        "賃貸需要",
+        "高価格化による購入可能層縮小"
+      ],
+      "implications": [
+        "キャピタルゲイン一辺倒から総収益評価へ",
+        "棟・住戸別の選別拡大",
+        "買い手交渉力の部分回復"
+      ],
+      "evidence_ids": [
+        "e-kantei-price-202606",
+        "e-kantei-rent-202606",
+        "e-derived-yield",
+        "e-reins-202605"
+      ]
+    },
+    {
+      "id": "trend-rate-normalization",
+      "name": "住宅金融の正常化と返済制約",
+      "stage": "accelerating",
+      "horizon": "0-3 years",
+      "velocity": 88,
+      "impact": 92,
+      "confidence": 0.9,
+      "description": "政策金利1.0%、フラット35最頻3.14%は、超低金利を前提にした価格許容度を下げる。供給が非弾力的な都市では金利ショックが価格対賃料倍率に強く伝わるという国際研究とも整合する。",
+      "drivers": [
+        "政策金利",
+        "長期金利",
+        "返済負担率",
+        "借換えコスト"
+      ],
+      "implications": [
+        "高LTV層の購買力低下",
+        "現金・低LTV買い手の優位",
+        "価格より先に売出・成約速度が悪化"
+      ],
+      "evidence_ids": [
+        "e-boj-rate-202606",
+        "e-flat35-202607",
+        "e-jhf-borrower-202601",
+        "e-bis-housing-rates"
+      ]
+    },
+    {
+      "id": "trend-supply-scarcity",
+      "name": "新築供給の希少化と高価格帯化",
+      "stage": "structural",
+      "horizon": "3-5 years",
+      "velocity": 72,
+      "impact": 88,
+      "confidence": 0.85,
+      "description": "2025年度の首都圏新築供給は1973年度以降で最少、東京23区も7,708戸へ減少した。供給制約は優良タワーの下値を支えるが、62.3%の契約率は価格なら何でも売れる状態ではない。",
+      "drivers": [
+        "土地取得費",
+        "資材・人件費",
+        "再開発長期化",
+        "高付加価値化"
+      ],
+      "implications": [
+        "新築プレミアム継続",
+        "中古築浅への需要波及",
+        "販売速度と在庫の監視が必要"
+      ],
+      "evidence_ids": [
+        "e-fudokeizai-fy2025",
+        "e-boj-fsr-202604",
+        "e-landprice-2026"
+      ]
+    },
+    {
+      "id": "trend-management-capex",
+      "name": "管理・修繕・防災品質の資産価格化",
+      "stage": "emerging",
+      "horizon": "3-5 years",
+      "velocity": 70,
+      "impact": 82,
+      "confidence": 0.79,
+      "description": "修繕積立金は上昇し、20階以上では計画上の積立水準や非常用電源・止水・エレベーター対策が重要になる。高層住宅の設備複雑性に対し、買い手が管理品質を比較できる標準は弱い。",
+      "drivers": [
+        "築年進行",
+        "工事費上昇",
+        "防災規制・補助",
+        "管理組合の担い手不足"
+      ],
+      "implications": [
+        "管理良好棟のプレミアム",
+        "積立不足棟のディスカウント",
+        "診断・調達・監視サービス需要"
+      ],
+      "evidence_ids": [
+        "e-reins-maintenance-fy2025",
+        "e-tokyo-resilience",
+        "e-mlit-maintenance-guideline"
+      ]
+    },
+    {
+      "id": "trend-capital-concentration",
+      "name": "国外・短期資金は都心に集中するが市場全体では少数",
+      "stage": "watch",
+      "horizon": "0-3 years",
+      "velocity": 64,
+      "impact": 68,
+      "confidence": 0.84,
+      "description": "大規模マンションは短期売買割合が高まり、国外居住者取得も都心ほど高い。ただし23区新築の国外取得は3.5%で、全体価格を外国人だけで説明するのは誤りである。",
+      "drivers": [
+        "円相場",
+        "国際資産配分",
+        "大規模再開発",
+        "短期転売"
+      ],
+      "implications": [
+        "都心超高額帯の変動増幅",
+        "規制・開示強化の可能性",
+        "国籍ではなく保有期間・資金構成を追う"
+      ],
+      "evidence_ids": [
+        "e-mlit-short-trading",
+        "e-nta-condo-tax"
+      ]
+    },
+    {
+      "id": "trend-urban-concentration",
+      "name": "東京集中と世帯需要の持続",
+      "stage": "structural",
+      "horizon": "3-5 years",
+      "velocity": 58,
+      "impact": 77,
+      "confidence": 0.82,
+      "description": "東京都は2025年に国内転入超過が最大で、区部人口も2030年代半ばまで増える公的予測がある。全国人口減少でも東京23区の住宅需要は同じ速度で縮小しない。",
+      "drivers": [
+        "雇用集積",
+        "単身・共働き世帯",
+        "交通利便性",
+        "国際人材"
+      ],
+      "implications": [
+        "都心賃料の支持",
+        "駅・職住近接プレミアム",
+        "外周・管理不良物件との差拡大"
+      ],
+      "evidence_ids": [
+        "e-tokyo-migration-2025",
+        "e-tokyo-population-forecast"
+      ]
+    }
+  ],
+  "knowledge_graph": {
+    "nodes": [
+      {
+        "id": "n-rate",
+        "label": "政策・住宅ローン金利上昇",
+        "type": "policy",
+        "confidence": 0.92,
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607"
+        ]
+      },
+      {
+        "id": "n-affordability",
+        "label": "購入可能額の低下",
+        "type": "risk",
+        "confidence": 0.86,
+        "evidence_ids": [
+          "e-jhf-borrower-202601",
+          "e-bis-housing-rates"
+        ]
+      },
+      {
+        "id": "n-supply",
+        "label": "新築供給の希少化",
+        "type": "sector",
+        "confidence": 0.87,
+        "evidence_ids": [
+          "e-fudokeizai-fy2025"
+        ]
+      },
+      {
+        "id": "n-price",
+        "label": "高値圏・上昇モメンタム鈍化",
+        "type": "trend",
+        "confidence": 0.88,
+        "evidence_ids": [
+          "e-kantei-price-202606",
+          "e-reins-202605"
+        ]
+      },
+      {
+        "id": "n-rent",
+        "label": "都心賃料の上昇",
+        "type": "trend",
+        "confidence": 0.86,
+        "evidence_ids": [
+          "e-kantei-rent-202606",
+          "e-tokyo-migration-2025"
+        ]
+      },
+      {
+        "id": "n-yield",
+        "label": "表面利回り約3.4%の薄さ",
+        "type": "risk",
+        "confidence": 0.7,
+        "evidence_ids": [
+          "e-derived-yield"
+        ]
+      },
+      {
+        "id": "n-liquidity",
+        "label": "出口流動性の物件差",
+        "type": "risk",
+        "confidence": 0.77,
+        "evidence_ids": [
+          "e-kantei-price-202606",
+          "e-mlit-short-trading"
+        ]
+      },
+      {
+        "id": "n-management",
+        "label": "修繕・管理コスト上昇",
+        "type": "risk",
+        "confidence": 0.83,
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline"
+        ]
+      },
+      {
+        "id": "n-resilience",
+        "label": "防災・レジリエンス品質",
+        "type": "technology",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "id": "n-premium",
+        "label": "希少立地・管理良好棟プレミアム",
+        "type": "beneficiary",
+        "confidence": 0.75,
+        "evidence_ids": [
+          "e-landprice-2026",
+          "e-reins-maintenance-fy2025"
+        ]
+      },
+      {
+        "id": "n-developer",
+        "label": "大手デベロッパーの価格決定力",
+        "type": "beneficiary",
+        "confidence": 0.78,
+        "evidence_ids": [
+          "e-mitsui-results-2026",
+          "e-mec-results-2026"
+        ]
+      },
+      {
+        "id": "n-underwriting",
+        "label": "タワマン・アンダーライティングOS",
+        "type": "opportunity",
+        "confidence": 0.74,
+        "evidence_ids": [
+          "e-derived-yield",
+          "e-reins-maintenance-fy2025",
+          "e-tokyo-resilience"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "source": "n-rate",
+        "target": "n-affordability",
+        "type": "reduces",
+        "weight": 0.9,
+        "polarity": "negative",
+        "evidence_ids": [
+          "e-flat35-202607",
+          "e-bis-housing-rates"
+        ]
+      },
+      {
+        "source": "n-affordability",
+        "target": "n-price",
+        "type": "slows",
+        "weight": 0.78,
+        "polarity": "negative",
+        "evidence_ids": [
+          "e-bis-housing-rates",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "source": "n-supply",
+        "target": "n-price",
+        "type": "supports",
+        "weight": 0.82,
+        "polarity": "positive",
+        "evidence_ids": [
+          "e-fudokeizai-fy2025"
+        ]
+      },
+      {
+        "source": "n-supply",
+        "target": "n-developer",
+        "type": "supports_pricing",
+        "weight": 0.68,
+        "polarity": "positive",
+        "evidence_ids": [
+          "e-mitsui-results-2026",
+          "e-mec-results-2026"
+        ]
+      },
+      {
+        "source": "n-rent",
+        "target": "n-yield",
+        "type": "improves",
+        "weight": 0.58,
+        "polarity": "positive",
+        "evidence_ids": [
+          "e-kantei-rent-202606",
+          "e-derived-yield"
+        ]
+      },
+      {
+        "source": "n-price",
+        "target": "n-yield",
+        "type": "compresses",
+        "weight": 0.82,
+        "polarity": "negative",
+        "evidence_ids": [
+          "e-derived-yield"
+        ]
+      },
+      {
+        "source": "n-rate",
+        "target": "n-yield",
+        "type": "raises_hurdle",
+        "weight": 0.85,
+        "polarity": "negative",
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607"
+        ]
+      },
+      {
+        "source": "n-management",
+        "target": "n-liquidity",
+        "type": "differentiates",
+        "weight": 0.72,
+        "polarity": "negative",
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025"
+        ]
+      },
+      {
+        "source": "n-resilience",
+        "target": "n-premium",
+        "type": "supports",
+        "weight": 0.58,
+        "polarity": "positive",
+        "evidence_ids": [
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "source": "n-management",
+        "target": "n-underwriting",
+        "type": "creates_need",
+        "weight": 0.85,
+        "polarity": "positive",
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline"
+        ]
+      },
+      {
+        "source": "n-liquidity",
+        "target": "n-underwriting",
+        "type": "creates_need",
+        "weight": 0.8,
+        "polarity": "positive",
+        "evidence_ids": [
+          "e-kantei-price-202606",
+          "e-mlit-short-trading"
+        ]
+      },
+      {
+        "source": "n-underwriting",
+        "target": "n-premium",
+        "type": "reveals",
+        "weight": 0.62,
+        "polarity": "positive",
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-tokyo-resilience"
+        ]
+      }
+    ]
+  },
+  "whitespaces": [
+    {
+      "id": "ws-underwriting-os",
+      "name": "タワマン住戸別アンダーライティングOS",
+      "customer": "購入検討者、仲介会社、金融機関、ファミリーオフィス",
+      "pain": "売出価格、成約事例、賃料、管理費、修繕計画、防災、将来売却の情報が分断され、真の総保有費と下落耐性を比較できない。",
+      "unmet_reason": "公開統計は区・面積帯の平均が中心で、管理組合資料や棟別設備、住戸属性と結び付いていない。",
+      "market_timing": "now",
+      "score": {
+        "market_attractiveness": 91,
+        "feasibility": 76,
+        "evidence_strength": 84
+      },
+      "opportunity": "物件URLや販売図面を入れると、実質利回り、金利・修繕ストレス、出口流動性、証拠リンクを一枚で返す買い手側OS。",
+      "risks": [
+        "成約データの利用権",
+        "管理組合資料の非標準性",
+        "宅建・鑑定・金融助言との境界"
+      ],
+      "next_test": "購入検討者10人と仲介3社で、実在3物件の査定差を検証し、従来より意思決定時間を50%短縮できるか測る。",
+      "evidence_ids": [
+        "e-kantei-price-202606",
+        "e-kantei-rent-202606",
+        "e-derived-yield",
+        "e-reins-maintenance-fy2025",
+        "e-tokyo-resilience"
+      ]
+    },
+    {
+      "id": "ws-management-rating",
+      "name": "管理組合・修繕・防災の信用格付け",
+      "customer": "中古購入者、住宅ローン金融機関、保険会社、管理組合",
+      "pain": "築浅時の見栄えは比較できても、積立不足、長期修繕計画、滞納、合意形成、防災設備の実行力が価格に反映されにくい。",
+      "unmet_reason": "管理情報は総会議案・長期修繕計画・現地確認に散在し、比較可能な指標と継続監視がない。",
+      "market_timing": "1-3 years",
+      "score": {
+        "market_attractiveness": 87,
+        "feasibility": 62,
+        "evidence_strength": 82
+      },
+      "opportunity": "積立充足率、工事項目、非常電源、止水、エレベーター復旧、保険、意思決定履歴を監査し、棟別レーティングを提供する。",
+      "risks": [
+        "管理組合の同意",
+        "責任範囲",
+        "データ更新コスト"
+      ],
+      "next_test": "5棟の理事会資料を匿名化して採点し、仲介査定・買い手支払意思・金融機関担保評価との相関を確認する。",
+      "evidence_ids": [
+        "e-reins-maintenance-fy2025",
+        "e-mlit-maintenance-guideline",
+        "e-tokyo-resilience"
+      ]
+    },
+    {
+      "id": "ws-resilience-procurement",
+      "name": "タワマン防災改修の共同調達・補助金実装",
+      "customer": "管理組合、管理会社、賃貸オーナー",
+      "pain": "非常用電源、蓄電池、止水板、トイレ、エレベーター対策は必要だが、仕様設計・業者比較・補助金申請・住民合意が重い。",
+      "unmet_reason": "設備ごとの業者は存在するが、診断から合意形成、調達、補助申請、運用訓練まで一気通貫の提供が弱い。",
+      "market_timing": "now",
+      "score": {
+        "market_attractiveness": 80,
+        "feasibility": 71,
+        "evidence_strength": 79
+      },
+      "opportunity": "防災診断、標準仕様、複数棟共同調達、補助金申請、年次訓練を成果報酬と保守契約で束ねる。",
+      "risks": [
+        "理事会の長い意思決定",
+        "設備責任",
+        "施工キャパシティ"
+      ],
+      "next_test": "登録済み『東京とどまるマンション』3棟で、補助対象設備の未導入理由と予算化時期をヒアリングする。",
+      "evidence_ids": [
+        "e-tokyo-resilience",
+        "e-mlit-maintenance-guideline"
+      ]
+    },
+    {
+      "id": "ws-exit-liquidity",
+      "name": "出口流動性・売却タイミング診断",
+      "customer": "タワマン所有者、相続人、ファミリーオフィス、仲介会社",
+      "pain": "平均価格が高くても、同じ棟・同じ間取りの競合、値下げシェア、短期売買、税務、金利で売却期間と手取りが大きく変わる。",
+      "unmet_reason": "査定は価格一点に寄り、売却期間分布、競合在庫、税・管理コストを含む実現手取りのシナリオ比較が弱い。",
+      "market_timing": "now",
+      "score": {
+        "market_attractiveness": 83,
+        "feasibility": 81,
+        "evidence_strength": 77
+      },
+      "opportunity": "今売る・賃貸・保有を、期間別成約確率と手取りキャッシュフローで比較する所有者向け意思決定サービス。",
+      "risks": [
+        "成約データの粒度",
+        "仲介会社との利害相反",
+        "税務助言範囲"
+      ],
+      "next_test": "売却経験者20人の査定書を回収し、提示価格と実現価格・日数・値下げ回数の誤差を再現する。",
+      "evidence_ids": [
+        "e-kantei-price-202606",
+        "e-mlit-short-trading",
+        "e-nta-condo-tax"
+      ]
+    }
+  ],
+  "profit_pools": [
+    {
+      "id": "pool-premium-development",
+      "name": "都心高付加価値の新築分譲",
+      "value_chain_stage": "用地取得・再開発・分譲",
+      "revenue_pool": 88,
+      "margin_direction": "high_but_normalizing",
+      "growth_direction": "volume_down_value_up",
+      "capture_mechanism": "希少用地、再開発権、ブランド、長期資金、商品企画による価格決定力",
+      "barriers": [
+        "巨額資本",
+        "長期許認可",
+        "建設費",
+        "金利",
+        "販売速度"
+      ],
+      "winners": [
+        "都心再開発パイプラインとバランスシートを持つ大手総合デベロッパー"
+      ],
+      "losers": [
+        "土地を高値取得し、販売時期が金利上昇と重なる小規模事業者"
+      ],
+      "evidence_ids": [
+        "e-fudokeizai-fy2025",
+        "e-mitsui-results-2026",
+        "e-mec-results-2026"
+      ]
+    },
+    {
+      "id": "pool-transaction-data",
+      "name": "売買仲介・データ・買い手側アドバイザリー",
+      "value_chain_stage": "探索・価格査定・売却",
+      "revenue_pool": 82,
+      "margin_direction": "up_for_trusted_data",
+      "growth_direction": "up",
+      "capture_mechanism": "独自成約データ、棟別管理情報、意思決定ワークフロー、反復利用",
+      "barriers": [
+        "データ利用権",
+        "ブランド信頼",
+        "宅建・鑑定との境界",
+        "顧客獲得費"
+      ],
+      "winners": [
+        "価格だけでなく管理・利回り・出口を説明できる仲介とデータ事業者"
+      ],
+      "losers": [
+        "ポータル掲載と売主希望価格だけに依存する一般仲介"
+      ],
+      "evidence_ids": [
+        "e-kantei-price-202606",
+        "e-reins-202605",
+        "e-reins-maintenance-fy2025"
+      ]
+    },
+    {
+      "id": "pool-management-capex",
+      "name": "管理・大規模修繕・防災改修",
+      "value_chain_stage": "保有・維持管理",
+      "revenue_pool": 79,
+      "margin_direction": "up_selectively",
+      "growth_direction": "structural_up",
+      "capture_mechanism": "継続契約、設備専門性、管理組合との信頼、更新周期、補助金実装",
+      "barriers": [
+        "長い営業サイクル",
+        "住民合意",
+        "施工責任",
+        "人手不足"
+      ],
+      "winners": [
+        "高層設備・修繕・防災を一括管理できる事業者"
+      ],
+      "losers": [
+        "価格競争型の単発清掃・小修繕のみの事業者"
+      ],
+      "evidence_ids": [
+        "e-reins-maintenance-fy2025",
+        "e-tokyo-resilience",
+        "e-mlit-maintenance-guideline"
+      ]
+    },
+    {
+      "id": "pool-direct-rental",
+      "name": "区分所有の賃貸キャッシュフロー",
+      "value_chain_stage": "保有・賃貸",
+      "revenue_pool": 55,
+      "margin_direction": "compressed",
+      "growth_direction": "rent_up_cash_margin_tight",
+      "capture_mechanism": "低い取得原価、低LTV、長期保有、稼働率、賃料改定",
+      "barriers": [
+        "表面利回りの低さ",
+        "金利",
+        "管理修繕費",
+        "空室・原状回復",
+        "取得税・売却税"
+      ],
+      "winners": [
+        "取得原価が低い既存保有者、現金比率が高い長期投資家"
+      ],
+      "losers": [
+        "2026年価格で高LTV取得し、値上がり益を前提にする投資家"
+      ],
+      "evidence_ids": [
+        "e-derived-yield",
+        "e-boj-rate-202606",
+        "e-flat35-202607",
+        "e-reins-maintenance-fy2025"
+      ]
+    }
+  ],
+  "investment_routes": [
+    {
+      "id": "inv-direct-unit",
+      "name": "希少・管理良好タワーの個別住戸を低LTVで保有",
+      "theme": "全面高ではなく物件選別",
+      "transmission": "供給希少化と都心賃料 → 優良棟の稼働・出口流動性 → 長期総収益。ただし金利・修繕・価格調整が相殺する。",
+      "beneficiaries": [
+        "駅直結・再開発一体・管理良好・防災強化済みで、競合住戸が少ない棟の所有者"
+      ],
+      "earnings_sensitivity": "賃料、稼働率、ローン金利、管理修繕費、固定資産税、売却価格に高感応。",
+      "catalysts": [
+        "賃料の継続上昇",
+        "金利安定",
+        "周辺再開発竣工",
+        "管理計画認定・防災改修"
+      ],
+      "expectations_gap": "23区平均では売出価格が初めて反落したが、優良棟まで一律に下がるとは限らない。逆に『都心なら全部上がる』期待は危険。",
+      "valuation": "23区70㎡平均の売出価格と賃料からの単純表面利回りは約3.37%、価格賃料倍率は約29.6倍。タワー固有コスト控除前であり、投資用としては薄い。",
+      "crowding": "都心ブランド・築浅・駅直結に集中。",
+      "downside": "金利上昇、価格15%以上の調整、積立金増額、一時金、災害・停電、競合売出増、税制・短期転売規制。",
+      "decision": "SELECTIVE / 自住価値を含む10年以上の保有、LTV50%以下を基本線とし、ネット利回りと管理資料を確認できない物件は見送る。",
+      "confidence": 0.72,
+      "evidence_ids": [
+        "e-kantei-price-202606",
+        "e-kantei-rent-202606",
+        "e-derived-yield",
+        "e-reins-maintenance-fy2025",
+        "e-bis-housing-rates"
+      ]
+    },
+    {
+      "id": "inv-listed-developers",
+      "name": "上場大手デベロッパーの都心分譲・再開発エクスポージャー",
+      "theme": "希少供給と大手への集中",
+      "transmission": "用地・再開発パイプライン → 高単価分譲 → 粗利・資産回転 → 株主価値。",
+      "beneficiaries": [
+        "三井不動産 (8801)",
+        "三菱地所 (8802)",
+        "野村不動産HD (3231)",
+        "住友不動産 (8830)"
+      ],
+      "earnings_sensitivity": "引渡戸数、平均単価、粗利率、建設費、金利、在庫、分譲計上時期に左右される。",
+      "catalysts": [
+        "高粗利物件の引渡し",
+        "再開発認可・竣工",
+        "資産回転",
+        "自社株買い・資本効率改善"
+      ],
+      "expectations_gap": "高単価・高利益は既に決算へ表れており、相場テーマだけで割安とは言えない。三井不動産は翌期の国内住宅分譲利益減を予想している。",
+      "valuation": "このrunでは最新株価、P/NAV、予想PER、金利感応度を統一基準で取得していないため割安判定は保留。各社のNAVディスカウント、分譲利益の平準化後水準、有利子負債を比較してから判断する。",
+      "crowding": "『東京不動産・インフレヘッジ』として機関投資家に認知済み。",
+      "downside": "住宅販売鈍化、長期金利上昇、工期遅延、資材費、含み益頼み、海外事業損失。",
+      "decision": "WATCH / 住宅分譲テーマだけでは買わず、決算後のP/NAV・利益平準化・負債を確認する。",
+      "confidence": 0.7,
+      "evidence_ids": [
+        "e-mitsui-results-2026",
+        "e-mec-results-2026",
+        "e-fudokeizai-fy2025",
+        "e-boj-fsr-202604"
+      ]
+    },
+    {
+      "id": "inv-management-services",
+      "name": "管理・修繕・仲介の継続収益エクスポージャー",
+      "theme": "築年進行と管理品質の価値化",
+      "transmission": "マンションストック増加・築年進行 → 管理、工事、仲介、データ需要 → 継続手数料と受注工事。",
+      "beneficiaries": [
+        "野村不動産HD (3231) の運営管理・仲介",
+        "三菱地所 (8802) の住宅管理",
+        "管理・修繕を持つ大手不動産グループ"
+      ],
+      "earnings_sensitivity": "管理受託件数、工事受注、解約率、人件費、外注費、施工能力に左右される。",
+      "catalysts": [
+        "修繕積立金増額",
+        "防災補助",
+        "管理計画認定",
+        "大規模修繕周期"
+      ],
+      "expectations_gap": "分譲価格ほど注目されないが、管理受託と工事はより反復性が高い。一方、グループ全体では寄与が埋もれる。",
+      "valuation": "セグメント開示不足により純粋プレーの評価は困難。管理受託件数、工事粗利、継続率を分けて確認する必要がある。",
+      "crowding": "低〜中。テーマ認知は分譲より弱い。",
+      "downside": "人手不足、管理組合の価格抵抗、工事品質責任、系列外への切替。",
+      "decision": "RESEARCH / 事業利益に占める管理・工事比率と評価倍率を確認できた銘柄だけ候補化する。",
+      "confidence": 0.66,
+      "evidence_ids": [
+        "e-reins-maintenance-fy2025",
+        "e-mec-results-2026",
+        "e-tokyo-resilience"
+      ]
+    }
+  ],
+  "business_routes": [
+    {
+      "id": "biz-underwriting-saas",
+      "name": "買い手側タワマン・アンダーライティングSaaS",
+      "structural_change": "価格上昇だけでなく、金利・管理・修繕・防災・出口の物件差が大きくなる。",
+      "pain": "購入者と仲介担当者が複数資料を手作業で確認し、総保有費と下落耐性を比較できない。",
+      "buyer": "高額中古の購入者、買い手仲介、住宅ローン金融機関、ファミリーオフィス",
+      "budget": "購入前調査費、仲介マーケティング費、担保評価・審査費",
+      "solution": "販売図面、物件URL、ローン条件、管理資料を読み込み、実質利回り、ストレステスト、棟別品質、出口流動性、証拠台帳を出す。",
+      "pricing": "B2C 1物件3万〜10万円、B2B 1席月10万〜30万円＋データ従量課金を仮説とする。",
+      "unit_economics": "初期は専門家レビューを含む高単価サービスで検証し、資料抽出と比較を自動化して粗利70%を目標。",
+      "channel": "買い手仲介、住宅ローン事前審査、富裕層税理士、検索コンテンツ",
+      "validation": "30日で実在3物件×10顧客を診断し、支払意向50%以上、意思決定時間50%短縮、専門家修正率20%未満を確認する。",
+      "kill_criteria": "必要資料を半数以上取得できない、顧客の支払意向が2万円未満、専門家修正率が40%を超える場合はSaaS化を止め、調査代行へ限定する。",
+      "evidence_ids": [
+        "e-kantei-price-202606",
+        "e-kantei-rent-202606",
+        "e-derived-yield",
+        "e-reins-maintenance-fy2025",
+        "e-tokyo-resilience"
+      ]
+    },
+    {
+      "id": "biz-management-rating",
+      "name": "管理品質レーティングと継続モニタリング",
+      "structural_change": "修繕積立金と高層設備更新が重くなり、管理品質が売却・融資・保険の重要変数になる。",
+      "pain": "管理組合資料は非標準で、買い手・金融機関が積立不足や防災力を横比較できない。",
+      "buyer": "金融機関、仲介会社、管理組合、保険会社",
+      "budget": "担保評価、コンプライアンス、管理改善、販売支援予算",
+      "solution": "長期修繕計画、積立、工事履歴、滞納、防災設備、総会実行力を監査し、更新履歴付きの棟別スコアを発行する。",
+      "pricing": "初回監査50万〜200万円、年次更新20万〜80万円、金融機関APIは件数課金を仮説とする。",
+      "unit_economics": "資料標準化後は同一棟の複数取引に再利用でき、棟単位のデータ資産が蓄積する。",
+      "channel": "管理会社、マンション管理士、買い手仲介、金融機関担保部門",
+      "validation": "5棟を無償診断し、査定価格・売却日数・金融機関の融資条件に説明力があるか検証する。",
+      "kill_criteria": "スコアが価格・売却期間・融資条件のいずれにも説明力を示さない、または資料取得同意率が20%未満なら独立商品化を見送る。",
+      "evidence_ids": [
+        "e-reins-maintenance-fy2025",
+        "e-mlit-maintenance-guideline",
+        "e-tokyo-resilience"
+      ]
+    },
+    {
+      "id": "biz-resilience-aggregator",
+      "name": "防災設備・大規模修繕の共同調達FDE",
+      "structural_change": "東京都の在宅避難政策と補助制度、高層住宅の増加、設備老朽化が同時進行する。",
+      "pain": "管理組合は仕様作成、住民合意、業者選定、補助申請、施工監理を内製できない。",
+      "buyer": "タワマン管理組合、管理会社、賃貸オーナー",
+      "budget": "修繕積立金、管理費、防災補助金、保険リスク削減予算",
+      "solution": "現地診断から標準仕様、合意形成資料、共同調達、補助金、施工監理、訓練までを一つの案件管理で提供する。",
+      "pricing": "診断固定費＋調達額3〜8%＋年次保守を仮説とする。",
+      "unit_economics": "複数棟の仕様共通化と共同調達で仕入れ・設計コストを下げ、FDE型の導入支援をテンプレート化する。",
+      "channel": "東京都登録制度、管理会社、マンション管理士、保険代理店",
+      "validation": "3棟で未導入設備を特定し、1棟以上から有償の仕様・補助申請支援を受注する。",
+      "kill_criteria": "意思決定が12か月超、粗利25%未満、施工責任を適切に移転できない場合は調達事業を止め、診断・PMに限定する。",
+      "evidence_ids": [
+        "e-tokyo-resilience",
+        "e-mlit-maintenance-guideline",
+        "e-reins-maintenance-fy2025"
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "scenario-selective-plateau",
+      "name": "選別横ばい（基本）",
+      "probability": 0.5,
+      "narrative": "政策金利は1.0〜1.5%へ緩やかに上がり、23区平均価格は名目横ばい〜小幅上昇。賃料は所得・東京集中で上がるが、管理不良・割高・競合の多い棟は10〜15%調整する。",
+      "axes": [
+        "金利上昇の速度",
+        "都心賃料と人口集中"
+      ],
+      "indicators": [
+        "東京23区70㎡価格の6か月移動平均",
+        "値下げシェア",
+        "REINS成約件数と㎡単価",
+        "初月契約率",
+        "管理費・修繕積立金"
+      ],
+      "implications": [
+        "平均相場より棟別選別",
+        "高LTV投資回避",
+        "管理品質データ事業を検証"
+      ],
+      "evidence_ids": [
+        "e-kantei-price-202606",
+        "e-kantei-rent-202606",
+        "e-boj-rate-202606",
+        "e-fudokeizai-fy2025"
+      ]
+    },
+    {
+      "id": "scenario-scarcity-reacceleration",
+      "name": "希少資産再加速（上振れ）",
+      "probability": 0.25,
+      "narrative": "金利が1%近辺で安定し、円安・所得・国際資金・再開発が需要を支える。供給低迷が続き、都心6区の築浅・大規模・駅直結タワーは賃料と価格が再加速する。",
+      "axes": [
+        "金融環境の安定",
+        "新築供給不足"
+      ],
+      "indicators": [
+        "政策金利据置き",
+        "新築供給2.3万戸未満",
+        "初月契約率70%超",
+        "都心賃料前年比5%超",
+        "在庫減少"
+      ],
+      "implications": [
+        "優良棟の買い時が短い",
+        "大手デベロッパー利益維持",
+        "ただし低利回りを許容しすぎない"
+      ],
+      "evidence_ids": [
+        "e-fudokeizai-fy2025",
+        "e-kantei-rent-202606",
+        "e-landprice-2026",
+        "e-tokyo-migration-2025"
+      ]
+    },
+    {
+      "id": "scenario-liquidity-correction",
+      "name": "流動性調整（下振れ）",
+      "probability": 0.25,
+      "narrative": "政策金利と長期住宅ローン金利がさらに上昇し、返済可能額が低下する。値下げ在庫と売却期間が増え、投資色の強い都心・湾岸の一部で15〜25%の調整が起きるが、賃料と供給不足が全面崩壊を抑える。",
+      "axes": [
+        "金利ショック",
+        "売り急ぎ・在庫"
+      ],
+      "indicators": [
+        "政策金利1.5%以上",
+        "フラット35 3.5%以上",
+        "価格改定シェア60%超",
+        "成約件数前年比15%減",
+        "新築契約率55%未満"
+      ],
+      "implications": [
+        "現金余力を保持",
+        "借換え・売却支援需要",
+        "積立不足棟を避ける"
+      ],
+      "evidence_ids": [
+        "e-boj-rate-202606",
+        "e-flat35-202607",
+        "e-bis-housing-rates",
+        "e-kantei-price-202606",
+        "e-boj-fsr-202604"
+      ]
+    }
+  ],
+  "forecasts": [
+    {
+      "id": "fc-price-below-202606",
+      "question": "東京23区の中古マンション70㎡換算売出価格は、2027年6月に2026年6月の12,741万円以下となるか。",
+      "resolution_date": "2027-07-31",
+      "probability": 0.58,
+      "base_rate": "直前まで25か月連続上昇していたためトレンド継続のベースレートは強いが、2026年6月に26か月ぶりの下落、都心の価格改定シェア拡大、金利上昇が反転方向へ更新させる。",
+      "reasoning": "供給制約と賃料上昇が支えるため大幅下落を中心には置かないが、12か月後に現水準を下回る確率を過半とする。",
+      "up_factors": [
+        "政策金利上昇",
+        "値下げ在庫増",
+        "新築契約率低下",
+        "円高"
+      ],
+      "down_factors": [
+        "賃料上昇",
+        "新築供給不足",
+        "東京人口流入",
+        "円安・国際需要"
+      ],
+      "resolution_criteria": "東京カンテイが公表する2027年6月の東京23区70㎡換算価格が12,741万円以下なら1、それを上回れば0。公表方法変更時は同社の最も近い継続系列を使う。",
+      "evidence_ids": [
+        "e-kantei-price-202606",
+        "e-kantei-rent-202606",
+        "e-boj-rate-202606",
+        "e-bis-housing-rates"
+      ]
+    },
+    {
+      "id": "fc-new-price-120m",
+      "question": "2026年度の東京23区新築マンション平均価格は1億2,000万円以上を維持するか。",
+      "resolution_date": "2027-04-30",
+      "probability": 0.78,
+      "base_rate": "東京23区の戸当たり価格は2025年度まで3年度連続で1億円台、2025年度は1億3,784万円。",
+      "reasoning": "販売速度は鈍いが、供給の高価格帯への構成偏り、用地・建設費、希少物件の計上が平均を支える。",
+      "up_factors": [
+        "都心高額物件の計上",
+        "建設費",
+        "供給減",
+        "土地価格上昇"
+      ],
+      "down_factors": [
+        "値引き",
+        "郊外構成増",
+        "契約率低下",
+        "工期遅延"
+      ],
+      "resolution_criteria": "不動産経済研究所の2026年度首都圏新築分譲マンション市場動向で、東京23区平均価格が12,000万円以上なら1、未満なら0。",
+      "evidence_ids": [
+        "e-fudokeizai-fy2025",
+        "e-landprice-2026",
+        "e-boj-fsr-202604"
+      ]
+    },
+    {
+      "id": "fc-boj-125",
+      "question": "日本銀行の無担保コールレート誘導目標は2027年7月31日までに1.25%以上となるか。",
+      "resolution_date": "2027-07-31",
+      "probability": 0.57,
+      "base_rate": "政策金利は2024年以降段階的に引き上げられ、2026年6月に1.0%となった。",
+      "reasoning": "物価上振れリスクは追加利上げ方向だが、景気・海外情勢の悪化は据置きを長期化させる。",
+      "up_factors": [
+        "基調物価2%以上",
+        "賃金上昇",
+        "円安",
+        "エネルギー高"
+      ],
+      "down_factors": [
+        "景気後退",
+        "金融市場ショック",
+        "円高",
+        "物価鈍化"
+      ],
+      "resolution_criteria": "日本銀行の金融市場調節方針で無担保コールO/N物の誘導目標が1.25%以上になれば1。期限まで1.0%以下なら0。",
+      "evidence_ids": [
+        "e-boj-rate-202606",
+        "e-boj-fsr-202604"
+      ]
+    },
+    {
+      "id": "fc-rent-5000",
+      "question": "東京23区の分譲マンション賃料は2027年6月に5,000円/㎡以上となるか。",
+      "resolution_date": "2027-07-31",
+      "probability": 0.72,
+      "base_rate": "2026年6月は5,118円/㎡で、築5年以内を除く築年帯も堅調と報告されている。",
+      "reasoning": "東京集中と購入難による賃貸需要が支えるが、景気悪化や高額事例構成の反動を織り込む。",
+      "up_factors": [
+        "東京人口流入",
+        "購入から賃貸へのシフト",
+        "所得上昇",
+        "供給不足"
+      ],
+      "down_factors": [
+        "景気後退",
+        "高額事例比率低下",
+        "賃貸供給増",
+        "企業住宅需要低下"
+      ],
+      "resolution_criteria": "東京カンテイの2027年6月東京23区分譲マンション賃料が5,000円/㎡以上なら1、未満なら0。",
+      "evidence_ids": [
+        "e-kantei-rent-202606",
+        "e-tokyo-migration-2025",
+        "e-tokyo-population-forecast"
+      ]
+    },
+    {
+      "id": "fc-supply-under-25k",
+      "question": "2026年度の首都圏新築マンション供給戸数は25,000戸未満となるか。",
+      "resolution_date": "2027-04-30",
+      "probability": 0.74,
+      "base_rate": "2025年度は21,659戸で1973年度以降最少、2026年暦年見込みは23,000戸。",
+      "reasoning": "大型物件の計上で年ごとの振れはあるが、用地・建設費・工期が急速な供給回復を妨げる。",
+      "up_factors": [
+        "工期遅延",
+        "販売速度低下",
+        "用地不足",
+        "建設費"
+      ],
+      "down_factors": [
+        "大型再開発の集中供給",
+        "定借物件増",
+        "販売前倒し"
+      ],
+      "resolution_criteria": "不動産経済研究所の2026年度集計で首都圏発売戸数が25,000戸未満なら1、以上なら0。",
+      "evidence_ids": [
+        "e-fudokeizai-fy2025",
+        "e-boj-fsr-202604"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "e-reins-202605",
+      "title": "Market Watch 2026年5月度 中古マンション成約状況",
+      "url": "https://www.reins.or.jp/pdf/trend/mw/MW_202605data.pdf",
+      "publisher": "公益財団法人 東日本不動産流通機構",
+      "published_at": "2026-06-10",
+      "accessed_at": "2026-07-25",
+      "source_tier": "official_secondary",
+      "statement_type": "fact",
+      "supports": [
+        "2026年5月の東京都中古マンション成約は1,819件、㎡単価116.44万円、平均6,702万円",
+        "東京都成約件数は前年比14.5%減、㎡単価は前年比0.3%増、前月比5.1%減"
+      ],
+      "limitations": "東京都全体・全中古マンションの集計でタワマン限定ではない。2025年1月のシステム改修が成約件数へ影響した可能性が明記されている。",
+      "counterevidence_ids": [
+        "e-kantei-rent-202606",
+        "e-fudokeizai-fy2025"
+      ]
+    },
+    {
+      "id": "e-fudokeizai-fy2025",
+      "title": "首都圏新築分譲マンション市場動向 2025年度",
+      "url": "https://www.fudousankeizai.co.jp/share/mansion/670/2643ps.pdf",
+      "publisher": "株式会社不動産経済研究所",
+      "published_at": "2026-04-20",
+      "accessed_at": "2026-07-25",
+      "source_tier": "industry",
+      "statement_type": "fact",
+      "supports": [
+        "東京23区の供給7,708戸、平均価格1億3,784万円、㎡単価214.3万円、初月契約率62.3%",
+        "首都圏供給21,659戸は1973年度以降最少",
+        "首都圏在庫6,409戸、初月契約率は3年連続70%未満",
+        "2026年暦年供給見込み23,000戸"
+      ],
+      "limitations": "新築分譲の集計でタワマン限定ではない。平均価格は供給物件構成で大きく変動する。",
+      "counterevidence_ids": [
+        "e-kantei-price-202606"
+      ]
+    },
+    {
+      "id": "e-kantei-price-202606",
+      "title": "2026年6月 東京23区70㎡換算価格は12,741万円、26か月ぶりに反落",
+      "url": "https://www.kantei.ne.jp/report/70m2/9098/",
+      "publisher": "株式会社東京カンテイ",
+      "published_at": "2026-07-23",
+      "accessed_at": "2026-07-25",
+      "source_tier": "industry",
+      "statement_type": "fact",
+      "supports": [
+        "東京23区70㎡換算売希望価格は前月比0.8%下落の12,741万円",
+        "26か月ぶりの下落",
+        "都心部の価格改定シェアが過半数まで拡大"
+      ],
+      "limitations": "売希望価格であり成約価格ではない。タワマン限定ではなく、築年・地域・在庫構成の影響を受ける。",
+      "counterevidence_ids": [
+        "e-kantei-rent-202606",
+        "e-landprice-2026"
+      ]
+    },
+    {
+      "id": "e-kantei-rent-202606",
+      "title": "2026年6月 東京23区分譲マンション賃料は5,118円/㎡",
+      "url": "https://www.kantei.ne.jp/report/rent/9096/",
+      "publisher": "株式会社東京カンテイ",
+      "published_at": "2026-07-16",
+      "accessed_at": "2026-07-25",
+      "source_tier": "industry",
+      "statement_type": "fact",
+      "supports": [
+        "東京23区賃料は前月比0.8%上昇の5,118円/㎡",
+        "築5年以内を除く築年帯でも堅調"
+      ],
+      "limitations": "募集賃料ベースで成約賃料ではない。タワマン限定ではなく、事例構成の影響を受ける。",
+      "counterevidence_ids": [
+        "e-kantei-price-202606"
+      ]
+    },
+    {
+      "id": "e-derived-yield",
+      "title": "東京23区70㎡平均の単純価格賃料倍率・表面利回り試算",
+      "url": "https://www.kantei.ne.jp/report/70m2/9098/",
+      "publisher": "Decision Intelligence Workbench calculation using Tokyo Kantei price and rent releases",
+      "published_at": "2026-07-25",
+      "accessed_at": "2026-07-25",
+      "source_tier": "industry",
+      "statement_type": "inference",
+      "supports": [
+        "12,741万円 ÷ (5,118円/㎡ × 70㎡ × 12か月) = 価格賃料倍率約29.6倍",
+        "同じ単純計算の表面利回りは約3.37%"
+      ],
+      "limitations": "別々の募集データ平均を組み合わせた粗い指標。管理費、修繕積立金、税、空室、原状回復、取得売却費用を控除しておらず、特定タワー・住戸の投資利回りではない。賃料出典は https://www.kantei.ne.jp/report/rent/9096/ 。",
+      "counterevidence_ids": [
+        "e-kantei-rent-202606"
+      ]
+    },
+    {
+      "id": "e-boj-rate-202606",
+      "title": "日本銀行 金融市場調節方針：無担保コールO/N物1.0%程度",
+      "url": "https://www.boj.or.jp/",
+      "publisher": "日本銀行",
+      "published_at": "2026-06-16",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "2026年6月17日以降の補完当座預金制度適用利率は1.0%",
+        "無担保コールO/N物を1.0%程度で推移させる方針"
+      ],
+      "limitations": "政策金利は住宅ローン金利と一対一では連動せず、金融機関の優遇幅や借り手属性で実効金利は異なる。",
+      "counterevidence_ids": [
+        "e-tokyo-migration-2025"
+      ]
+    },
+    {
+      "id": "e-flat35-202607",
+      "title": "フラット35 金利情報 2026年7月",
+      "url": "https://www.flat35.com/loan/index.html",
+      "publisher": "住宅金融支援機構",
+      "published_at": "2026-07-01",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "返済期間21〜35年の最頻金利は年3.14%",
+        "全期間固定金利で返済額を確定できる"
+      ],
+      "limitations": "フラット35の代表金利であり、変動金利、投資用ローン、個別金融機関の優遇後金利ではない。",
+      "counterevidence_ids": []
+    },
+    {
+      "id": "e-jhf-borrower-202601",
+      "title": "住宅ローン利用者調査 2026年1月調査",
+      "url": "https://www.jhf.go.jp/files/topics/4955_ext_99_0.pdf",
+      "publisher": "住宅金融支援機構",
+      "published_at": "2026-02-01",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "住宅ローン利用者の75.0%が変動型",
+        "前回調査より変動型比率は4.0ポイント低下"
+      ],
+      "limitations": "調査回答者ベースで、東京タワマン購入者に限定されない。",
+      "counterevidence_ids": []
+    },
+    {
+      "id": "e-tokyo-migration-2025",
+      "title": "住民基本台帳人口移動報告 2025年結果",
+      "url": "https://www.stat.go.jp/data/idou/2025np/jissu/youyaku/index.html",
+      "publisher": "総務省統計局",
+      "published_at": "2026-02-03",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "東京都の国内転入超過は65,219人で都道府県最大",
+        "東京圏は123,534人の転入超過"
+      ],
+      "limitations": "人口移動は住宅購入需要と同義ではなく、所得・世帯構成・居住形態を分けていない。",
+      "counterevidence_ids": [
+        "e-boj-rate-202606"
+      ]
+    },
+    {
+      "id": "e-tokyo-population-forecast",
+      "title": "東京都人口予測：区部人口は2035年頃まで増加",
+      "url": "https://www.toukei.metro.tokyo.lg.jp/syosoku/sy-index.htm",
+      "publisher": "東京都総務局統計部",
+      "published_at": "2024-01-01",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "区部人口は2025年約983万人、2030年約995万人、2035年約999万人の予測",
+        "東京都全体は2030年前後がピークの予測"
+      ],
+      "limitations": "予測は出生・死亡・移動の仮定に依存し、富裕層・持家需要や特定区のタワマン需要を直接予測しない。",
+      "counterevidence_ids": []
+    },
+    {
+      "id": "e-mlit-short-trading",
+      "title": "新築マンションの短期売買・国外居住者取得の調査",
+      "url": "https://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo05_hh_000001_00237.html",
+      "publisher": "国土交通省",
+      "published_at": "2025-11-25",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "東京23区の大規模マンションは2024年上期の短期売買割合9.9%、非大規模は3.3%",
+        "2025年上期の国外居住者取得割合は23区3.5%、都心6区7.5%",
+        "国外居住者が2億円以上物件を特に活発購入する傾向は確認されなかった"
+      ],
+      "limitations": "保存登記からの集計で、実需・投資目的、資金源、実質支配者、全中古市場を網羅しない。",
+      "counterevidence_ids": [
+        "e-tokyo-migration-2025"
+      ]
+    },
+    {
+      "id": "e-nta-condo-tax",
+      "title": "居住用の区分所有財産の評価について",
+      "url": "https://www.nta.go.jp/law/tsutatsu/kobetsu/hyoka/231004/index.htm",
+      "publisher": "国税庁",
+      "published_at": "2023-09-28",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "2024年1月1日以後の相続・贈与から分譲マンションの新評価方法を適用",
+        "築年、総階数、所在階、敷地持分などを反映する区分所有補正率を導入"
+      ],
+      "limitations": "相続・贈与税評価の制度で、市場価格や投資収益を直接決めるものではない。個別税務判断は税理士確認が必要。",
+      "counterevidence_ids": []
+    },
+    {
+      "id": "e-reins-maintenance-fy2025",
+      "title": "首都圏中古マンションの管理費・修繕積立金 2025年度",
+      "url": "https://www.reins.or.jp/pdf/trend/rt/rt_202605.pdf",
+      "publisher": "公益財団法人 東日本不動産流通機構",
+      "published_at": "2026-05-28",
+      "accessed_at": "2026-07-25",
+      "source_tier": "official_secondary",
+      "statement_type": "fact",
+      "supports": [
+        "首都圏平均の管理費13,895円、修繕積立金13,910円、合計27,805円",
+        "修繕積立金は前年比5.6%上昇",
+        "築10年超では㎡当たり修繕積立金が200円台前半へ上昇",
+        "200戸以上の合計平均は29,452円"
+      ],
+      "limitations": "首都圏平均でタワマン限定ではない。登録必須化後、必要項目がそろった成約物件のみの抽出。将来必要額の充足を示さない。",
+      "counterevidence_ids": []
+    },
+    {
+      "id": "e-mlit-maintenance-guideline",
+      "title": "マンションの修繕積立金に関するガイドライン・長寿命化促進税制",
+      "url": "https://www.mansion-info.mlit.go.jp/wp-content/uploads/2025/04/mansion_zeisei_A4_ad.pdf",
+      "publisher": "国土交通省",
+      "published_at": "2025-04-01",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "20階以上のマンションで月額専有面積当たり修繕積立金240円/㎡以上が認定基準の一つ",
+        "長期修繕計画と積立水準が管理計画認定・税制に接続"
+      ],
+      "limitations": "認定基準・目安であり、個別タワーの設備構成や工事費を保証しない。",
+      "counterevidence_ids": []
+    },
+    {
+      "id": "e-tokyo-resilience",
+      "title": "東京とどまるマンション 防災備蓄・非常用電源等への補助",
+      "url": "https://www.metro.tokyo.lg.jp/information/press/2025/05/2025050710",
+      "publisher": "東京都住宅政策本部",
+      "published_at": "2025-05-07",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "非常用電源、蓄電池、止水板、防災キャビネット等への補助",
+        "東京都は災害時の在宅生活継続がしやすいマンションの登録を推進"
+      ],
+      "limitations": "補助対象・年度・予算に制約があり、登録や設備導入が災害時の完全な安全を保証しない。",
+      "counterevidence_ids": []
+    },
+    {
+      "id": "e-landprice-2026",
+      "title": "令和8年地価公示",
+      "url": "https://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo04_hh_000001_00074.html",
+      "publisher": "国土交通省土地鑑定委員会",
+      "published_at": "2026-03-18",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "東京圏の住宅地・商業地は5年連続上昇し、上昇幅が拡大",
+        "港区港南・芝浦、赤坂など都心住宅地で高い上昇地点がある"
+      ],
+      "limitations": "標準地の土地価格で、区分所有マンションの住戸価格やタワー固有価値を直接示さない。",
+      "counterevidence_ids": [
+        "e-kantei-price-202606"
+      ]
+    },
+    {
+      "id": "e-bis-housing-rates",
+      "title": "Monetary policy and housing markets: housing supply elasticity",
+      "url": "https://www.bis.org/publ/qtrpdf/r_qt2412c.htm",
+      "publisher": "Bank for International Settlements",
+      "published_at": "2024-12-10",
+      "accessed_at": "2026-07-25",
+      "source_tier": "academic",
+      "statement_type": "fact",
+      "supports": [
+        "供給が非弾力的な市場では金利変化が価格対賃料倍率へ強く伝わる",
+        "100bpの利下げは供給非弾力市場で2年後の価格対賃料倍率を約5%押し上げる推計",
+        "賃料は価格より金利反応が弱い"
+      ],
+      "limitations": "国際パネルの推計で東京タワマン固有の弾性値ではない。方向と参考クラスに使い、点推計を東京へ直接適用しない。",
+      "counterevidence_ids": [
+        "e-fudokeizai-fy2025",
+        "e-tokyo-migration-2025"
+      ]
+    },
+    {
+      "id": "e-boj-fsr-202604",
+      "title": "金融システムレポート 2026年4月号",
+      "url": "https://www.boj.or.jp/research/brp/fsr/fsr260421.htm",
+      "publisher": "日本銀行",
+      "published_at": "2026-04-21",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "住宅ローン延滞率に現時点で大きな変化はない",
+        "金利上昇が続く場合の住宅ローン・金融機関バランスシートを点検",
+        "不動産関連貸出の比率上昇と与信先変化に留意"
+      ],
+      "limitations": "金融システム全体の分析で、東京タワマンの価格予測ではない。",
+      "counterevidence_ids": [
+        "e-boj-rate-202606"
+      ]
+    },
+    {
+      "id": "e-mitsui-results-2026",
+      "title": "三井不動産 2026年3月期 分譲セグメント実績・2027年3月期予想",
+      "url": "https://www.mitsuifudosan.co.jp/corporate/ir/finance/segment/",
+      "publisher": "三井不動産株式会社",
+      "published_at": "2026-05-13",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "2026年3月期国内住宅分譲営業利益1,120億円、利益率25.5%",
+        "2027年3月期予想は国内住宅分譲営業利益650億円、利益率21.0%、中高層分譲2,350戸"
+      ],
+      "limitations": "会社全体・国内住宅分譲の開示で、東京タワマン単独の利益ではない。株式価値には他事業・負債・評価倍率が影響する。",
+      "counterevidence_ids": [
+        "e-kantei-price-202606"
+      ]
+    },
+    {
+      "id": "e-mec-results-2026",
+      "title": "三菱地所 2026年3月期 決算短信",
+      "url": "https://www.mec.co.jp/ir/library/2026/4Q/summary_2025_4.pdf",
+      "publisher": "三菱地所株式会社",
+      "published_at": "2026-05-12",
+      "accessed_at": "2026-07-25",
+      "source_tier": "primary",
+      "statement_type": "fact",
+      "supports": [
+        "国内分譲マンション売上計上1,764戸、営業収益2,015億円",
+        "戸数減でも1戸当たり販売単価上昇で増収",
+        "住宅管理受託356,546件"
+      ],
+      "limitations": "国内住宅事業全体で、東京タワマン単独の収益ではない。上場株の割安・割高を示さない。",
+      "counterevidence_ids": [
+        "e-kantei-price-202606"
+      ]
+    }
+  ],
+  "counterarguments": [
+    {
+      "claim": "東京タワマンは供給不足・人口集中・賃料上昇で、金利が上がっても価格は下がらない。",
+      "strongest_case": "新築供給は歴史的低水準、東京は転入超過、地価と賃料も上昇している。優良都心タワーは代替が少ない。",
+      "implication": "全面下落を前提に待ち続けると、優良棟の取得機会を失う。",
+      "falsifier": "金利上昇下でも、東京23区価格が6か月以上再上昇し、値下げシェアが低下、初月契約率が70%超へ戻れば基本シナリオを上方修正する。",
+      "evidence_ids": [
+        "e-fudokeizai-fy2025",
+        "e-kantei-rent-202606",
+        "e-tokyo-migration-2025",
+        "e-landprice-2026"
+      ]
+    },
+    {
+      "claim": "26か月ぶりの価格下落は構成変化による一か月のノイズで、転換点ではない。",
+      "strongest_case": "売出価格指数は築年・地域・在庫構成に左右され、首都圏全体は同月も上昇した。",
+      "implication": "一か月の数字だけで売却・空売り・購入停止を決めるべきではない。",
+      "falsifier": "6か月移動平均、REINS成約㎡単価、値下げシェア、売却日数が同方向へ悪化すればノイズ説を棄却する。",
+      "evidence_ids": [
+        "e-kantei-price-202606",
+        "e-reins-202605"
+      ]
+    },
+    {
+      "claim": "外国人買いが東京タワマン高騰の主因で、規制だけで価格は大きく下がる。",
+      "strongest_case": "都心6区の国外居住者取得は7.5%へ上がり、大規模物件の短期売買も多い。",
+      "implication": "規制・開示変更は超高額帯と短期売買に局所的影響を与え得る。",
+      "falsifier": "国外取得は23区全体で3.5%にとどまり、2億円以上を特に活発購入する傾向も確認されないため、国内需要・供給・金利を無視した説明は棄却する。",
+      "evidence_ids": [
+        "e-mlit-short-trading"
+      ]
+    },
+    {
+      "claim": "大手デベロッパー株は東京タワマン高騰の確実な受益者である。",
+      "strongest_case": "高単価化で国内分譲利益が高水準となり、大手は希少用地と再開発能力を持つ。",
+      "implication": "テーマの伝達は存在する。",
+      "falsifier": "翌期利益の正常化、金利、負債、他事業、株価評価を含めると確実な利益とは言えない。P/NAVと平準化利益を確認せずに買わない。",
+      "evidence_ids": [
+        "e-mitsui-results-2026",
+        "e-mec-results-2026",
+        "e-boj-fsr-202604"
+      ]
+    }
+  ],
+  "methodology": [
+    {
+      "id": "decision_framing",
+      "note": "依頼を東京23区タワーマンションの3〜5年相場と解釈し、自住購入、投資、関連事業を分離した。データカットオフは2026年7月25日。"
+    },
+    {
+      "id": "horizon_scanning_steep",
+      "note": "価格、賃料、供給、金利、人口、税、国外・短期売買、管理修繕、防災をSTEEPドライバーとして走査した。"
+    },
+    {
+      "id": "reference_class",
+      "note": "供給非弾力な住宅市場における金利伝達のBIS研究を外部視点に用いた。東京固有の弾性値へ点推計は転用していない。",
+      "evidence_ids": [
+        "e-bis-housing-rates"
+      ]
+    },
+    {
+      "id": "bayesian_update",
+      "note": "事前は供給不足と東京集中による上昇継続を優勢とした。26か月ぶりの売出価格下落、値下げシェア、政策金利1.0%で横ばい・二極化へ下方更新し、賃料上昇と供給不足で全面崩壊確率を抑えた。"
+    },
+    {
+      "id": "supply_demand_profit_pool",
+      "note": "供給戸数・契約率・在庫、人口移動・賃料、管理修繕費をつなぎ、分譲、仲介データ、管理修繕、直接賃貸の利益プールを比較した。"
+    },
+    {
+      "id": "whitespace_jtbd_real_options",
+      "note": "購入者・管理組合の未充足ジョブから4つのホワイトスペースを作り、30日〜90日の小規模検証と撤退条件を設定した。"
+    },
+    {
+      "id": "forecasting_falsification",
+      "note": "期限・解決基準付きの5予測を登録し、主結論の反証条件を価格、賃料、契約率、金利、在庫で定義した。"
+    }
+  ],
+  "limitations": [
+    "公開統計だけでは『タワーマンション』を一貫定義した棟・住戸別の成約価格、売却日数、在庫、賃料、空室率を取得できず、23区マンション全体を近似に使った。",
+    "東京カンテイの価格と賃料は募集ベースで、同一物件集合ではない。算出した3.37%は粗い表面利回りで投資助言ではない。",
+    "個別購入判断に必要な重要事項調査報告書、長期修繕計画、積立残高、滞納、総会議事録、保険、防災設備、眺望・方角・階数は未取得。",
+    "株式ルートは最新株価、予想PER、P/NAV、保有不動産含み益、有利子負債の統一評価を行っていないため、銘柄の買い推奨ではなく調査候補に限定した。",
+    "不動産価格は物件構成により平均値が大きく振れる。単月の26か月ぶり下落をピーク確定とは扱っていない。",
+    "BOJ、REINS、国交省、東京都、住宅金融支援機構は利用可能だったが、MLIT不動産情報ライブラリの棟別API、EDINET MCP、e-Stat MCP、MiroFishはこのrunで接続・利用していない。",
+    "MiroFish等の合成エージェント出力は使用しておらず、synthetic evidenceは0件。",
+    "税務、融資、宅建、鑑定、保険の個別判断は有資格専門家と契約書・物件資料で確認する必要がある。"
+  ],
+  "simulation_lab": {
+    "status": "complete",
+    "source_classification": "synthetic",
+    "engine": "codex_mirofish_method",
+    "generated_at": "2026-07-26T07:25:01.3439169+09:00",
+    "environment": {
+      "summary": "2026〜2031年の東京23区タワーマンション市場を金利・供給・賃料・管理・防災・出口の相互作用で検証。",
+      "horizon": "2026-2031",
+      "geography": [
+        "東京23区"
+      ],
+      "initial_conditions": [
+        "供給は低水準",
+        "価格モメンタム減速",
+        "賃料上昇",
+        "金利上昇",
+        "修繕費増加"
+      ],
+      "state_variables": [
+        "住宅資金コスト",
+        "新規供給",
+        "価格モメンタム",
+        "賃料",
+        "棟別出口流動性",
+        "管理品質"
+      ],
+      "evidence_ids": [
+        "e-reins-202605",
+        "e-fudokeizai-fy2025",
+        "e-kantei-price-202606",
+        "e-boj-rate-202606",
+        "e-flat35-202607",
+        "e-jhf-borrower-202601",
+        "e-boj-fsr-202604",
+        "e-reins-maintenance-fy2025",
+        "e-mlit-maintenance-guideline",
+        "e-tokyo-resilience"
+      ]
+    },
+    "agents": [
+      {
+        "id": "a-policy",
+        "name": "金融政策・監督当局",
+        "archetype": "policy",
+        "objective": "金融安定を保ちつつ金利を正常化",
+        "capabilities": [
+          "情報評価",
+          "条件付き意思決定"
+        ],
+        "constraints": [
+          "不完全情報",
+          "将来不確実性"
+        ],
+        "decision_rules": [
+          "物価と金融安定を優先",
+          "住宅価格だけで政策を反転しない"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601",
+          "e-boj-fsr-202604"
+        ]
+      },
+      {
+        "id": "a-bank",
+        "name": "住宅ローン銀行",
+        "archetype": "bank",
+        "objective": "優良借り手へ融資し延滞を抑制",
+        "capabilities": [
+          "情報評価",
+          "条件付き意思決定"
+        ],
+        "constraints": [
+          "不完全情報",
+          "将来不確実性"
+        ],
+        "decision_rules": [
+          "返済余力と担保流動性を分離審査",
+          "高LTVを金利ストレス"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601",
+          "e-boj-fsr-202604"
+        ]
+      },
+      {
+        "id": "a-developer",
+        "name": "大手デベロッパー",
+        "archetype": "developer",
+        "objective": "希少立地の価格決定力を維持",
+        "capabilities": [
+          "情報評価",
+          "条件付き意思決定"
+        ],
+        "constraints": [
+          "不完全情報",
+          "将来不確実性"
+        ],
+        "decision_rules": [
+          "供給を急増させない",
+          "品質を価格へ反映"
+        ],
+        "evidence_ids": [
+          "e-fudokeizai-fy2025",
+          "e-landprice-2026",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "id": "a-broker",
+        "name": "中古仲介・市場メーカー",
+        "archetype": "broker",
+        "objective": "成約回転率と価格発見を改善",
+        "capabilities": [
+          "情報評価",
+          "条件付き意思決定"
+        ],
+        "constraints": [
+          "不完全情報",
+          "将来不確実性"
+        ],
+        "decision_rules": [
+          "在庫日数と指値幅を棟別表示",
+          "平均値を鵜呑みにしない"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "id": "a-occupier",
+        "name": "長期実需購入者",
+        "archetype": "occupier",
+        "objective": "生活価値を確保し10年以上保有",
+        "capabilities": [
+          "情報評価",
+          "条件付き意思決定"
+        ],
+        "constraints": [
+          "不完全情報",
+          "将来不確実性"
+        ],
+        "decision_rules": [
+          "固定3.5%・価格15%下落・修繕30%増を通過",
+          "管理品質を先に確認"
+        ],
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "id": "a-leveraged",
+        "name": "高LTV投資家",
+        "archetype": "leveraged",
+        "objective": "少ない自己資金で値上がり益を獲得",
+        "capabilities": [
+          "情報評価",
+          "条件付き意思決定"
+        ],
+        "constraints": [
+          "不完全情報",
+          "将来不確実性"
+        ],
+        "decision_rules": [
+          "資金コスト超過なら撤退",
+          "流動性低下で売却"
+        ],
+        "evidence_ids": [
+          "e-kantei-rent-202606",
+          "e-derived-yield",
+          "e-flat35-202607"
+        ]
+      },
+      {
+        "id": "a-cash",
+        "name": "現金・低LTV長期投資家",
+        "archetype": "cash",
+        "objective": "調整時に希少資産を取得",
+        "capabilities": [
+          "情報評価",
+          "条件付き意思決定"
+        ],
+        "constraints": [
+          "不完全情報",
+          "将来不確実性"
+        ],
+        "decision_rules": [
+          "強制売却を待つ",
+          "出口と賃料耐性を優先"
+        ],
+        "evidence_ids": [
+          "e-landprice-2026",
+          "e-bis-housing-rates",
+          "e-boj-fsr-202604"
+        ]
+      },
+      {
+        "id": "a-foreign",
+        "name": "海外富裕層・法人買い手",
+        "archetype": "foreign",
+        "objective": "通貨・資産分散と東京拠点を獲得",
+        "capabilities": [
+          "情報評価",
+          "条件付き意思決定"
+        ],
+        "constraints": [
+          "不完全情報",
+          "将来不確実性"
+        ],
+        "decision_rules": [
+          "為替と規制を同時評価",
+          "国際的希少物件に集中"
+        ],
+        "evidence_ids": [
+          "e-mlit-short-trading",
+          "e-landprice-2026",
+          "e-tokyo-migration-2025"
+        ]
+      },
+      {
+        "id": "a-management",
+        "name": "管理組合・修繕主体",
+        "archetype": "management",
+        "objective": "建物性能と積立の持続性を維持",
+        "capabilities": [
+          "情報評価",
+          "条件付き意思決定"
+        ],
+        "constraints": [
+          "不完全情報",
+          "将来不確実性"
+        ],
+        "decision_rules": [
+          "積立不足を先送りしない",
+          "防災・修繕を標準開示"
+        ],
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "id": "a-platform",
+        "name": "棟別アンダーライティング基盤",
+        "archetype": "platform",
+        "objective": "価格・管理・出口を統合し誤判定を削減",
+        "capabilities": [
+          "情報評価",
+          "条件付き意思決定"
+        ],
+        "constraints": [
+          "不完全情報",
+          "将来不確実性"
+        ],
+        "decision_rules": [
+          "一次証拠へ接続",
+          "平均値を棟別ストレスへ分解"
+        ],
+        "evidence_ids": [
+          "e-derived-yield",
+          "e-mlit-maintenance-guideline",
+          "e-boj-fsr-202604"
+        ]
+      }
+    ],
+    "rounds": 6,
+    "round_log": [
+      {
+        "round": 1,
+        "focus": "全面高から選別相場への転換",
+        "actions": [
+          "価格低下と低供給・賃料上昇を同時評価",
+          "棟別流動性を観察"
+        ],
+        "state_changes": [
+          "価格モメンタム:strong→mixed",
+          "選別度:medium→high"
+        ],
+        "minority_views": [
+          "希少都心物件は再加速"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606",
+          "e-kantei-rent-202606"
+        ]
+      },
+      {
+        "round": 2,
+        "focus": "資金調達コストによる買い手分断",
+        "actions": [
+          "銀行が高LTVを再審査",
+          "現金買い手が待機"
+        ],
+        "state_changes": [
+          "与信余力:leveraged lower",
+          "買い手:leverage→cash"
+        ],
+        "minority_views": [
+          "所得上昇が延滞を抑制"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601",
+          "e-boj-fsr-202604"
+        ]
+      },
+      {
+        "round": 3,
+        "focus": "管理・修繕・防災品質の価格化",
+        "actions": [
+          "積立・修繕・防災を開示",
+          "仲介が出口流動性を提示"
+        ],
+        "state_changes": [
+          "品質プレミアム:explicit",
+          "低品質棟の指値:wider"
+        ],
+        "minority_views": [
+          "ブランドが不足を覆う"
+        ],
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "round": 4,
+        "focus": "介入：棟別アンダーライティングOS",
+        "actions": [
+          "複合ストレスで比較",
+          "証拠付きで買う・待つ・避ける"
+        ],
+        "state_changes": [
+          "情報非対称:high→medium",
+          "一括誤判定:reduced"
+        ],
+        "minority_views": [
+          "標準化が希少性を過小評価"
+        ],
+        "evidence_ids": [
+          "e-derived-yield",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience",
+          "e-boj-fsr-202604"
+        ]
+      },
+      {
+        "round": 5,
+        "focus": "反実仮想：政策1.5%・住宅3.5%以上・成約15%減",
+        "actions": [
+          "高LTV融資縮小",
+          "弱い棟を売却",
+          "現金は良質棟だけ入札"
+        ],
+        "state_changes": [
+          "流動性:medium→low",
+          "弱い棟:down"
+        ],
+        "minority_views": [
+          "海外需要が下落吸収"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601",
+          "e-boj-fsr-202604",
+          "e-bis-housing-rates"
+        ]
+      },
+      {
+        "round": 6,
+        "focus": "頑健な意思決定ルールへ収束",
+        "actions": [
+          "購入・撤退条件を確定",
+          "先行指標を月次監視"
+        ],
+        "state_changes": [
+          "戦略:market timing→selection",
+          "判断:forecast→conditional"
+        ],
+        "minority_views": [
+          "供給枯渇で全面高"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606",
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      }
+    ],
+    "interactions": [
+      {
+        "id": "x1",
+        "from": "a-policy",
+        "to": "a-bank",
+        "round": 2,
+        "type": "regulation",
+        "topic": "金利転嫁",
+        "summary": "返済余力審査を厳格化",
+        "intensity": 0.82,
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601",
+          "e-boj-fsr-202604"
+        ]
+      },
+      {
+        "id": "x2",
+        "from": "a-bank",
+        "to": "a-leveraged",
+        "round": 2,
+        "type": "refusal",
+        "topic": "高LTV融資",
+        "summary": "ストレス不足案件を拒否",
+        "intensity": 0.88,
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601",
+          "e-boj-fsr-202604"
+        ]
+      },
+      {
+        "id": "x3",
+        "from": "a-broker",
+        "to": "a-occupier",
+        "round": 1,
+        "type": "information",
+        "topic": "成約流動性",
+        "summary": "平均と棟別在庫の乖離を共有",
+        "intensity": 0.7,
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "id": "x4",
+        "from": "a-developer",
+        "to": "a-foreign",
+        "round": 1,
+        "type": "negotiation",
+        "topic": "希少新築価格",
+        "summary": "供給不足で値引きを拒否",
+        "intensity": 0.65,
+        "evidence_ids": [
+          "e-fudokeizai-fy2025",
+          "e-landprice-2026"
+        ]
+      },
+      {
+        "id": "x5",
+        "from": "a-management",
+        "to": "a-occupier",
+        "round": 3,
+        "type": "cooperation",
+        "topic": "修繕開示",
+        "summary": "積立と工事計画を標準化",
+        "intensity": 0.83,
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "id": "x6",
+        "from": "a-platform",
+        "to": "a-broker",
+        "round": 4,
+        "type": "cooperation",
+        "topic": "棟別評価",
+        "summary": "価格・成約・管理を統合",
+        "intensity": 0.91,
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-mlit-maintenance-guideline"
+        ]
+      },
+      {
+        "id": "x7",
+        "from": "a-platform",
+        "to": "a-developer",
+        "round": 4,
+        "type": "competition",
+        "topic": "品質スコア",
+        "summary": "ブランド価格を検証",
+        "intensity": 0.72,
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "id": "x8",
+        "from": "a-cash",
+        "to": "a-leveraged",
+        "round": 5,
+        "type": "competition",
+        "topic": "強制売却",
+        "summary": "価格主導権が現金へ移動",
+        "intensity": 0.9,
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601",
+          "e-boj-fsr-202604"
+        ]
+      },
+      {
+        "id": "x9",
+        "from": "a-foreign",
+        "to": "a-broker",
+        "round": 5,
+        "type": "negotiation",
+        "topic": "為替調整価格",
+        "summary": "希少棟だけ指値",
+        "intensity": 0.62,
+        "evidence_ids": [
+          "e-mlit-short-trading",
+          "e-landprice-2026"
+        ]
+      },
+      {
+        "id": "x10",
+        "from": "a-bank",
+        "to": "a-management",
+        "round": 5,
+        "type": "information",
+        "topic": "担保品質",
+        "summary": "修繕不足を担保減点",
+        "intensity": 0.8,
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "id": "x11",
+        "from": "a-occupier",
+        "to": "a-cash",
+        "round": 6,
+        "type": "competition",
+        "topic": "管理良好棟",
+        "summary": "同じ少数棟へ集中",
+        "intensity": 0.68,
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-reins-maintenance-fy2025"
+        ]
+      },
+      {
+        "id": "x12",
+        "from": "a-platform",
+        "to": "a-occupier",
+        "round": 6,
+        "type": "information",
+        "topic": "購入ゲート",
+        "summary": "買う・待つ・避けるを提示",
+        "intensity": 0.94,
+        "evidence_ids": [
+          "e-derived-yield",
+          "e-flat35-202607",
+          "e-mlit-maintenance-guideline"
+        ]
+      }
+    ],
+    "agent_states": [
+      {
+        "agent_id": "a-policy",
+        "round": 1,
+        "stance": "中立",
+        "current_goal": "転換識別",
+        "memory_delta": "R1: 価格モメンタム:strong→mixed",
+        "confidence": 0.58,
+        "relationships": [
+          "a-bank"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-bank",
+        "round": 1,
+        "stance": "選別融資",
+        "current_goal": "転換識別",
+        "memory_delta": "R1: 選別度:medium→high",
+        "confidence": 0.6,
+        "relationships": [
+          "a-developer"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-developer",
+        "round": 1,
+        "stance": "強気",
+        "current_goal": "転換識別",
+        "memory_delta": "R1: 価格モメンタム:strong→mixed",
+        "confidence": 0.63,
+        "relationships": [
+          "a-broker"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-broker",
+        "round": 1,
+        "stance": "中立",
+        "current_goal": "転換識別",
+        "memory_delta": "R1: 選別度:medium→high",
+        "confidence": 0.58,
+        "relationships": [
+          "a-occupier"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-occupier",
+        "round": 1,
+        "stance": "慎重",
+        "current_goal": "転換識別",
+        "memory_delta": "R1: 価格モメンタム:strong→mixed",
+        "confidence": 0.6,
+        "relationships": [
+          "a-leveraged"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-leveraged",
+        "round": 1,
+        "stance": "弱気",
+        "current_goal": "転換識別",
+        "memory_delta": "R1: 選別度:medium→high",
+        "confidence": 0.63,
+        "relationships": [
+          "a-cash"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-cash",
+        "round": 1,
+        "stance": "待機",
+        "current_goal": "転換識別",
+        "memory_delta": "R1: 価格モメンタム:strong→mixed",
+        "confidence": 0.58,
+        "relationships": [
+          "a-foreign"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-foreign",
+        "round": 1,
+        "stance": "選別強気",
+        "current_goal": "転換識別",
+        "memory_delta": "R1: 選別度:medium→high",
+        "confidence": 0.6,
+        "relationships": [
+          "a-management"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-management",
+        "round": 1,
+        "stance": "改善",
+        "current_goal": "転換識別",
+        "memory_delta": "R1: 価格モメンタム:strong→mixed",
+        "confidence": 0.63,
+        "relationships": [
+          "a-platform"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-platform",
+        "round": 1,
+        "stance": "診断",
+        "current_goal": "転換識別",
+        "memory_delta": "R1: 選別度:medium→high",
+        "confidence": 0.58,
+        "relationships": [
+          "a-broker",
+          "a-management"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-policy",
+        "round": 2,
+        "stance": "正常化",
+        "current_goal": "耐性確認",
+        "memory_delta": "R2: 与信余力:leveraged lower",
+        "confidence": 0.61,
+        "relationships": [
+          "a-bank"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-bank",
+        "round": 2,
+        "stance": "引締め",
+        "current_goal": "耐性確認",
+        "memory_delta": "R2: 買い手:leverage→cash",
+        "confidence": 0.64,
+        "relationships": [
+          "a-developer"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-developer",
+        "round": 2,
+        "stance": "規律",
+        "current_goal": "耐性確認",
+        "memory_delta": "R2: 与信余力:leveraged lower",
+        "confidence": 0.67,
+        "relationships": [
+          "a-broker"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-broker",
+        "round": 2,
+        "stance": "警戒",
+        "current_goal": "耐性確認",
+        "memory_delta": "R2: 買い手:leverage→cash",
+        "confidence": 0.61,
+        "relationships": [
+          "a-occupier"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-occupier",
+        "round": 2,
+        "stance": "慎重",
+        "current_goal": "耐性確認",
+        "memory_delta": "R2: 与信余力:leveraged lower",
+        "confidence": 0.64,
+        "relationships": [
+          "a-leveraged"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-leveraged",
+        "round": 2,
+        "stance": "撤退",
+        "current_goal": "耐性確認",
+        "memory_delta": "R2: 買い手:leverage→cash",
+        "confidence": 0.67,
+        "relationships": [
+          "a-cash"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-cash",
+        "round": 2,
+        "stance": "待機",
+        "current_goal": "耐性確認",
+        "memory_delta": "R2: 与信余力:leveraged lower",
+        "confidence": 0.61,
+        "relationships": [
+          "a-foreign"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-foreign",
+        "round": 2,
+        "stance": "中立",
+        "current_goal": "耐性確認",
+        "memory_delta": "R2: 買い手:leverage→cash",
+        "confidence": 0.64,
+        "relationships": [
+          "a-management"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-management",
+        "round": 2,
+        "stance": "改善",
+        "current_goal": "耐性確認",
+        "memory_delta": "R2: 与信余力:leveraged lower",
+        "confidence": 0.67,
+        "relationships": [
+          "a-platform"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-platform",
+        "round": 2,
+        "stance": "診断",
+        "current_goal": "耐性確認",
+        "memory_delta": "R2: 買い手:leverage→cash",
+        "confidence": 0.61,
+        "relationships": [
+          "a-broker",
+          "a-management"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-policy",
+        "round": 3,
+        "stance": "中立",
+        "current_goal": "品質価格化",
+        "memory_delta": "R3: 品質プレミアム:explicit",
+        "confidence": 0.65,
+        "relationships": [
+          "a-bank"
+        ],
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-bank",
+        "round": 3,
+        "stance": "品質選別",
+        "current_goal": "品質価格化",
+        "memory_delta": "R3: 低品質棟の指値:wider",
+        "confidence": 0.67,
+        "relationships": [
+          "a-developer"
+        ],
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-developer",
+        "round": 3,
+        "stance": "品質強気",
+        "current_goal": "品質価格化",
+        "memory_delta": "R3: 品質プレミアム:explicit",
+        "confidence": 0.7,
+        "relationships": [
+          "a-broker"
+        ],
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-broker",
+        "round": 3,
+        "stance": "選別",
+        "current_goal": "品質価格化",
+        "memory_delta": "R3: 低品質棟の指値:wider",
+        "confidence": 0.65,
+        "relationships": [
+          "a-occupier"
+        ],
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-occupier",
+        "round": 3,
+        "stance": "条件買い",
+        "current_goal": "品質価格化",
+        "memory_delta": "R3: 品質プレミアム:explicit",
+        "confidence": 0.67,
+        "relationships": [
+          "a-leveraged"
+        ],
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-leveraged",
+        "round": 3,
+        "stance": "弱気",
+        "current_goal": "品質価格化",
+        "memory_delta": "R3: 低品質棟の指値:wider",
+        "confidence": 0.7,
+        "relationships": [
+          "a-cash"
+        ],
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-cash",
+        "round": 3,
+        "stance": "選別買い",
+        "current_goal": "品質価格化",
+        "memory_delta": "R3: 品質プレミアム:explicit",
+        "confidence": 0.65,
+        "relationships": [
+          "a-foreign"
+        ],
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-foreign",
+        "round": 3,
+        "stance": "希少強気",
+        "current_goal": "品質価格化",
+        "memory_delta": "R3: 低品質棟の指値:wider",
+        "confidence": 0.67,
+        "relationships": [
+          "a-management"
+        ],
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-management",
+        "round": 3,
+        "stance": "開示",
+        "current_goal": "品質価格化",
+        "memory_delta": "R3: 品質プレミアム:explicit",
+        "confidence": 0.7,
+        "relationships": [
+          "a-platform"
+        ],
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-platform",
+        "round": 3,
+        "stance": "介入",
+        "current_goal": "品質価格化",
+        "memory_delta": "R3: 低品質棟の指値:wider",
+        "confidence": 0.65,
+        "relationships": [
+          "a-broker",
+          "a-management"
+        ],
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-policy",
+        "round": 4,
+        "stance": "中立",
+        "current_goal": "介入検証",
+        "memory_delta": "R4: 情報非対称:high→medium",
+        "confidence": 0.68,
+        "relationships": [
+          "a-bank"
+        ],
+        "evidence_ids": [
+          "e-derived-yield",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-bank",
+        "round": 4,
+        "stance": "根拠融資",
+        "current_goal": "介入検証",
+        "memory_delta": "R4: 一括誤判定:reduced",
+        "confidence": 0.71,
+        "relationships": [
+          "a-developer"
+        ],
+        "evidence_ids": [
+          "e-derived-yield",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-developer",
+        "round": 4,
+        "stance": "品質強気",
+        "current_goal": "介入検証",
+        "memory_delta": "R4: 情報非対称:high→medium",
+        "confidence": 0.73,
+        "relationships": [
+          "a-broker"
+        ],
+        "evidence_ids": [
+          "e-derived-yield",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-broker",
+        "round": 4,
+        "stance": "透明化",
+        "current_goal": "介入検証",
+        "memory_delta": "R4: 一括誤判定:reduced",
+        "confidence": 0.68,
+        "relationships": [
+          "a-occupier"
+        ],
+        "evidence_ids": [
+          "e-derived-yield",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-occupier",
+        "round": 4,
+        "stance": "条件買い",
+        "current_goal": "介入検証",
+        "memory_delta": "R4: 情報非対称:high→medium",
+        "confidence": 0.71,
+        "relationships": [
+          "a-leveraged"
+        ],
+        "evidence_ids": [
+          "e-derived-yield",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-leveraged",
+        "round": 4,
+        "stance": "回避",
+        "current_goal": "介入検証",
+        "memory_delta": "R4: 一括誤判定:reduced",
+        "confidence": 0.73,
+        "relationships": [
+          "a-cash"
+        ],
+        "evidence_ids": [
+          "e-derived-yield",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-cash",
+        "round": 4,
+        "stance": "選別買い",
+        "current_goal": "介入検証",
+        "memory_delta": "R4: 情報非対称:high→medium",
+        "confidence": 0.68,
+        "relationships": [
+          "a-foreign"
+        ],
+        "evidence_ids": [
+          "e-derived-yield",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-foreign",
+        "round": 4,
+        "stance": "選別強気",
+        "current_goal": "介入検証",
+        "memory_delta": "R4: 一括誤判定:reduced",
+        "confidence": 0.71,
+        "relationships": [
+          "a-management"
+        ],
+        "evidence_ids": [
+          "e-derived-yield",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-management",
+        "round": 4,
+        "stance": "開示",
+        "current_goal": "介入検証",
+        "memory_delta": "R4: 情報非対称:high→medium",
+        "confidence": 0.73,
+        "relationships": [
+          "a-platform"
+        ],
+        "evidence_ids": [
+          "e-derived-yield",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-platform",
+        "round": 4,
+        "stance": "主導",
+        "current_goal": "介入検証",
+        "memory_delta": "R4: 一括誤判定:reduced",
+        "confidence": 0.68,
+        "relationships": [
+          "a-broker",
+          "a-management"
+        ],
+        "evidence_ids": [
+          "e-derived-yield",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "agent_id": "a-policy",
+        "round": 5,
+        "stance": "引締め",
+        "current_goal": "ショック耐性",
+        "memory_delta": "R5: 流動性:medium→low",
+        "confidence": 0.72,
+        "relationships": [
+          "a-bank"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-bank",
+        "round": 5,
+        "stance": "防御",
+        "current_goal": "ショック耐性",
+        "memory_delta": "R5: 弱い棟:down",
+        "confidence": 0.74,
+        "relationships": [
+          "a-developer"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-developer",
+        "round": 5,
+        "stance": "希少防御",
+        "current_goal": "ショック耐性",
+        "memory_delta": "R5: 流動性:medium→low",
+        "confidence": 0.77,
+        "relationships": [
+          "a-broker"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-broker",
+        "round": 5,
+        "stance": "弱気",
+        "current_goal": "ショック耐性",
+        "memory_delta": "R5: 弱い棟:down",
+        "confidence": 0.72,
+        "relationships": [
+          "a-occupier"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-occupier",
+        "round": 5,
+        "stance": "待機",
+        "current_goal": "ショック耐性",
+        "memory_delta": "R5: 流動性:medium→low",
+        "confidence": 0.74,
+        "relationships": [
+          "a-leveraged"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-leveraged",
+        "round": 5,
+        "stance": "売却",
+        "current_goal": "ショック耐性",
+        "memory_delta": "R5: 弱い棟:down",
+        "confidence": 0.77,
+        "relationships": [
+          "a-cash"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-cash",
+        "round": 5,
+        "stance": "買い待ち",
+        "current_goal": "ショック耐性",
+        "memory_delta": "R5: 流動性:medium→low",
+        "confidence": 0.72,
+        "relationships": [
+          "a-foreign"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-foreign",
+        "round": 5,
+        "stance": "選別買い",
+        "current_goal": "ショック耐性",
+        "memory_delta": "R5: 弱い棟:down",
+        "confidence": 0.74,
+        "relationships": [
+          "a-management"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-management",
+        "round": 5,
+        "stance": "防御",
+        "current_goal": "ショック耐性",
+        "memory_delta": "R5: 流動性:medium→low",
+        "confidence": 0.77,
+        "relationships": [
+          "a-platform"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-platform",
+        "round": 5,
+        "stance": "警告",
+        "current_goal": "ショック耐性",
+        "memory_delta": "R5: 弱い棟:down",
+        "confidence": 0.72,
+        "relationships": [
+          "a-broker",
+          "a-management"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601"
+        ]
+      },
+      {
+        "agent_id": "a-policy",
+        "round": 6,
+        "stance": "監視",
+        "current_goal": "戦略確定",
+        "memory_delta": "R6: 戦略:market timing→selection",
+        "confidence": 0.76,
+        "relationships": [
+          "a-bank"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-bank",
+        "round": 6,
+        "stance": "選別融資",
+        "current_goal": "戦略確定",
+        "memory_delta": "R6: 判断:forecast→conditional",
+        "confidence": 0.78,
+        "relationships": [
+          "a-developer"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-developer",
+        "round": 6,
+        "stance": "規律",
+        "current_goal": "戦略確定",
+        "memory_delta": "R6: 戦略:market timing→selection",
+        "confidence": 0.81,
+        "relationships": [
+          "a-broker"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-broker",
+        "round": 6,
+        "stance": "選別",
+        "current_goal": "戦略確定",
+        "memory_delta": "R6: 判断:forecast→conditional",
+        "confidence": 0.76,
+        "relationships": [
+          "a-occupier"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-occupier",
+        "round": 6,
+        "stance": "条件買い",
+        "current_goal": "戦略確定",
+        "memory_delta": "R6: 戦略:market timing→selection",
+        "confidence": 0.78,
+        "relationships": [
+          "a-leveraged"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-leveraged",
+        "round": 6,
+        "stance": "縮小",
+        "current_goal": "戦略確定",
+        "memory_delta": "R6: 判断:forecast→conditional",
+        "confidence": 0.81,
+        "relationships": [
+          "a-cash"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-cash",
+        "round": 6,
+        "stance": "逆張り",
+        "current_goal": "戦略確定",
+        "memory_delta": "R6: 戦略:market timing→selection",
+        "confidence": 0.76,
+        "relationships": [
+          "a-foreign"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-foreign",
+        "round": 6,
+        "stance": "希少買い",
+        "current_goal": "戦略確定",
+        "memory_delta": "R6: 判断:forecast→conditional",
+        "confidence": 0.78,
+        "relationships": [
+          "a-management"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-management",
+        "round": 6,
+        "stance": "開示",
+        "current_goal": "戦略確定",
+        "memory_delta": "R6: 戦略:market timing→selection",
+        "confidence": 0.81,
+        "relationships": [
+          "a-platform"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      },
+      {
+        "agent_id": "a-platform",
+        "round": 6,
+        "stance": "基盤",
+        "current_goal": "戦略確定",
+        "memory_delta": "R6: 判断:forecast→conditional",
+        "confidence": 0.76,
+        "relationships": [
+          "a-broker",
+          "a-management"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606"
+        ]
+      }
+    ],
+    "branch_tree": {
+      "root_id": "b0",
+      "nodes": [
+        {
+          "id": "b0",
+          "parent_ids": [],
+          "branch_type": "baseline",
+          "node_type": "root",
+          "label": "全面高から棟別選別へ",
+          "synthetic_weight": 1,
+          "signposts": [
+            "成約件数",
+            "価格",
+            "賃料"
+          ],
+          "affected_agents": [
+            "a-policy",
+            "a-bank",
+            "a-developer",
+            "a-broker",
+            "a-occupier",
+            "a-leveraged",
+            "a-cash",
+            "a-foreign",
+            "a-management",
+            "a-platform"
+          ],
+          "evidence_ids": [
+            "e-reins-202605",
+            "e-fudokeizai-fy2025",
+            "e-kantei-price-202606",
+            "e-kantei-rent-202606"
+          ]
+        },
+        {
+          "id": "b1",
+          "parent_ids": [
+            "b0"
+          ],
+          "branch_type": "baseline",
+          "node_type": "trigger",
+          "label": "金利高止まり・供給低位",
+          "synthetic_weight": 0.46,
+          "signposts": [
+            "住宅金利",
+            "供給"
+          ],
+          "affected_agents": [
+            "a-bank",
+            "a-occupier"
+          ],
+          "evidence_ids": [
+            "e-flat35-202607",
+            "e-fudokeizai-fy2025"
+          ]
+        },
+        {
+          "id": "b2",
+          "parent_ids": [
+            "b1"
+          ],
+          "branch_type": "baseline",
+          "node_type": "outcome",
+          "label": "選別型高原",
+          "synthetic_weight": 0.46,
+          "signposts": [
+            "在庫日数",
+            "積立差"
+          ],
+          "affected_agents": [
+            "a-broker",
+            "a-management"
+          ],
+          "evidence_ids": [
+            "e-reins-202605",
+            "e-fudokeizai-fy2025",
+            "e-kantei-price-202606",
+            "e-reins-maintenance-fy2025",
+            "e-mlit-maintenance-guideline",
+            "e-tokyo-resilience"
+          ]
+        },
+        {
+          "id": "b3",
+          "parent_ids": [
+            "b0"
+          ],
+          "branch_type": "intervention",
+          "node_type": "trigger",
+          "label": "棟別OSと品質開示",
+          "synthetic_weight": 0.24,
+          "signposts": [
+            "採用率"
+          ],
+          "affected_agents": [
+            "a-platform",
+            "a-bank"
+          ],
+          "evidence_ids": [
+            "e-reins-maintenance-fy2025",
+            "e-mlit-maintenance-guideline",
+            "e-tokyo-resilience"
+          ]
+        },
+        {
+          "id": "b4",
+          "parent_ids": [
+            "b3"
+          ],
+          "branch_type": "intervention",
+          "node_type": "outcome",
+          "label": "良質棟へ信用集中",
+          "synthetic_weight": 0.24,
+          "signposts": [
+            "LTV差",
+            "指値幅"
+          ],
+          "affected_agents": [
+            "a-occupier",
+            "a-leveraged"
+          ],
+          "evidence_ids": [
+            "e-reins-maintenance-fy2025",
+            "e-mlit-maintenance-guideline",
+            "e-tokyo-resilience"
+          ]
+        },
+        {
+          "id": "b5",
+          "parent_ids": [
+            "b0"
+          ],
+          "branch_type": "counterfactual",
+          "node_type": "trigger",
+          "label": "政策1.5%・住宅3.5%・成約-15%",
+          "synthetic_weight": 0.22,
+          "signposts": [
+            "政策金利",
+            "成約"
+          ],
+          "affected_agents": [
+            "a-policy",
+            "a-bank",
+            "a-leveraged"
+          ],
+          "evidence_ids": [
+            "e-boj-rate-202606",
+            "e-flat35-202607",
+            "e-jhf-borrower-202601",
+            "e-boj-fsr-202604"
+          ]
+        },
+        {
+          "id": "b6",
+          "parent_ids": [
+            "b5"
+          ],
+          "branch_type": "counterfactual",
+          "node_type": "outcome",
+          "label": "非中核棟から流動性調整",
+          "synthetic_weight": 0.22,
+          "signposts": [
+            "在庫月数",
+            "値下げ"
+          ],
+          "affected_agents": [
+            "a-leveraged",
+            "a-cash",
+            "a-broker"
+          ],
+          "evidence_ids": [
+            "e-bis-housing-rates",
+            "e-boj-fsr-202604",
+            "e-reins-202605"
+          ]
+        },
+        {
+          "id": "b7",
+          "parent_ids": [
+            "b0"
+          ],
+          "branch_type": "minority",
+          "node_type": "trigger",
+          "label": "供給枯渇と資金流入",
+          "synthetic_weight": 0.08,
+          "signposts": [
+            "海外取得",
+            "都心人口"
+          ],
+          "affected_agents": [
+            "a-developer",
+            "a-foreign"
+          ],
+          "evidence_ids": [
+            "e-fudokeizai-fy2025",
+            "e-mlit-short-trading",
+            "e-tokyo-population-forecast"
+          ]
+        },
+        {
+          "id": "b8",
+          "parent_ids": [
+            "b7"
+          ],
+          "branch_type": "minority",
+          "node_type": "outcome",
+          "label": "希少棟主導の再加速",
+          "synthetic_weight": 0.08,
+          "signposts": [
+            "初月契約率"
+          ],
+          "affected_agents": [
+            "a-developer",
+            "a-foreign"
+          ],
+          "evidence_ids": [
+            "e-fudokeizai-fy2025",
+            "e-landprice-2026"
+          ]
+        }
+      ]
+    },
+    "intervention_comparisons": [
+      {
+        "intervention_id": "i1-os",
+        "baseline": "平均価格と表面利回り",
+        "changed_variable": "管理・修繕・防災・出口を統合",
+        "affected_agents": [
+          "a-occupier",
+          "a-bank",
+          "a-broker",
+          "a-platform"
+        ],
+        "outcome_delta": {
+          "bad_selection_risk": "synthetic -35%",
+          "explainability": "synthetic +45%"
+        },
+        "trade_offs": [
+          "調査コスト増",
+          "定性価値の過小評価"
+        ],
+        "failure_mode": "古い入力は偽精密性を生む。",
+        "evidence_ids": [
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience",
+          "e-derived-yield"
+        ]
+      },
+      {
+        "intervention_id": "i2-credit",
+        "baseline": "借り手属性と価格中心",
+        "changed_variable": "建物品質を金利・LTVへ連動",
+        "affected_agents": [
+          "a-bank",
+          "a-management",
+          "a-leveraged"
+        ],
+        "outcome_delta": {
+          "repair_incentive": "synthetic +30%",
+          "weak_liquidity": "synthetic -20%"
+        },
+        "trade_offs": [
+          "格差拡大",
+          "評価争い"
+        ],
+        "failure_mode": "不透明な基準は信用配分を歪める。",
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "intervention_id": "i3-stage",
+        "baseline": "現在価格で一括購入",
+        "changed_variable": "先行指標連動の段階買付",
+        "affected_agents": [
+          "a-occupier",
+          "a-cash",
+          "a-leveraged"
+        ],
+        "outcome_delta": {
+          "downside": "synthetic -25%",
+          "upside": "synthetic -15%",
+          "optionality": "synthetic +40%"
+        },
+        "trade_offs": [
+          "再加速の機会損失"
+        ],
+        "failure_mode": "遅行指標だけでは反応が遅い。",
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-flat35-202607",
+          "e-kantei-price-202606"
+        ]
+      }
+    ],
+    "emergent_events": [
+      {
+        "id": "ev1",
+        "name": "価格下落前の与信分断",
+        "description": "高LTVの入札余力が先に低下。",
+        "round": 2,
+        "affected_agents": [
+          "a-bank",
+          "a-leveraged"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601",
+          "e-boj-fsr-202604"
+        ]
+      },
+      {
+        "id": "ev2",
+        "name": "修繕情報プレミアム",
+        "description": "積立・防災開示が出口流動性の代理変数化。",
+        "round": 3,
+        "affected_agents": [
+          "a-management",
+          "a-occupier"
+        ],
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "id": "ev3",
+        "name": "二層流動性市場",
+        "description": "良質棟と非中核棟で買い手層が分離。",
+        "round": 5,
+        "affected_agents": [
+          "a-broker",
+          "a-cash",
+          "a-leveraged"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606",
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "id": "ev4",
+        "name": "審査基盤の取引インフラ化",
+        "description": "融資・買付・管理改善の共通データ層へ。",
+        "round": 6,
+        "affected_agents": [
+          "a-platform",
+          "a-bank",
+          "a-management"
+        ],
+        "evidence_ids": [
+          "e-mlit-maintenance-guideline",
+          "e-boj-fsr-202604"
+        ]
+      }
+    ],
+    "interventions": [
+      {
+        "id": "i0-control",
+        "name": "対照：平均価格中心",
+        "kind": "control",
+        "description": "追加開示なし。市況平均と単一予測で判断。",
+        "result": "修繕・流動性差を見落とし一律判断が増える。",
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606",
+          "e-derived-yield"
+        ]
+      },
+      {
+        "id": "i1-os",
+        "name": "棟別アンダーライティングOS",
+        "kind": "intervention",
+        "description": "価格・賃料・金利・管理・防災・出口を証拠台帳で評価。",
+        "result": "候補は減るが下方耐性と説明可能性が改善。",
+        "evidence_ids": [
+          "e-derived-yield",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience",
+          "e-boj-fsr-202604"
+        ]
+      },
+      {
+        "id": "i2-credit",
+        "name": "管理品質連動型融資",
+        "kind": "intervention",
+        "description": "積立・修繕・防災・出口を融資条件へ反映。",
+        "result": "良質棟へ資金集中、弱い棟は是正か値下げ。",
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "id": "i3-stage",
+        "name": "段階取得と再評価ゲート",
+        "kind": "intervention",
+        "description": "金利・成約・指値・賃料の閾値で買付を段階化。",
+        "result": "上昇取り逃しと引換えに選択権を保持。",
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601",
+          "e-boj-fsr-202604",
+          "e-reins-202605"
+        ]
+      }
+    ],
+    "outcomes": [
+      {
+        "scenario": "選別型高原",
+        "probability": 0.46,
+        "narrative": "平均横ばいでも管理・希少性・出口で価格差拡大",
+        "winners": [
+          "管理良好棟",
+          "低LTV",
+          "棟別基盤"
+        ],
+        "losers": [
+          "平均値投資家",
+          "修繕不足棟"
+        ],
+        "signposts": [
+          "在庫日数",
+          "積立改定",
+          "賃料"
+        ],
+        "evidence_ids": [
+          "e-reins-202605",
+          "e-fudokeizai-fy2025",
+          "e-kantei-price-202606",
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "scenario": "希少棟の再加速",
+        "probability": 0.24,
+        "narrative": "供給不足と都心需要で上位棟だけ上昇",
+        "winners": [
+          "開発者",
+          "希少棟保有者"
+        ],
+        "losers": [
+          "買い待ち"
+        ],
+        "signposts": [
+          "供給",
+          "初月契約率",
+          "海外取得"
+        ],
+        "evidence_ids": [
+          "e-fudokeizai-fy2025",
+          "e-mlit-short-trading",
+          "e-tokyo-population-forecast"
+        ]
+      },
+      {
+        "scenario": "流動性調整",
+        "probability": 0.22,
+        "narrative": "金利上昇と融資縮小で非中核棟から調整",
+        "winners": [
+          "現金待機資金",
+          "選別銀行"
+        ],
+        "losers": [
+          "高LTV",
+          "修繕不足棟"
+        ],
+        "signposts": [
+          "金利3.5%",
+          "成約-15%",
+          "指値"
+        ],
+        "evidence_ids": [
+          "e-boj-rate-202606",
+          "e-flat35-202607",
+          "e-jhf-borrower-202601",
+          "e-boj-fsr-202604",
+          "e-reins-202605"
+        ]
+      },
+      {
+        "scenario": "全面再加速（少数派）",
+        "probability": 0.08,
+        "narrative": "供給枯渇と資金流入が品質差を一時的に覆う",
+        "winners": [
+          "所有者",
+          "供給者"
+        ],
+        "losers": [
+          "買い待ち"
+        ],
+        "signposts": [
+          "在庫急減",
+          "海外流入"
+        ],
+        "evidence_ids": [
+          "e-fudokeizai-fy2025",
+          "e-mlit-short-trading",
+          "e-landprice-2026"
+        ]
+      }
+    ],
+    "falsifiers": [
+      {
+        "condition": "金利上昇後も成約・高LTV・指値が悪化しない",
+        "implication": "金利感応度を過大評価。",
+        "evidence_ids": [
+          "e-flat35-202607",
+          "e-reins-202605",
+          "e-bis-housing-rates"
+        ]
+      },
+      {
+        "condition": "管理スコアと成約速度に関係がない",
+        "implication": "品質介入仮説を棄却。",
+        "evidence_ids": [
+          "e-reins-maintenance-fy2025",
+          "e-mlit-maintenance-guideline",
+          "e-tokyo-resilience"
+        ]
+      },
+      {
+        "condition": "供給急増と契約率上昇が同時発生",
+        "implication": "希少性シナリオを弱める。",
+        "evidence_ids": [
+          "e-fudokeizai-fy2025"
+        ]
+      },
+      {
+        "condition": "賃料下落中も価格だけ上昇",
+        "implication": "調整確率を上げる。",
+        "evidence_ids": [
+          "e-kantei-rent-202606",
+          "e-derived-yield"
+        ]
+      }
+    ],
+    "report": {
+      "executive_summary": "結論は「東京タワマン全体を買う」ではなく、棟別に買う・待つ・避けるを分けること。基準ケースは品質差の拡大。金利ショックでは高LTV・非中核・修繕弱含み棟から流動性が崩れ、現金・低LTV資金は管理良好な希少棟へ集中する。優位性は相場予言ではなく、管理・修繕・防災・実質利回り・出口を証拠台帳で審査し、反証条件で配分を変える能力にある。",
+      "robust_actions": [
+        "固定3.5%・価格15%下落・修繕30%増を棟別ストレス",
+        "議事録・長期修繕・積立・防災を価格交渉前に確認",
+        "在庫日数・指値幅・成約を月次監視",
+        "反証指標付き段階取得"
+      ],
+      "contingent_actions": [
+        "金利3.5%以上かつ成約15%減なら高LTV・低流動性棟を除外",
+        "供給減と契約率上昇が同時なら希少棟を再評価",
+        "品質連動融資が普及したら改善余地棟を再評価"
+      ],
+      "avoid": [
+        "平均上昇率だけで買う",
+        "表面利回りだけで判断",
+        "合成確率を利益保証扱い",
+        "ブランドで修繕調査を省略"
+      ]
+    },
+    "limitations": [
+      "CodexによるMiroFish方法論参照の合成シミュレーションで、MiroFish上流ランタイムや実在主体調査ではない。",
+      "効用・相互作用・確率はsynthetic weightで統計推定値ではない。",
+      "棟別成約・議事録・積立残高・外国資金の完全データはない。",
+      "投資助言・利益保証ではなく意思決定ストレステスト。"
+    ]
+  }
+}

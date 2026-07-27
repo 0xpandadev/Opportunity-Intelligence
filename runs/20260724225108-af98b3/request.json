@@ -1,0 +1,91 @@
+{
+  "id": "20260724225108-af98b3",
+  "schema_version": "1.0",
+  "query": "半導体価格",
+  "created_at": "2026-07-24T22:51:08.394Z",
+  "decision_types": [
+    "strategy",
+    "investment",
+    "business"
+  ],
+  "regions": [
+    "global"
+  ],
+  "sectors": [
+    "technology"
+  ],
+  "horizon": "3-5 years",
+  "constraints": "",
+  "requested_methods": [
+    "horizon_scanning",
+    "steep",
+    "causal_mapping",
+    "reference_class",
+    "scenario_planning",
+    "whitespace",
+    "profit_pool",
+    "falsifiers"
+  ],
+  "required_outputs": [
+    "executive",
+    "megatrends",
+    "knowledge_graph",
+    "whitespaces",
+    "profit_pools",
+    "investment_routes",
+    "business_routes",
+    "scenarios",
+    "forecasts",
+    "evidence",
+    "counterarguments",
+    "methodology",
+    "limitations"
+  ],
+  "evidence_policy": {
+    "primary_sources_first": true,
+    "claim_level_citations": true,
+    "counterevidence_required": true,
+    "labels": [
+      "fact",
+      "inference",
+      "assumption",
+      "unknown"
+    ],
+    "accessed_at_required": true
+  },
+  "source_preferences": [],
+  "catalog_snapshot": {
+    "regions": [
+      "global",
+      "japan",
+      "north_america",
+      "europe",
+      "china",
+      "latin_america",
+      "africa"
+    ],
+    "sectors": [
+      "cross_sector",
+      "industry",
+      "agriculture",
+      "materials",
+      "energy",
+      "technology",
+      "healthcare",
+      "built_environment",
+      "mobility_logistics",
+      "finance",
+      "circular_economy"
+    ],
+    "methods": [
+      "horizon_scanning",
+      "steep",
+      "causal_mapping",
+      "reference_class",
+      "scenario_planning",
+      "whitespace",
+      "profit_pool",
+      "falsifiers"
+    ]
+  }
+}

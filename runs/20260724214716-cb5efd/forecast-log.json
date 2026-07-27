@@ -1,0 +1,28 @@
+{
+  "f2-usdjpy-below-150": {
+    "history": [
+      {
+        "probability": 0.48,
+        "note": "GUI probability update",
+        "recorded_at": "2026-07-25T04:29:32.685Z"
+      }
+    ],
+    "resolution": {
+      "outcome": 0,
+      "resolved_at": "2026-07-25T04:29:36.420Z",
+      "source_url": "",
+      "note": "GUI resolution",
+      "brier_score": 0.2304
+    }
+  },
+  "f1-rate-gap-below-2pp": {
+    "history": [],
+    "resolution": {
+      "outcome": 1,
+      "resolved_at": "2026-07-25T04:29:40.381Z",
+      "source_url": "",
+      "note": "GUI resolution",
+      "brier_score": 0.1764
+    }
+  }
+}

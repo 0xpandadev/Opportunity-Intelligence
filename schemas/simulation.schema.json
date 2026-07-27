@@ -15,6 +15,18 @@
     "rounds": { "type": "integer", "minimum": 1 },
     "round_log": { "type": "array", "minItems": 1 },
     "interactions": { "type": "array" },
+    "agent_states": {
+      "type": "array",
+      "description": "Round-by-round stance, memory delta, goal, confidence, and relationship state for each simulated agent."
+    },
+    "branch_tree": {
+      "type": "object",
+      "description": "Causal branch structure linking triggers, intervention/control paths, minority branches, and outcomes."
+    },
+    "intervention_comparisons": {
+      "type": "array",
+      "description": "Structured baseline-versus-intervention deltas; values remain synthetic."
+    },
     "emergent_events": { "type": "array" },
     "interventions": { "type": "array" },
     "outcomes": { "type": "array" },

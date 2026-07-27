@@ -1,0 +1,44 @@
+{
+  "f1-2026-sales-1450bn": {
+    "history": [
+      {
+        "probability": 0.82,
+        "note": "GUI probability update",
+        "recorded_at": "2026-07-24T23:44:30.786Z"
+      }
+    ],
+    "resolution": {
+      "outcome": 1,
+      "resolved_at": "2026-07-24T23:44:31.533Z",
+      "source_url": "",
+      "note": "GUI resolution",
+      "brier_score": 0.0324
+    }
+  },
+  "f2-2027-sales-1700bn": {
+    "history": [
+      {
+        "probability": 0.68,
+        "note": "GUI probability update",
+        "recorded_at": "2026-07-24T23:44:40.470Z"
+      }
+    ],
+    "resolution": {
+      "outcome": 1,
+      "resolved_at": "2026-07-24T23:44:42.475Z",
+      "source_url": "",
+      "note": "GUI resolution",
+      "brier_score": 0.1024
+    }
+  },
+  "f3-nand-deficit-clears-2027": {
+    "history": [],
+    "resolution": {
+      "outcome": 1,
+      "resolved_at": "2026-07-24T23:44:46.677Z",
+      "source_url": "",
+      "note": "GUI resolution",
+      "brier_score": 0.1089
+    }
+  }
+}
